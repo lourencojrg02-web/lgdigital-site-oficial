@@ -10,9 +10,11 @@ um script Python que junta as secções.
 ├─ index.html          página inicial (placeholder por agora)   → lgdigital.pt/
 ├─ hvac/index.html     landing de AVAC                          → lgdigital.pt/hvac
 ├─ 404.html
+├─ favicon.ico        ícone do site (o browser procura-o sempre na raiz)
+├─ site.webmanifest   ícones para Android e "adicionar ao ecrã inicial"
 ├─ assets/
 │  ├─ css/styles.css   folha de estilos partilhada (é aqui que se mexe no design)
-│  └─ img/             logo, logos de clientes, capturas de resultados
+│  └─ img/             logo, ícones, logos de clientes, capturas de resultados
 ├─ src/                ← ONDE SE EDITA
 │  ├─ home/            secções da página inicial
 │  └─ hvac/            secções da landing de AVAC
@@ -82,8 +84,16 @@ inicial. O build substitui conforme a profundidade da página:
 <img src="{{base}}assets/img/logo.png">   <!-- em /hvac/ vira ../assets/img/logo.png -->
 ```
 
-Nunca uses caminhos absolutos (`/assets/...`) — partem se o site for servido
-numa subpasta.
+Nunca uses caminhos absolutos (`/assets/...`) nas secções — partem se o site
+for servido numa subpasta. A exceção são os ícones e o manifest no `<head>`,
+que têm de ser absolutos porque os browsers e o Android os pedem a partir da
+raiz do domínio.
+
+### Trocar o favicon
+
+Substitui `favicon.ico` e os ficheiros `assets/img/favicon-32.png`,
+`apple-touch-icon.png` (180×180), `icon-192.png` e `icon-512.png`. São gerados a
+partir de um PNG quadrado — o ícone preto com o G branco e a seta azul.
 
 ### Cores e tipografia
 
