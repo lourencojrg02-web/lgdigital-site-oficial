@@ -84,10 +84,9 @@ inicial. O build substitui conforme a profundidade da página:
 <img src="{{base}}assets/img/logo.png">   <!-- em /hvac/ vira ../assets/img/logo.png -->
 ```
 
-Nunca uses caminhos absolutos (`/assets/...`) nas secções — partem se o site
-for servido numa subpasta. A exceção são os ícones e o manifest no `<head>`,
-que têm de ser absolutos porque os browsers e o Android os pedem a partir da
-raiz do domínio.
+Nunca uses caminhos absolutos (`/assets/...`) — partem se o site for servido
+numa subpasta, como acontece no endereço `utilizador.github.io/repo/`. Os
+ícones e o manifest também são relativos, por isso funcionam nos dois sítios.
 
 ### Trocar o favicon
 

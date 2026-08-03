@@ -50,10 +50,10 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:image" content="{site}/assets/img/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F5A623">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="{base}favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{base}assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="{base}assets/img/apple-touch-icon.png">
+<link rel="manifest" href="{base}site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet">
