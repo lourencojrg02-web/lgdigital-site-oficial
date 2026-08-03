@@ -9,6 +9,8 @@ um script Python que junta as secções.
 .
 ├─ index.html          página inicial (placeholder por agora)   → lgdigital.pt/
 ├─ hvac/index.html     landing de AVAC                          → lgdigital.pt/hvac
+├─ pp/index.html       política de privacidade                  → lgdigital.pt/pp
+├─ tc/index.html       termos e condições                       → lgdigital.pt/tc
 ├─ 404.html
 ├─ favicon.ico        ícone do site (o browser procura-o sempre na raiz)
 ├─ site.webmanifest   ícones para Android e "adicionar ao ecrã inicial"
@@ -16,8 +18,11 @@ um script Python que junta as secções.
 │  ├─ css/styles.css   folha de estilos partilhada (é aqui que se mexe no design)
 │  └─ img/             logo, ícones, logos de clientes, capturas de resultados
 ├─ src/                ← ONDE SE EDITA
+│  ├─ _partials/       cabeçalho e rodapé partilhados por várias páginas
 │  ├─ home/            secções da página inicial
-│  └─ hvac/            secções da landing de AVAC
+│  ├─ hvac/            secções da landing de AVAC
+│  ├─ pp/              política de privacidade
+│  └─ tc/              termos e condições
 ├─ build.py
 ├─ CNAME               lgdigital.pt
 └─ .nojekyll           impede o GitHub Pages de processar com Jekyll
@@ -68,6 +73,12 @@ Cada secção é um ficheiro em `src/hvac/`, por ordem:
 
 Secções que só tenham comentários são ignoradas pelo build — é assim que a
 `04-selos.html` está desativada sem se apagar o ficheiro.
+
+### Partes partilhadas
+
+Uma secção que contenha apenas a linha `@include _partials/rodape.html` é
+substituída pelo conteúdo desse ficheiro. É assim que o rodapé e o cabeçalho
+simples são iguais em todas as páginas sem estarem copiados quatro vezes.
 
 ### Criar uma nova landing
 
@@ -130,8 +141,10 @@ Três avisos que poupam uma tarde:
 
 ## Por fazer
 
+- [ ] **Preencher os campos entre `[ ]` em `src/pp/` e `src/tc/`** — denominação
+      social, NIF, morada, comarca, prazo de pagamento e a questão do IVA
+- [ ] Mandar rever as duas páginas legais por alguém com formação jurídica
 - [ ] Página inicial a sério (agora é um placeholder em `src/home/`)
-- [ ] Páginas de Política de Privacidade e Termos (os links no rodapé são `#`)
 - [ ] Confirmar os números nas legendas de `13-resultados.html`
 - [ ] Prova social de campanhas pagas — as capturas atuais são de posicionamento
       local, e o serviço vendido é Google Ads + Meta Ads

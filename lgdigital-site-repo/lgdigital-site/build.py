@@ -31,6 +31,12 @@ PAGES = [
     ("hvac/index.html", "hvac", "../", "../",
      "LGDigital — Mais clientes para a tua empresa de AVAC. Só pagas por lead.",
      "Google Ads e Meta Ads para empresas de AVAC. Configuração gratuita, primeiras leads em 48 horas, 25€ por lead da Meta e 35€ por chamada do Google. Sem mensalidade, sem contrato."),
+    ("pp/index.html", "pp", "../", "../",
+     "Política de Privacidade — LGDigital",
+     "Que dados pessoais a LGDigital recolhe, para que os usa, com quem os partilha e quais são os teus direitos."),
+    ("tc/index.html", "tc", "../", "../",
+     "Termos e Condições — LGDigital",
+     "Condições de utilização do site lgdigital.pt e da prestação dos serviços de gestão de campanhas Google Ads e Meta Ads."),
 ]
 
 HEAD = """<!DOCTYPE html>
@@ -63,15 +69,23 @@ HEAD = """<!DOCTYPE html>
 """
 FOOT = "\n</body>\n</html>\n"
 
+INCLUDE = re.compile(r"^[ \t]*@include[ \t]+(\S+)[ \t]*$", re.M)
+
+def read(p):
+    """Lê uma secção, resolvendo linhas '@include _partials/ficheiro.html'."""
+    t = p.read_text(encoding="utf-8")
+    return INCLUDE.sub(lambda m: (ROOT/"src"/m.group(1)).read_text(encoding="utf-8").strip(), t)
+
+
 def has_content(t):
     return bool(re.sub(r"<!--.*?-->", "", t, flags=re.S).strip())
 
 def sections(folder):
     d = ROOT / "src" / folder
-    return [p for p in sorted(d.glob("*.html")) if has_content(p.read_text(encoding="utf-8"))]
+    return [p for p in sorted(d.glob("*.html")) if has_content(read(p))]
 
 def render(folder, base, home):
-    body = "\n\n".join(p.read_text(encoding="utf-8").strip() for p in sections(folder))
+    body = "\n\n".join(read(p).strip() for p in sections(folder))
     return body.replace("{{base}}", base).replace("{{home}}", home or "./")
 
 def inline_data(path):
