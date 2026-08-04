@@ -9,6 +9,7 @@ um script Python que junta as secções.
 .
 ├─ index.html          página inicial (placeholder por agora)   → lgdigital.pt/
 ├─ hvac/index.html     landing de AVAC                          → lgdigital.pt/hvac
+├─ hvac-obrigado/      página de agradecimento (noindex)        → lgdigital.pt/hvac-obrigado
 ├─ pp/index.html       política de privacidade                  → lgdigital.pt/pp
 ├─ tc/index.html       termos e condições                       → lgdigital.pt/tc
 ├─ 404.html
@@ -83,8 +84,20 @@ simples são iguais em todas as páginas sem estarem copiados quatro vezes.
 ### Criar uma nova landing
 
 1. `mkdir src/dentistas` e mete lá as secções
-2. acrescenta uma linha à lista `PAGES` no `build.py`
+2. acrescenta uma entrada à lista `PAGES` no `build.py`
 3. `python3 build.py`
+
+Cada entrada de `PAGES` aceita `noindex=True` (para páginas que não devem ir
+para o Google) e `head="..."` (código extra no `<head>` só dessa página).
+
+### Píxel da Meta
+
+O píxel sai em todas as páginas, injetado pelo `build.py`. O ID está na
+constante `PIXEL_ID` no topo do ficheiro — muda-se aí e vale para o site todo.
+Para desativar, põe `PIXEL_ID = ""`.
+
+A página `/hvac-obrigado` dispara o evento padrão `Schedule` além do
+`PageView`, e é essa a conversão a otimizar nas campanhas da Meta.
 
 ### Caminhos
 
@@ -109,6 +122,21 @@ partir de um PNG quadrado — o ícone preto com o G branco e a seta azul.
 
 Tudo no bloco `:root` no topo de `assets/css/styles.css`. Mudar `--amber`
 muda o acento do site inteiro.
+
+## Redirect após a marcação
+
+Duas camadas, por esta ordem:
+
+1. **No HighLevel** (recomendado): Calendars → o calendário → Settings →
+   Forms & Payment → *On Submit* → **Redirect to URL** →
+   `https://lgdigital.pt/hvac-obrigado/`. Se houver opção de redirecionar a
+   janela-mãe em vez do iframe, ativa-a.
+2. **Rede de segurança no site**: `src/hvac/16-candidatura.html` tem um script
+   que fica à escuta das mensagens do iframe e redireciona quando detecta a
+   marcação. Se não estiver a funcionar, abre
+   `https://lgdigital.pt/hvac/?debug-agenda`, marca uma chamada de teste e vê
+   na consola do browser que mensagens o iframe envia — o padrão a detetar
+   está na constante `SINAIS` desse ficheiro.
 
 ## Publicar
 
@@ -145,6 +173,10 @@ Três avisos que poupam uma tarde:
       social, NIF, morada, comarca, prazo de pagamento e a questão do IVA
 - [ ] Mandar rever as duas páginas legais por alguém com formação jurídica
 - [ ] Página inicial a sério (agora é um placeholder em `src/home/`)
+- [ ] Configurar o redirect para `/hvac-obrigado` nas definições do calendário
+      no HighLevel (ver secção abaixo)
+- [ ] **Banner de cookies** — o Píxel da Meta é um cookie de publicidade e, na
+      UE, exige consentimento prévio
 - [ ] Confirmar os números nas legendas de `13-resultados.html`
 - [ ] Prova social de campanhas pagas — as capturas atuais são de posicionamento
       local, e o serviço vendido é Google Ads + Meta Ads

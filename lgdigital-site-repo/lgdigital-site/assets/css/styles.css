@@ -364,3 +364,21 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
 .legal ul{margin:0 0 18px;padding-left:22px;}
 .legal li{margin-bottom:10px;font-size:16.5px;}
 .legal li::marker{color:var(--amber);}
+
+/* ---------- Página de agradecimento ---------- */
+.obrigado{padding:72px 0 90px;text-align:center;
+  background:radial-gradient(900px 460px at 50% 0%, #E9F8EE 0%, rgba(233,248,238,0) 62%), #fff;}
+.obrigado .wrap{max-width:640px;}
+.obrigado .tile{margin:0 auto 28px;width:62px;height:62px;border-radius:18px;}
+.obrigado .lede{margin:20px auto 0;max-width:520px;}
+.obrigado-passos{margin:44px 0 0;text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:26px 28px;}
+.obrigado-passos .label{margin:0 0 6px;}
+.obrigado-passos ul{list-style:none;margin:0;padding:0;}
+.obrigado-passos li{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line-2);}
+.obrigado-passos li:last-child{border-bottom:0;padding-bottom:2px;}
+.obrigado-passos b{display:block;color:var(--ink);font-size:16.5px;margin-bottom:2px;}
+.obrigado-passos span{font-size:15.5px;color:var(--body);}
+.obrigado-nota{margin:38px 0 0;font-size:16.5px;}
+.obrigado-acoes{display:flex;flex-direction:column;gap:14px;margin-top:22px;align-items:center;}
+@media(min-width:560px){.obrigado-acoes{flex-direction:row;justify-content:center;}}

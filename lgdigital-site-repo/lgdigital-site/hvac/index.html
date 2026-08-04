@@ -23,6 +23,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878850018571511');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <!-- ==================== CABEÇALHO / NAVEGAÇÃO ==================== -->
@@ -753,6 +770,36 @@
               id="CBapUOKSOoQMyTFGSK5R_1785525047394"></iframe>
     </div>
     <script src="https://email.lgdigital.pt/js/form_embed.js" type="text/javascript"></script>
+
+    <!-- Redirecionamento para a página de agradecimento depois da marcação.
+         O caminho principal é configurar o redirect nas definições do calendário
+         no HighLevel. Isto aqui é a rede de segurança: fica à escuta das
+         mensagens que o iframe envia e, quando detecta a marcação, leva a
+         página-mãe para /hvac-obrigado.
+         Para ver o que o iframe está a enviar, abre a página com ?debug-agenda
+         no fim do endereço e olha para a consola. -->
+    <script>
+    (function () {
+      var DESTINO = '../hvac-obrigado/';
+      var ORIGENS = ['https://email.lgdigital.pt',
+                     'https://link.msgsndr.com',
+                     'https://api.leadconnectorhq.com'];
+      var SINAIS  = /appointment[_-]?(booked|scheduled|created)|booking[_-]?(complete|success|confirmed)|form[_-]?submit|slot[_-]?booked/i;
+      var debug = location.search.indexOf('debug-agenda') !== -1;
+      var feito = false;
+
+      window.addEventListener('message', function (e) {
+        if (ORIGENS.indexOf(e.origin) === -1) return;
+        var texto;
+        try { texto = typeof e.data === 'string' ? e.data : JSON.stringify(e.data); }
+        catch (err) { return; }
+        if (debug) console.log('[agenda]', e.origin, texto);
+        if (feito || !SINAIS.test(texto)) return;
+        feito = true;
+        window.location.href = DESTINO;  // o evento Schedule dispara lá
+      }, false);
+    })();
+    </script>
 
     <p class="apply-note">25&euro; por lead da Meta &middot; 35&euro; por chamada do Google &middot; Sem contrato</p>
   </div>
