@@ -59,6 +59,10 @@ PAGES = [
          title="LGDigital — Top 3 no Google em 90 dias, garantido.",
          desc="Colocamos o teu negócio local no top 3 do Google Maps em 90 dias. Garantido ou não pagas. Sem anúncios: posicionamento 100% orgânico."),
 
+    dict(out="seo/index.html", src="seo", base="../", home="../", body="tema-home",
+         title="LGDigital — SEO local: apareces no Google quando procuram perto de ti",
+         desc="Levamos o teu perfil de empresa ao top 3 do Google Maps na tua zona. Tráfego orgânico, sem custo por clique, com o mapa de posições medido todas as semanas."),
+
     dict(out="ads/index.html", src="ads", base="../", home="../", body="tema-home",
          title="LGDigital — Google Ads e Meta Ads para negócios locais",
          desc="Criamos e gerimos as tuas campanhas no Google e na Meta. Primeiras leads em 48 horas, chamadas rastreadas e contas em teu nome. Pagamento por lead ou avença."),

@@ -9,7 +9,8 @@ um script Python que junta as secções.
 .
 ├─ index.html          página inicial                           → lgdigital.pt/
 ├─ hvac/index.html     landing de AVAC                          → lgdigital.pt/hvac
-├─ gbp/index.html      SEO local / Google Business Profile      → lgdigital.pt/gbp
+├─ seo/index.html      SEO local                                → lgdigital.pt/seo
+├─ gbp/index.html      landing: Top 3 garantido (oferta)        → lgdigital.pt/gbp
 ├─ ads/index.html      Google Ads & Meta Ads                    → lgdigital.pt/ads
 ├─ websites/index.html Websites e landing pages                 → lgdigital.pt/websites
 ├─ hvac-obrigado/      página de agradecimento (noindex)        → lgdigital.pt/hvac-obrigado
@@ -26,7 +27,8 @@ um script Python que junta as secções.
 │  ├─ 404/             página de erro
 │  ├─ home/            secções da página inicial
 │  ├─ hvac/            secções da landing de AVAC
-│  ├─ gbp/             secções da landing de SEO local
+│  ├─ seo/             secções da página de SEO local
+│  ├─ gbp/             secções da landing "Top 3 garantido"
 │  ├─ ads/             secções da página de anúncios
 │  ├─ websites/        secções da página de websites
 │  ├─ pp/              política de privacidade
@@ -81,6 +83,16 @@ Cada secção é um ficheiro em `src/hvac/`, por ordem:
 
 Secções que só tenham comentários são ignoradas pelo build — é assim que a
 `04-selos.html` está desativada sem se apagar o ficheiro.
+
+### Navegação
+
+As páginas de serviço (`/`, `/seo`, `/ads`, `/websites`) partilham o cabeçalho
+`_partials/header-servicos.html`, com um menu **Serviços** em dropdown. O
+dropdown é um `<details>` — abre com clique ou teclado, sem depender de hover,
+e um script de dez linhas fecha-o ao clicar fora ou com `Esc`.
+
+As landings (`/gbp`, `/hvac`) têm cabeçalho próprio e sem menu, de propósito:
+não se dão saídas a quem chegou por um anúncio.
 
 ### Partes partilhadas
 
@@ -145,7 +157,7 @@ um tema pela chave `body` em `PAGES`:
 
 | tema | páginas | fundo | acento |
 |---|---|---|---|
-| `tema-home` | `/`, `/ads`, `/websites`, `404` | branco | azul `#0091FF` |
+| `tema-home` | `/`, `/seo`, `/ads`, `/websites`, `404` | branco | azul `#0091FF` |
 | `tema-gbp` | `/gbp` | bege `#EFEDE7` | azul `#1D4ED8` |
 | *(nenhum)* | `/hvac`, `/pp`, `/tc` | branco | âmbar `#F5A623` |
 
@@ -210,7 +222,7 @@ Três avisos que poupam uma tarde:
       restantes páginas — branco, azul `#0091FF` e preto
 - [ ] **Confirmar a secção "Como cobramos"** em `src/ads/07-modelos.html` —
       descreve os dois modelos sem valores concretos, de propósito
-- [ ] Confirmar prazos e condições nas FAQ de `/ads` e `/websites`
+- [ ] Confirmar prazos e condições nas FAQ de `/seo`, `/ads` e `/websites`
 - [ ] **Confirmar preços e a redação da garantia** em `src/gbp/08-pacotes.html`
 - [ ] Os botões "Começar" da `/gbp` apontam para `#contacto` — ligar a um
       formulário ou calendário a sério
