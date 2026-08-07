@@ -1,0 +1,32 @@
+<!-- ==================== AGENDAR ==================== -->
+<section class="hm-sec hm-sec--agendar" id="agendar">
+  <div class="wrap">
+    <p class="hm-etiqueta">Análise grátis</p>
+    <h2 class="hm-h2">Vemos o teu mapa contigo.</h2>
+    <p class="hm-sub">Corremos a grelha de posições da tua zona antes da
+      chamada e mostramos-te onde apareces e quem está à tua frente. Sais a
+      saber o que falta, mesmo que não avancemos.</p>
+
+    <div class="hm-cal">
+      <!-- Cal inline embed code begins -->
+      <div id="my-cal-inline-30min"></div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "30min", {origin:"https://app.cal.com"});
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["30min"]("inline", {
+          elementOrSelector:"#my-cal-inline-30min",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+          calLink: "lourenco-gaspar-tmrt3u/30min",
+        });
+        Cal.ns["30min"]("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
+      <!-- Cal inline embed code ends -->
+    </div>
+
+    <p class="hm-nota">Preferes falar já?
+      <a href="https://wa.me/351926289562">Manda mensagem no WhatsApp</a> ou
+      liga <a href="tel:+351926289562">+351 926 289 562</a>.</p>
+  </div>
+</section>
