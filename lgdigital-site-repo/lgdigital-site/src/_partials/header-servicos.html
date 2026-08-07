@@ -1,6 +1,6 @@
-<!-- Cabeçalho com menu de serviços. O dropdown é um <details>: abre com clique
-     ou teclado, sem depender de hover. O script só trata de o fechar quando se
-     clica fora ou se carrega em Esc. -->
+<!-- Cabeçalho. No desktop, menu com dropdown de serviços. No telemóvel,
+     um botão de três traços que abre tudo num painel. Ambos são <details>:
+     funcionam com clique e teclado, sem depender de hover. -->
 <header class="hm-header">
   <div class="wrap hm-nav">
     <a class="brand" href="{{home}}">
@@ -8,6 +8,7 @@
     </a>
 
     <nav class="hm-links" aria-label="Principal">
+      <a href="{{home}}">Início</a>
       <details class="hm-drop">
         <summary>
           Serviços
@@ -15,21 +16,15 @@
         </summary>
         <div class="hm-drop-menu">
           <a href="{{base}}seo/">
-            <span class="hm-drop-icone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            </span>
+            <span class="hm-drop-icone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
             <span><b>SEO Local</b><em>Apareces quando procuram perto de ti</em></span>
           </a>
           <a href="{{base}}ads/">
-            <span class="hm-drop-icone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 20 4l-2.5 16.5-5.5-5-4 3v-5.5Z"/></svg>
-            </span>
+            <span class="hm-drop-icone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 20 4l-2.5 16.5-5.5-5-4 3v-5.5Z"/></svg></span>
             <span><b>Google &amp; Meta Ads</b><em>Clientes já esta semana</em></span>
           </a>
           <a href="{{base}}websites/">
-            <span class="hm-drop-icone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/></svg>
-            </span>
+            <span class="hm-drop-icone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/></svg></span>
             <span><b>Websites</b><em>Onde a decisão acontece</em></span>
           </a>
         </div>
@@ -37,23 +32,68 @@
 
       <a href="{{home}}#resultados">Resultados</a>
       <a href="{{home}}#faq">FAQ</a>
+      <a href="{{base}}contactos/">Contactos</a>
     </nav>
 
     <div class="hm-nav-cta">
-      <a class="hm-tel" href="tel:+351926289562">+351 926 289 562</a>
+      <a class="btn btn--wpp btn--sm" href="https://wa.me/351926289562">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.4l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3a3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.6.6 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+        WhatsApp
+      </a>
       <a class="btn btn--azul btn--sm" href="#agendar">Agenda uma chamada</a>
     </div>
+
+    <!-- Telemóvel -->
+    <details class="hm-mob">
+      <summary aria-label="Abrir menu">
+        <span class="hm-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </summary>
+      <div class="hm-mob-painel">
+        <p class="hm-mob-titulo">Serviços</p>
+        <a class="hm-mob-link" href="{{base}}seo/">SEO Local</a>
+        <a class="hm-mob-link" href="{{base}}ads/">Google &amp; Meta Ads</a>
+        <a class="hm-mob-link" href="{{base}}websites/">Websites</a>
+
+        <p class="hm-mob-titulo">Site</p>
+        <a class="hm-mob-link" href="{{home}}">Início</a>
+        <a class="hm-mob-link" href="{{home}}#resultados">Resultados</a>
+        <a class="hm-mob-link" href="{{home}}#faq">FAQ</a>
+        <a class="hm-mob-link" href="{{base}}contactos/">Contactos</a>
+        <a class="hm-mob-link" href="{{base}}pp/">Política de Privacidade</a>
+        <a class="hm-mob-link" href="{{base}}tc/">Termos e Condições</a>
+
+        <div class="hm-mob-acoes">
+          <a class="btn btn--azul btn--bloco" href="#agendar">Agenda uma chamada</a>
+          <a class="btn btn--wpp btn--bloco" href="https://wa.me/351926289562">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.4l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3a3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.6.6 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </details>
   </div>
 </header>
 <script>
 (function () {
-  var d = document.querySelector('.hm-drop');
-  if (!d) return;
+  var menus = document.querySelectorAll('.hm-drop, .hm-mob');
+  function fechar(excepto) {
+    menus.forEach(function (m) { if (m !== excepto) m.open = false; });
+  }
+  menus.forEach(function (m) {
+    m.addEventListener('toggle', function () { if (m.open) fechar(m); });
+    // um link dentro do menu fecha-o (âncoras não recarregam a página)
+    m.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { m.open = false; });
+    });
+  });
   document.addEventListener('click', function (e) {
-    if (d.open && !d.contains(e.target)) d.open = false;
+    menus.forEach(function (m) { if (m.open && !m.contains(e.target)) m.open = false; });
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); }
+    if (e.key !== 'Escape') return;
+    menus.forEach(function (m) {
+      if (m.open) { m.open = false; m.querySelector('summary').focus(); }
+    });
   });
 })();
 </script>
