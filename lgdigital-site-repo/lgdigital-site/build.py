@@ -55,6 +55,10 @@ PAGES = [
          title="LGDigital — Mais clientes para a tua empresa de AVAC. Só pagas por lead.",
          desc="Google Ads e Meta Ads para empresas de AVAC. Configuração gratuita, primeiras leads em 48 horas, 25€ por lead da Meta e 35€ por chamada do Google. Sem mensalidade, sem contrato."),
 
+    dict(out="gbp/index.html", src="gbp", base="../", home="../", body="tema-gbp",
+         title="LGDigital — Top 3 no Google em 90 dias, garantido.",
+         desc="Colocamos o teu negócio local no top 3 do Google Maps em 90 dias. Garantido ou não pagas. Sem anúncios: posicionamento 100% orgânico."),
+
     dict(out="hvac-obrigado/index.html", src="hvac-obrigado", base="../", home="../",
          title="Chamada marcada — LGDigital",
          desc="A tua chamada de qualificação está marcada.",
@@ -98,7 +102,7 @@ HEAD = """<!DOCTYPE html>
 {styles}
 {pixel}
 {extra}</head>
-<body>
+<body{bodyclass}>
 """
 FOOT = "\n</body>\n</html>\n"
 
@@ -131,7 +135,8 @@ def head_for(pg, styles, base):
         title=pg["title"], desc=pg["desc"], canonical=canonical, site=SITE, base=base,
         robots='<meta name="robots" content="noindex, nofollow">\n' if pg.get("noindex") else "",
         styles=styles, pixel=PIXEL if PIXEL_ID else "",
-        extra=(extra + "\n") if extra else "")
+        extra=(extra + "\n") if extra else "",
+        bodyclass=(' class="%s"' % pg["body"]) if pg.get("body") else "")
 
 
 def build_site():

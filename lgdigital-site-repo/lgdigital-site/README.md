@@ -9,6 +9,7 @@ um script Python que junta as secções.
 .
 ├─ index.html          página inicial (placeholder por agora)   → lgdigital.pt/
 ├─ hvac/index.html     landing de AVAC                          → lgdigital.pt/hvac
+├─ gbp/index.html      landing de Google Business Profile       → lgdigital.pt/gbp
 ├─ hvac-obrigado/      página de agradecimento (noindex)        → lgdigital.pt/hvac-obrigado
 ├─ pp/index.html       política de privacidade                  → lgdigital.pt/pp
 ├─ tc/index.html       termos e condições                       → lgdigital.pt/tc
@@ -22,6 +23,7 @@ um script Python que junta as secções.
 │  ├─ _partials/       cabeçalho e rodapé partilhados por várias páginas
 │  ├─ home/            secções da página inicial
 │  ├─ hvac/            secções da landing de AVAC
+│  ├─ gbp/             secções da landing de Google Business Profile
 │  ├─ pp/              política de privacidade
 │  └─ tc/              termos e condições
 ├─ build.py
@@ -88,7 +90,9 @@ simples são iguais em todas as páginas sem estarem copiados quatro vezes.
 3. `python3 build.py`
 
 Cada entrada de `PAGES` aceita `noindex=True` (para páginas que não devem ir
-para o Google) e `head="..."` (código extra no `<head>` só dessa página).
+para o Google), `head="..."` (código extra no `<head>` só dessa página) e
+`body="classe"` (classe no `<body>`, para dar um tema diferente à página —
+é assim que a `/gbp` fica bege com acento azul, via `.tema-gbp` no CSS).
 
 ### Píxel da Meta
 
@@ -117,6 +121,17 @@ numa subpasta, como acontece no endereço `utilizador.github.io/repo/`. Os
 Substitui `favicon.ico` e os ficheiros `assets/img/favicon-32.png`,
 `apple-touch-icon.png` (180×180), `icon-192.png` e `icon-512.png`. São gerados a
 partir de um PNG quadrado — o ícone preto com o G branco e a seta azul.
+
+### Mobile
+
+O CSS é *mobile-first*: o que está fora de `@media` é o layout do telemóvel, e
+os `@media(min-width: …)` só acrescentam colunas à medida que há espaço. No fim
+do ficheiro há um bloco de afinação para ecrãs pequenos (640, 430 e 360px).
+
+**Cuidado ao editar o CSS com scripts.** Vários blocos têm o mesmo nome nos dois
+temas (`Hero`, `Cabeçalho`, `Passos`, `FAQ`). Um `s.index("/* ---------- Passos")`
+apanha o primeiro, não o do tema que querias — já duplicou o ficheiro inteiro uma
+vez. Edita à mão ou procura por seletores, não por títulos de bloco.
 
 ### Cores e tipografia
 
@@ -177,6 +192,9 @@ Três avisos que poupam uma tarde:
       no HighLevel (ver secção abaixo)
 - [ ] **Banner de cookies** — o Píxel da Meta é um cookie de publicidade e, na
       UE, exige consentimento prévio
-- [ ] Confirmar os números nas legendas de `13-resultados.html`
+- [ ] Confirmar os números nas legendas de `src/hvac/13-resultados.html`
+- [ ] **Confirmar preços e a redação da garantia** em `src/gbp/08-pacotes.html`
+- [ ] Os botões "Começar" da `/gbp` apontam para `#contacto` — ligar a um
+      formulário ou calendário a sério
 - [ ] Prova social de campanhas pagas — as capturas atuais são de posicionamento
       local, e o serviço vendido é Google Ads + Meta Ads

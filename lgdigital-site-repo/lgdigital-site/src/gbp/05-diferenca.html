@@ -1,0 +1,56 @@
+<!-- ==================== ANTES / DEPOIS ==================== -->
+<!-- O separador é feito só com CSS: dois <input type="radio"> escondidos e
+     o seletor :checked ~ a mostrar o painel certo. Sem JavaScript. -->
+<section class="gbp-sec" id="diferenca">
+  <div class="wrap">
+    <p class="gbp-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>
+      Antes / Depois
+    </p>
+    <h2 class="gbp-h2">A <em>Diferença</em></h2>
+
+    <div class="gbp-ad">
+      <input type="radio" name="gbp-ad" id="gbp-ad-antes" class="gbp-ad-radio" checked>
+      <input type="radio" name="gbp-ad" id="gbp-ad-depois" class="gbp-ad-radio">
+
+      <div class="gbp-ad-tabs" role="tablist">
+        <label for="gbp-ad-antes">Antes</label>
+        <label for="gbp-ad-depois">Depois</label>
+      </div>
+
+      <div class="gbp-ad-grelha">
+        <div class="gbp-ad-painel gbp-ad-painel--antes">
+          <div class="gbp-ad-empresa">
+            <img class="gbp-ad-logo" width="512" height="512" src="{{base}}assets/img/logo-icone-escuro.png" alt="">
+            <div><b>A Tua Empresa</b><span>Morada Exemplo 123, Portugal</span></div>
+          </div>
+          <p class="gbp-ad-metrica">Classificação Média <b class="mau">86</b></p>
+          <p class="gbp-ad-metrica">Quota de mercado <b class="mau">1%</b></p>
+          <p class="gbp-ad-metrica">Cliques por mês <b class="mau">5</b></p>
+          <p class="gbp-ad-metrica">Clientes por mês <b class="mau">1 &ndash; 2</b></p>
+        </div>
+
+        <div class="gbp-ad-painel gbp-ad-painel--depois">
+          <div class="gbp-ad-empresa">
+            <img class="gbp-ad-logo" width="512" height="512" src="{{base}}assets/img/logo-icone-escuro.png" alt="">
+            <div><b>A Tua Empresa</b><span>Morada Exemplo 123, Portugal</span></div>
+          </div>
+          <p class="gbp-ad-metrica">Classificação Média <b class="bom">2</b></p>
+          <p class="gbp-ad-metrica">Quota de mercado <b class="bom">82%</b></p>
+          <p class="gbp-ad-metrica">Cliques por mês <b class="bom">80</b></p>
+          <p class="gbp-ad-metrica">Clientes por mês <b class="bom">15+</b></p>
+        </div>
+
+        <div class="gbp-ad-mapa">
+          <img class="gbp-ad-mapa--antes" width="760" height="760" src="{{base}}assets/img/gbp/heatmap-antes.webp" alt="Grelha de posicionamento antes: fora do top 20 em quase toda a área" loading="lazy">
+          <img class="gbp-ad-mapa--depois" width="820" height="804" src="{{base}}assets/img/gbp/heatmap-depois.webp" alt="Grelha de posicionamento depois: primeiro lugar em quase toda a área" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="gbp-cta">
+      <p>Queres o teu mapa todo verde?</p>
+      <a class="btn btn--azul" href="#agendar">Agenda uma chamada <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
