@@ -13,6 +13,7 @@ um script Python que junta as secções.
 ├─ gbp/index.html      landing: Top 3 garantido (oferta)        → lgdigital.pt/gbp
 ├─ ads/index.html      Google Ads & Meta Ads                    → lgdigital.pt/ads
 ├─ websites/index.html Websites e landing pages                 → lgdigital.pt/websites
+├─ contactos/          contactos + calendário                   → lgdigital.pt/contactos
 ├─ hvac-obrigado/      página de agradecimento (noindex)        → lgdigital.pt/hvac-obrigado
 ├─ pp/index.html       política de privacidade                  → lgdigital.pt/pp
 ├─ tc/index.html       termos e condições                       → lgdigital.pt/tc
@@ -31,6 +32,7 @@ um script Python que junta as secções.
 │  ├─ gbp/             secções da landing "Top 3 garantido"
 │  ├─ ads/             secções da página de anúncios
 │  ├─ websites/        secções da página de websites
+│  ├─ contactos/       página de contactos
 │  ├─ pp/              política de privacidade
 │  └─ tc/              termos e condições
 ├─ build.py
@@ -83,6 +85,12 @@ Cada secção é um ficheiro em `src/hvac/`, por ordem:
 
 Secções que só tenham comentários são ignoradas pelo build — é assim que a
 `04-selos.html` está desativada sem se apagar o ficheiro.
+
+### Rodapé
+
+`_partials/rodape.html` é um cartão branco com o logótipo, redes sociais, três
+colunas de links e a assinatura ao centro. É igual em todas as páginas,
+incluindo as landings.
 
 ### Navegação
 

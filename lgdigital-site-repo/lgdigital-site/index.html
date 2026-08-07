@@ -42,9 +42,9 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body class="tema-home">
-<!-- Cabeçalho com menu de serviços. O dropdown é um <details>: abre com clique
-     ou teclado, sem depender de hover. O script só trata de o fechar quando se
-     clica fora ou se carrega em Esc. -->
+<!-- Cabeçalho. No desktop, menu com dropdown de serviços. No telemóvel,
+     um botão de três traços que abre tudo num painel. Ambos são <details>:
+     funcionam com clique e teclado, sem depender de hover. -->
 <header class="hm-header">
   <div class="wrap hm-nav">
     <a class="brand" href="./">
@@ -52,6 +52,7 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
     </a>
 
     <nav class="hm-links" aria-label="Principal">
+      <a href="./">Início</a>
       <details class="hm-drop">
         <summary>
           Serviços
@@ -59,21 +60,15 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
         </summary>
         <div class="hm-drop-menu">
           <a href="seo/">
-            <span class="hm-drop-icone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            </span>
+            <span class="hm-drop-icone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
             <span><b>SEO Local</b><em>Apareces quando procuram perto de ti</em></span>
           </a>
           <a href="ads/">
-            <span class="hm-drop-icone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 20 4l-2.5 16.5-5.5-5-4 3v-5.5Z"/></svg>
-            </span>
+            <span class="hm-drop-icone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 20 4l-2.5 16.5-5.5-5-4 3v-5.5Z"/></svg></span>
             <span><b>Google &amp; Meta Ads</b><em>Clientes já esta semana</em></span>
           </a>
           <a href="websites/">
-            <span class="hm-drop-icone">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/></svg>
-            </span>
+            <span class="hm-drop-icone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/></svg></span>
             <span><b>Websites</b><em>Onde a decisão acontece</em></span>
           </a>
         </div>
@@ -81,23 +76,68 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
 
       <a href="./#resultados">Resultados</a>
       <a href="./#faq">FAQ</a>
+      <a href="contactos/">Contactos</a>
     </nav>
 
     <div class="hm-nav-cta">
-      <a class="hm-tel" href="tel:+351926289562">+351 926 289 562</a>
+      <a class="btn btn--wpp btn--sm" href="https://wa.me/351926289562">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.4l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3a3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.6.6 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+        WhatsApp
+      </a>
       <a class="btn btn--azul btn--sm" href="#agendar">Agenda uma chamada</a>
     </div>
+
+    <!-- Telemóvel -->
+    <details class="hm-mob">
+      <summary aria-label="Abrir menu">
+        <span class="hm-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+      </summary>
+      <div class="hm-mob-painel">
+        <p class="hm-mob-titulo">Serviços</p>
+        <a class="hm-mob-link" href="seo/">SEO Local</a>
+        <a class="hm-mob-link" href="ads/">Google &amp; Meta Ads</a>
+        <a class="hm-mob-link" href="websites/">Websites</a>
+
+        <p class="hm-mob-titulo">Site</p>
+        <a class="hm-mob-link" href="./">Início</a>
+        <a class="hm-mob-link" href="./#resultados">Resultados</a>
+        <a class="hm-mob-link" href="./#faq">FAQ</a>
+        <a class="hm-mob-link" href="contactos/">Contactos</a>
+        <a class="hm-mob-link" href="pp/">Política de Privacidade</a>
+        <a class="hm-mob-link" href="tc/">Termos e Condições</a>
+
+        <div class="hm-mob-acoes">
+          <a class="btn btn--azul btn--bloco" href="#agendar">Agenda uma chamada</a>
+          <a class="btn btn--wpp btn--bloco" href="https://wa.me/351926289562">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.4l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3a3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.6.6 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </details>
   </div>
 </header>
 <script>
 (function () {
-  var d = document.querySelector('.hm-drop');
-  if (!d) return;
+  var menus = document.querySelectorAll('.hm-drop, .hm-mob');
+  function fechar(excepto) {
+    menus.forEach(function (m) { if (m !== excepto) m.open = false; });
+  }
+  menus.forEach(function (m) {
+    m.addEventListener('toggle', function () { if (m.open) fechar(m); });
+    // um link dentro do menu fecha-o (âncoras não recarregam a página)
+    m.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { m.open = false; });
+    });
+  });
   document.addEventListener('click', function (e) {
-    if (d.open && !d.contains(e.target)) d.open = false;
+    menus.forEach(function (m) { if (m.open && !m.contains(e.target)) m.open = false; });
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); }
+    if (e.key !== 'Escape') return;
+    menus.forEach(function (m) {
+      if (m.open) { m.open = false; m.querySelector('summary').focus(); }
+    });
   });
 })();
 </script>
@@ -129,6 +169,40 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
       <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></svg> Relatórios sem jargão</li>
       <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></svg> Falas com quem trabalha na conta</li>
     </ul>
+  </div>
+</section>
+
+<!-- ==================== LOGOS DE CLIENTES ==================== -->
+<section class="hm-sec hm-sec--estreita">
+  <p class="hm-etiqueta hm-logos-titulo">Empresas com quem já trabalhámos</p>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <!-- conjunto duplicado para o loop ficar contínuo -->
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
+      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
+      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
+    </div>
   </div>
 </section>
 
@@ -206,40 +280,6 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ==================== LOGOS DE CLIENTES ==================== -->
-<section class="hm-sec hm-sec--estreita">
-  <p class="hm-etiqueta center">Empresas com quem já trabalhámos</p>
-  <div class="marquee">
-    <div class="marquee-track">
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <!-- conjunto duplicado para o loop ficar contínuo -->
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-      <span class="marquee-item logo-hca" role="img" aria-label="HCA Lisboa"></span>
-      <span class="marquee-item logo-arq501" role="img" aria-label="Arquitetura 501"></span>
-      <span class="marquee-item logo-casa" role="img" aria-label="Casa em Ordem"></span>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== RESULTADOS ==================== -->
 <section class="hm-sec hm-sec--preta" id="resultados">
   <div class="wrap">
@@ -248,22 +288,31 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
     <p class="hm-sub hm-sub--claro">Não são projeções. É o que estas empresas
       têm hoje no Google.</p>
 
-    <div class="hm-numeros">
-      <div class="hm-numero">
-        <b>1.º</b>
-        <span>lugar médio em &ldquo;arquitecto lisboa&rdquo;, com 85% de quota de mercado</span>
-        <em>Humberto Conde Arquitectos &middot; Lisboa</em>
-      </div>
-      <div class="hm-numero">
-        <b>100%</b>
-        <span>de quota de mercado em &ldquo;remodelação&rdquo;, na área do Porto</span>
-        <em>Casa em Ordem &middot; Porto</em>
-      </div>
-      <div class="hm-numero">
-        <b>30 dias</b>
-        <span>para entrar no top 3 de &ldquo;arquiteto braga&rdquo;, entre 89 concorrentes</span>
-        <em>Arquitetura 501 &middot; Braga</em>
-      </div>
+    <div class="hm-provas">
+      <figure class="hm-prova">
+        <img width="900" height="261" src="assets/img/resultados/hca-painel.webp" alt="Painel do Humberto Conde Arquitectos: 1.º lugar na posição média e 76,95% de quota de mercado" loading="lazy">
+        <figcaption><b>Humberto Conde Arquitectos</b> &middot; Lisboa &mdash; 1.º na posição média</figcaption>
+      </figure>
+      <figure class="hm-prova">
+        <img width="900" height="248" src="assets/img/resultados/arq501-painel.webp" alt="Painel da Arquitetura 501: 3.º lugar na posição média e 80% de quota de mercado" loading="lazy">
+        <figcaption><b>Arquitetura 501</b> &middot; Braga &mdash; top 3 em 30 dias</figcaption>
+      </figure>
+      <figure class="hm-prova hm-prova--larga">
+        <img width="940" height="502" src="assets/img/resultados/hca-heatmap.webp" alt="Mapa de posições do Humberto Conde Arquitectos em toda a área de Lisboa" loading="lazy">
+        <figcaption><b>&ldquo;arquitecto lisboa&rdquo;</b> &mdash; 81 pontos medidos em toda a área de Lisboa</figcaption>
+      </figure>
+      <figure class="hm-prova hm-prova--larga">
+        <img width="820" height="804" src="assets/img/resultados/casa-heatmap.webp" alt="Mapa de posições da Casa em Ordem no Porto, quase todo em primeiro lugar" loading="lazy">
+        <figcaption><b>&ldquo;remodelação&rdquo;</b> &mdash; Casa em Ordem, Porto: 100% de quota de mercado</figcaption>
+      </figure>
+      <figure class="hm-prova">
+        <img width="940" height="711" src="assets/img/resultados/hca-google.webp" alt="Resultados do Google para arquiteto Lisboa" loading="lazy">
+        <figcaption>O que se vê ao pesquisar <b>&ldquo;arquiteto lisboa&rdquo;</b></figcaption>
+      </figure>
+      <figure class="hm-prova">
+        <img width="873" height="492" src="assets/img/resultados/arq501-google.webp" alt="Resultados do Google para arquiteto Braga com a Arquitetura 501 no mapa" loading="lazy">
+        <figcaption>O que se vê ao pesquisar <b>&ldquo;arquiteto braga&rdquo;</b></figcaption>
+      </figure>
     </div>
 
     <div class="hm-cta">
@@ -436,25 +485,67 @@ src="https://www.facebook.com/tr?id=878850018571511&ev=PageView&noscript=1"
 </section>
 
 <!-- ==================== RODAPÉ ==================== -->
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <img width="457" height="100" class="brand-img brand-img--footer" src="assets/img/logo-branco.png" alt="LGDigital">
-      <p class="footer-legal">
-        <b>&copy; 2026 LGDigital. Todos os direitos reservados.</b>
-        A LGDigital é uma agência de marketing independente e não é afiliada,
-        apoiada nem patrocinada pela Google LLC ou pela Meta Platforms, Inc.
-        Google e Google Ads são marcas registadas da Google LLC. Meta, Facebook
-        e Instagram são marcas registadas da Meta Platforms, Inc.
-      </p>
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-cartao">
+
+      <div class="ft-topo">
+        <div class="ft-marca">
+          <img class="ft-logo" width="457" height="100" src="assets/img/logo.png" alt="LGDigital">
+          <div class="ft-social">
+            <a href="https://www.instagram.com/lgdigital.pt/" aria-label="Instagram" rel="noopener">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61586758513095" aria-label="Facebook" rel="noopener">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M14.5 8.5h2.2V5.4h-2.6c-2.3 0-3.6 1.4-3.6 3.7v1.6H8.3v3.1h2.2V21h3.3v-7.2h2.3l.4-3.1h-2.7V9.6c0-.7.2-1.1.7-1.1Z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/lgdigital1" aria-label="LinkedIn" rel="noopener">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.4v.1M12 17v-3.6a2.1 2.1 0 0 1 4.2 0V17" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="ft-cols" aria-label="Rodapé">
+          <div>
+            <b>Serviços</b>
+            <a href="seo/">SEO Local</a>
+            <a href="ads/">Google &amp; Meta Ads</a>
+            <a href="websites/">Websites</a>
+          </div>
+          <div>
+            <b>Empresa</b>
+            <a href="./">Início</a>
+            <a href="./#resultados">Resultados</a>
+            <a href="./#faq">FAQ</a>
+            <a href="contactos/">Contactos</a>
+          </div>
+          <div>
+            <b>Legal</b>
+            <a href="pp/">Política de Privacidade</a>
+            <a href="tc/">Termos e Condições</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="ft-centro">
+        <span class="ft-bandeira" aria-hidden="true">
+          <svg viewBox="0 0 30 20"><rect width="30" height="20" rx="3" fill="#DA291C"/><path d="M3 0h9v20H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3Z" fill="#046A38"/><circle cx="12" cy="10" r="4" fill="#FFE900" stroke="#fff" stroke-width=".8"/></svg>
+        </span>
+        <p class="ft-slogan">Marketing digital para negócios locais em Portugal</p>
+        <p class="ft-sub">Fala connosco e descobre como podemos trazer mais
+          clientes ao teu negócio.</p>
+      </div>
+
+      <div class="ft-base">
+        <span>&copy; 2026 LGDigital. Todos os direitos reservados.</span>
+        <span class="ft-aviso">Agência independente, não afiliada nem
+          patrocinada pela Google LLC ou pela Meta Platforms, Inc. Google e
+          Google Ads são marcas da Google LLC; Meta, Facebook e Instagram são
+          marcas da Meta Platforms, Inc.</span>
+      </div>
+
     </div>
-    <nav class="footer-links" aria-label="Rodapé">
-      <a href="https://wa.me/351926289562">WhatsApp</a>
-      <a href="pp/">Política de Privacidade</a>
-      <a href="tc/">Termos e Condições</a>
-    </nav>
   </div>
-  <div class="footer-rule"></div>
 </footer>
 </body>
 </html>

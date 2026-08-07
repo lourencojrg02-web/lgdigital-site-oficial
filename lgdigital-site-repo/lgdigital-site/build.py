@@ -78,6 +78,10 @@ PAGES = [
          # Conversão: dispara depois do PageView, quando o fbq já existe.
          head="<script>window.fbq && fbq('track', 'Schedule');</script>"),
 
+    dict(out="contactos/index.html", src="contactos", base="../", home="../", body="tema-home",
+         title="LGDigital — Contactos",
+         desc="Fala connosco por WhatsApp, telefone ou marca uma chamada de 30 minutos no calendário."),
+
     dict(out="404.html", src="404", base="/", home="/", body="tema-home", noindex=True,
          title="Página não encontrada — LGDigital",
          desc="A página que procuras não existe."),
