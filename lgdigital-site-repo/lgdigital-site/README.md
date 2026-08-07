@@ -7,9 +7,11 @@ um script Python que junta as secções.
 
 ```
 .
-├─ index.html          página inicial (placeholder por agora)   → lgdigital.pt/
+├─ index.html          página inicial                           → lgdigital.pt/
 ├─ hvac/index.html     landing de AVAC                          → lgdigital.pt/hvac
-├─ gbp/index.html      landing de Google Business Profile       → lgdigital.pt/gbp
+├─ gbp/index.html      SEO local / Google Business Profile      → lgdigital.pt/gbp
+├─ ads/index.html      Google Ads & Meta Ads                    → lgdigital.pt/ads
+├─ websites/index.html Websites e landing pages                 → lgdigital.pt/websites
 ├─ hvac-obrigado/      página de agradecimento (noindex)        → lgdigital.pt/hvac-obrigado
 ├─ pp/index.html       política de privacidade                  → lgdigital.pt/pp
 ├─ tc/index.html       termos e condições                       → lgdigital.pt/tc
@@ -21,9 +23,12 @@ um script Python que junta as secções.
 │  └─ img/             logo, ícones, logos de clientes, capturas de resultados
 ├─ src/                ← ONDE SE EDITA
 │  ├─ _partials/       cabeçalho e rodapé partilhados por várias páginas
+│  ├─ 404/             página de erro
 │  ├─ home/            secções da página inicial
 │  ├─ hvac/            secções da landing de AVAC
-│  ├─ gbp/             secções da landing de Google Business Profile
+│  ├─ gbp/             secções da landing de SEO local
+│  ├─ ads/             secções da página de anúncios
+│  ├─ websites/        secções da página de websites
 │  ├─ pp/              política de privacidade
 │  └─ tc/              termos e condições
 ├─ build.py
@@ -133,10 +138,19 @@ temas (`Hero`, `Cabeçalho`, `Passos`, `FAQ`). Um `s.index("/* ---------- Passos
 apanha o primeiro, não o do tema que querias — já duplicou o ficheiro inteiro uma
 vez. Edita à mão ou procura por seletores, não por títulos de bloco.
 
-### Cores e tipografia
+### Cores e temas
 
-Tudo no bloco `:root` no topo de `assets/css/styles.css`. Mudar `--amber`
-muda o acento do site inteiro.
+O `:root` de `assets/css/styles.css` tem a base comum. Cada página pode pedir
+um tema pela chave `body` em `PAGES`:
+
+| tema | páginas | fundo | acento |
+|---|---|---|---|
+| `tema-home` | `/`, `/ads`, `/websites`, `404` | branco | azul `#0091FF` |
+| `tema-gbp` | `/gbp` | bege `#EFEDE7` | azul `#1D4ED8` |
+| *(nenhum)* | `/hvac`, `/pp`, `/tc` | branco | âmbar `#F5A623` |
+
+O botão com a onda (`.btn--azul`) lê as variáveis `--acento`, `--acento-2`,
+`--acento-luz` e `--acento-luz-2`, por isso adapta-se sozinho ao tema da página.
 
 ## Redirect após a marcação
 
@@ -187,12 +201,16 @@ Três avisos que poupam uma tarde:
 - [ ] **Preencher os campos entre `[ ]` em `src/pp/` e `src/tc/`** — denominação
       social, NIF, morada, comarca, prazo de pagamento e a questão do IVA
 - [ ] Mandar rever as duas páginas legais por alguém com formação jurídica
-- [ ] Página inicial a sério (agora é um placeholder em `src/home/`)
 - [ ] Configurar o redirect para `/hvac-obrigado` nas definições do calendário
       no HighLevel (ver secção abaixo)
 - [ ] **Banner de cookies** — o Píxel da Meta é um cookie de publicidade e, na
       UE, exige consentimento prévio
 - [ ] Confirmar os números nas legendas de `src/hvac/13-resultados.html`
+- [ ] Decidir se `/hvac` (âmbar) e `/gbp` (bege) passam para a paleta das
+      restantes páginas — branco, azul `#0091FF` e preto
+- [ ] **Confirmar a secção "Como cobramos"** em `src/ads/07-modelos.html` —
+      descreve os dois modelos sem valores concretos, de propósito
+- [ ] Confirmar prazos e condições nas FAQ de `/ads` e `/websites`
 - [ ] **Confirmar preços e a redação da garantia** em `src/gbp/08-pacotes.html`
 - [ ] Os botões "Começar" da `/gbp` apontam para `#contacto` — ligar a um
       formulário ou calendário a sério

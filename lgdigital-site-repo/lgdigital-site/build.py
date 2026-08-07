@@ -47,9 +47,9 @@ src="https://www.facebook.com/tr?id=%s&ev=PageView&noscript=1"
 
 # ------------------------------------------------------------------- Páginas
 PAGES = [
-    dict(out="index.html", src="home", base="", home="",
-         title="LGDigital — Google Ads e Meta Ads para empresas de serviços",
-         desc="Geramos chamadas e pedidos de orçamento para empresas de serviços através de Google Ads e Meta Ads. Só pagas por lead."),
+    dict(out="index.html", src="home", base="", home="", body="tema-home",
+         title="LGDigital — SEO local, Google Ads, Meta Ads e websites para negócios locais",
+         desc="Agência de marketing digital para negócios locais em Portugal. SEO local no Google Maps, campanhas no Google e na Meta, e websites feitos para converter."),
 
     dict(out="hvac/index.html", src="hvac", base="../", home="../",
          title="LGDigital — Mais clientes para a tua empresa de AVAC. Só pagas por lead.",
@@ -59,12 +59,24 @@ PAGES = [
          title="LGDigital — Top 3 no Google em 90 dias, garantido.",
          desc="Colocamos o teu negócio local no top 3 do Google Maps em 90 dias. Garantido ou não pagas. Sem anúncios: posicionamento 100% orgânico."),
 
+    dict(out="ads/index.html", src="ads", base="../", home="../", body="tema-home",
+         title="LGDigital — Google Ads e Meta Ads para negócios locais",
+         desc="Criamos e gerimos as tuas campanhas no Google e na Meta. Primeiras leads em 48 horas, chamadas rastreadas e contas em teu nome. Pagamento por lead ou avença."),
+
+    dict(out="websites/index.html", src="websites", base="../", home="../", body="tema-home",
+         title="LGDigital — Websites e landing pages que geram contactos",
+         desc="Sites rápidos e landing pages feitas para converter visitas em chamadas e pedidos de orçamento. Prontos em 2 a 4 semanas, com medição incluída."),
+
     dict(out="hvac-obrigado/index.html", src="hvac-obrigado", base="../", home="../",
          title="Chamada marcada — LGDigital",
          desc="A tua chamada de qualificação está marcada.",
          noindex=True,
          # Conversão: dispara depois do PageView, quando o fbq já existe.
          head="<script>window.fbq && fbq('track', 'Schedule');</script>"),
+
+    dict(out="404.html", src="404", base="/", home="/", body="tema-home", noindex=True,
+         title="Página não encontrada — LGDigital",
+         desc="A página que procuras não existe."),
 
     dict(out="pp/index.html", src="pp", base="../", home="../",
          title="Política de Privacidade — LGDigital",
@@ -149,23 +161,6 @@ def build_site():
         print("  %-24s %2d secções  %5.0f KB" % (pg["out"], len(sections(pg["src"])), p.stat().st_size / 1024))
 
 
-def build_404():
-    """Reaproveita a homepage. Como pode ser servida em qualquer caminho, usa
-    caminhos absolutos a partir da raiz."""
-    s = (ROOT / "index.html").read_text(encoding="utf-8")
-    s = s.replace("<title>%s</title>" % PAGES[0]["title"], "<title>Página não encontrada — LGDigital</title>")
-    s = s.replace("Geramos chamadas e pedidos de orçamento para empresas de serviços.</h1>",
-                  "Esta página não existe.</h1>")
-    s = s.replace("Estamos a preparar o site. Entretanto, podes ver como trabalhamos com\n      empresas de AVAC &mdash; ou falar connosco diretamente.",
-                  "O link pode estar errado ou a página pode ter mudado de sítio.")
-    s = s.replace('href="assets/', 'href="/assets/').replace('src="assets/', 'src="/assets/')
-    s = s.replace('href="hvac/"', 'href="/hvac/"').replace('href="./"', 'href="/"')
-    s = s.replace('href="favicon.ico"', 'href="/favicon.ico"').replace('href="site.webmanifest"', 'href="/site.webmanifest"')
-    s = s.replace('href="pp/"', 'href="/pp/"').replace('href="tc/"', 'href="/tc/"')
-    (ROOT / "404.html").write_text(s, encoding="utf-8")
-    print("  %-24s" % "404.html")
-
-
 def inline_data(path):
     f = ROOT / path
     mime = mimetypes.guess_type(f.name)[0] or "application/octet-stream"
@@ -192,7 +187,6 @@ def build_standalone():
 if __name__ == "__main__":
     print("A gerar o site:")
     build_site()
-    build_404()
     if "--standalone" in sys.argv:
         print("A gerar as versões num ficheiro só:")
         build_standalone()
