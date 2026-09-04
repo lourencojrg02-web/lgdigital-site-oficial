@@ -180,6 +180,7 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
 .logo-hca   {aspect-ratio:140/140;background-image:url("../img/clientes/hca-lisboa.png");}
 .logo-arq501{aspect-ratio:606/140;background-image:url("../img/clientes/arquitetura-501.png");}
 .logo-casa  {aspect-ratio:248/140;background-image:url("../img/clientes/casa-em-ordem.png");}
+.logo-idelma{aspect-ratio:277/140;background-image:url("../img/clientes/idelma.png");}
 
 @keyframes slide{to{transform:translateX(-50%);}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
