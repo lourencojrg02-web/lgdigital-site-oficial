@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# páginas sem valor para pesquisa
+Disallow: /hvac-obrigado/
+
 Sitemap: https://lgdigital.pt/sitemap.xml

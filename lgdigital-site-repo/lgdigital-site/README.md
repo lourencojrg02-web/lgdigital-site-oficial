@@ -86,6 +86,26 @@ Cada secção é um ficheiro em `src/hvac/`, por ordem:
 Secções que só tenham comentários são ignoradas pelo build — é assim que a
 `04-selos.html` está desativada sem se apagar o ficheiro.
 
+### SEO
+
+O `build.py` trata de tudo o que é automático:
+
+- `<title>`, `description`, canonical e `hreflang` por página, definidos em `PAGES`
+- Open Graph e Twitter Card, com `assets/img/og.png` (1200×630) gerada à parte
+- `robots`: `index, follow, max-image-preview:large` nas páginas normais,
+  `noindex` nas que têm `noindex=True`
+- **Dados estruturados JSON-LD**, gerados a partir do próprio conteúdo:
+  `ProfessionalService` + `WebSite` na homepage, `BreadcrumbList` nas restantes,
+  e `FAQPage` em todas as páginas com um bloco de FAQ — as perguntas são lidas
+  dos `<details>` dentro de `.hm-faq`, `.gbp-faq` ou `.faq`, por isso basta
+  escrever a FAQ que a marcação aparece sozinha
+
+`sitemap.xml` e `robots.txt` são mantidos à mão na raiz. Ao criar uma página
+nova, acrescenta-a ao sitemap.
+
+**Depois de publicar:** submete o sitemap no Google Search Console e valida os
+dados estruturados em `search.google.com/test/rich-results`.
+
 ### Rodapé
 
 `_partials/rodape.html` é um cartão branco com o logótipo, redes sociais, três
