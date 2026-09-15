@@ -1,0 +1,9 @@
+# versões num ficheiro só (geradas com build.py --standalone, não fazem parte do site)
+preview/
+
+# lixo do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc

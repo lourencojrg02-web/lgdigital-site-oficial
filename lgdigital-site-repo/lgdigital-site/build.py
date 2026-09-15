@@ -23,7 +23,7 @@ mimetypes.add_type("image/svg+xml", ".svg")
 
 ROOT = pathlib.Path(__file__).parent
 SITE = "https://lgdigital.pt"
-PIXEL_ID = "878850018571511"
+PIXEL_ID = "1705934707134389"
 
 # ---------------------------------------------------------------- Meta Pixel
 # Sai em todas as páginas. Para desativar, põe PIXEL_ID = "".
@@ -74,13 +74,23 @@ PAGES = [
     dict(out="hvac-obrigado/index.html", src="hvac-obrigado", base="../", home="../",
          title="Chamada marcada — LGDigital",
          desc="A tua chamada de qualificação está marcada.",
-         noindex=True,
-         # Conversão: dispara depois do PageView, quando o fbq já existe.
-         head="<script>window.fbq && fbq('track', 'Schedule');</script>"),
+         noindex=True),
 
     dict(out="contactos/index.html", src="contactos", nome="Contactos", base="../", home="../", body="tema-home",
          title="Contactos | LGDigital",
          desc="Fala connosco por WhatsApp, telefone ou marca uma chamada de 30 minutos no calendário."),
+
+    # Landings de campanha Meta: tráfego pago, fora do índice do Google
+    dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
+         title="10-15 pedidos de orçamento de AVAC por mês | LGDigital",
+         desc="Garantimos 10 a 15 pedidos de orçamento de AVAC por mês, ou continuamos a trabalhar de graça. Responde a duas perguntas e vê se a tua empresa qualifica."),
+
+    dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../",
+         body="tema-meta", noindex=True,
+         title="Marca a tua chamada | LGDigital",
+         desc="Recebemos o teu pedido. Escolhe uma hora para falarmos.",
+         # Única conversão do site. Dispara a seguir ao PageView, já com o fbq definido.
+         head="<script>window.fbq && fbq('track', 'Lead');</script>"),
 
     dict(out="404.html", src="404", base="/", home="/", body="tema-home", noindex=True,
          title="Página não encontrada — LGDigital",

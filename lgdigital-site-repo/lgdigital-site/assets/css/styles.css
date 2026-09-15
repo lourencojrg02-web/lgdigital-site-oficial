@@ -982,3 +982,152 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
   padding:11px 22px;font-size:15.5px;font-weight:600;color:var(--preto);transition:border-color .2s ease;}
 .hm-redes-links a:hover{border-color:var(--azul);color:var(--azul);}
 @media(max-width:640px){.hm-contacto{padding:22px;}}
+
+/* ==========================================================================
+   Botões em ecrãs estreitos.
+   O .btn tem white-space:nowrap, o que lhe dá uma largura mínima igual à do
+   texto todo numa linha. Com etiquetas longas — "Descobre se faz sentido
+   trabalharmos juntos" — isso ultrapassava a largura do ecrã e o botão saía
+   fora da página. Abaixo dos 700px a etiqueta passa a poder partir.
+   ========================================================================== */
+
+@media(max-width:700px){
+  .btn{
+    white-space:normal;
+    max-width:100%;
+    text-align:center;
+    line-height:1.35;
+    padding-left:22px;padding-right:22px;
+  }
+  .btn--sm{padding-left:15px;padding-right:15px;}
+  /* a seta fica colada à última linha, em vez de saltar para uma linha só dela */
+  .btn > span[aria-hidden]{flex:none;}
+  /* estes tinham nowrap próprio, que ganhava por especificidade */
+  .hm-oferta .btn{white-space:normal;}
+  .gbp-cta .btn,.hm-cta .btn,.hm-quem .btn{white-space:normal;}
+}
+
+/* ==========================================================================
+   Landing de campanha Meta (/meta e /meta-book-a-call).
+   Página fechada: sem navegação, sem saídas. Tudo prefixado com .mt-.
+   ========================================================================== */
+
+.tema-meta{
+  --azul:#0091FF; --azul-2:#0076D1; --azul-suave:#E8F5FF; --preto:#0A0B0C;
+  --acento:#0091FF; --acento-2:#0076D1;
+  --acento-luz:#4FB4FF; --acento-luz-2:#7FC9FF;
+  --acento-sombra:rgba(0,145,255,.30); --acento-sombra-2:rgba(0,145,255,.40);
+  background:#F2F1EE;
+}
+
+/* ---------- Barra superior ---------- */
+/* margin:0 é essencial — sendo um <p>, a margem por omissão do browser
+   colava-se ao topo e deixava uma faixa branca por cima da barra */
+.mt-barra{margin:0;background:var(--azul);color:#fff;text-align:center;
+  padding:14px 20px;font-size:clamp(12px,2.4vw,15px);font-weight:800;
+  letter-spacing:.09em;text-transform:uppercase;line-height:1.4;}
+
+/* ---------- Cabeçalho ---------- */
+.mt-topo{padding:44px 0 10px;text-align:center;}
+.mt-logo{height:30px;width:auto;margin:0 auto;}
+.mt-hero{padding:34px 0 48px;text-align:center;}
+/* quando não há logótipo por cima, o título precisa de mais ar */
+.mt-hero--solo{padding-top:62px;}
+@media(max-width:640px){.mt-hero--solo{padding-top:40px;}}
+.mt-hero .wrap{max-width:960px;}
+.mt-h1{color:var(--preto);font-size:clamp(30px,5.4vw,58px);font-weight:800;
+  letter-spacing:-.035em;line-height:1.06;margin:0;}
+.mt-h1 em{font-style:normal;color:var(--azul);}
+.mt-sub{margin:22px auto 0;max-width:640px;color:#4A525A;
+  font-size:clamp(17px,2.5vw,24px);font-weight:500;line-height:1.45;}
+
+/* ---------- Cartão do formulário ---------- */
+.mt-cartao{max-width:640px;margin:0 auto;background:#fff;border:1px solid #E5E7E5;
+  border-radius:22px;box-shadow:0 8px 34px rgba(10,11,12,.08);padding:34px 32px 30px;}
+.mt-progresso{height:6px;border-radius:4px;background:#EDEFF1;overflow:hidden;}
+.mt-progresso span{display:block;height:100%;border-radius:4px;background:var(--azul);
+  transition:width .35s cubic-bezier(.3,.7,.3,1);}
+.mt-passo-num{margin:14px 0 0;font-size:12.5px;font-weight:800;letter-spacing:.13em;
+  text-transform:uppercase;color:#8A9198;}
+
+.mt-passo{border:0;padding:0;margin:0;}
+.mt-passo[hidden]{display:none;}
+.mt-passo legend{padding:0;margin:10px 0 24px;font-size:clamp(19px,3vw,25px);
+  font-weight:800;color:var(--preto);letter-spacing:-.025em;line-height:1.25;}
+
+/* ---------- Opções ---------- */
+.mt-opcoes{display:grid;gap:12px;}
+.mt-opcao{
+  display:flex;align-items:center;gap:14px;width:100%;text-align:left;
+  background:#fff;border:1.5px solid #E2E6EA;border-radius:14px;
+  padding:18px 20px;font-size:16.5px;font-weight:600;color:var(--preto);
+  line-height:1.45;cursor:pointer;
+  transition:border-color .18s ease, background .18s ease, transform .12s ease;
+}
+.mt-opcao:hover{border-color:var(--azul);background:#F7FBFF;}
+.mt-opcao:active{transform:scale(.99);}
+.mt-opcao::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;
+  border:2px solid #CFD6DC;transition:border-color .18s ease, box-shadow .18s ease;}
+.mt-opcao[aria-pressed="true"]{border-color:var(--azul);background:#F1F8FF;}
+.mt-opcao[aria-pressed="true"]::before{border-color:var(--azul);
+  box-shadow:inset 0 0 0 5px var(--azul);}
+
+/* ---------- Campos ---------- */
+.mt-campos{display:grid;gap:16px;}
+.mt-campo label{display:block;margin-bottom:7px;font-size:14.5px;font-weight:700;color:var(--preto);}
+.mt-campo input{
+  width:100%;background:#fff;border:1.5px solid #E2E6EA;border-radius:12px;
+  padding:15px 16px;font:inherit;font-size:16px;color:var(--preto);
+  transition:border-color .18s ease, box-shadow .18s ease;
+}
+.mt-campo input:focus{outline:0;border-color:var(--azul);box-shadow:0 0 0 4px rgba(0,145,255,.14);}
+.mt-campo input[aria-invalid="true"]{border-color:#E05252;}
+.mt-erro{display:block;margin-top:6px;font-size:13.5px;color:#C0392B;}
+.mt-erro[hidden]{display:none;}
+
+.mt-enviar{margin-top:24px;}
+.mt-enviar .btn{width:100%;}
+.mt-rodape-form{margin:18px 0 0;text-align:center;font-size:13px;color:#8A9198;line-height:1.55;}
+.mt-rodape-form a{color:#6E767D;text-decoration:underline;text-underline-offset:2px;}
+.mt-voltar{background:none;border:0;padding:8px 0;margin-top:18px;cursor:pointer;
+  font-size:14.5px;font-weight:600;color:#8A9198;}
+.mt-voltar:hover{color:var(--preto);}
+.mt-voltar[hidden]{display:none;}
+
+/* ---------- Rodapé mínimo ---------- */
+.mt-rodape{padding:40px 0 44px;text-align:center;font-size:13px;color:#8A9198;}
+.mt-rodape a{color:#6E767D;text-decoration:underline;text-underline-offset:2px;}
+.mt-rodape span{display:inline-block;margin:0 6px;}
+
+/* ---------- Ecrã de desqualificação ---------- */
+.mt-stop{text-align:center;padding:8px 0 4px;}
+.mt-stop[hidden]{display:none;}
+.mt-stop-icone{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 22px;
+  border-radius:18px;background:#FDF0E3;color:#B4700A;}
+.mt-stop h2{font-size:clamp(20px,3vw,25px);color:var(--preto);letter-spacing:-.025em;
+  margin:0 0 14px;line-height:1.25;}
+.mt-stop p{margin:0 auto;max-width:440px;font-size:16.5px;color:#4A525A;line-height:1.6;}
+.mt-stop .mt-stop-nota{margin-top:20px;font-size:14.5px;color:#8A9198;}
+.mt-recomecar{margin-top:22px;background:none;border:1.5px solid #E2E6EA;border-radius:var(--r-pill);
+  padding:13px 26px;font:inherit;font-size:15.5px;font-weight:700;color:var(--preto);cursor:pointer;
+  transition:border-color .18s ease;}
+.mt-recomecar:hover{border-color:var(--azul);color:var(--azul);}
+
+/* ---------- Cartão do calendário ---------- */
+.mt-cal{max-width:940px;margin:0 auto;background:#fff;border:1px solid #E5E7E5;
+  border-radius:22px;box-shadow:0 8px 34px rgba(10,11,12,.08);padding:12px;overflow:hidden;}
+@media(max-width:640px){.mt-cal{padding:7px;border-radius:18px;}}
+
+/* ---------- Página de agradecimento ---------- */
+.mt-ok{max-width:640px;margin:0 auto;background:#fff;border:1px solid #E5E7E5;
+  border-radius:22px;box-shadow:0 8px 34px rgba(10,11,12,.08);padding:44px 32px;text-align:center;}
+.mt-ok-icone{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 24px;
+  border-radius:20px;background:#E4F7EA;color:#12803C;}
+
+@media(max-width:640px){
+  .mt-topo{padding:32px 0 6px;}
+  .mt-hero{padding:26px 0 34px;}
+  .mt-cartao{padding:26px 20px 24px;border-radius:18px;}
+  .mt-opcao{padding:16px 16px;font-size:15.5px;gap:12px;}
+  .mt-ok{padding:34px 22px;}
+}

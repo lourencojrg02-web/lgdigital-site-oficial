@@ -1,0 +1,202 @@
+<!-- ==================== LANDING DE CAMPANHA META ==================== -->
+<!-- Página fechada, sem navegação. O formulário é de três passos e envia para
+     o webhook do Make antes de redirecionar para /meta-book-a-call. -->
+
+<p class="mt-barra">Consegue mais clientes de forma previsível</p>
+
+<div class="mt-topo">
+  <img class="mt-logo" width="457" height="100" src="{{base}}assets/img/logo.png" alt="LGDigital">
+</div>
+
+<main class="mt-hero">
+  <div class="wrap">
+    <h1 class="mt-h1">10&ndash;15 pedidos de orçamento de AVAC por mês.
+      <em>Garantido!</em></h1>
+    <p class="mt-sub">Ou continuamos a trabalhar de graça.</p>
+  </div>
+</main>
+
+<section class="wrap" style="padding-bottom:16px">
+  <div class="mt-cartao">
+    <form id="mt-form" novalidate>
+      <div class="mt-progresso"><span id="mt-barra-progresso" style="width:33%"></span></div>
+      <p class="mt-passo-num" id="mt-contador">Pergunta 1 de 3</p>
+
+      <!-- 1 -->
+      <fieldset class="mt-passo" data-passo="1">
+        <legend>És o dono da empresa ou a pessoa que toma as decisões?</legend>
+        <div class="mt-opcoes">
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="decisor" data-valor="Sim">Sim</button>
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="decisor" data-valor="Não"
+                  data-stop="Precisamos de falar diretamente com quem toma as decisões na empresa. Se fores tu, recomeça e responde que sim.">Não</button>
+        </div>
+      </fieldset>
+
+      <!-- 2 -->
+      <fieldset class="mt-passo" data-passo="2" hidden>
+        <legend>Para trabalharmos contigo, é preciso poderes investir pelo menos
+          50&euro; por dia em anúncios. Isso encaixa no teu orçamento?</legend>
+        <div class="mt-opcoes">
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="orcamento"
+                  data-valor="Sim, consigo investir 50€/dia">Sim, consigo investir 50&euro; por dia para receber 10&ndash;15 pedidos de orçamento</button>
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="orcamento"
+                  data-valor="Não consigo investir 50€/dia"
+                  data-stop="Para te qualificares é necessário conseguires investir pelo menos 50€ por dia em anúncios. Sem esse investimento não conseguimos garantir os resultados.">Não, não consigo investir 50&euro; por dia para fazer crescer o meu negócio</button>
+        </div>
+      </fieldset>
+
+      <!-- 3 -->
+      <fieldset class="mt-passo" data-passo="3" hidden>
+        <legend>Falta só saber quem és.</legend>
+        <div class="mt-campos">
+          <div class="mt-campo">
+            <label for="mt-nome">Nome</label>
+            <input id="mt-nome" name="nome" type="text" autocomplete="name" required>
+            <span class="mt-erro" id="mt-erro-nome" hidden>Escreve o teu nome.</span>
+          </div>
+          <div class="mt-campo">
+            <label for="mt-email">Email</label>
+            <input id="mt-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            <span class="mt-erro" id="mt-erro-email" hidden>Escreve um email válido.</span>
+          </div>
+          <div class="mt-campo">
+            <label for="mt-telefone">Número de telefone</label>
+            <input id="mt-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required>
+            <span class="mt-erro" id="mt-erro-telefone" hidden>Escreve um número de telefone válido.</span>
+          </div>
+        </div>
+        <div class="mt-enviar">
+          <button type="submit" class="btn btn--azul" id="mt-submeter">Enviar</button>
+        </div>
+        <p class="mt-rodape-form">Ao enviares, aceitas que te contactemos sobre este pedido.
+          Vê a <a href="{{base}}pp/">Política de Privacidade</a>.</p>
+      </fieldset>
+
+      <button type="button" class="mt-voltar" id="mt-voltar" hidden>&larr; Voltar</button>
+    </form>
+
+    <!-- Mostrado quando a resposta desqualifica; o formulário desaparece -->
+    <div class="mt-stop" id="mt-stop" hidden>
+      <span class="mt-stop-icone" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4v.01"/></svg>
+      </span>
+      <h2>Por agora, não encaixa.</h2>
+      <p id="mt-stop-msg"></p>
+      <p class="mt-stop-nota">Se mudaste de ideias, recomeça o questionário.</p>
+      <button type="button" class="mt-recomecar" id="mt-recomecar">Recomeçar</button>
+    </div>
+  </div>
+</section>
+
+<footer class="mt-rodape">
+  &copy; 2026 LGDigital<span>&middot;</span>
+  <a href="{{base}}pp/">Política de Privacidade</a><span>&middot;</span>
+  <a href="{{base}}tc/">Termos e Condições</a>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Onde caem as leads. Trocar aqui se o cenário do Make mudar.
+  var ENDPOINT = 'https://hook.eu2.make.com/disc455j6scbd13n7ccv87px1wxvt90x';
+  var DESTINO  = '{{base}}meta-book-a-call/';
+
+  var form     = document.getElementById('mt-form');
+  var passos   = Array.prototype.slice.call(form.querySelectorAll('.mt-passo'));
+  var barra    = document.getElementById('mt-barra-progresso');
+  var contador = document.getElementById('mt-contador');
+  var voltar   = document.getElementById('mt-voltar');
+  var submeter = document.getElementById('mt-submeter');
+  var stop     = document.getElementById('mt-stop');
+  var stopMsg  = document.getElementById('mt-stop-msg');
+  var atual    = 0;
+  var enviado  = false;
+  var dados    = {};
+
+  // Resposta que desqualifica: o formulário sai de cena e fica só a explicação.
+  function desqualificar(mensagem) {
+    stopMsg.textContent = mensagem;
+    form.hidden = true;
+    stop.hidden = false;
+  }
+
+  document.getElementById('mt-recomecar').addEventListener('click', function () {
+    location.reload();
+  });
+
+  function mostrar(i) {
+    atual = i;
+    passos.forEach(function (p, n) { p.hidden = n !== i; });
+    barra.style.width = Math.round((i + 1) / passos.length * 100) + '%';
+    contador.textContent = 'Pergunta ' + (i + 1) + ' de ' + passos.length;
+    voltar.hidden = i === 0;
+    var foco = passos[i].querySelector('.mt-opcao, input');
+    if (foco && i > 0) foco.focus({ preventScroll: true });
+  }
+
+  // Escolher uma opção marca-a e avança sozinho
+  form.addEventListener('click', function (e) {
+    var b = e.target.closest('.mt-opcao');
+    if (!b) return;
+    var grupo = b.closest('.mt-opcoes').querySelectorAll('.mt-opcao');
+    Array.prototype.forEach.call(grupo, function (o) { o.setAttribute('aria-pressed', 'false'); });
+    b.setAttribute('aria-pressed', 'true');
+    dados[b.dataset.campo] = b.dataset.valor;
+    if (b.dataset.stop) {
+      setTimeout(function () { desqualificar(b.dataset.stop); }, 220);
+      return;
+    }
+    setTimeout(function () { if (atual < passos.length - 1) mostrar(atual + 1); }, 220);
+  });
+
+  voltar.addEventListener('click', function () { if (atual > 0) mostrar(atual - 1); });
+
+  function valida() {
+    var ok = true;
+    [['mt-nome', function (v) { return v.trim().length >= 2; }],
+     ['mt-email', function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }],
+     ['mt-telefone', function (v) { return v.replace(/\D/g, '').length >= 9; }]
+    ].forEach(function (par) {
+      var campo = document.getElementById(par[0]);
+      var erro  = document.getElementById('mt-erro-' + par[0].replace('mt-', ''));
+      var bom   = par[1](campo.value);
+      campo.setAttribute('aria-invalid', bom ? 'false' : 'true');
+      erro.hidden = bom;
+      if (!bom && ok) campo.focus();
+      ok = ok && bom;
+    });
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (enviado || !valida()) return;
+    enviado = true;
+    submeter.textContent = 'A enviar…';
+    submeter.disabled = true;
+
+    dados.nome     = document.getElementById('mt-nome').value.trim();
+    dados.email    = document.getElementById('mt-email').value.trim();
+    dados.telefone = document.getElementById('mt-telefone').value.trim();
+    dados.origem   = 'lgdigital.pt/meta';
+    dados.url      = location.href;
+    dados.data     = new Date().toISOString();
+
+    // A conversão Lead dispara na /meta-book-a-call, não aqui.
+    // Form-encoded evita o pedido de preflight; keepalive garante a entrega
+    // mesmo que a navegação aconteça a seguir.
+    var pedido = fetch(ENDPOINT, {
+      method: 'POST',
+      body: new URLSearchParams(dados),
+      keepalive: true
+    }).catch(function () { /* o pedido segue à mesma; não travamos o utilizador */ });
+
+    var seguir = function () { window.location.href = DESTINO; };
+    setTimeout(seguir, 2500);          // rede lenta não pode prender ninguém
+    pedido.then(seguir, seguir);
+  });
+
+  mostrar(0);
+})();
+</script>

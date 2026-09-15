@@ -1,0 +1,42 @@
+<!-- ==================== MARCAÇÃO DA CHAMADA (campanha Meta) ==================== -->
+<!-- Destino do formulário da /meta. É aqui que dispara a conversão Lead,
+     injetada no <head> pelo build.py. -->
+
+<p class="mt-barra">Último passo: garante a tua vaga</p>
+
+<main class="mt-hero mt-hero--solo">
+  <div class="wrap">
+    <h1 class="mt-h1">Agenda uma chamada connosco para saberes como te podemos
+      ajudar a conseguir 10&ndash;15 pedidos de orçamento por mês.</h1>
+    <p class="mt-sub">Recebemos os teus dados. Falta só escolheres o dia e a
+      hora que te dão mais jeito.</p>
+  </div>
+</main>
+
+<section class="wrap" style="padding-bottom:16px">
+  <div class="mt-cal">
+    <!-- Cal inline embed code begins -->
+    <div id="my-cal-inline-30min"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "30min", {origin:"https://app.cal.com"});
+      Cal.config = Cal.config || {};
+      Cal.config.forwardQueryParams = true;
+
+      Cal.ns["30min"]("inline", {
+        elementOrSelector:"#my-cal-inline-30min",
+        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+        calLink: "lourenco-gaspar-tmrt3u/30min",
+      });
+
+      Cal.ns["30min"]("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    <!-- Cal inline embed code ends -->
+  </div>
+</section>
+
+<footer class="mt-rodape">
+  &copy; 2026 LGDigital<span>&middot;</span>
+  <a href="{{base}}pp/">Política de Privacidade</a><span>&middot;</span>
+  <a href="{{base}}tc/">Termos e Condições</a>
+</footer>
