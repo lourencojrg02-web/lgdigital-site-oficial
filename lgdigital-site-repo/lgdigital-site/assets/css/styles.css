@@ -1037,8 +1037,10 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
 .mt-hero--solo{padding-top:62px;}
 @media(max-width:640px){.mt-hero--solo{padding-top:40px;}}
 .mt-hero .wrap{max-width:960px;}
-.mt-h1{color:var(--preto);font-size:clamp(30px,5.4vw,58px);font-weight:800;
-  letter-spacing:-.035em;line-height:1.06;margin:0;}
+/* mínimo de 34px: em ecrãs estreitos os 5.4vw davam sempre o valor mínimo,
+   e 30px ficava pequeno para um título de landing */
+.mt-h1{color:var(--preto);font-size:clamp(34px,7vw,58px);font-weight:800;
+  letter-spacing:-.035em;line-height:1.08;margin:0;}
 .mt-h1 em{font-style:normal;color:var(--azul);}
 .mt-sub{margin:22px auto 0;max-width:640px;color:#4A525A;
   font-size:clamp(17px,2.5vw,24px);font-weight:500;line-height:1.45;}
