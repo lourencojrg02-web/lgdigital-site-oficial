@@ -1028,6 +1028,8 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
   letter-spacing:.09em;text-transform:uppercase;line-height:1.4;}
 
 /* ---------- Cabeçalho ---------- */
+/* .mt-topo / .mt-logo: bloco do logótipo. Nenhuma das landings o usa neste
+   momento — ficam aqui caso se queira repor. */
 .mt-topo{padding:44px 0 10px;text-align:center;}
 .mt-logo{height:30px;width:auto;margin:0 auto;}
 .mt-hero{padding:34px 0 48px;text-align:center;}

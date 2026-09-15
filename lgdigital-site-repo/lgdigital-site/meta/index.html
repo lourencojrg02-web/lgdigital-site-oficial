@@ -57,15 +57,11 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 
 <p class="mt-barra">Consegue mais clientes de forma previsível</p>
 
-<div class="mt-topo">
-  <img class="mt-logo" width="457" height="100" src="../assets/img/logo.png" alt="LGDigital">
-</div>
-
-<main class="mt-hero">
+<main class="mt-hero mt-hero--solo">
   <div class="wrap">
     <h1 class="mt-h1">10&ndash;15 pedidos de orçamento de AVAC por mês.
       <em>Garantido!</em></h1>
-    <p class="mt-sub">Ou continuamos a trabalhar de graça.</p>
+    <p class="mt-sub">Ou continuamos a trabalhar de graça no mês seguinte.</p>
   </div>
 </main>
 
@@ -81,7 +77,8 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
         <div class="mt-opcoes">
           <button type="button" class="mt-opcao" aria-pressed="false" data-campo="decisor" data-valor="Sim">Sim</button>
           <button type="button" class="mt-opcao" aria-pressed="false" data-campo="decisor" data-valor="Não"
-                  data-stop="Precisamos de falar diretamente com quem toma as decisões na empresa. Se fores tu, recomeça e responde que sim.">Não</button>
+                  data-stop="Precisamos de falar diretamente com quem toma as decisões na empresa. Se fores tu, recomeça e responde que sim."
+                  data-stop-botao="1">Não</button>
         </div>
       </fieldset>
 
@@ -94,13 +91,14 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
                   data-valor="Sim, consigo investir 50€/dia">Sim, consigo investir 50&euro; por dia para receber 10&ndash;15 pedidos de orçamento</button>
           <button type="button" class="mt-opcao" aria-pressed="false" data-campo="orcamento"
                   data-valor="Não consigo investir 50€/dia"
-                  data-stop="Para te qualificares é necessário conseguires investir pelo menos 50€ por dia em anúncios. Sem esse investimento não conseguimos garantir os resultados.">Não, não consigo investir 50&euro; por dia para fazer crescer o meu negócio</button>
+                  data-stop="Para te qualificares é necessário conseguires investir pelo menos 50€ por dia em anúncios. Sem esse investimento não conseguimos garantir os resultados."
+                  data-stop-nota="Se mudaste de ideias, recomeça o questionário.">Não, não consigo investir 50&euro; por dia para fazer crescer o meu negócio</button>
         </div>
       </fieldset>
 
       <!-- 3 -->
       <fieldset class="mt-passo" data-passo="3" hidden>
-        <legend>Falta só saber quem és.</legend>
+        <legend>Preenche o formulário com os teus dados.</legend>
         <div class="mt-campos">
           <div class="mt-campo">
             <label for="mt-nome">Nome</label>
@@ -133,10 +131,10 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
       <span class="mt-stop-icone" aria-hidden="true">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.4v.01"/></svg>
       </span>
-      <h2>Por agora, não encaixa.</h2>
+      <h2>Por agora, não estás qualificado.</h2>
       <p id="mt-stop-msg"></p>
-      <p class="mt-stop-nota">Se mudaste de ideias, recomeça o questionário.</p>
-      <button type="button" class="mt-recomecar" id="mt-recomecar">Recomeçar</button>
+      <p class="mt-stop-nota" id="mt-stop-nota" hidden></p>
+      <button type="button" class="mt-recomecar" id="mt-recomecar" hidden>Recomeçar</button>
     </div>
   </div>
 </section>
@@ -161,22 +159,27 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   var contador = document.getElementById('mt-contador');
   var voltar   = document.getElementById('mt-voltar');
   var submeter = document.getElementById('mt-submeter');
-  var stop     = document.getElementById('mt-stop');
-  var stopMsg  = document.getElementById('mt-stop-msg');
+  var stop      = document.getElementById('mt-stop');
+  var stopMsg   = document.getElementById('mt-stop-msg');
+  var stopNota  = document.getElementById('mt-stop-nota');
+  var recomecar = document.getElementById('mt-recomecar');
   var atual    = 0;
   var enviado  = false;
   var dados    = {};
 
   // Resposta que desqualifica: o formulário sai de cena e fica só a explicação.
-  function desqualificar(mensagem) {
-    stopMsg.textContent = mensagem;
+  // A nota e o botão de recomeçar são definidos por opção, nos data-*.
+  function desqualificar(botao) {
+    stopMsg.textContent = botao.dataset.stop;
+    var nota = botao.dataset.stopNota || '';
+    stopNota.textContent = nota;
+    stopNota.hidden = !nota;
+    recomecar.hidden = botao.dataset.stopBotao !== '1';
     form.hidden = true;
     stop.hidden = false;
   }
 
-  document.getElementById('mt-recomecar').addEventListener('click', function () {
-    location.reload();
-  });
+  recomecar.addEventListener('click', function () { location.reload(); });
 
   function mostrar(i) {
     atual = i;
@@ -197,7 +200,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
     b.setAttribute('aria-pressed', 'true');
     dados[b.dataset.campo] = b.dataset.valor;
     if (b.dataset.stop) {
-      setTimeout(function () { desqualificar(b.dataset.stop); }, 220);
+      setTimeout(function () { desqualificar(b); }, 220);
       return;
     }
     setTimeout(function () { if (atual < passos.length - 1) mostrar(atual + 1); }, 220);
