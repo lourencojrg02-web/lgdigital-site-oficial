@@ -1045,6 +1045,11 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
 .mt-sub{margin:22px auto 0;max-width:640px;color:#4A525A;
   font-size:clamp(17px,2.5vw,24px);font-weight:500;line-height:1.45;}
 
+/* ---------- Linha de instrução, por cima do formulário ---------- */
+.mt-form-intro{margin:0 auto 22px;max-width:540px;text-align:center;
+  font-size:clamp(17px,2.6vw,21px);font-weight:700;color:var(--preto);
+  letter-spacing:-.018em;line-height:1.4;}
+
 /* ---------- Cartão do formulário ---------- */
 .mt-cartao{max-width:640px;margin:0 auto;background:#fff;border:1px solid #E5E7E5;
   border-radius:22px;box-shadow:0 8px 34px rgba(10,11,12,.08);padding:34px 32px 30px;}
