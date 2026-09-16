@@ -1,22 +1,23 @@
 <!-- ==================== LANDING DE CAMPANHA META ==================== -->
-<!-- Página fechada, sem navegação. O formulário é de três passos e envia para
-     o webhook do Make antes de redirecionar para /meta-book-a-call. -->
+<!-- Página fechada, sem navegação. Formulário de quatro passos que envia para
+     o webhook do Make e depois redireciona para /meta-book-a-call. -->
 
 <p class="mt-barra">Consegue mais clientes de forma previsível</p>
 
 <main class="mt-hero mt-hero--solo">
   <div class="wrap">
-    <h1 class="mt-h1">10&ndash;15 pedidos de orçamento de AVAC por mês.
-      <em>Garantido!</em></h1>
-    <p class="mt-sub">Ou continuamos a trabalhar de graça no mês seguinte.</p>
+    <h1 class="mt-h1">Top 3 no Google em 90 dias.
+      <em>Ou continuamos a trabalhar de graça.</em></h1>
+    <p class="mt-sub">Colocamos negócios locais de serviços no top 3 do Google
+      Maps. Sem fidelização. Sem desculpas de 12 meses.</p>
   </div>
 </main>
 
 <section class="wrap" style="padding-bottom:16px">
   <div class="mt-cartao">
     <form id="mt-form" novalidate>
-      <div class="mt-progresso"><span id="mt-barra-progresso" style="width:33%"></span></div>
-      <p class="mt-passo-num" id="mt-contador">Pergunta 1 de 3</p>
+      <div class="mt-progresso"><span id="mt-barra-progresso" style="width:25%"></span></div>
+      <p class="mt-passo-num" id="mt-contador">Passo 1 de 4</p>
 
       <!-- 1 -->
       <fieldset class="mt-passo" data-passo="1">
@@ -31,36 +32,61 @@
 
       <!-- 2 -->
       <fieldset class="mt-passo" data-passo="2" hidden>
-        <legend>Para trabalharmos contigo, é preciso poderes investir pelo menos
-          50&euro; por dia em anúncios. Isso encaixa no teu orçamento?</legend>
-        <div class="mt-opcoes">
-          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="orcamento"
-                  data-valor="Sim, consigo investir 50€/dia">Sim, consigo investir 50&euro; por dia para receber 10&ndash;15 pedidos de orçamento</button>
-          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="orcamento"
-                  data-valor="Não consigo investir 50€/dia"
-                  data-stop="Para te qualificares é necessário conseguires investir pelo menos 50€ por dia em anúncios. Sem esse investimento não conseguimos garantir os resultados."
-                  data-stop-nota="Se mudaste de ideias, recomeça o questionário.">Não, não consigo investir 50&euro; por dia para fazer crescer o meu negócio</button>
+        <legend>Qual é a tua área e onde trabalhas?</legend>
+        <div class="mt-campos">
+          <div class="mt-campo">
+            <label for="mt-area">Área de negócio</label>
+            <input id="mt-area" name="area" type="text" required
+                   placeholder="AVAC, canalização, remodelações&hellip;">
+            <span class="mt-erro" id="mt-area-erro" hidden>Diz-nos o que fazes.</span>
+          </div>
+          <div class="mt-campo">
+            <label for="mt-zona">Onde trabalhas</label>
+            <input id="mt-zona" name="zona" type="text" required
+                   placeholder="Cidade ou zona que serves">
+            <span class="mt-erro" id="mt-zona-erro" hidden>Diz-nos a tua zona.</span>
+          </div>
+        </div>
+        <div class="mt-enviar">
+          <button type="button" class="btn btn--azul" data-avancar>Continuar <span aria-hidden="true">&rarr;</span></button>
         </div>
       </fieldset>
 
       <!-- 3 -->
       <fieldset class="mt-passo" data-passo="3" hidden>
+        <legend>Já tens Perfil de Empresa no Google?</legend>
+        <div class="mt-opcoes">
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="gbp" data-valor="Sim">Sim, já tenho</button>
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="gbp" data-valor="Não">Não, ainda não criei</button>
+          <button type="button" class="mt-opcao" aria-pressed="false" data-campo="gbp" data-valor="Não sei">Não sei</button>
+        </div>
+      </fieldset>
+
+      <!-- 4 -->
+      <fieldset class="mt-passo" data-passo="4" hidden>
         <legend>Preenche o formulário com os teus dados.</legend>
         <div class="mt-campos">
           <div class="mt-campo">
             <label for="mt-nome">Nome</label>
             <input id="mt-nome" name="nome" type="text" autocomplete="name" required>
-            <span class="mt-erro" id="mt-erro-nome" hidden>Escreve o teu nome.</span>
+            <span class="mt-erro" id="mt-nome-erro" hidden>Escreve o teu nome.</span>
+          </div>
+          <div class="mt-campo">
+            <label for="mt-empresa">Nome da empresa</label>
+            <input id="mt-empresa" name="empresa" type="text" autocomplete="organization" required>
+            <span class="mt-erro" id="mt-empresa-erro" hidden>Escreve o nome da empresa.</span>
           </div>
           <div class="mt-campo">
             <label for="mt-email">Email</label>
-            <input id="mt-email" name="email" type="email" autocomplete="email" inputmode="email" required>
-            <span class="mt-erro" id="mt-erro-email" hidden>Escreve um email válido.</span>
+            <input id="mt-email" name="email" type="email" autocomplete="email"
+                   inputmode="email" data-tipo="email" required>
+            <span class="mt-erro" id="mt-email-erro" hidden>Escreve um email válido.</span>
           </div>
           <div class="mt-campo">
             <label for="mt-telefone">Número de telefone</label>
-            <input id="mt-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required>
-            <span class="mt-erro" id="mt-erro-telefone" hidden>Escreve um número de telefone válido.</span>
+            <input id="mt-telefone" name="telefone" type="tel" autocomplete="tel"
+                   inputmode="tel" data-tipo="telefone" required>
+            <span class="mt-erro" id="mt-telefone-erro" hidden>Escreve um número de telefone válido.</span>
           </div>
         </div>
         <div class="mt-enviar">
@@ -86,6 +112,44 @@
   </div>
 </section>
 
+<section class="mt-provas-sec">
+  <div class="wrap">
+    <h2 class="mt-provas-titulo">Não é promessa. É o que já fizemos.</h2>
+    <p class="mt-provas-sub">Capturas dos painéis de medição das contas que
+      gerimos. Cada grelha tem 81 pontos medidos à volta da morada do negócio.</p>
+
+    <div class="mt-provas">
+      <figure class="mt-prova">
+        <img width="820" height="804" src="{{base}}assets/img/resultados/casa-heatmap.webp" alt="Painel de posições da Casa em Ordem: 1.º lugar na posição média, no top 3% e na quota de mercado" loading="lazy">
+        <figcaption><b>Casa em Ordem &middot; Porto</b>
+          1.º lugar em tudo para &ldquo;remodelação&rdquo;: posição média,
+          top 3% e 100% de quota de mercado.</figcaption>
+      </figure>
+
+      <figure class="mt-prova">
+        <img width="940" height="502" src="{{base}}assets/img/resultados/hca-heatmap.webp" alt="Painel de posições do Humberto Conde Arquitectos em Lisboa" loading="lazy">
+        <figcaption><b>Humberto Conde Arquitectos &middot; Lisboa</b>
+          1.º na posição média e 85% de quota de mercado em
+          &ldquo;arquitecto lisboa&rdquo;, entre 210 concorrentes.</figcaption>
+      </figure>
+
+      <figure class="mt-prova">
+        <img width="940" height="573" src="{{base}}assets/img/resultados/arq501-heatmap.webp" alt="Painel de posições da Arquitetura 501 em Braga" loading="lazy">
+        <figcaption><b>Arquitetura 501 &middot; Braga</b>
+          Top 3 em 30 dias para &ldquo;arquiteto braga&rdquo;, com 80% de
+          quota num mercado de 89 empresas.</figcaption>
+      </figure>
+
+      <figure class="mt-prova">
+        <img width="873" height="492" src="{{base}}assets/img/resultados/arq501-google.webp" alt="Resultados do Google para arquiteto Braga com a Arquitetura 501 no mapa" loading="lazy">
+        <figcaption><b>O resultado, no Google</b>
+          É isto que um cliente vê ao pesquisar &ldquo;arquiteto Braga&rdquo;
+          &mdash; com o botão de chamada à distância de um toque.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <footer class="mt-rodape">
   &copy; 2026 LGDigital<span>&middot;</span>
   <a href="{{base}}pp/">Política de Privacidade</a><span>&middot;</span>
@@ -100,19 +164,29 @@
   var ENDPOINT = 'https://hook.eu2.make.com/disc455j6scbd13n7ccv87px1wxvt90x';
   var DESTINO  = '{{base}}meta-book-a-call/';
 
-  var form     = document.getElementById('mt-form');
-  var passos   = Array.prototype.slice.call(form.querySelectorAll('.mt-passo'));
-  var barra    = document.getElementById('mt-barra-progresso');
-  var contador = document.getElementById('mt-contador');
-  var voltar   = document.getElementById('mt-voltar');
-  var submeter = document.getElementById('mt-submeter');
+  var form      = document.getElementById('mt-form');
+  var passos    = Array.prototype.slice.call(form.querySelectorAll('.mt-passo'));
+  var barra     = document.getElementById('mt-barra-progresso');
+  var contador  = document.getElementById('mt-contador');
+  var voltar    = document.getElementById('mt-voltar');
+  var submeter  = document.getElementById('mt-submeter');
   var stop      = document.getElementById('mt-stop');
   var stopMsg   = document.getElementById('mt-stop-msg');
   var stopNota  = document.getElementById('mt-stop-nota');
   var recomecar = document.getElementById('mt-recomecar');
-  var atual    = 0;
-  var enviado  = false;
-  var dados    = {};
+  var atual     = 0;
+  var enviado   = false;
+  var dados     = {};
+
+  function mostrar(i) {
+    atual = i;
+    passos.forEach(function (p, n) { p.hidden = n !== i; });
+    barra.style.width = Math.round((i + 1) / passos.length * 100) + '%';
+    contador.textContent = 'Passo ' + (i + 1) + ' de ' + passos.length;
+    voltar.hidden = i === 0;
+    var foco = passos[i].querySelector('input, .mt-opcao');
+    if (foco && i > 0) foco.focus({ preventScroll: true });
+  }
 
   // Resposta que desqualifica: o formulário sai de cena e fica só a explicação.
   // A nota e o botão de recomeçar são definidos por opção, nos data-*.
@@ -128,63 +202,61 @@
 
   recomecar.addEventListener('click', function () { location.reload(); });
 
-  function mostrar(i) {
-    atual = i;
-    passos.forEach(function (p, n) { p.hidden = n !== i; });
-    barra.style.width = Math.round((i + 1) / passos.length * 100) + '%';
-    contador.textContent = 'Pergunta ' + (i + 1) + ' de ' + passos.length;
-    voltar.hidden = i === 0;
-    var foco = passos[i].querySelector('.mt-opcao, input');
-    if (foco && i > 0) foco.focus({ preventScroll: true });
+  function validaCampo(inp) {
+    var v = inp.value.trim();
+    if (inp.dataset.tipo === 'email')    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    if (inp.dataset.tipo === 'telefone') return v.replace(/\D/g, '').length >= 9;
+    return v.length >= 2;
   }
 
-  // Escolher uma opção marca-a e avança sozinho
+  function validaPasso(i) {
+    var ok = true, primeiro = null;
+    Array.prototype.forEach.call(passos[i].querySelectorAll('input[required]'), function (inp) {
+      var bom = validaCampo(inp);
+      inp.setAttribute('aria-invalid', bom ? 'false' : 'true');
+      var erro = document.getElementById(inp.id + '-erro');
+      if (erro) erro.hidden = bom;
+      if (!bom && !primeiro) primeiro = inp;
+      ok = ok && bom;
+    });
+    if (primeiro) primeiro.focus();
+    return ok;
+  }
+
   form.addEventListener('click', function (e) {
+    // escolher uma opção marca-a e avança sozinho
     var b = e.target.closest('.mt-opcao');
-    if (!b) return;
-    var grupo = b.closest('.mt-opcoes').querySelectorAll('.mt-opcao');
-    Array.prototype.forEach.call(grupo, function (o) { o.setAttribute('aria-pressed', 'false'); });
-    b.setAttribute('aria-pressed', 'true');
-    dados[b.dataset.campo] = b.dataset.valor;
-    if (b.dataset.stop) {
-      setTimeout(function () { desqualificar(b); }, 220);
+    if (b) {
+      var grupo = b.closest('.mt-opcoes').querySelectorAll('.mt-opcao');
+      Array.prototype.forEach.call(grupo, function (o) { o.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      dados[b.dataset.campo] = b.dataset.valor;
+      if (b.dataset.stop) {
+        setTimeout(function () { desqualificar(b); }, 220);
+        return;
+      }
+      setTimeout(function () { if (atual < passos.length - 1) mostrar(atual + 1); }, 220);
       return;
     }
-    setTimeout(function () { if (atual < passos.length - 1) mostrar(atual + 1); }, 220);
+    // passos com campos de texto avançam pelo botão
+    if (e.target.closest('[data-avancar]') && validaPasso(atual)) mostrar(atual + 1);
   });
 
   voltar.addEventListener('click', function () { if (atual > 0) mostrar(atual - 1); });
 
-  function valida() {
-    var ok = true;
-    [['mt-nome', function (v) { return v.trim().length >= 2; }],
-     ['mt-email', function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }],
-     ['mt-telefone', function (v) { return v.replace(/\D/g, '').length >= 9; }]
-    ].forEach(function (par) {
-      var campo = document.getElementById(par[0]);
-      var erro  = document.getElementById('mt-erro-' + par[0].replace('mt-', ''));
-      var bom   = par[1](campo.value);
-      campo.setAttribute('aria-invalid', bom ? 'false' : 'true');
-      erro.hidden = bom;
-      if (!bom && ok) campo.focus();
-      ok = ok && bom;
-    });
-    return ok;
-  }
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (enviado || !valida()) return;
+    if (enviado || !validaPasso(atual)) return;
     enviado = true;
     submeter.textContent = 'A enviar…';
     submeter.disabled = true;
 
-    dados.nome     = document.getElementById('mt-nome').value.trim();
-    dados.email    = document.getElementById('mt-email').value.trim();
-    dados.telefone = document.getElementById('mt-telefone').value.trim();
-    dados.origem   = 'lgdigital.pt/meta';
-    dados.url      = location.href;
-    dados.data     = new Date().toISOString();
+    Array.prototype.forEach.call(form.querySelectorAll('input[name]'), function (inp) {
+      dados[inp.name] = inp.value.trim();
+    });
+    dados.origem = 'lgdigital.pt/meta';
+    dados.url    = location.href;
+    dados.data   = new Date().toISOString();
 
     // A conversão Lead dispara na /meta-book-a-call, não aqui.
     // Form-encoded evita o pedido de preflight; keepalive garante a entrega

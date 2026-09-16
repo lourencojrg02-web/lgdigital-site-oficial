@@ -82,8 +82,8 @@ PAGES = [
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
-         title="10-15 pedidos de orçamento de AVAC por mês | LGDigital",
-         desc="Garantimos 10 a 15 pedidos de orçamento de AVAC por mês, ou continuamos a trabalhar de graça. Responde a duas perguntas e vê se a tua empresa qualifica."),
+         title="Top 3 no Google em 90 dias, garantido | LGDigital",
+         desc="Colocamos negócios locais de serviços no top 3 do Google Maps em 90 dias, ou continuamos a trabalhar de graça. Sem fidelização. Vê se a tua empresa qualifica."),
 
     dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../",
          body="tema-meta", noindex=True,

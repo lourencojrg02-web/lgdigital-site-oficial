@@ -1117,6 +1117,26 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
   transition:border-color .18s ease;}
 .mt-recomecar:hover{border-color:var(--azul);color:var(--azul);}
 
+/* ---------- Prova social (fundo claro) ---------- */
+.mt-provas-sec{padding:64px 0 16px;}
+.mt-provas-titulo{margin:0 0 8px;text-align:center;color:var(--preto);
+  font-size:clamp(23px,3.6vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.15;}
+.mt-provas-sub{margin:0 auto 38px;max-width:560px;text-align:center;
+  font-size:16.5px;color:#5C646B;line-height:1.55;}
+.mt-provas{display:grid;gap:20px;max-width:940px;margin:0 auto;align-items:start;}
+@media(min-width:860px){.mt-provas{grid-template-columns:repeat(2,1fr);}}
+.mt-prova{margin:0;background:#fff;border:1px solid #E5E7E5;border-radius:18px;
+  padding:14px;box-shadow:0 4px 18px rgba(10,11,12,.06);}
+.mt-prova img{width:100%;height:auto;display:block;border-radius:11px;border:1px solid #EDEFF1;}
+.mt-prova figcaption{margin-top:14px;padding:0 4px 4px;font-size:14.5px;
+  color:#5C646B;line-height:1.5;}
+.mt-prova figcaption b{display:block;color:var(--preto);font-size:15.5px;
+  letter-spacing:-.01em;margin-bottom:3px;}
+@media(max-width:640px){
+  .mt-provas-sec{padding:44px 0 8px;}
+  .mt-prova{padding:10px;border-radius:15px;}
+}
+
 /* ---------- Cartão do calendário ---------- */
 .mt-cal{max-width:940px;margin:0 auto;background:#fff;border:1px solid #E5E7E5;
   border-radius:22px;box-shadow:0 8px 34px rgba(10,11,12,.08);padding:12px;overflow:hidden;}
