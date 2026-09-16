@@ -1041,7 +1041,7 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
    e 30px ficava pequeno para um título de landing */
 .mt-h1{color:var(--preto);font-size:clamp(34px,7vw,58px);font-weight:800;
   letter-spacing:-.035em;line-height:1.08;margin:0;}
-.mt-h1 em{font-style:normal;color:var(--azul);}
+.mt-h1 em{font-style:italic;color:inherit;}
 .mt-sub{margin:22px auto 0;max-width:640px;color:#4A525A;
   font-size:clamp(17px,2.5vw,24px);font-weight:500;line-height:1.45;}
 
@@ -1136,6 +1136,14 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
   .mt-provas-sec{padding:44px 0 8px;}
   .mt-prova{padding:10px;border-radius:15px;}
 }
+
+/* ---------- Chamada para ação depois da prova social ---------- */
+.mt-cta{display:flex;flex-direction:column;align-items:center;gap:18px;
+  margin:46px auto 0;text-align:center;}
+.mt-cta p{margin:0;font-size:clamp(19px,3vw,25px);font-weight:800;
+  color:var(--preto);letter-spacing:-.025em;}
+@media(min-width:660px){.mt-cta{flex-direction:row;justify-content:center;gap:26px;}}
+@media(max-width:640px){.mt-cta{margin-top:34px;} .mt-cta .btn{width:100%;}}
 
 /* ---------- Cartão do calendário ---------- */
 .mt-cal{max-width:940px;margin:0 auto;background:#fff;border:1px solid #E5E7E5;
