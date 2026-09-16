@@ -302,9 +302,20 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 
   voltar.addEventListener('click', function () { if (atual > 0) mostrar(atual - 1); });
 
+  // Enter num campo de texto aciona o botão de submeter do último passo, mesmo
+  // estando escondido. Nos passos intermédios, Enter passa a significar
+  // "continuar" em vez de enviar o formulário.
+  form.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') return;
+    if (atual === passos.length - 1) return;
+    e.preventDefault();
+    if (validaPasso(atual)) mostrar(atual + 1);
+  });
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (enviado || !validaPasso(atual)) return;
+    // segunda barreira: só o último passo pode enviar
+    if (enviado || atual !== passos.length - 1 || !validaPasso(atual)) return;
     enviado = true;
     submeter.textContent = 'A enviar…';
     submeter.disabled = true;
