@@ -1041,7 +1041,7 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
    e 30px ficava pequeno para um título de landing */
 .mt-h1{color:var(--preto);font-size:clamp(34px,7vw,58px);font-weight:800;
   letter-spacing:-.035em;line-height:1.08;margin:0;}
-.mt-h1 em{font-style:italic;color:inherit;}
+.mt-h1 em{font-style:normal;color:var(--azul);}
 .mt-sub{margin:22px auto 0;max-width:640px;color:#4A525A;
   font-size:clamp(17px,2.5vw,24px);font-weight:500;line-height:1.45;}
 
