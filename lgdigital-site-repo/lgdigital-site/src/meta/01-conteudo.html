@@ -92,7 +92,9 @@
           </div>
         </div>
         <div class="mt-enviar">
-          <button type="submit" class="btn btn--azul" id="mt-submeter">Enviar</button>
+          <!-- type="button" de propósito: sem botão de submissão, o browser
+               deixa de poder enviar o formulário ao carregar em Enter -->
+          <button type="button" class="btn btn--azul" id="mt-submeter">Enviar</button>
         </div>
         <p class="mt-rodape-form">Ao enviares, aceitas que te contactemos sobre este pedido.
           Vê a <a href="{{base}}pp/">Política de Privacidade</a>.</p>
@@ -158,7 +160,8 @@
 <footer class="mt-rodape">
   &copy; 2026 LGDigital<span>&middot;</span>
   <a href="{{base}}pp/">Política de Privacidade</a><span>&middot;</span>
-  <a href="{{base}}tc/">Termos e Condições</a>
+  <a href="{{base}}tc/">Termos e Condições</a><span>&middot;</span>
+  <span class="mt-versao">v3</span>
 </footer>
 
 <script>
@@ -259,9 +262,8 @@
     if (validaPasso(atual)) mostrar(atual + 1);
   });
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    // segunda barreira: só o último passo pode enviar
+  function enviar() {
+    // só o último passo pode enviar, e só uma vez
     if (enviado || atual !== passos.length - 1 || !validaPasso(atual)) return;
     enviado = true;
     submeter.textContent = 'A enviar…';
@@ -286,7 +288,11 @@
     var seguir = function () { window.location.href = DESTINO; };
     setTimeout(seguir, 2500);          // rede lenta não pode prender ninguém
     pedido.then(seguir, seguir);
-  });
+  }
+
+  submeter.addEventListener('click', enviar);
+  // rede de segurança: se algo ainda disparar submit, não deixa o browser navegar
+  form.addEventListener('submit', function (e) { e.preventDefault(); enviar(); });
 
   mostrar(0);
 })();
