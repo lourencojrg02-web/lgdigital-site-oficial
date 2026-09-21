@@ -83,7 +83,7 @@ PAGES = [
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
          title="Top 3 no Google em 90 dias, garantido | LGDigital",
-         desc="Colocamos negócios locais de serviços no top 3 do Google Maps em 90 dias. Se não chegarmos lá, pagamos-te 500€. Vê se a tua empresa qualifica."),
+         desc="Colocamos negócios locais de serviços no top 3 do Google Maps em 90 dias. Se não chegarmos lá, pagamos-te 500€. Vê se a tua empresa se qualifica."),
 
     dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../",
          body="tema-meta", noindex=True,
