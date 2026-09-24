@@ -92,6 +92,14 @@ PAGES = [
          # Única conversão do site. Dispara a seguir ao PageView, já com o fbq definido.
          head="<script>window.fbq && fbq('track', 'Lead');</script>"),
 
+    # Mesma página, para quem vem do Instant Form do Meta. Sem `head`, de
+    # propósito: esse tráfego já foi contado como lead pelo próprio Meta,
+    # e disparar o evento outra vez duplicava a conversão.
+    dict(out="instant-form-book-a-call/index.html", src="instant-form-book-a-call",
+         base="../", home="../", body="tema-meta", noindex=True,
+         title="Marca a tua chamada | LGDigital",
+         desc="Recebemos o teu pedido. Escolhe uma hora para falarmos."),
+
     dict(out="404.html", src="404", base="/", home="/", body="tema-home", noindex=True,
          title="Página não encontrada — LGDigital",
          desc="A página que procuras não existe."),
