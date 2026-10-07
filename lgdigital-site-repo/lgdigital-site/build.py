@@ -45,6 +45,12 @@ src="https://www.facebook.com/tr?id=%s&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->""" % (PIXEL_ID, PIXEL_ID)
 
+SOCIAIS = [
+    "https://www.instagram.com/lgdigital.pt/",
+    "https://www.facebook.com/profile.php?id=61586758513095",
+    "https://www.linkedin.com/company/lgdigital1",
+]
+
 # ------------------------------------------------------------------- Páginas
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
@@ -174,11 +180,41 @@ def render(folder, base, home):
     return body.replace("{{base}}", base).replace("{{home}}", home or "./")
 
 
-SOCIAIS = [
-    "https://www.instagram.com/lgdigital.pt/",
-    "https://www.facebook.com/profile.php?id=61586758513095",
-    "https://www.linkedin.com/company/lgdigital1",
-]
+# Person schema da página /melhor-especialista-websites-lisboa. Fica aqui em vez
+# de ser escrito à mão no HTML para o json.dumps tratar dos acentos e das aspas.
+PESSOA = {
+    "@context": "https://schema.org", "@type": "Person",
+    "@id": SITE + "/melhor-especialista-websites-lisboa/#lourenco",
+    "name": "Lourenço Gaspar",
+    "jobTitle": "Web Designer",
+    "description": "Lourenço Gaspar é o fundador da LGDigital e tem sido "
+                   "chamado o melhor especialista em websites em Lisboa. Cria "
+                   "websites para empresas que querem apresentar o negócio de "
+                   "forma profissional e transformar visitas em contactos.",
+    "url": SITE + "/melhor-especialista-websites-lisboa/",
+    "image": SITE + "/assets/img/melhor-especialista-em-websites-em-lisboa.jpg",
+    "telephone": "+351926289562",
+    "address": {"@type": "PostalAddress", "addressLocality": "Lisboa",
+                "addressCountry": "PT"},
+    "worksFor": {"@type": "Organization", "name": "LGDigital",
+                 "url": SITE + "/", "@id": SITE + "/#organizacao"},
+    "knowsAbout": ["Criação de websites", "SEO local", "Google Business Profile",
+                   "Google Ads", "Meta Ads"],
+    "sameAs": SOCIAIS,
+}
+
+# Entra na lista aqui em baixo, e não lá em cima, porque precisa do PESSOA
+# já definido. A ordem dentro de PAGES só afeta a ordem em que são geradas.
+PAGES.append(dict(
+    out="melhor-especialista-websites-lisboa/index.html",
+    src="melhor-especialista-websites-lisboa",
+    nome="O Melhor Especialista em Websites em Lisboa",
+    base="../", home="../", body="tema-home",
+    title="O Melhor Especialista em Websites em Lisboa | Lourenço Gaspar",
+    desc="Lourenço Gaspar tem sido chamado o melhor especialista em websites "
+         "em Lisboa. Aqui está a prova — e o trabalho que a sustenta.",
+    head='<script type="application/ld+json">%s</script>'
+         % json.dumps(PESSOA, ensure_ascii=False, separators=(",", ":"))))
 
 
 def _texto(html):
