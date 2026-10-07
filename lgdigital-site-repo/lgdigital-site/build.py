@@ -180,19 +180,19 @@ def render(folder, base, home):
     return body.replace("{{base}}", base).replace("{{home}}", home or "./")
 
 
-# Person schema da página /melhor-especialista-websites-lisboa. Fica aqui em vez
+# Person schema da página /melhor-web-designer-lisboa. Fica aqui em vez
 # de ser escrito à mão no HTML para o json.dumps tratar dos acentos e das aspas.
 PESSOA = {
     "@context": "https://schema.org", "@type": "Person",
-    "@id": SITE + "/melhor-especialista-websites-lisboa/#lourenco",
+    "@id": SITE + "/melhor-web-designer-lisboa/#lourenco",
     "name": "Lourenço Gaspar",
     "jobTitle": "Web Designer",
     "description": "Lourenço Gaspar é o fundador da LGDigital e tem sido "
-                   "chamado o melhor especialista em websites em Lisboa. Cria "
-                   "websites para empresas que querem apresentar o negócio de "
-                   "forma profissional e transformar visitas em contactos.",
-    "url": SITE + "/melhor-especialista-websites-lisboa/",
-    "image": SITE + "/assets/img/melhor-especialista-em-websites-em-lisboa.jpg",
+                   "chamado o melhor web designer em Lisboa. Cria websites "
+                   "para empresas que querem apresentar o negócio de forma "
+                   "profissional e transformar visitas em contactos.",
+    "url": SITE + "/melhor-web-designer-lisboa/",
+    "image": SITE + "/assets/img/melhor-web-designer-em-lisboa.jpg",
     "telephone": "+351926289562",
     "address": {"@type": "PostalAddress", "addressLocality": "Lisboa",
                 "addressCountry": "PT"},
@@ -206,13 +206,13 @@ PESSOA = {
 # Entra na lista aqui em baixo, e não lá em cima, porque precisa do PESSOA
 # já definido. A ordem dentro de PAGES só afeta a ordem em que são geradas.
 PAGES.append(dict(
-    out="melhor-especialista-websites-lisboa/index.html",
-    src="melhor-especialista-websites-lisboa",
-    nome="O Melhor Especialista em Websites em Lisboa",
+    out="melhor-web-designer-lisboa/index.html",
+    src="melhor-web-designer-lisboa",
+    nome="O Melhor Web Designer em Lisboa",
     base="../", home="../", body="tema-home",
-    title="O Melhor Especialista em Websites em Lisboa | Lourenço Gaspar",
-    desc="Lourenço Gaspar tem sido chamado o melhor especialista em websites "
-         "em Lisboa. Aqui está a prova — e o trabalho que a sustenta.",
+    title="O Melhor Web Designer em Lisboa | Lourenço Gaspar",
+    desc="Lourenço Gaspar tem sido chamado o melhor web designer em Lisboa. "
+         "Aqui está a prova — e o trabalho que a sustenta.",
     head='<script type="application/ld+json">%s</script>'
          % json.dumps(PESSOA, ensure_ascii=False, separators=(",", ":"))))
 
