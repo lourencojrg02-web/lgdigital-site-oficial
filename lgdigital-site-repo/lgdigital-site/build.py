@@ -54,8 +54,8 @@ SOCIAIS = [
 # ------------------------------------------------------------------- Páginas
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
-         title="Agência de Google Ads e Meta Ads em Lisboa | LGDigital",
-         desc="Gerimos Google Ads e Meta Ads para negócios locais em Portugal. 10 a 15 pedidos de orçamento por mês, primeiros contactos em 48 horas, uma empresa por cidade e setor."),
+         title="Anúncios que trazem clientes | LGDigital",
+         desc="10 a 15 pedidos de orçamento por mês para empresas que querem crescer. Primeiros contactos em 48 horas, uma empresa por cidade e setor, sem fidelização."),
 
     dict(out="hvac/index.html", src="hvac", nome="Google e Meta Ads para AVAC", base="../", home="../",
          title="Google e Meta Ads para empresas de AVAC | LGDigital",
@@ -138,7 +138,7 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:image" content="{site}/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="LGDigital — marketing digital para negócios locais">
+<meta property="og:image:alt" content="LGDigital — anúncios que trazem clientes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">

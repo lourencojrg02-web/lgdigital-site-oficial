@@ -1601,3 +1601,67 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
 /* cabeçalho sem desfoque nem transparência: linha simples, como no leadarc */
 .tema-home .site-header,.tema-home .hm-header{background:#fff;backdrop-filter:none;
   border-bottom:1px solid #E8EAED;}
+
+/* ==========================================================================
+   Tokens medidos no leadarc.io (getComputedStyle, não a olho):
+     fundo #FCFCFC · texto #171717 · títulos peso 600, letter-spacing -.022em
+     cartões: borda .8px #DEDEDE, raio 16px, halo liso 0 0 0 5px #FAFAFA
+     botões: 13px, peso 500, raio 10px, sem sombra
+   Só se aplica a .tema-home, para não mexer nas landings nem nas legais.
+   ========================================================================== */
+
+.tema-home{background:#FCFCFC;color:#3F3F3F;}
+.tema-home .hm-sec,.tema-home .hm-hero,.tema-home .res{background:transparent;}
+/* as secções "cinza" deixam de ser cinzentas: o fundo já é quente */
+.tema-home .hm-sec--cinza{background:#F6F6F6;}
+
+/* --- Títulos: peso 600, não 800. É o que mais mudava o aspeto --- */
+.tema-home h1,.tema-home h2,.tema-home h3,
+.tema-home .hm-h1,.tema-home .hm-h2,.tema-home .res-h2,
+.tema-home .res-dest-h3,.tema-home .cf-texto h3,
+.tema-home .ben-card h3,.tema-home .res-card h3,.tema-home .enc-cab{
+  font-weight:600;color:#171717;letter-spacing:-.022em;}
+.tema-home .hm-h1{line-height:1.12;}
+.tema-home .hm-h2,.tema-home .res-h2{font-size:clamp(25px,3.4vw,31px);line-height:1.12;}
+.tema-home .res-dest-h3{font-size:clamp(24px,3.6vw,34px);line-height:1.14;}
+.tema-home .calc-num b,.tema-home .res-num b,.tema-home .calc-destaque b,
+.tema-home .mq-kpi b,.tema-home .calc-rotulo b{font-weight:600;letter-spacing:-.03em;}
+.tema-home .hm-etiqueta,.tema-home .res-pill,.tema-home .res-eti,
+.tema-home .cf-num,.tema-home .barra-texto{font-weight:600;}
+
+/* --- Botões: pequenos e discretos, como os deles --- */
+.tema-home .btn{font-size:13.5px;font-weight:500;padding:11px 18px;border-radius:10px;
+  letter-spacing:normal;box-shadow:none;}
+.tema-home .btn:hover{transform:none;}
+.tema-home .btn--azul{background-image:none;background-color:var(--azul);
+  transition:background-color .16s ease;}
+.tema-home .btn--azul:hover,.tema-home .btn--azul:focus-visible{
+  background-color:#0076D1;box-shadow:none;}
+.tema-home .btn--contorno{border:1px solid #DEDEDE;background:#fff;}
+.tema-home .btn--contorno:hover{border-color:#C4C4C4;}
+.tema-home .btn--bloco{width:100%;padding:13px 18px;}
+.tema-home .barra-btn{font-size:12px;font-weight:500;}
+
+/* --- Cartões: borda fina + halo liso, sem desfoque --- */
+.tema-home .ben-card,.tema-home .enc-col,.tema-home .calc-campos,
+.tema-home .res-card,.tema-home .res-destaque,.tema-home .mq,
+.tema-home .hm-faq details,.tema-home .cmp tbody tr{
+  background:#fff;border:.8px solid #DEDEDE;border-radius:16px;
+  box-shadow:0 0 0 5px #FAFAFA;}
+.tema-home .ben-card:hover,.tema-home .res-card:hover{
+  border-color:#C4C4C4;box-shadow:0 0 0 5px #F3F3F3;}
+/* o halo precisa de folga entre cartões, senão os anéis tocam-se */
+.tema-home .ben,.tema-home .res-grelha,.tema-home .enc{gap:22px;}
+.tema-home .res-grelha{margin-top:22px;}
+.tema-home .hm-faq{gap:18px;}
+
+/* --- Pormenores --- */
+.tema-home .hm-pill,.tema-home .res-pill{border:.8px solid #DEDEDE;background:#fff;
+  box-shadow:0 0 0 5px #FAFAFA;}
+.tema-home .ben-icone{background:#F4F4F4;color:#171717;border-radius:9px;}
+.tema-home .cf-num{background:#171717;border-radius:9px;}
+.tema-home .res-num--forte{background:#0A0A0A;}
+.tema-home .calc-saida{background:#0A0A0A;border-radius:16px;}
+.tema-home .res-numeros{border-color:#DEDEDE;background:#DEDEDE;}
+.tema-home .hm-lede,.tema-home .hm-sub{color:#6B6B6B;}
+.tema-home .ben-card p,.tema-home .cf-texto p,.tema-home .cmp td{color:#5B5B5B;}
