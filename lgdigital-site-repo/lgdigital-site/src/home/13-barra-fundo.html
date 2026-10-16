@@ -1,0 +1,18 @@
+<!-- ==================== BARRA FIXA (fundo) ==================== -->
+<!-- Acompanha o visitante até ao fim da página. Esconde-se quando a secção
+     de agendar está à vista — não faz sentido um botão para o calendário
+     por cima do próprio calendário. -->
+<a class="barra-fundo" href="#agendar" id="barra-fundo">
+  Agenda uma chamada grátis <span aria-hidden="true">&rsaquo;</span>
+</a>
+
+<script>
+(function () {
+  var barra = document.getElementById('barra-fundo');
+  var alvo  = document.getElementById('agendar');
+  if (!barra || !alvo || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entradas) {
+    barra.classList.toggle('barra-fundo--fora', entradas[0].isIntersecting);
+  }, { threshold: 0.12 }).observe(alvo);
+})();
+</script>

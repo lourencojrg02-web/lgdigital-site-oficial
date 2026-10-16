@@ -1,0 +1,126 @@
+<!-- ==================== CALCULADORA DE RETORNO ==================== -->
+<!-- Projeção, não promessa. Os números são do próprio visitante; a conta é
+     aritmética simples e os pressupostos estão à vista. O aviso no fim não é
+     decorativo: é o que impede isto de ser lido como uma garantia. -->
+<section class="hm-sec" id="calculadora">
+  <div class="wrap">
+    <p class="hm-etiqueta">Faz as contas</p>
+    <h2 class="hm-h2">Quanto é que isto te pode valer?</h2>
+    <p class="hm-sub">Mete os números do teu negócio. A conta é simples e está
+      toda à vista &mdash; podes refazê-la num guardanapo.</p>
+
+    <div class="calc">
+      <form class="calc-campos" id="calc">
+        <p class="calc-titulo">Os teus números</p>
+
+        <label class="calc-campo">
+          <span class="calc-rotulo">Investimento mensal em anúncios
+            <b id="c-orcamento">600 €</b></span>
+          <input type="range" id="orcamento" min="200" max="5000" step="50" value="600">
+          <span class="calc-limites"><i>200 €</i><i>5.000 €</i></span>
+        </label>
+
+        <label class="calc-campo">
+          <span class="calc-rotulo">Custo por contacto
+            <b id="c-cpl">25 €</b></span>
+          <input type="range" id="cpl" min="5" max="120" step="1" value="25">
+          <span class="calc-limites"><i>5 €</i><i>120 €</i></span>
+        </label>
+
+        <label class="calc-campo">
+          <span class="calc-rotulo">Contactos que fechas
+            <b id="c-fecho">20%</b></span>
+          <input type="range" id="fecho" min="5" max="60" step="1" value="20">
+          <span class="calc-limites"><i>5%</i><i>60%</i></span>
+        </label>
+
+        <label class="calc-campo">
+          <span class="calc-rotulo">Valor médio de um cliente
+            <b id="c-ticket">1.200 €</b></span>
+          <input type="range" id="ticket" min="100" max="25000" step="100" value="1200">
+          <span class="calc-limites"><i>100 €</i><i>25.000 €</i></span>
+        </label>
+      </form>
+
+      <div class="calc-saida">
+        <p class="calc-titulo">Projeção mensal</p>
+
+        <div class="calc-grelha">
+          <div class="calc-num"><b id="r-leads">24</b><span>Contactos</span></div>
+          <div class="calc-num"><b id="r-clientes">4</b><span>Clientes</span></div>
+          <div class="calc-num"><b id="r-cac">125 €</b><span>Custo por cliente</span></div>
+          <div class="calc-num"><b id="r-receita">5.760 €</b><span>Valor gerado</span></div>
+        </div>
+
+        <div class="calc-destaque">
+          <span>Retorno bruto sobre o investimento em anúncios</span>
+          <b id="r-roas">9,6x</b>
+        </div>
+
+        <p class="calc-aviso" id="r-aviso" hidden>Com estes números, os anúncios
+          não se pagam. Nesse caso o problema não é a campanha &mdash; é a
+          margem ou a taxa de fecho. Falamos sobre isso na chamada.</p>
+
+        <a class="btn btn--azul btn--bloco" href="#agendar">Ver se isto bate certo no teu caso
+          <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+
+    <p class="calc-nota">Isto é uma projeção aritmética a partir dos valores que
+      introduziste, não uma previsão de resultados nem uma garantia. O retorno
+      é bruto: não desconta o custo do serviço prestado, a gestão das campanhas,
+      impostos ou qualquer outro custo do teu negócio. Resultados reais variam
+      com o setor, a zona, a concorrência e a tua capacidade comercial.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var form = document.getElementById('calc');
+  if (!form) return;
+
+  var campos = ['orcamento', 'cpl', 'fecho', 'ticket'].reduce(function (o, id) {
+    o[id] = document.getElementById(id); return o;
+  }, {});
+
+  // Separador de milhares à mão, em vez de toLocaleString('pt-PT'): o CLDR
+  // para pt-PT usa espaço e só agrupa a partir das 5 casas, por isso 1200
+  // sairia "1200". O resto do site escreve 1.200 €, e é isso que queremos.
+  var eur = function (n) {
+    return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+  };
+
+  function calcular() {
+    var orcamento = +campos.orcamento.value,
+        cpl       = +campos.cpl.value,
+        fecho     = +campos.fecho.value / 100,
+        ticket    = +campos.ticket.value;
+
+    var leads    = orcamento / cpl,
+        clientes = leads * fecho,
+        receita  = clientes * ticket,
+        // sem clientes não há custo de aquisição que faça sentido mostrar
+        cac      = clientes >= 1 ? orcamento / clientes : 0,
+        roas     = orcamento > 0 ? receita / orcamento : 0;
+
+    document.getElementById('c-orcamento').textContent = eur(orcamento);
+    document.getElementById('c-cpl').textContent       = eur(cpl);
+    document.getElementById('c-fecho').textContent     = fecho * 100 + '%';
+    document.getElementById('c-ticket').textContent    = eur(ticket);
+
+    document.getElementById('r-leads').textContent    = Math.floor(leads);
+    document.getElementById('r-clientes').textContent = clientes < 1
+      ? clientes.toFixed(1).replace('.', ',') : Math.floor(clientes);
+    document.getElementById('r-cac').textContent      = cac ? eur(cac) : '—';
+    document.getElementById('r-receita').textContent  = eur(receita);
+    document.getElementById('r-roas').textContent     =
+      roas.toFixed(1).replace('.', ',') + 'x';
+
+    // honestidade elementar: quando a conta não fecha, dizemos que não fecha
+    document.getElementById('r-aviso').hidden = roas >= 1;
+  }
+
+  form.addEventListener('input', calcular);
+  calcular();
+})();
+</script>

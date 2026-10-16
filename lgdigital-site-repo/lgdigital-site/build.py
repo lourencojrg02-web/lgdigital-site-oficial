@@ -54,8 +54,8 @@ SOCIAIS = [
 # ------------------------------------------------------------------- Páginas
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
-         title="MELHOR Agência de Marketing Digital em Lisboa | LGDigital | Estás à procura de uma agência de marketing digital perto de mim para SEO, Google Ads ou Meta Ads? nós somos a solução certa",
-         desc="Agência de marketing digital em Lisboa: SEO local, Google Ads, Meta Ads e websites para negócios locais. Mais chamadas e mais clientes, de forma previsível."),
+         title="Agência de Google Ads e Meta Ads em Lisboa | LGDigital",
+         desc="Gerimos Google Ads e Meta Ads para negócios locais em Portugal. 10 a 15 pedidos de orçamento por mês, primeiros contactos em 48 horas, uma empresa por cidade e setor."),
 
     dict(out="hvac/index.html", src="hvac", nome="Google e Meta Ads para AVAC", base="../", home="../",
          title="Google e Meta Ads para empresas de AVAC | LGDigital",
