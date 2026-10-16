@@ -114,13 +114,24 @@ incluindo as landings.
 
 ### Navegação
 
-As páginas de serviço (`/`, `/seo`, `/ads`, `/websites`) partilham o cabeçalho
-`_partials/header-servicos.html`, com um menu **Serviços** em dropdown. O
-dropdown é um `<details>` — abre com clique ou teclado, sem depender de hover,
-e um script de dez linhas fecha-o ao clicar fora ou com `Esc`.
+As páginas do site principal (`/`, `/casos-estudo`, `/seo`, `/ads`,
+`/websites`, `/contactos`, `/melhor-web-designer-lisboa`) partilham
+`_partials/header-site.html`: barra preta de anúncio + navegação, ambas fixas
+no topo, ao estilo do leadarc.io. Os links são secções da página inicial
+(`{{home}}#processo`, `#calculadora`, …); "Casos de estudo" é a única página
+à parte. Os serviços já não estão no menu — continuam no rodapé.
 
-As landings (`/gbp`, `/hvac`) têm cabeçalho próprio e sem menu, de propósito:
-não se dão saídas a quem chegou por um anúncio.
+O script do cabeçalho:
+- abre e fecha o menu do telemóvel (`Esc`, clique fora, clique num link);
+- troca os botões `data-agendar` para `#agendar` quando a página tem o seu
+  próprio calendário (senão levam ao calendário da página inicial);
+- põe o cabeçalho escuro por cima de secções com o atributo `data-escuro`.
+
+Corre só no `DOMContentLoaded`. Tem de ser assim: o script vem no cabeçalho,
+e nessa altura as secções da página ainda não existem.
+
+As landings (`/gbp`, `/hvac`, `/meta…`) têm cabeçalho próprio e sem menu, de
+propósito: não se dão saídas a quem chegou por um anúncio.
 
 ### Partes partilhadas
 
@@ -178,19 +189,39 @@ temas (`Hero`, `Cabeçalho`, `Passos`, `FAQ`). Um `s.index("/* ---------- Passos
 apanha o primeiro, não o do tema que querias — já duplicou o ficheiro inteiro uma
 vez. Edita à mão ou procura por seletores, não por títulos de bloco.
 
-### Cores e temas
+### Cores, temas e as duas folhas de estilo
 
-O `:root` de `assets/css/styles.css` tem a base comum. Cada página pode pedir
-um tema pela chave `body` em `PAGES`:
+Há **duas folhas de estilo**:
 
-| tema | páginas | fundo | acento |
+- `assets/css/styles.css` — a base antiga. Serve as landings (`/hvac`, `/gbp`,
+  `/meta…`), as páginas legais e os blocos `.hm-*` que ainda existem em `/seo`,
+  `/ads`, `/websites` e `/contactos`.
+- `assets/css/site.css` — o sistema de desenho novo (classes `lg-*`), inspirado
+  no leadarc.io. Só é carregado nas páginas com `body="tema-home"`, depois do
+  `styles.css`. Não acrescentes camadas de "correções" ao `styles.css` para a
+  página inicial: é no `site.css` que isso vive.
+
+| tema | páginas | folhas | letra |
 |---|---|---|---|
-| `tema-home` | `/`, `/seo`, `/ads`, `/websites`, `404` | branco | azul `#0091FF` |
-| `tema-gbp` | `/gbp` | bege `#EFEDE7` | azul `#1D4ED8` |
-| *(nenhum)* | `/hvac`, `/pp`, `/tc` | branco | âmbar `#F5A623` |
+| `tema-home` | `/`, `/casos-estudo`, `/seo`, `/ads`, `/websites`, `/contactos`, `/melhor-web-designer-lisboa`, `404` | styles + site | Cal Sans / Cal Sans UI |
+| `tema-gbp` | `/gbp` | styles | Roboto |
+| `tema-meta` | `/meta`, `/meta-book-a-call`, `/instant-form-book-a-call` | styles | Roboto |
+| *(nenhum)* | `/hvac`, `/pp`, `/tc` | styles | Roboto |
 
-O botão com a onda (`.btn--azul`) lê as variáveis `--acento`, `--acento-2`,
-`--acento-luz` e `--acento-luz-2`, por isso adapta-se sozinho ao tema da página.
+**Azuis:** `#0091FF` só em texto grande (palavras destacadas nos títulos).
+Botões e links usam `#0076D1`: texto branco sobre `#0091FF` dá 3,2:1 de
+contraste e chumba a norma (mínimo 4,5:1); sobre `#0076D1` dá 4,65:1.
+
+### Fontes
+
+Cal Sans (títulos) e Cal Sans UI (texto), as mesmas do leadarc. São de código
+aberto (licença OFL, ver `assets/fonts/OFL-*.txt`) e estão alojadas no próprio
+site em `assets/fonts/` — não passam pelo Google, por isso nenhum IP de
+visitante é enviado a terceiros só por abrir uma página do site principal.
+As landings continuam a usar Roboto do Google Fonts.
+
+A Cal Sans é um ficheiro de peso único declarado com `font-weight: 100 900`,
+para o browser não inventar um negrito falso quando se pede peso 600.
 
 ## Redirect após a marcação
 

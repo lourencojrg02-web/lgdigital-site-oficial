@@ -54,8 +54,8 @@ SOCIAIS = [
 # ------------------------------------------------------------------- Páginas
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
-         title="Anúncios que trazem clientes | LGDigital",
-         desc="10 a 15 pedidos de orçamento por mês para empresas que querem crescer. Primeiros contactos em 48 horas, uma empresa por cidade e setor, sem fidelização."),
+         title="LGDigital | Pedidos de orçamento qualificados para empresas de serviços",
+         desc="Montamos e gerimos anúncios para empresas de serviços. Pedidos de orçamento qualificados diretamente no teu telemóvel, uma empresa por cidade e setor, sem fidelização."),
 
     dict(out="hvac/index.html", src="hvac", nome="Google e Meta Ads para AVAC", base="../", home="../",
          title="Google e Meta Ads para empresas de AVAC | LGDigital",
@@ -85,6 +85,11 @@ PAGES = [
     dict(out="contactos/index.html", src="contactos", nome="Contactos", base="../", home="../", body="tema-home",
          title="Contactos | LGDigital",
          desc="Fala connosco por WhatsApp, telefone ou marca uma chamada de 30 minutos no calendário."),
+
+    dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
+         base="../", home="../", body="tema-home",
+         title="Casos de estudo | LGDigital",
+         desc="Resultados reais de campanhas de anúncios e de SEO local: 74.100 € faturados com 2.906 € em anúncios, top 3 no Google em 30 dias e mais. Só números medidos."),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
@@ -143,19 +148,34 @@ HEAD = """<!DOCTYPE html>
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{site}/assets/img/og.png">
-<meta name="theme-color" content="#F5A623">
+<meta name="theme-color" content="{tema_cor}">
 <link rel="icon" href="{base}favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{base}assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="{base}assets/img/apple-touch-icon.png">
 <link rel="manifest" href="{base}site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+{fontes}
 {styles}
 {pixel}
 {jsonld}{extra}</head>
 <body{bodyclass}>
 """
+# ------------------------------------------------------------------- Fontes
+# Site principal (tema-home): Cal Sans + Cal Sans UI, alojadas em assets/fonts
+# (licença OFL, ver os .txt na mesma pasta). Não passam pelo Google: nenhum
+# IP de visitante vai para terceiros só por carregar a página.
+# Landings antigas (hvac, gbp, meta…): continuam com Roboto do Google Fonts.
+FONTES_SITE = """<link rel="preload" href="{base}assets/fonts/cal-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{base}assets/fonts/cal-sans-ui-var.woff2" as="font" type="font/woff2" crossorigin>"""
+FONTES_GOOGLE = """<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap" rel="stylesheet">"""
+
+
+def e_site(pg):
+    """Páginas do site principal, que usam o sistema de desenho novo (site.css)."""
+    return pg.get("body") == "tema-home"
+
+
 FOOT = "\n</body>\n</html>\n"
 
 INCLUDE = re.compile(r"^[ \t]*@include[ \t]+(\S+)[ \t]*$", re.M)
@@ -276,7 +296,7 @@ def jsonld_para(pg, body):
     # só os <details> dentro de um bloco de FAQ; os menus do cabeçalho também
     # são <details> e não podem entrar aqui
     perguntas = []
-    for m in re.finditer(r'<div class="(?:hm-faq|gbp-faq|faq)"[^>]*>', body):
+    for m in re.finditer(r'<div class="(?:hm-faq|gbp-faq|faq|lg-faq)(?: [^"]*)?"[^>]*>', body):
         fim = body.find("</section>", m.end())
         zona = body[m.end(): fim if fim != -1 else len(body)]
         perguntas += re.findall(r"<details[^>]*>\s*<summary[^>]*>(.*?)</summary>(.*?)</details>",
@@ -303,6 +323,8 @@ def head_for(pg, styles, base, jsonld=""):
         robots=('<meta name="robots" content="noindex, nofollow">\n' if pg.get("noindex")
                 else '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">\n'),
         styles=styles, pixel=PIXEL if PIXEL_ID else "",
+        fontes=(FONTES_SITE if e_site(pg) else FONTES_GOOGLE).replace("{base}", base),
+        tema_cor=("#FCFCFC" if e_site(pg) else "#F5A623"),
         jsonld=jsonld,
         extra=(extra + "\n") if extra else "",
         bodyclass=(' class="%s"' % pg["body"]) if pg.get("body") else "")
@@ -311,6 +333,8 @@ def head_for(pg, styles, base, jsonld=""):
 def build_site():
     for pg in PAGES:
         styles = '<link rel="stylesheet" href="%sassets/css/styles.css">' % pg["base"]
+        if e_site(pg):
+            styles += '\n<link rel="stylesheet" href="%sassets/css/site.css">' % pg["base"]
         corpo = render(pg["src"], pg["base"], pg["home"])
         p = ROOT / pg["out"]
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -327,16 +351,23 @@ def inline_data(path):
 
 def build_standalone():
     """Um ficheiro só, com CSS e imagens embutidos. Para enviar ou pré-visualizar."""
-    css = (ROOT / "assets/css/styles.css").read_text(encoding="utf-8")
-    css = re.sub(r'url\("\.\./img/([^"]+)"\)',
-                 lambda m: 'url("%s")' % inline_data("assets/img/" + m.group(1)), css)
+    def embute(texto):
+        # imagens e fontes referidas a partir de assets/css/
+        return re.sub(r'url\("\.\./(img|fonts)/([^"]+)"\)',
+                      lambda m: 'url("%s")' % inline_data("assets/%s/%s" % (m.group(1), m.group(2))),
+                      texto)
+    css_base = embute((ROOT / "assets/css/styles.css").read_text(encoding="utf-8"))
+    css_site = embute((ROOT / "assets/css/site.css").read_text(encoding="utf-8"))
     outdir = ROOT / "preview"; outdir.mkdir(exist_ok=True)
     for pg in PAGES:
         html = render(pg["src"], "", "#")
         html = re.sub(r'src="assets/img/([^"]+)"',
                       lambda m: 'src="%s"' % inline_data("assets/img/" + m.group(1)), html)
         html = re.sub(r'href="(hvac|pp|tc|hvac-obrigado)/"', 'href="#"', html)
+        css = css_base + ("\n" + css_site if e_site(pg) else "")
         head = head_for(pg, "<style>\n%s\n</style>" % css, "")
+        # no ficheiro único as fontes já vão embutidas: o preload ficava a apontar para nada
+        head = re.sub(r'<link rel="preload"[^>]*as="font"[^>]*>\n?', "", head)
         name = pg["src"] + ".html"
         (outdir / name).write_text(head + html + FOOT, encoding="utf-8")
         print("  preview/%-20s %5.0f KB" % (name, (outdir / name).stat().st_size / 1024))
