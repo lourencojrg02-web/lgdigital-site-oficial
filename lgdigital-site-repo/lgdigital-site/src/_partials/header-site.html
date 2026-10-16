@@ -49,7 +49,6 @@
     <a href="{{home}}#resultados">Resultados</a>
     <a href="{{base}}casos-estudo/">Casos de estudo</a>
     <a href="{{home}}#faq">FAQ</a>
-    <a href="{{base}}contactos/">Contactos</a>
     <div class="lg-menu-acoes">
       <a class="lg-btn lg-btn--dark lg-btn--bloco" href="{{home}}#agendar" data-agendar>Agenda uma chamada</a>
       <a class="lg-btn lg-btn--contorno lg-btn--bloco" href="https://wa.me/351926289562">
@@ -110,6 +109,8 @@
     };
     window.addEventListener('scroll', verifica, { passive: true });
     window.addEventListener('resize', verifica);
+    // no load: quem chega com #agendar no endereço já vem a meio da página
+    window.addEventListener('load', verifica);
     verifica();
   }
 

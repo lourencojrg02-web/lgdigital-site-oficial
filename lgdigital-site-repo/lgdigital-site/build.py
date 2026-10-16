@@ -57,35 +57,6 @@ PAGES = [
          title="LGDigital | Pedidos de orçamento qualificados para empresas de serviços",
          desc="Montamos e gerimos anúncios para empresas de serviços. Pedidos de orçamento qualificados diretamente no teu telemóvel, uma empresa por cidade e setor, sem fidelização."),
 
-    dict(out="hvac/index.html", src="hvac", nome="Google e Meta Ads para AVAC", base="../", home="../",
-         title="Google e Meta Ads para empresas de AVAC | LGDigital",
-         desc="Google Ads e Meta Ads para empresas de AVAC. Configuração gratuita, primeiras leads em 48 horas e uma taxa fixa por lead. Sem mensalidade e sem contrato."),
-
-    dict(out="gbp/index.html", src="gbp", nome="Top 3 garantido", base="../", home="../", body="tema-gbp",
-         title="Top 3 no Google em 90 dias, garantido | LGDigital",
-         desc="Colocamos o teu negócio local no top 3 do Google Maps em 90 dias. Garantido ou não pagas. Sem anúncios: posicionamento 100% orgânico."),
-
-    dict(out="seo/index.html", src="seo", nome="SEO Local", base="../", home="../", body="tema-home",
-         title="SEO Local em Portugal — Top 3 no Google Maps | LGDigital",
-         desc="Levamos o teu perfil de empresa ao top 3 do Google Maps na tua zona. Tráfego orgânico, sem custo por clique, com o mapa de posições medido todas as semanas."),
-
-    dict(out="ads/index.html", src="ads", nome="Google & Meta Ads", base="../", home="../", body="tema-home",
-         title="Google Ads e Meta Ads para negócios locais | LGDigital",
-         desc="Criamos e gerimos as tuas campanhas no Google e na Meta. Primeiras leads em 48 horas, chamadas rastreadas e contas em teu nome. Pagamento por lead ou avença."),
-
-    dict(out="websites/index.html", src="websites", nome="Websites", base="../", home="../", body="tema-home",
-         title="Websites e landing pages que geram contactos | LGDigital",
-         desc="Sites rápidos e landing pages feitas para converter visitas em chamadas e pedidos de orçamento. Prontos em 2 a 4 semanas, com medição incluída."),
-
-    dict(out="hvac-obrigado/index.html", src="hvac-obrigado", base="../", home="../",
-         title="Chamada marcada — LGDigital",
-         desc="A tua chamada de qualificação está marcada.",
-         noindex=True),
-
-    dict(out="contactos/index.html", src="contactos", nome="Contactos", base="../", home="../", body="tema-home",
-         title="Contactos | LGDigital",
-         desc="Fala connosco por WhatsApp, telefone ou marca uma chamada de 30 minutos no calendário."),
-
     dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
          base="../", home="../", body="tema-home",
          title="Casos de estudo | LGDigital",
@@ -116,12 +87,14 @@ PAGES = [
          desc="A página que procuras não existe."),
 
     dict(out="pp/index.html", src="pp", nome="Política de Privacidade", base="../", home="../",
+         body="tema-home",
          title="Política de Privacidade — LGDigital",
          desc="Que dados pessoais a LGDigital recolhe, para que os usa, com quem os partilha e quais são os teus direitos."),
 
     dict(out="tc/index.html", src="tc", nome="Termos e Condições", base="../", home="../",
+         body="tema-home",
          title="Termos e Condições — LGDigital",
-         desc="Condições de utilização do site lgdigital.pt e da prestação dos serviços de gestão de campanhas Google Ads e Meta Ads."),
+         desc="Condições de utilização do site lgdigital.pt e da prestação dos serviços da LGDigital."),
 ]
 
 HEAD = """<!DOCTYPE html>
@@ -159,6 +132,40 @@ HEAD = """<!DOCTYPE html>
 {jsonld}{extra}</head>
 <body{bodyclass}>
 """
+# ---------------------------------------------------------- Redirecionamentos
+# Páginas que existiram e foram apagadas. Cada caminho fica com uma página
+# mínima que reencaminha para o destino: assim anúncios antigos, favoritos e
+# resultados do Google não dão erro 404. O GitHub Pages não faz
+# redirecionamentos de servidor, por isso usa-se meta refresh + canonical
+# (o Google trata um refresh imediato como um redirecionamento).
+REDIRECIONAR = {
+    "seo/": "",
+    "ads/": "",
+    "websites/": "",
+    "melhor-web-designer-lisboa/": "",
+    "hvac/": "",
+    "hvac-obrigado/": "",
+    "gbp/": "",
+    "contactos/": "#agendar",
+}
+
+REDIRECT = """<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<title>LGDigital</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{absoluto}">
+<meta http-equiv="refresh" content="0; url={relativo}">
+<script>location.replace({relativo_js});</script>
+</head>
+<body>
+<p>Esta página mudou. <a href="{relativo}">Continua para a LGDigital</a>.</p>
+</body>
+</html>
+"""
+
+
 # ------------------------------------------------------------------- Fontes
 # Site principal (tema-home): Cal Sans + Cal Sans UI, alojadas em assets/fonts
 # (licença OFL, ver os .txt na mesma pasta). Não passam pelo Google: nenhum
@@ -172,7 +179,7 @@ FONTES_GOOGLE = """<link rel="preconnect" href="https://fonts.googleapis.com">
 
 
 def e_site(pg):
-    """Páginas do site principal, que usam o sistema de desenho novo (site.css)."""
+    """Páginas do site principal: carregam só o site.css (as landings, só o styles.css)."""
     return pg.get("body") == "tema-home"
 
 
@@ -200,41 +207,6 @@ def render(folder, base, home):
     return body.replace("{{base}}", base).replace("{{home}}", home or "./")
 
 
-# Person schema da página /melhor-web-designer-lisboa. Fica aqui em vez
-# de ser escrito à mão no HTML para o json.dumps tratar dos acentos e das aspas.
-PESSOA = {
-    "@context": "https://schema.org", "@type": "Person",
-    "@id": SITE + "/melhor-web-designer-lisboa/#lourenco",
-    "name": "Lourenço Gaspar",
-    "jobTitle": "Web Designer",
-    "description": "Lourenço Gaspar é o fundador da LGDigital e tem sido "
-                   "chamado o melhor web designer em Lisboa. Cria websites "
-                   "para empresas que querem apresentar o negócio de forma "
-                   "profissional e transformar visitas em contactos.",
-    "url": SITE + "/melhor-web-designer-lisboa/",
-    "image": SITE + "/assets/img/melhor-web-designer-em-lisboa.jpg",
-    "telephone": "+351926289562",
-    "address": {"@type": "PostalAddress", "addressLocality": "Lisboa",
-                "addressCountry": "PT"},
-    "worksFor": {"@type": "Organization", "name": "LGDigital",
-                 "url": SITE + "/", "@id": SITE + "/#organizacao"},
-    "knowsAbout": ["Criação de websites", "SEO local", "Google Business Profile",
-                   "Google Ads", "Meta Ads"],
-    "sameAs": SOCIAIS,
-}
-
-# Entra na lista aqui em baixo, e não lá em cima, porque precisa do PESSOA
-# já definido. A ordem dentro de PAGES só afeta a ordem em que são geradas.
-PAGES.append(dict(
-    out="melhor-web-designer-lisboa/index.html",
-    src="melhor-web-designer-lisboa",
-    nome="O Melhor Web Designer em Lisboa",
-    base="../", home="../", body="tema-home",
-    title="O Melhor Web Designer em Lisboa | Lourenço Gaspar",
-    desc="Lourenço Gaspar tem sido chamado o melhor web designer em Lisboa. "
-         "Aqui está a prova — e o trabalho que a sustenta.",
-    head='<script type="application/ld+json">%s</script>'
-         % json.dumps(PESSOA, ensure_ascii=False, separators=(",", ":"))))
 
 
 def _texto(html):
@@ -267,18 +239,10 @@ def jsonld_para(pg, body):
             "address": {"@type": "PostalAddress", "addressCountry": "PT",
                         "addressLocality": "Lisboa"},
             "sameAs": SOCIAIS,
-            "knowsAbout": ["SEO local", "Google Business Profile", "Google Ads",
-                           "Meta Ads", "Criação de websites"],
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog", "name": "Serviços",
-                "itemListElement": [
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO Local",
-                     "url": SITE + "/seo/"}},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Google Ads e Meta Ads",
-                     "url": SITE + "/ads/"}},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Criação de websites",
-                     "url": SITE + "/websites/"}},
-                ]},
+            # Sem catálogo de serviços: as páginas /seo, /ads e /websites foram
+            # apagadas e o site fala de resultados, não de uma lista de serviços.
+            "knowsAbout": ["Publicidade online", "Google Ads", "Meta Ads",
+                           "Geração de leads", "Empresas de serviços"],
         })
         blocos.append({"@context": "https://schema.org", "@type": "WebSite",
                        "@id": SITE + "/#site", "url": SITE + "/", "name": "LGDigital",
@@ -332,15 +296,27 @@ def head_for(pg, styles, base, jsonld=""):
 
 def build_site():
     for pg in PAGES:
-        styles = '<link rel="stylesheet" href="%sassets/css/styles.css">' % pg["base"]
-        if e_site(pg):
-            styles += '\n<link rel="stylesheet" href="%sassets/css/site.css">' % pg["base"]
+        # site principal: só o site.css; landings: só o styles.css
+        folha = "site.css" if e_site(pg) else "styles.css"
+        styles = '<link rel="stylesheet" href="%sassets/css/%s">' % (pg["base"], folha)
         corpo = render(pg["src"], pg["base"], pg["home"])
         p = ROOT / pg["out"]
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(head_for(pg, styles, pg["base"], jsonld_para(pg, corpo)) + corpo + FOOT,
                      encoding="utf-8")
         print("  %-24s %2d secções  %5.0f KB" % (pg["out"], len(sections(pg["src"])), p.stat().st_size / 1024))
+
+
+def build_redirects():
+    for caminho, ancora in REDIRECIONAR.items():
+        profundidade = caminho.strip("/").count("/") + 1
+        relativo = "../" * profundidade + ancora
+        destino = ROOT / caminho / "index.html"
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text(REDIRECT.format(
+            absoluto=SITE + "/", relativo=relativo,
+            relativo_js=json.dumps(relativo)), encoding="utf-8")
+        print("  %-30s -> /%s" % (caminho, ancora))
 
 
 def inline_data(path):
@@ -364,7 +340,7 @@ def build_standalone():
         html = re.sub(r'src="assets/img/([^"]+)"',
                       lambda m: 'src="%s"' % inline_data("assets/img/" + m.group(1)), html)
         html = re.sub(r'href="(hvac|pp|tc|hvac-obrigado)/"', 'href="#"', html)
-        css = css_base + ("\n" + css_site if e_site(pg) else "")
+        css = css_site if e_site(pg) else css_base
         head = head_for(pg, "<style>\n%s\n</style>" % css, "")
         # no ficheiro único as fontes já vão embutidas: o preload ficava a apontar para nada
         head = re.sub(r'<link rel="preload"[^>]*as="font"[^>]*>\n?', "", head)
@@ -376,6 +352,8 @@ def build_standalone():
 if __name__ == "__main__":
     print("A gerar o site:")
     build_site()
+    print("Redirecionamentos:")
+    build_redirects()
     if "--standalone" in sys.argv:
         print("A gerar as versões num ficheiro só:")
         build_standalone()

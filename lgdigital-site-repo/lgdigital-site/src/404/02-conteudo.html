@@ -1,34 +1,30 @@
 <!-- ==================== 404 ==================== -->
 <!-- Servida em qualquer caminho, por isso usa caminhos absolutos ({{base}} = "/"). -->
-<main class="hm-404">
-  <div class="wrap">
-    <p class="hm-etiqueta">Erro 404</p>
-    <h1 class="hm-h2">Esta página não existe.</h1>
-    <p class="hm-sub">O link pode estar errado ou a página pode ter mudado de
+<main class="lg-main" id="conteudo">
+<section class="lg-404">
+  <div class="lg-wrap">
+    <span class="lg-404-codigo">404</span>
+    <h1>Esta página não existe.</h1>
+    <p class="lg-sub">O link pode estar errado ou a página pode ter mudado de
       sítio. Segue por aqui:</p>
 
-    <div class="hm-404-links">
-      <a href="{{base}}">
+    <div class="lg-404-links">
+      <a class="lg-cartao" href="{{base}}">
         <b>Página inicial</b>
-        <span>Os três serviços e por onde começar</span>
+        <span>Como trabalhamos e o que muda na tua empresa</span>
       </a>
-      <a href="{{base}}seo/">
-        <b>SEO Local</b>
-        <span>Apareces quando procuram perto de ti</span>
-      </a>
-      <a href="{{base}}ads/">
-        <b>Google &amp; Meta Ads</b>
-        <span>Leads em 48 horas, chamadas rastreadas</span>
-      </a>
-      <a href="{{base}}websites/">
-        <b>Websites</b>
-        <span>Sites e landing pages que convertem</span>
+      <a class="lg-cartao" href="{{base}}casos-estudo/">
+        <b>Casos de estudo</b>
+        <span>Os números dos nossos clientes</span>
       </a>
     </div>
 
-    <div class="hm-hero-acoes">
-      <a class="btn btn--azul" href="{{base}}#agendar">Agenda uma chamada <span aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn--contorno" href="https://wa.me/351926289562">Falar no WhatsApp</a>
+    <div class="lg-hero-acoes">
+      <a class="lg-btn lg-btn--azul lg-btn--lg" href="{{base}}#agendar">Agenda uma chamada
+        <svg class="lg-seta" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="haste" d="M3 8h9"/><path class="ponta" d="M8.5 4l4 4-4 4"/></svg>
+      </a>
+      <a class="lg-btn lg-btn--contorno lg-btn--lg" href="https://wa.me/351926289562">Falar no WhatsApp</a>
     </div>
   </div>
+</section>
 </main>
