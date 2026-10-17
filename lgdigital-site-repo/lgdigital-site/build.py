@@ -55,7 +55,7 @@ SOCIAIS = [
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
          title="LGDigital | Pedidos de orçamento qualificados para empresas de serviços",
-         desc="Montamos e gerimos anúncios para empresas de serviços. Pedidos de orçamento qualificados diretamente no teu telemóvel, uma empresa por cidade e setor, sem fidelização."),
+         desc="Montamos e gerimos anúncios para empresas de serviços. Pedidos de orçamento qualificados diretamente no teu telemóvel, sem fidelização."),
 
     dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
          base="../", home="../", body="tema-home",
@@ -233,7 +233,6 @@ def jsonld_para(pg, body):
             "url": SITE + "/", "logo": SITE + "/assets/img/logo.png",
             "image": SITE + "/assets/img/og.png",
             "description": pg["desc"],
-            "telephone": "+351926289562",
             "priceRange": "€€",
             "areaServed": {"@type": "Country", "name": "Portugal"},
             "address": {"@type": "PostalAddress", "addressCountry": "PT",

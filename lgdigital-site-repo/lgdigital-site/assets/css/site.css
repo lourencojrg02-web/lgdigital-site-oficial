@@ -180,6 +180,7 @@ h1,h2,h3,h4{margin:0;}
   .lg-barra .curto{display:inline;}
   .lg-barra .lg-btn{height:28px;padding:0 10px;font-size:12px;gap:5px;}
 }
+@media(max-width:380px){.lg-barra-txt{font-size:12px;}.lg-barra{gap:8px;padding:5px 12px;}}
 @media(max-width:600px){
   .tema-home{--lg-header:96px;}
   .lg-nav-inner{height:56px;}
@@ -254,14 +255,18 @@ h1,h2,h3,h4{margin:0;}
 
 /* sublinhado à mão, desenhado quando a página abre */
 .lg-risco{position:relative;display:inline-block;white-space:nowrap;}
-.lg-risco svg{position:absolute;left:-.05em;width:calc(100% + .1em);bottom:-.22em;height:.42em;
-  overflow:visible;pointer-events:none;}
+/* Revela-se da esquerda para a direita com clip-path. Antes usava
+   stroke-dasharray + pathLength, mas com vector-effect:non-scaling-stroke o
+   Chrome mede os traços no ecrã e não no desenho: numa palavra comprida (o SVG
+   estica) o traço só cobria parte da palavra. O clip-path não depende disso. */
+.lg-risco svg{position:absolute;left:-.04em;width:calc(100% + .08em);max-width:none;
+  bottom:-.22em;height:.42em;overflow:visible;pointer-events:none;
+  clip-path:inset(-60% 100% -60% -4%);
+  animation:lg-risca .55s cubic-bezier(.45,.05,.25,1) .35s forwards;}
 .lg-risco path{fill:none;stroke:var(--lg-azul);stroke-width:5.5;stroke-linecap:round;
-  vector-effect:non-scaling-stroke;stroke-dasharray:1 2;stroke-dashoffset:1;
-  animation:lg-risca .42s cubic-bezier(.45,.05,.25,1) .35s forwards;}
-.lg-risco path:nth-child(2){animation-delay:.44s;animation-duration:.38s;}
-@keyframes lg-risca{to{stroke-dashoffset:0;}}
-@media(prefers-reduced-motion:reduce){.lg-risco path{animation:none;stroke-dashoffset:0;}}
+  vector-effect:non-scaling-stroke;}
+@keyframes lg-risca{to{clip-path:inset(-60% -4% -60% -4%);}}
+@media(prefers-reduced-motion:reduce){.lg-risco svg{animation:none;clip-path:none;}}
 @media(max-width:600px){.lg-risco path{stroke-width:4;}}
 
 /* ícone inclinado a meio do título (o leadarc usa um calendário) */
@@ -616,10 +621,12 @@ h1,h2,h3,h4{margin:0;}
 .lg-agendar .lg-pill svg{color:#7CC4FF;}
 .lg-cal{max-width:1000px;margin:0 auto;padding:8px;background:#fff;border-radius:var(--lg-raio);
   border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 50px -14px rgba(0,0,0,.5);}
-.lg-cal #my-cal-inline-30min{width:100%;min-height:640px;overflow:hidden;border-radius:10px;}
+/* O código do Cal.com traz style="overflow:scroll" no próprio div. No Windows isso
+   desenha barras de scroll fixas à volta do calendário; o Cal ajusta a altura
+   sozinho, por isso não fazem falta. O !important é para vencer o estilo inline. */
+.lg-cal #my-cal-inline-30min{width:100%;min-height:640px;height:auto !important;
+  overflow:hidden !important;border-radius:10px;}
 @media(min-width:760px){.lg-cal #my-cal-inline-30min{min-height:720px;}}
-.lg-agendar-nota{margin:24px 0 0;text-align:center;font-size:14px;color:rgba(255,255,255,.6);}
-.lg-agendar-nota a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
 
 
 /* (rodapé: ver .lg-rodape mais abaixo) */
@@ -707,40 +714,6 @@ h1,h2,h3,h4{margin:0;}
 .lg-rcard-logo{height:28px;}
 
 
-/* ==========================================================================
-   Emblema da secção de marcação
-   O G da LGDigital desenhado em linhas finas, com cinco anéis à volta, como
-   o louro do leadarc: enorme, ancorado ao fundo, e com um brilho lento que
-   passa de linha em linha. Gerado a partir de logo-icone-escuro.png.
-   ========================================================================== */
-.lg-agendar{padding-top:clamp(84px,10vw,136px);}
-.lg-agendar .lg-cab{position:relative;z-index:1;margin-bottom:clamp(64px,8vw,92px);}
-.lg-agendar .lg-cab > :not(.lg-emblema){position:relative;z-index:1;}
-.lg-agendar .lg-cal{position:relative;z-index:2;}
-/* centrado no bloco do título; o G (52% do desenho) fica um pouco maior que o texto */
-.lg-emblema{position:absolute;left:50%;top:50%;z-index:0;pointer-events:none;
-  width:clamp(620px,60vw,860px);aspect-ratio:475/478;transform:translate(-50%,-50%);}
-.lg-emblema svg{display:block;width:100%;height:100%;overflow:visible;}
-.lg-emblema path{fill:none;stroke:#fff;stroke-opacity:.12;stroke-width:1;
-  vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;
-  animation:lg-brilho-a 9.5s ease-in-out infinite;}
-/* o G um pouco mais presente que os anéis, e a seta a azul como no logótipo */
-.lg-emblema path.g{stroke-opacity:.22;animation-name:lg-brilho-g;}
-.lg-emblema path.seta{stroke:#0091FF;stroke-opacity:.45;animation-name:lg-brilho-azul;}
-.lg-emblema path:nth-of-type(1){animation-duration:9s;animation-delay:-.6s;}
-.lg-emblema path:nth-of-type(3){animation-name:lg-brilho-c;animation-duration:8.4s;animation-delay:-7.1s;}
-.lg-emblema path:nth-of-type(4){animation-name:lg-brilho-b;animation-duration:12s;animation-delay:-4.2s;}
-.lg-emblema path:nth-of-type(5){animation-duration:11.3s;animation-delay:-2.4s;}
-.lg-emblema path:nth-of-type(6){animation-name:lg-brilho-c;animation-duration:10.2s;animation-delay:-8.6s;}
-.lg-emblema path:nth-of-type(7){animation-name:lg-brilho-b;animation-duration:13.1s;animation-delay:-1.3s;}
-.lg-emblema path:nth-of-type(8){animation-duration:9.7s;animation-delay:-5.8s;}
-@keyframes lg-brilho-a{0%{stroke-opacity:.07;}30%{stroke-opacity:.16;}62%{stroke-opacity:.09;}100%{stroke-opacity:.07;}}
-@keyframes lg-brilho-b{0%{stroke-opacity:.12;}26%{stroke-opacity:.06;}54%{stroke-opacity:.155;}80%{stroke-opacity:.085;}100%{stroke-opacity:.12;}}
-@keyframes lg-brilho-c{0%{stroke-opacity:.09;}42%{stroke-opacity:.17;}72%{stroke-opacity:.105;}100%{stroke-opacity:.09;}}
-@keyframes lg-brilho-g{0%{stroke-opacity:.18;}40%{stroke-opacity:.32;}100%{stroke-opacity:.18;}}
-@keyframes lg-brilho-azul{0%{stroke-opacity:.4;}45%{stroke-opacity:.75;}100%{stroke-opacity:.4;}}
-@media(prefers-reduced-motion:reduce){.lg-emblema path{animation:none;}}
-@media(max-width:760px){.lg-emblema{width:max(560px,150vw);}}
 
 
 /* ==========================================================================
@@ -752,7 +725,6 @@ h1,h2,h3,h4{margin:0;}
 .lg-rodape-grelha{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;}
 .lg-rodape-marca{display:flex;flex-direction:column;align-items:flex-start;}
 .lg-rodape-logo img{height:24px;width:auto;}
-.lg-rodape-marca p{margin:16px 0 0;font-size:14px;line-height:1.6;color:#8A8A8A;}
 .lg-rodape-marca .lg-btn{margin-top:22px;}
 .lg-rodape-col h4{margin:0 0 16px;font-family:var(--lg-ui);font-size:12px;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;color:#fff;}

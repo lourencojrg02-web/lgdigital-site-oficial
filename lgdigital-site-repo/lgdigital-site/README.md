@@ -74,7 +74,7 @@ Cada secção é um ficheiro em `src/home/`, por ordem alfabética:
 | `08-encaixe.html` | bom encaixe / mau encaixe | `#para-quem` |
 | `09-comparacao.html` | tabela LGDigital vs agência vs sozinho | `#comparacao` |
 | `10-faq.html` | perguntas frequentes | `#faq` |
-| `11-agendar.html` | secção escura com o calendário e o emblema | `#agendar` |
+| `11-agendar.html` | secção escura com o calendário | `#agendar` |
 | `12-rodape.html` | rodapé (inclui `_partials/rodape.html`) | |
 
 O `<main>` abre em `02-hero.html` e fecha em `11-agendar.html`.
@@ -105,18 +105,11 @@ dão saídas a quem chegou por um anúncio.
 
 ### Rodapé
 
-`_partials/rodape.html`, escuro, com a estrutura do do leadarc: marca e botão,
-colunas Empresa (as secções do cabeçalho), Contactos e Legal, e por baixo o
-copyright e o aviso de não afiliação com o YouTube, a Google e o Facebook.
-
-### Emblema da secção de marcação
-
-O G da LGDigital em linhas finas, com cinco anéis à volta, atrás do título da
-secção `#agendar` — a versão LGDigital do louro do leadarc. É um SVG gerado a
-partir de `assets/img/logo-icone-escuro.png` (contornos do G e da seta + anéis
-de distância), escrito diretamente em `src/home/11-agendar.html`. Cada linha
-tem um brilho lento com tempos diferentes (`@keyframes lg-brilho-*` no
-`site.css`); com "reduzir movimento" ligado no sistema, fica parado.
+`_partials/rodape.html`, escuro, com a estrutura do do leadarc: logótipo e
+botão, colunas Empresa (agendar, resultados, casos de estudo), Contactos (email
+e LinkedIn) e Legal, e por baixo o copyright e o aviso de não afiliação com o
+YouTube, a Google e o Facebook. O site não mostra telefone nem WhatsApp, de
+propósito: o único caminho é marcar a chamada.
 
 ### Redirecionamentos
 
