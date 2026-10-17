@@ -225,7 +225,9 @@ h1,h2,h3,h4{margin:0;}
 .lg-menu-acoes{display:grid;gap:10px;margin-top:18px;}
 .lg-menu .lg-btn{height:48px;font-size:15px;}
 
-@media(max-width:1079px){
+/* com o botão "Agendar Chamada Estratégica" a navegação precisa de ~1100px;
+   abaixo dos 1200 passa ao menu de três traços, como no leadarc */
+@media(max-width:1199px){
   .lg-nav-links{display:none;}
   .lg-burger{display:inline-block;}
 }
@@ -619,8 +621,11 @@ h1,h2,h3,h4{margin:0;}
 .lg-agendar .lg-pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);
   color:#F5F5F5;box-shadow:none;}
 .lg-agendar .lg-pill svg{color:#7CC4FF;}
-.lg-cal{max-width:1000px;margin:0 auto;padding:8px;background:#fff;border-radius:var(--lg-raio);
-  border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 50px -14px rgba(0,0,0,.5);}
+/* calendário em tema escuro: cartão escuro com borda clara e fina, em vez do
+   cartão branco que servia o tema claro */
+.lg-cal{max-width:1000px;margin:0 auto;padding:8px;background:#0E0E0E;border-radius:var(--lg-raio);
+  border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 50px -14px rgba(0,0,0,.6),
+  inset 0 1px 0 rgba(255,255,255,.04);}
 /* O código do Cal.com traz style="overflow:scroll" no próprio div. No Windows isso
    desenha barras de scroll fixas à volta do calendário; o Cal ajusta a altura
    sozinho, por isso não fazem falta. O !important é para vencer o estilo inline. */

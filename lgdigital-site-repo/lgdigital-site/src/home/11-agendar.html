@@ -1,12 +1,12 @@
 <!-- ==================== AGENDAR ==================== -->
 <!-- Secção escura no fim, como a "Book a Strategy Call" do leadarc. O
-     calendário fica num cartão branco por cima. -->
+     calendário usa o tema escuro do Cal.com, num cartão escuro com borda. -->
 <section class="lg-sec lg-agendar" id="agendar" data-escuro>
   <div class="lg-wrap">
     <div class="lg-cab">
       <span class="lg-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
-        Chamada de diagnóstico
+        Chamada estratégica
       </span>
       <h2 class="lg-h2">Uma conversa de 30 minutos, <span class="lg-azul">sem compromisso</span>.</h2>
       <p class="lg-sub">Começamos por perceber de onde vêm os teus clientes e o
@@ -25,11 +25,11 @@ Cal.config.forwardQueryParams = true;
 
   Cal.ns["30min"]("inline", {
     elementOrSelector:"#my-cal-inline-30min",
-    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"},
     calLink: "lourenco-gaspar-tmrt3u/30min",
   });
 
-  Cal.ns["30min"]("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+  Cal.ns["30min"]("ui", {"theme":"dark","hideEventTypeDetails":false,"layout":"month_view"});
   </script>
   <!-- Cal inline embed code ends -->
     </div>
