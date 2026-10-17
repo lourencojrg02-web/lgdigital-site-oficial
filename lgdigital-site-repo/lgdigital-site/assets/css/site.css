@@ -621,14 +621,20 @@ h1,h2,h3,h4{margin:0;}
 .lg-agendar .lg-pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);
   color:#F5F5F5;box-shadow:none;}
 .lg-agendar .lg-pill svg{color:#7CC4FF;}
+/* Espaçamento medido na secção "Book a Strategy Call" do leadarc: 96px em cima e
+   em baixo, 18px título→subtítulo, 24px subtítulo→calendário. O calendário não
+   tem altura fixa: o Cal.com ajusta-a sozinho; os 460px são só para a página
+   não saltar enquanto ele carrega. */
+.lg-agendar{padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(56px,7vw,96px);}
+.lg-agendar .lg-cab{margin-bottom:24px;}
+.lg-agendar .lg-sub{margin-top:18px;}
 /* calendário direto na secção escura, sem cartão à volta (como no leadarc) */
 .lg-cal{max-width:1000px;margin:0 auto;}
 /* O código do Cal.com traz style="overflow:scroll" no próprio div. No Windows isso
    desenha barras de scroll fixas à volta do calendário; o Cal ajusta a altura
    sozinho, por isso não fazem falta. O !important é para vencer o estilo inline. */
-.lg-cal #my-cal-inline-30min{width:100%;min-height:640px;height:auto !important;
+.lg-cal #my-cal-inline-30min{width:100%;min-height:460px;height:auto !important;
   overflow:hidden !important;}
-@media(min-width:760px){.lg-cal #my-cal-inline-30min{min-height:720px;}}
 
 
 /* (rodapé: ver .lg-rodape mais abaixo) */
