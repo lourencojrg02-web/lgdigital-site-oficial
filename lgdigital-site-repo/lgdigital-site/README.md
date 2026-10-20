@@ -115,9 +115,9 @@ dão saídas a quem chegou por um anúncio.
 botão; colunas **Empresa** (Resultados, Casos de Estudo, Artigos),
 **Contactos** (Agendar Chamada, email, LinkedIn da empresa) e **Lourenço
 Gaspar** (YouTube e LinkedIn pessoais), com os mesmos ícones do leadarc. Por
-baixo: copyright, aviso de não afiliação e uma linha pequena com Política de
-Privacidade, Termos e Sitemap — as páginas legais têm de estar acessíveis em
-todas as páginas. O site não mostra telefone nem WhatsApp, de propósito.
+baixo: copyright, aviso de não afiliação e "Para informações legais,
+manda-nos um email." Sem links para /pp, /tc nem sitemap (as páginas
+existem, mas não estão no rodapé). O site não mostra telefone nem WhatsApp, de propósito.
 
 ### Casos de estudo
 
@@ -128,9 +128,11 @@ estudo"). Cada cartão abre a página do caso em `/casos-estudo/<cliente>/`.
 Casos de estudo e artigos são coisas diferentes: o caso fica só aqui.
 
 A página do caso segue as do leadarc (`/dreamland-case-study`): "← Todos os
-casos", título, banner 12:5 com as duas marcas (cliente × LGDigital), uma
-moldura com os números, secções numeradas, tabela de resultados e uma nota
-da fonte no fim. Classes `lg-cp-*`; capa `.lg-capa--caso`.
+casos", título, etiquetas, banner 12:5 com as duas marcas (cliente ×
+LGDigital) e o número grande, tabela de resultados, secções numeradas, três
+passos em cartões e um fluxo investimento → leads → clientes → contratos.
+Classes `lg-cp-*`; capa `.lg-capa--caso`. O texto do caso OrtoFirst é o do
+Lourenço; sem notas de rodapé.
 
 Para acrescentar um caso:
 1. nova pasta em `src/` (copia `src/caso-ortofirst/`)

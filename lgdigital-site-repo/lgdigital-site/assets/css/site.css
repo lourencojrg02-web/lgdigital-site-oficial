@@ -755,8 +755,6 @@ h1,h2,h3,h4{margin:0;}
 .lg-404 .lg-hero-acoes{margin-top:30px;}
 
 /* rodapé: linha discreta com as páginas legais, sem sublinhado (como "For LLMs · Sitemap") */
-.lg-rodape-meta a{color:#737373;text-decoration:none;}
-.lg-rodape-meta a:hover{color:#fff;}
 .lg-rodape-col a span{min-width:0;}
 
 
@@ -925,23 +923,6 @@ a.lg-ar-chip:hover{background:#FAFAFA;border-color:rgba(0,0,0,.16);}
   .lg-cp-banner .lg-capa-chip{font-size:clamp(10px,2.4cqw,14px);}
 }
 
-/* moldura da prova (no leadarc é uma captura; aqui os números) */
-.lg-cp-prova{margin:34px 0 46px;}
-.lg-cp-prova-moldura{padding:6px;border:1px solid rgba(0,0,0,.09);border-radius:18px;background:#F5F5F5;}
-.lg-cp-prova-janela{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:hidden;
-  border:1px solid rgba(0,0,0,.09);border-radius:12px;background:#fff;}
-.lg-cp-prova-janela > div{padding:22px 20px;border-left:1px solid rgba(0,0,0,.09);}
-.lg-cp-prova-janela > div:first-child{border-left:0;}
-.lg-cp-prova-janela strong{display:block;font-family:var(--lg-display);font-size:clamp(22px,2.6vw,30px);
-  font-weight:600;letter-spacing:-.02em;line-height:1.1;color:var(--lg-ink);}
-.lg-cp-prova-janela span{display:block;margin-top:6px;font-size:11px;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--lg-subtle);line-height:1.3;}
-@media(max-width:680px){
-  .lg-cp-prova-janela{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .lg-cp-prova-janela > div:nth-child(3){border-left:0;}
-  .lg-cp-prova-janela > div:nth-child(n+3){border-top:1px solid rgba(0,0,0,.09);}
-}
-.lg-cp-prova figcaption{margin-top:12px;font-size:13px;line-height:1.5;color:var(--lg-subtle);}
 
 /* tabela de resultados */
 .lg-cp-tabela{overflow-x:auto;margin:26px 0 30px;border:1px solid rgba(0,0,0,.09);border-radius:12px;background:#fff;}
@@ -951,7 +932,6 @@ a.lg-ar-chip:hover{background:#FAFAFA;border-color:rgba(0,0,0,.16);}
 .lg-cp-tabela th{background:#FAFAFA;color:var(--lg-subtle);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;}
 .lg-cp-tabela td:last-child,.lg-cp-tabela th:last-child{text-align:right;white-space:nowrap;}
 
-.lg-cp-fonte{margin-top:34px !important;font-size:12px;line-height:1.5;color:var(--lg-subtle);}
 
 /* listas dentro dos artigos (o reset tira-lhes as marcas) */
 .lg-ar-col ul,.lg-ar-col ol{margin:0 0 24px;padding-left:24px;color:var(--lg-text);}
@@ -962,3 +942,43 @@ a.lg-ar-chip:hover{background:#FAFAFA;border-color:rgba(0,0,0,.16);}
 /* o logótipo da OrtoFirst tem uma linha pequena por baixo do nome; precisa
    de mais altura na pastilha para se ler */
 .lg-capa-marca--cliente img{height:62%;}
+
+/* página do caso: etiquetas, entrada, botões, passos e fluxo */
+.lg-cp-tags{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0 0;}
+.lg-cp-tags span{padding:5px 10px;border:1px solid rgba(0,0,0,.09);border-radius:999px;background:#fff;
+  color:var(--lg-subtle);font-size:12px;font-weight:600;letter-spacing:.025em;line-height:1.3;}
+.lg-cp-banner .lg-capa .lg-capa-sub{max-width:72%;line-height:1.2;}
+@media(max-width:600px){.lg-cp-banner .lg-capa .lg-capa-sub{max-width:none;}}
+.lg-cp-lede{margin-top:34px !important;font-size:19px;line-height:1.55;color:var(--lg-ink);font-weight:500;}
+.lg-cp-acao{margin:28px 0 0 !important;}
+@media(max-width:520px){.lg-cp-acao .lg-btn{width:100%;}}
+.lg-cp ul{margin:0 0 24px;padding-left:24px;list-style:disc;}
+.lg-cp li{margin:8px 0;padding-left:4px;}
+.lg-cp li::marker{color:var(--lg-subtle);}
+
+.lg-cp-passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 30px;}
+@media(max-width:760px){.lg-cp-passos{grid-template-columns:1fr;}}
+.lg-cp-passos > div{padding:22px;border:1px solid rgba(0,0,0,.09);border-radius:14px;background:#fff;
+  box-shadow:0 1px 2px rgba(0,0,0,.03);}
+.lg-cp-passo-n{display:block;margin-bottom:14px;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--lg-azul-forte);}
+.lg-cp-passos h3{margin:0 0 8px;font-size:19px;line-height:1.25;}
+.lg-cp-passos p{margin:0;font-size:15px;line-height:1.6;color:var(--lg-text);}
+
+.lg-cp-fluxo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:26px 0 34px;padding:6px;
+  border:1px solid rgba(0,0,0,.09);border-radius:18px;background:#F5F5F5;gap:6px;}
+.lg-cp-fluxo > div{position:relative;padding:20px 18px;border:1px solid rgba(0,0,0,.09);border-radius:12px;background:#fff;}
+.lg-cp-fluxo strong{display:block;font-family:var(--lg-display);font-size:clamp(22px,2.6vw,30px);
+  font-weight:600;letter-spacing:-.02em;line-height:1.1;}
+.lg-cp-fluxo span{display:block;margin-top:6px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--lg-subtle);}
+.lg-cp-fluxo > div:last-child{background:var(--lg-escuro);border-color:var(--lg-escuro);}
+.lg-cp-fluxo > div:last-child strong{color:#fff;}
+.lg-cp-fluxo > div:last-child span{color:rgba(255,255,255,.65);}
+/* seta entre cada passo */
+.lg-cp-fluxo > div + div::before{content:"";position:absolute;left:-12px;top:50%;z-index:1;width:18px;height:18px;
+  margin-top:-9px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.12);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23737373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8h8M8.5 4.5 12 8l-3.5 3.5'/%3E%3C/svg%3E");
+  background-size:12px;background-position:center;background-repeat:no-repeat;}
+@media(max-width:680px){
+  .lg-cp-fluxo{grid-template-columns:1fr 1fr;}
+  .lg-cp-fluxo > div:nth-child(3)::before{display:none;}
+}

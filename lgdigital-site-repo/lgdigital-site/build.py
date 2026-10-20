@@ -81,7 +81,7 @@ PAGES = [
     dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
          base="../", home="../", body="tema-home",
          title="Casos de estudo | LGDigital",
-         desc="Casos de estudo das nossas campanhas de anúncios: 74.100 € faturados com 2.906 € investidos, 24 leads e 3 clientes fechados. Só números medidos."),
+         desc="Casos de estudo das nossas campanhas de anúncios: 74.100 € em contratos fechados a partir de 2.906 € investidos, 24 leads e 3 clientes. Só números medidos."),
 
     dict(out="artigos/index.html", src="artigos", nome="Artigos",
          base="../", home="../", body="tema-home",
@@ -103,11 +103,11 @@ PAGES = [
     dict(out="casos-estudo/ortofirst/index.html", src="caso-ortofirst",
          nome="OrtoFirst", pai=("Casos de estudo", "casos-estudo/"),
          base="../../", home="../../", body="tema-home",
-         title="Caso de estudo OrtoFirst: 74.100 € faturados com 2.906 € em anúncios | LGDigital",
-         desc="Como a OrtoFirst faturou 74.100 € com 2.906 € em anúncios: 24 leads, 3 clientes fechados e 25,5x de retorno bruto. Os números todos.",
+         title="Caso de estudo OrtoFirst: 74.100 € em contratos com 2.906 € em anúncios | LGDigital",
+         desc="Como a OrtoFirst transformou 2.906,75 € em anúncios em 74.100 € em contratos fechados: 24 leads, 3 clientes e 25,5x de retorno em valor contratual.",
          head=artigo_ld("casos-estudo/ortofirst/",
-                        "Como a OrtoFirst faturou 74.100 € com 2.906 € em anúncios",
-                        "2.906,75 € investidos em anúncios, 24 leads, 3 clientes fechados e 74.100 € faturados.",
+                        "Como a OrtoFirst transformou 2.906 € em anúncios em 74.100 € em contratos fechados",
+                        "2.906,75 € investidos em Meta Ads, 24 leads, 3 clientes e 74.100 € em contratos fechados.",
                         "2026-10-20")),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
