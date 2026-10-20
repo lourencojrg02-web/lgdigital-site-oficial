@@ -52,21 +52,24 @@ SOCIAIS = [
 ]
 
 # ----------------------------------------------------------------- Artigos
-ARTIGO_74100 = {
-    "@context": "https://schema.org", "@type": "Article",
-    "headline": "Como 2.906 € em anúncios geraram 74.100 € em faturação",
-    "description": "Caso real: 2.906,75 € investidos em anúncios, 24 leads, 3 clientes "
-                   "fechados e 74.100 € faturados.",
-    "datePublished": "2026-10-20", "dateModified": "2026-10-20", "inLanguage": "pt-PT",
-    "image": SITE + "/assets/img/og.png",
-    "mainEntityOfPage": SITE + "/artigos/anuncios-74100-euros-faturados/",
-    "author": {"@type": "Person", "name": "Lourenço Gaspar",
-               "url": "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/",
-               "sameAs": ["https://www.youtube.com/@lourencorg",
-                          "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/"]},
-    "publisher": {"@type": "Organization", "name": "LGDigital", "@id": SITE + "/#organizacao",
-                  "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.png"}},
-}
+AUTOR = {"@type": "Person", "name": "Lourenço Gaspar",
+         "url": "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/",
+         "sameAs": ["https://www.youtube.com/@lourencorg",
+                    "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/"]}
+EDITOR = {"@type": "Organization", "name": "LGDigital", "@id": SITE + "/#organizacao",
+          "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.png"}}
+
+
+def artigo_ld(caminho, titulo, descricao, data):
+    """JSON-LD Article para um artigo ou caso de estudo."""
+    return '<script type="application/ld+json">%s</script>' % json.dumps({
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": titulo, "description": descricao,
+        "datePublished": data, "dateModified": data, "inLanguage": "pt-PT",
+        "image": SITE + "/assets/img/og.png",
+        "mainEntityOfPage": SITE + "/" + caminho,
+        "author": AUTOR, "publisher": EDITOR,
+    }, ensure_ascii=False, separators=(",", ":"))
 
 
 # ------------------------------------------------------------------- Páginas
@@ -85,14 +88,27 @@ PAGES = [
          title="Artigos | LGDigital",
          desc="Artigos da LGDigital sobre anúncios e aquisição de clientes para empresas de serviços, com números de campanhas reais."),
 
-    dict(out="artigos/anuncios-74100-euros-faturados/index.html", src="artigo-74100",
-         nome="Como 2.906 € em anúncios geraram 74.100 € em faturação",
+    dict(out="artigos/anuncios-online/index.html", src="artigo-anuncios-online",
+         nome="Tudo o que precisas de saber sobre anúncios online",
          pai=("Artigos", "artigos/"),
          base="../../", home="../../", body="tema-home",
-         title="Como 2.906 € em anúncios geraram 74.100 € em faturação | LGDigital",
-         desc="Caso real: 2.906,75 € investidos em anúncios, 24 leads, 3 clientes fechados e 74.100 € faturados. Os números todos e o que mostram.",
-         head='<script type="application/ld+json">%s</script>'
-              % json.dumps(ARTIGO_74100, ensure_ascii=False, separators=(",", ":"))),
+         title="Tudo o que precisas de saber sobre anúncios online | LGDigital",
+         desc="Como funcionam os anúncios online, quanto investir, o que medir e os erros mais comuns. Um guia sem jargão para empresas de serviços.",
+         head=artigo_ld("artigos/anuncios-online/",
+                        "Tudo o que precisas de saber sobre anúncios online",
+                        "Como funcionam os anúncios online, quanto investir, o que medir e os erros mais comuns.",
+                        "2026-10-20")),
+
+    # Casos de estudo: uma página por cliente, dentro de /casos-estudo/
+    dict(out="casos-estudo/ortofirst/index.html", src="caso-ortofirst",
+         nome="OrtoFirst", pai=("Casos de estudo", "casos-estudo/"),
+         base="../../", home="../../", body="tema-home",
+         title="Caso de estudo OrtoFirst: 74.100 € faturados com 2.906 € em anúncios | LGDigital",
+         desc="Como a OrtoFirst faturou 74.100 € com 2.906 € em anúncios: 24 leads, 3 clientes fechados e 25,5x de retorno bruto. Os números todos.",
+         head=artigo_ld("casos-estudo/ortofirst/",
+                        "Como a OrtoFirst faturou 74.100 € com 2.906 € em anúncios",
+                        "2.906,75 € investidos em anúncios, 24 leads, 3 clientes fechados e 74.100 € faturados.",
+                        "2026-10-20")),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
@@ -179,6 +195,8 @@ REDIRECIONAR = {
     "hvac-obrigado/": "",
     "gbp/": "",
     "contactos/": "#agendar",
+    # o caso da OrtoFirst esteve uns dias publicado como artigo
+    "artigos/anuncios-74100-euros-faturados/": "casos-estudo/ortofirst/",
 }
 
 REDIRECT = """<!DOCTYPE html>
@@ -243,7 +261,10 @@ def render(folder, base, home):
 
 def _texto(html):
     """Tira tags e devolve texto limpo, para os dados estruturados."""
-    t = re.sub(r"<[^>]+>", " ", html)
+    # tags de linha (negrito, links) saem sem deixar espaço; as de bloco
+    # deixam um espaço, para as frases não colarem umas às outras
+    t = re.sub(r"</?(?:strong|b|em|i|a|span)(?:\s[^>]*)?>", "", html)
+    t = re.sub(r"<[^>]+>", " ", t)
     t = (t.replace("&mdash;", "—").replace("&ldquo;", "“").replace("&rdquo;", "”")
           .replace("&euro;", "€").replace("&middot;", "·").replace("&hellip;", "…")
           .replace("&amp;", "&").replace("&nbsp;", " ").replace("&rarr;", "→")
@@ -346,7 +367,7 @@ def build_redirects():
         destino = ROOT / caminho / "index.html"
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(REDIRECT.format(
-            absoluto=SITE + "/", relativo=relativo,
+            absoluto=SITE + "/" + ancora.split("#")[0], relativo=relativo,
             relativo_js=json.dumps(relativo)), encoding="utf-8")
         print("  %-30s -> /%s" % (caminho, ancora))
 

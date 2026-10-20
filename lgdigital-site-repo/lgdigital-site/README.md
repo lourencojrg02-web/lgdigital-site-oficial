@@ -8,9 +8,11 @@ um script Python que junta as secções.
 ```
 .
 ├─ index.html                  página inicial                      → lgdigital.pt/
-├─ casos-estudo/               casos de estudo                     → lgdigital.pt/casos-estudo
+├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
+│  └─ ortofirst/               caso OrtoFirst (74.100 €)
 ├─ artigos/                    lista de artigos                    → lgdigital.pt/artigos
-│  └─ anuncios-74100-euros-faturados/   artigo do caso principal
+│  ├─ anuncios-online/         "Tudo o que precisas de saber sobre anúncios online"
+│  └─ anuncios-74100-euros-faturados/   só redireciona para o caso OrtoFirst
 ├─ pp/  tc/                    política de privacidade, termos     → lgdigital.pt/pp, /tc
 ├─ 404.html
 │
@@ -30,7 +32,8 @@ um script Python que junta as secções.
 ├─ src/                        ← ONDE SE EDITA
 │  ├─ _partials/               header-site.html e rodape.html
 │  ├─ home/                    secções da página inicial
-│  ├─ casos-estudo/  artigos/  artigo-74100/  404/  pp/  tc/
+│  ├─ casos-estudo/  caso-ortofirst/  artigos/  artigo-anuncios-online/
+│  ├─ 404/  pp/  tc/
 │  └─ meta/  meta-book-a-call/  instant-form-book-a-call/
 ├─ build.py
 ├─ sitemap.xml  robots.txt  site.webmanifest  favicon.ico
@@ -89,8 +92,9 @@ lê-as como se fossem a sério.
 
 Todas as páginas do site principal partilham `_partials/header-site.html`:
 barra preta de anúncio + navegação, ambas fixas no topo, ao estilo do
-leadarc.io. Os links são secções da página inicial (`{{home}}#processo`,
-`#calculadora`, …); "Casos de estudo" é a única página à parte.
+leadarc.io. Os links são secções da página inicial (`{{home}}#calculadora`,
+`#comparacao`, `#resultados`, `#faq`); "Casos de estudo" é a única página à
+parte. "Como funciona" saiu do menu, mas a secção continua na página.
 
 O script do cabeçalho:
 - abre e fecha o menu do telemóvel (`Esc`, clique fora, clique num link);
@@ -120,13 +124,25 @@ todas as páginas. O site não mostra telefone nem WhatsApp, de propósito.
 `/casos-estudo` segue a `/case-studies` do leadarc: cabeçalho à esquerda,
 "Todos os casos" com a contagem à direita e uma grelha de dois cartões
 clicáveis (capa, etiquetas, título, resumo, três números, "Ler caso de
-estudo"). Cada cartão abre o artigo do caso em `/artigos/…`, para o texto
-não estar repetido em dois sítios.
+estudo"). Cada cartão abre a página do caso em `/casos-estudo/<cliente>/`.
+Casos de estudo e artigos são coisas diferentes: o caso fica só aqui.
 
-Para acrescentar um caso: escreve-o como artigo (ver abaixo), copia o
-`<article class="lg-csc">` em `src/casos-estudo/02-conteudo.html`, muda o
-link e os números e atualiza a contagem ("2 publicados"). Na página inicial,
-acrescenta um cartão `lg-rcard` em `src/home/07-resultados.html`.
+A página do caso segue as do leadarc (`/dreamland-case-study`): "← Todos os
+casos", título, banner 12:5 com as duas marcas (cliente × LGDigital), uma
+moldura com os números, secções numeradas, tabela de resultados e uma nota
+da fonte no fim. Classes `lg-cp-*`; capa `.lg-capa--caso`.
+
+Para acrescentar um caso:
+1. nova pasta em `src/` (copia `src/caso-ortofirst/`)
+2. logótipo do cliente em `assets/img/clientes/` (versão branca para a capa
+   e escura para o cartão da página inicial, com a classe `.logo-<cliente>`
+   no `site.css`)
+3. entrada no `PAGES` do `build.py` com `pai=("Casos de estudo",
+   "casos-estudo/")` e `head=artigo_ld(...)`
+4. copia o `<article class="lg-csc">` em `src/casos-estudo/02-conteudo.html`,
+   muda o link e os números e atualiza a contagem ("2 publicados")
+5. cartão `lg-rcard` em `src/home/07-resultados.html`
+6. `sitemap.xml`
 
 ### Artigos
 
@@ -136,9 +152,10 @@ Com um só artigo a grelha usa `lg-ar-grid--1`; com dois, `--2`; com três ou
 mais, sem modificador.
 
 Para acrescentar um artigo:
-1. nova pasta em `src/` (copia `src/artigo-74100/`)
+1. nova pasta em `src/` (copia `src/artigo-anuncios-online/`)
 2. entrada no `PAGES` do `build.py` com `pai=("Artigos", "artigos/")` — dá as
-   migalhas Início › Artigos › artigo — e o JSON-LD `Article` no campo `head`
+   migalhas Início › Artigos › artigo — e `head=artigo_ld(...)` para o
+   JSON-LD `Article`
 3. novo cartão em `src/artigos/02-conteudo.html`
 4. `sitemap.xml`
 

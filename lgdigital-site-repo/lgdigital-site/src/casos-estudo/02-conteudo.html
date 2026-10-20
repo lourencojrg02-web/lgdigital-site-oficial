@@ -3,10 +3,10 @@
      os casos" com a contagem à direita e uma grelha de dois cartões
      clicáveis (capa 16:9, etiquetas, título, resumo, três números e
      "Ler caso de estudo").
-     Cada cartão abre o artigo do caso (o caso completo vive em /artigos,
-     para não haver o mesmo texto em dois sítios).
-     Para acrescentar um caso: copiar o <article>, mudar o link e os
-     números, e atualizar a contagem ("1 publicado" → "2 publicados").
+     Cada cartão abre a página do caso em /casos-estudo/<cliente>/.
+     Para acrescentar um caso: nova pasta em src/ (copia src/caso-ortofirst/),
+     entrada no PAGES do build.py, copiar o <article> abaixo, mudar o link e
+     os números, e atualizar a contagem ("1 publicado" → "2 publicados").
      Regra: só números medidos. O setor do caso principal fica de fora. -->
 <main class="lg-main" id="conteudo">
 
@@ -30,20 +30,25 @@
     <div class="lg-csl-grelha">
 
       <article class="lg-csc">
-        <a class="lg-csc-link" href="{{base}}artigos/anuncios-74100-euros-faturados/">
+        <a class="lg-csc-link" href="{{base}}casos-estudo/ortofirst/" aria-label="Ler caso de estudo: Como a OrtoFirst faturou 74.100&nbsp;€ com 2.906&nbsp;€ em anúncios">
           <div class="lg-csc-capa">
-            <div class="lg-capa" role="img" aria-label="74.100 € faturados com 2.906 € em anúncios">
-              <img class="lg-capa-logo" src="{{base}}assets/img/logo-branco.png" width="457" height="100" alt="">
-              <span class="lg-capa-eti">Caso de estudo</span>
-              <p class="lg-capa-num">74.100 €</p>
-              <p class="lg-capa-sub">faturados com 2.906 € em anúncios</p>
+            <div class="lg-capa lg-capa--caso" role="img" aria-label="Caso de estudo OrtoFirst: 74.100&nbsp;€ faturados com 2.906&nbsp;€ em anúncios">
+              <div class="lg-capa-marcas" aria-hidden="true">
+                <span class="lg-capa-marca lg-capa-marca--cliente"><img src="{{base}}assets/img/clientes/ortofirst-branco.png" width="542" height="120" alt=""></span>
+                <span class="lg-capa-x">&times;</span>
+                <span class="lg-capa-marca"><img src="{{base}}assets/img/logo-branco.png" width="457" height="100" alt=""></span>
+              </div>
+              <span class="lg-capa-rot">Caso de estudo OrtoFirst</span>
+              <p class="lg-capa-num">74.100&nbsp;€</p>
+              <p class="lg-capa-sub">faturados com 2.906&nbsp;€ em anúncios</p>
+              <span class="lg-capa-chip">24 leads &middot; 3 clientes fechados</span>
             </div>
           </div>
           <div class="lg-csc-corpo">
-            <div class="lg-csc-tags"><span>Empresa de serviços</span><span>Anúncios</span></div>
-            <h3 class="lg-csc-h">Como 2.906 € em anúncios geraram 74.100 € em faturação</h3>
+            <div class="lg-csc-tags"><span>Formação</span><span>Anúncios</span></div>
+            <h3 class="lg-csc-h">Como a OrtoFirst faturou 74.100&nbsp;€ com 2.906&nbsp;€ em anúncios</h3>
             <p class="lg-csc-ex">Uma campanha de anúncios para o site da empresa. Poucas
-              leads, mas de valor alto: cada cliente fechado valeu 24.700 €.</p>
+              leads, mas de valor alto: cada cliente fechado valeu 24.700&nbsp;€.</p>
             <div class="lg-csc-num">
               <div><strong>24</strong><span>Leads geradas</span></div>
               <div><strong>3</strong><span>Clientes fechados</span></div>

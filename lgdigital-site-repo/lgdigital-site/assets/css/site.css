@@ -45,6 +45,7 @@ h1,h2,h3,h4{margin:0;}
 .logo-arq501{aspect-ratio:606/140;background-image:url("../img/clientes/arquitetura-501.png");}
 .logo-casa  {aspect-ratio:248/140;background-image:url("../img/clientes/casa-em-ordem.png");}
 .logo-idelma{aspect-ratio:277/140;background-image:url("../img/clientes/idelma.png");}
+.logo-ortofirst{aspect-ratio:542/120;background-image:url("../img/clientes/ortofirst-escuro.png");}
 
 
 /* ---------- Tokens ---------- */
@@ -475,9 +476,6 @@ h1,h2,h3,h4{margin:0;}
   margin-bottom:18px;min-height:28px;}
 .lg-rcard-logo{display:block;height:24px;max-width:150px;
   background-repeat:no-repeat;background-position:left center;background-size:contain;}
-.lg-rcard-icone{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;
-  background:#262626;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
-.lg-rcard-icone svg{width:15px;height:15px;}
 .lg-rcard-cat{font-size:12.5px;font-weight:500;color:var(--lg-subtle);white-space:nowrap;}
 .lg-rstat{margin:0 0 16px;font-family:var(--lg-display);font-size:21px;font-weight:600;
   letter-spacing:-.015em;line-height:1.25;color:var(--lg-ink);}
@@ -866,3 +864,101 @@ a.lg-ar-chip:hover{background:#FAFAFA;border-color:rgba(0,0,0,.16);}
   .lg-hero-acoes{flex-direction:column;align-items:stretch;max-width:360px;margin-inline:auto;}
   .lg-hero-acoes .lg-btn{width:100%;}
 }
+
+
+/* ==========================================================================
+   Capa de caso de estudo: as duas marcas no topo (cliente × LGDigital),
+   rótulo, número grande, subtítulo e uma pastilha. Usada no cartão de
+   /casos-estudo (16:9) e no banner da página do caso (12:5).
+   ========================================================================== */
+.lg-capa-marcas{position:absolute;top:7%;left:7.5%;display:flex;align-items:center;gap:1.6cqw;}
+.lg-capa-marca{display:inline-flex;align-items:center;height:clamp(22px,6cqw,42px);padding:0 2cqw;
+  border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);}
+.lg-capa-marca img{display:block;height:46%;width:auto;}
+.lg-capa-x{font-size:clamp(11px,2.4cqw,17px);color:rgba(255,255,255,.55);line-height:1;}
+.lg-capa-rot{margin-bottom:2.4%;font-size:clamp(9px,1.9cqw,13px);font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.7);}
+.lg-capa--caso .lg-capa-num{font-size:clamp(2rem,13cqw,6rem);}
+.lg-capa-chip{align-self:flex-start;margin-top:3.2%;padding:.45em 1em;border-radius:999px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+  font-size:clamp(10px,2.1cqw,14px);line-height:1.2;color:rgba(255,255,255,.88);}
+
+/* capa de guia (artigos sem número): título em vez do número grande */
+.lg-capa--guia .lg-capa-num{font-size:clamp(1.6rem,9cqw,4.6rem);letter-spacing:-.025em;line-height:1;}
+.lg-ar-banner .lg-capa--guia .lg-capa-num{font-size:clamp(1.5rem,8cqw,4.2rem);}
+
+
+/* ==========================================================================
+   Página de um caso de estudo — medidas das páginas de caso do leadarc
+   ========================================================================== */
+.lg-cp{position:relative;z-index:1;width:min(900px, 100% - 40px);margin:0 auto;padding:82px 0 120px;
+  font-size:16px;line-height:1.65;color:#262626;}
+@media(max-width:680px){.lg-cp{width:min(100% - 28px, 900px);padding-top:54px;}}
+.lg-cp > :first-child{margin-top:0;}
+.lg-cp-voltar{display:inline-flex;margin-bottom:28px;font-size:14px;font-weight:500;color:var(--lg-subtle);}
+.lg-cp-voltar:hover{color:var(--lg-azul-forte);}
+.lg-cp h1{margin:0;font-size:clamp(40px,7vw,76px);font-weight:500;letter-spacing:-.025em;line-height:1.04;text-wrap:balance;}
+.lg-cp h2{margin:82px 0 22px;padding-top:18px;border-top:1px solid rgba(0,0,0,.09);
+  font-size:clamp(28px,4vw,42px);font-weight:500;letter-spacing:-.025em;line-height:1.08;}
+.lg-cp h3{margin:48px 0 16px;font-size:25px;font-weight:500;letter-spacing:-.025em;line-height:1.18;}
+@media(max-width:680px){.lg-cp h2{margin-top:62px;}}
+.lg-cp p{margin:0 0 20px;}
+.lg-cp strong{color:var(--lg-ink);font-weight:600;}
+.lg-cp blockquote{margin:14px 0 24px;padding:16px 20px;border-left:3px solid var(--lg-ink);background:#FAFAFA;}
+.lg-cp blockquote p{margin:0;}
+.lg-cp .lg-capa p{margin:0;}
+
+.lg-cp-banner{margin:28px 0 8px;aspect-ratio:12/5;overflow:hidden;border-radius:18px;}
+@media(max-width:600px){.lg-cp-banner{aspect-ratio:16/9;}}
+.lg-cp-banner .lg-capa{padding:6% 6.5%;}
+.lg-cp-banner .lg-capa-marcas{top:9%;left:6.5%;gap:1.2cqw;}
+.lg-cp-banner .lg-capa-marca{height:clamp(22px,4.4cqw,40px);padding:0 1.5cqw;}
+.lg-cp-banner .lg-capa-rot{font-size:clamp(9px,1.4cqw,13px);margin-bottom:1.6%;}
+.lg-cp-banner .lg-capa--caso .lg-capa-num{font-size:clamp(2rem,10cqw,6rem);}
+.lg-cp-banner .lg-capa .lg-capa-sub{font-size:clamp(.85rem,3cqw,1.6rem);margin-top:1.6%;}
+.lg-cp-banner .lg-capa-chip{font-size:clamp(10px,1.6cqw,14px);margin-top:2.4%;}
+@media(max-width:600px){
+  .lg-cp-banner .lg-capa-marca{height:clamp(22px,6cqw,40px);}
+  .lg-cp-banner .lg-capa--caso .lg-capa-num{font-size:clamp(2rem,13cqw,6rem);}
+  .lg-cp-banner .lg-capa .lg-capa-sub{font-size:clamp(.85rem,4.2cqw,1.6rem);}
+  .lg-cp-banner .lg-capa-rot{font-size:clamp(9px,2cqw,13px);}
+  .lg-cp-banner .lg-capa-chip{font-size:clamp(10px,2.4cqw,14px);}
+}
+
+/* moldura da prova (no leadarc é uma captura; aqui os números) */
+.lg-cp-prova{margin:34px 0 46px;}
+.lg-cp-prova-moldura{padding:6px;border:1px solid rgba(0,0,0,.09);border-radius:18px;background:#F5F5F5;}
+.lg-cp-prova-janela{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:hidden;
+  border:1px solid rgba(0,0,0,.09);border-radius:12px;background:#fff;}
+.lg-cp-prova-janela > div{padding:22px 20px;border-left:1px solid rgba(0,0,0,.09);}
+.lg-cp-prova-janela > div:first-child{border-left:0;}
+.lg-cp-prova-janela strong{display:block;font-family:var(--lg-display);font-size:clamp(22px,2.6vw,30px);
+  font-weight:600;letter-spacing:-.02em;line-height:1.1;color:var(--lg-ink);}
+.lg-cp-prova-janela span{display:block;margin-top:6px;font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--lg-subtle);line-height:1.3;}
+@media(max-width:680px){
+  .lg-cp-prova-janela{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lg-cp-prova-janela > div:nth-child(3){border-left:0;}
+  .lg-cp-prova-janela > div:nth-child(n+3){border-top:1px solid rgba(0,0,0,.09);}
+}
+.lg-cp-prova figcaption{margin-top:12px;font-size:13px;line-height:1.5;color:var(--lg-subtle);}
+
+/* tabela de resultados */
+.lg-cp-tabela{overflow-x:auto;margin:26px 0 30px;border:1px solid rgba(0,0,0,.09);border-radius:12px;background:#fff;}
+.lg-cp-tabela table{width:100%;border-collapse:collapse;font-size:14px;}
+.lg-cp-tabela th,.lg-cp-tabela td{padding:14px 16px;border-bottom:1px solid rgba(0,0,0,.09);text-align:left;vertical-align:top;}
+.lg-cp-tabela tr:last-child td{border-bottom:0;}
+.lg-cp-tabela th{background:#FAFAFA;color:var(--lg-subtle);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;}
+.lg-cp-tabela td:last-child,.lg-cp-tabela th:last-child{text-align:right;white-space:nowrap;}
+
+.lg-cp-fonte{margin-top:34px !important;font-size:12px;line-height:1.5;color:var(--lg-subtle);}
+
+/* listas dentro dos artigos (o reset tira-lhes as marcas) */
+.lg-ar-col ul,.lg-ar-col ol{margin:0 0 24px;padding-left:24px;color:var(--lg-text);}
+.lg-ar-col ul{list-style:disc;}
+.lg-ar-col ol{list-style:decimal;}
+.lg-ar-col li{margin:8px 0;padding-left:4px;}
+.lg-ar-col li::marker{color:var(--lg-subtle);}
+/* o logótipo da OrtoFirst tem uma linha pequena por baixo do nome; precisa
+   de mais altura na pastilha para se ler */
+.lg-capa-marca--cliente img{height:62%;}

@@ -1,6 +1,7 @@
 <!-- ==================== CALCULADORA ==================== -->
 <!-- Os números são do visitante e a conta é aritmética simples, à vista.
-     O cartão escuro diz "Projeção" de propósito. -->
+     O cartão escuro diz "Projeção" de propósito. O investimento começa nos
+     1.000&nbsp;€, o mínimo com que trabalhamos. -->
 <section class="lg-sec" id="calculadora">
   <div class="lg-wrap">
     <div class="lg-cab">
@@ -18,15 +19,15 @@
         <p class="lg-calc-titulo">Os teus números</p>
 
         <label class="lg-campo">
-          <span class="lg-campo-rotulo">Investimento mensal em anúncios <b id="c-orcamento">600 €</b></span>
-          <input type="range" id="orcamento" min="200" max="5000" step="50" value="600">
-          <span class="lg-campo-limites"><span>200 €</span><span>5.000 €</span></span>
+          <span class="lg-campo-rotulo">Investimento mensal em anúncios <b id="c-orcamento">1.500&nbsp;€</b></span>
+          <input type="range" id="orcamento" min="1000" max="10000" step="100" value="1500">
+          <span class="lg-campo-limites"><span>1.000&nbsp;€</span><span>10.000&nbsp;€</span></span>
         </label>
 
         <label class="lg-campo">
-          <span class="lg-campo-rotulo">Custo por contacto <b id="c-cpl">25 €</b></span>
+          <span class="lg-campo-rotulo">Custo por contacto <b id="c-cpl">25&nbsp;€</b></span>
           <input type="range" id="cpl" min="5" max="150" step="1" value="25">
-          <span class="lg-campo-limites"><span>5 €</span><span>150 €</span></span>
+          <span class="lg-campo-limites"><span>5&nbsp;€</span><span>150&nbsp;€</span></span>
         </label>
 
         <label class="lg-campo">
@@ -36,19 +37,19 @@
         </label>
 
         <label class="lg-campo">
-          <span class="lg-campo-rotulo">Valor médio de um cliente <b id="c-ticket">1.200 €</b></span>
+          <span class="lg-campo-rotulo">Valor médio de um cliente <b id="c-ticket">1.200&nbsp;€</b></span>
           <input type="range" id="ticket" min="100" max="25000" step="100" value="1200">
-          <span class="lg-campo-limites"><span>100 €</span><span>25.000 €</span></span>
+          <span class="lg-campo-limites"><span>100&nbsp;€</span><span>25.000&nbsp;€</span></span>
         </label>
       </form>
 
       <div class="lg-calc-saida">
         <p class="lg-calc-titulo">Projeção mensal</p>
         <div class="lg-calc-grelha">
-          <div class="lg-calc-num"><b id="r-leads">24</b><span>Contactos</span></div>
-          <div class="lg-calc-num"><b id="r-clientes">4</b><span>Clientes</span></div>
-          <div class="lg-calc-num"><b id="r-cac">125 €</b><span>Custo por cliente</span></div>
-          <div class="lg-calc-num"><b id="r-receita">5.760 €</b><span>Valor gerado</span></div>
+          <div class="lg-calc-num"><b id="r-leads">60</b><span>Contactos</span></div>
+          <div class="lg-calc-num"><b id="r-clientes">12</b><span>Clientes</span></div>
+          <div class="lg-calc-num"><b id="r-cac">125&nbsp;€</b><span>Custo por cliente</span></div>
+          <div class="lg-calc-num"><b id="r-receita">14.400&nbsp;€</b><span>Valor gerado</span></div>
         </div>
         <div class="lg-calc-destaque">
           <span>Retorno bruto sobre o investimento em anúncios</span>
@@ -76,9 +77,9 @@
   ids.forEach(function (id) { c[id] = document.getElementById(id); });
 
   // Separador de milhares à mão: o CLDR de pt-PT usa espaço e só agrupa a
-  // partir das 5 casas (1200 sairia "1200"). O resto do site escreve 1.200 €.
+  // partir das 5 casas (1200 sairia "1200"). O resto do site escreve 1.200&nbsp;€.
   var eur = function (n) {
-    return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+    return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '\u00a0€';
   };
   var dec = function (n) { return n.toFixed(1).replace('.', ','); };
 
