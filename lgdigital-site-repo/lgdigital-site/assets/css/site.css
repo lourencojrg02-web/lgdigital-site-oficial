@@ -982,3 +982,12 @@ a.lg-ar-chip:hover{background:#FAFAFA;border-color:rgba(0,0,0,.16);}
   .lg-cp-fluxo{grid-template-columns:1fr 1fr;}
   .lg-cp-fluxo > div:nth-child(3)::before{display:none;}
 }
+
+/* passos com dois parágrafos */
+.lg-passo-txt p + p{margin-top:10px;}
+
+/* ícones no cabeçalho da comparação (os mesmos do leadarc: edifício e pessoa) */
+.lg-cmp-co{display:inline-flex;align-items:center;gap:9px;}
+.lg-cmp-ic{display:grid;place-items:center;flex:none;width:22px;height:22px;border-radius:6px;
+  background:#EDEEF1;color:#8A8F98;}
+.lg-cmp-ic svg{width:14px;height:14px;}
