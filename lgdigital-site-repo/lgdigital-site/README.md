@@ -72,8 +72,8 @@ Cada secção é um ficheiro em `src/home/`, por ordem alfabética:
 | `04-beneficios.html` | "O que muda" — seis benefícios | `#beneficios` |
 | `05-como-funciona.html` | quatro passos com maquetes de interface | `#processo` |
 | `06-calculadora.html` | calculadora de retorno | `#calculadora` |
-| `07-resultados.html` | caso em destaque + um cartão por cliente | `#resultados` |
-| `08-encaixe.html` | bom encaixe / mau encaixe | `#para-quem` |
+| `07-resultados.html` | um cartão igual por caso, sem botão (os detalhes ficam em /casos-estudo) | `#resultados` |
+| `08-encaixe.html` | "É para ti se…" / "Não é para ti se…", sem botão | `#para-quem` |
 | `09-comparacao.html` | tabela LGDigital vs agência vs sozinho | `#comparacao` |
 | `10-faq.html` | perguntas frequentes | `#faq` |
 | `11-agendar.html` | secção escura com o calendário | `#agendar` |
@@ -114,6 +114,19 @@ Gaspar** (YouTube e LinkedIn pessoais), com os mesmos ícones do leadarc. Por
 baixo: copyright, aviso de não afiliação e uma linha pequena com Política de
 Privacidade, Termos e Sitemap — as páginas legais têm de estar acessíveis em
 todas as páginas. O site não mostra telefone nem WhatsApp, de propósito.
+
+### Casos de estudo
+
+`/casos-estudo` segue a `/case-studies` do leadarc: cabeçalho à esquerda,
+"Todos os casos" com a contagem à direita e uma grelha de dois cartões
+clicáveis (capa, etiquetas, título, resumo, três números, "Ler caso de
+estudo"). Cada cartão abre o artigo do caso em `/artigos/…`, para o texto
+não estar repetido em dois sítios.
+
+Para acrescentar um caso: escreve-o como artigo (ver abaixo), copia o
+`<article class="lg-csc">` em `src/casos-estudo/02-conteudo.html`, muda o
+link e os números e atualiza a contagem ("2 publicados"). Na página inicial,
+acrescenta um cartão `lg-rcard` em `src/home/07-resultados.html`.
 
 ### Artigos
 

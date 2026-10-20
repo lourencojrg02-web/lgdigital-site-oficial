@@ -78,7 +78,7 @@ PAGES = [
     dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
          base="../", home="../", body="tema-home",
          title="Casos de estudo | LGDigital",
-         desc="Resultados reais de campanhas de anúncios e de SEO local: 74.100 € faturados com 2.906 € em anúncios, top 3 no Google em 30 dias e mais. Só números medidos."),
+         desc="Casos de estudo das nossas campanhas de anúncios: 74.100 € faturados com 2.906 € investidos, 24 leads e 3 clientes fechados. Só números medidos."),
 
     dict(out="artigos/index.html", src="artigos", nome="Artigos",
          base="../", home="../", body="tema-home",

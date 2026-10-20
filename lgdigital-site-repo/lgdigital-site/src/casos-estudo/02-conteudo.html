@@ -1,194 +1,59 @@
-<!-- ==================== CASOS DE ESTUDO ==================== -->
-<!-- Estrutura da página /case-studies do leadarc: cabeçalho alinhado à
-     esquerda, o caso principal por extenso e os restantes em cartões com
-     topo escuro. Lá os topos têm fotografia; aqui não, porque não temos
-     fotografias dos projetos e não vamos usar imagens de banco.
-     Regra: só números medidos. O setor do caso principal fica de fora,
-     a pedido do cliente. -->
+<!-- ==================== CASOS DE ESTUDO (lista) ==================== -->
+<!-- Igual à /case-studies do leadarc: cabeçalho à esquerda, depois "Todos
+     os casos" com a contagem à direita e uma grelha de dois cartões
+     clicáveis (capa 16:9, etiquetas, título, resumo, três números e
+     "Ler caso de estudo").
+     Cada cartão abre o artigo do caso (o caso completo vive em /artigos,
+     para não haver o mesmo texto em dois sítios).
+     Para acrescentar um caso: copiar o <article>, mudar o link e os
+     números, e atualizar a contagem ("1 publicado" → "2 publicados").
+     Regra: só números medidos. O setor do caso principal fica de fora. -->
 <main class="lg-main" id="conteudo">
 
 <section class="lg-cs-hero">
   <div class="lg-wrap">
     <p class="lg-sobre">Casos de estudo</p>
     <h1 class="lg-cs-h1">Provas, não <span class="lg-azul">promessas</span>.</h1>
-    <p class="lg-cs-lede">Os números das campanhas e do trabalho que fizemos
-      para os nossos clientes, tal como foram medidos. Sem arredondamentos
-      para cima e sem estimativas.</p>
+    <p class="lg-cs-lede">Os números das campanhas que fizemos para os nossos
+      clientes, tal como foram medidos. Sem arredondamentos para cima e sem
+      estimativas.</p>
   </div>
 </section>
 
-<!-- ---------- Caso principal, por extenso ---------- -->
-<section class="lg-sec" id="caso-destaque">
+<section class="lg-sec lg-csl" aria-labelledby="todos-casos">
   <div class="lg-wrap">
-    <div class="lg-cs-lista-cab">
-      <h2>Caso em destaque</h2>
-      <span>Campanha de anúncios</span>
+    <div class="lg-csl-cab">
+      <h2 id="todos-casos">Todos os casos</h2>
+      <span>1 publicado</span>
     </div>
 
-    <article class="lg-cartao lg-caso">
-      <div class="lg-caso-topo">
-        <span class="lg-caso-eti">Campanha de anúncios</span>
-        <p class="lg-caso-rotulo">Faturação gerada</p>
-        <p class="lg-caso-grande">74.100 €
-          <span class="lg-caso-grande-sub">com 2.906,75 € investidos em anúncios</span></p>
-        <span class="lg-caso-chip">24 leads &middot; 3 clientes fechados</span>
-      </div>
-      <div class="lg-caso-corpo">
-        <div class="lg-stats">
-          <div class="lg-stat"><b>24</b><span>Leads geradas</span></div>
-          <div class="lg-stat"><b>3</b><span>Clientes fechados</span></div>
-          <div class="lg-stat"><b>12,5%</b><span>Taxa de conversão</span></div>
-          <div class="lg-stat lg-stat--azul"><b>25,5x</b><span>Retorno bruto</span></div>
-        </div>
-      </div>
-    </article>
+    <div class="lg-csl-grelha">
 
-    <div class="lg-cs-artigo">
-      <div class="lg-cs-texto">
-        <h3>O desafio</h3>
-        <p>O objetivo era gerar novas oportunidades comerciais com anúncios,
-          chegando a pessoas interessadas nos serviços da empresa.</p>
-        <p>Mais do que aumentar o número de contactos, o foco estava em
-          conseguir oportunidades que se pudessem transformar em negócio
-          real.</p>
-
-        <h3>A estratégia</h3>
-        <p>Montámos campanhas de anúncios para captar potenciais clientes
-          através do site da empresa. Os contactos gerados foram acompanhados
-          pela equipa comercial do cliente e convertidos em clientes.</p>
-
-        <h3>De 24 contactos a 3 clientes</h3>
-        <p>Com menos de 3.000 € investidos, a campanha gerou 24 leads. Dessas
-          24, a empresa fechou 3 clientes, cada um no valor de 24.700 €.</p>
-        <p>São 74.100 € faturados, com um custo publicitário de cerca de
-          969 € por cliente. Por cada euro investido em anúncios, entraram
-          cerca de 25,50 € em faturação.</p>
-        <p>Este é o retorno bruto atribuído à publicidade, não o lucro da
-          empresa: não inclui o custo de prestar o serviço, a gestão das
-          campanhas nem outros custos comerciais.</p>
-
-        <h3>O que este caso mostra</h3>
-        <p>Uma campanha não precisa de gerar centenas de leads para mexer no
-          negócio. Quando cada cliente vale muito, um número pequeno de
-          contactos pode ser uma oportunidade grande.</p>
-        <p>O que interessa não é só o custo por lead. É a qualidade das
-          oportunidades, a capacidade comercial da empresa e o valor dos
-          negócios que efetivamente se fecham.</p>
-      </div>
-
-      <aside class="lg-cartao lg-cs-lado" aria-label="Resultados da campanha">
-        <h4>Os números</h4>
-        <table class="lg-cs-tabela">
-          <tbody>
-            <tr><th scope="row">Investimento em anúncios</th><td>2.906,75 €</td></tr>
-            <tr><th scope="row">Leads geradas</th><td>24</td></tr>
-            <tr><th scope="row">Custo por lead</th><td>121,11 €</td></tr>
-            <tr><th scope="row">Clientes fechados</th><td>3</td></tr>
-            <tr><th scope="row">Valor por cliente</th><td>24.700 €</td></tr>
-            <tr><th scope="row">Conversão em clientes</th><td>12,5%</td></tr>
-            <tr><th scope="row">Custo publicitário por cliente</th><td>968,92 €</td></tr>
-            <tr class="forte"><th scope="row">Faturação total</th><td>74.100 €</td></tr>
-            <tr class="forte"><th scope="row">Retorno bruto</th><td>25,5x</td></tr>
-          </tbody>
-        </table>
-        <p class="lg-nota">Retorno bruto atribuído ao investimento publicitário. Não representa lucro.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ---------- Restantes casos ---------- -->
-<section class="lg-sec" id="todos">
-  <div class="lg-wrap">
-    <div class="lg-cs-lista-cab">
-      <h2>Outros clientes</h2>
-      <span>4 casos</span>
-    </div>
-
-    <div class="lg-cs-grelha">
-
-      <article class="lg-cartao lg-cs-card">
-        <div class="lg-caso-topo">
-          <span class="lg-cs-chip"><span class="lg-cs-logo logo-hca" role="img" aria-label="Humberto Conde Arquitectos"></span></span>
-          <p class="lg-caso-rotulo">SEO local &middot; Lisboa</p>
-          <p class="lg-caso-grande">1.º lugar<span class="lg-caso-grande-sub">entre 210 concorrentes</span></p>
-        </div>
-        <div class="lg-cs-card-corpo">
-          <div class="lg-cs-tags"><span>Arquitetura</span><span>SEO local</span><span>Lisboa</span></div>
-          <h3>Humberto Conde Arquitectos no topo do Google em Lisboa</h3>
-          <p>Pesquisa &ldquo;arquitecto lisboa&rdquo;, medida em 81 pontos de
-            toda a área da cidade.</p>
-          <div class="lg-stats">
-            <div class="lg-stat"><b>1.º</b><span>Posição média</span></div>
-            <div class="lg-stat"><b>85%</b><span>Quota de mercado</span></div>
-            <div class="lg-stat"><b>210</b><span>Concorrentes</span></div>
+      <article class="lg-csc">
+        <a class="lg-csc-link" href="{{base}}artigos/anuncios-74100-euros-faturados/">
+          <div class="lg-csc-capa">
+            <div class="lg-capa" role="img" aria-label="74.100 € faturados com 2.906 € em anúncios">
+              <img class="lg-capa-logo" src="{{base}}assets/img/logo-branco.png" width="457" height="100" alt="">
+              <span class="lg-capa-eti">Caso de estudo</span>
+              <p class="lg-capa-num">74.100 €</p>
+              <p class="lg-capa-sub">faturados com 2.906 € em anúncios</p>
+            </div>
           </div>
-        </div>
+          <div class="lg-csc-corpo">
+            <div class="lg-csc-tags"><span>Empresa de serviços</span><span>Anúncios</span></div>
+            <h3 class="lg-csc-h">Como 2.906 € em anúncios geraram 74.100 € em faturação</h3>
+            <p class="lg-csc-ex">Uma campanha de anúncios para o site da empresa. Poucas
+              leads, mas de valor alto: cada cliente fechado valeu 24.700 €.</p>
+            <div class="lg-csc-num">
+              <div><strong>24</strong><span>Leads geradas</span></div>
+              <div><strong>3</strong><span>Clientes fechados</span></div>
+              <div><strong>25,5x</strong><span>Retorno bruto</span></div>
+            </div>
+            <span class="lg-csc-ler">Ler caso de estudo <span class="seta" aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="lg-cartao lg-cs-card">
-        <div class="lg-caso-topo">
-          <span class="lg-cs-chip"><span class="lg-cs-logo logo-arq501" role="img" aria-label="Arquitetura 501"></span></span>
-          <p class="lg-caso-rotulo">SEO local &middot; Braga</p>
-          <p class="lg-caso-grande">Top 3<span class="lg-caso-grande-sub">em 30 dias</span></p>
-        </div>
-        <div class="lg-cs-card-corpo">
-          <div class="lg-cs-tags"><span>Arquitetura</span><span>SEO local</span><span>Braga</span></div>
-          <h3>Arquitetura 501 no mapa de Braga em menos de um mês</h3>
-          <p>Pesquisa &ldquo;arquiteto braga&rdquo;, com botão de chamada direta
-            a partir do mapa.</p>
-          <div class="lg-stats">
-            <div class="lg-stat"><b>30</b><span>Dias até ao top 3</span></div>
-            <div class="lg-stat"><b>80%</b><span>Quota de mercado</span></div>
-            <div class="lg-stat"><b>89</b><span>Empresas no mercado</span></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="lg-cartao lg-cs-card">
-        <div class="lg-caso-topo">
-          <span class="lg-cs-chip"><span class="lg-cs-logo logo-casa" role="img" aria-label="Casa em Ordem"></span></span>
-          <p class="lg-caso-rotulo">SEO local &middot; Porto</p>
-          <p class="lg-caso-grande">100%<span class="lg-caso-grande-sub">de quota de mercado</span></p>
-        </div>
-        <div class="lg-cs-card-corpo">
-          <div class="lg-cs-tags"><span>Remodelações</span><span>SEO local</span><span>Porto</span></div>
-          <h3>Casa em Ordem com toda a quota de mercado no Porto</h3>
-          <p>Pesquisa &ldquo;remodelação&rdquo;: 1.º lugar na posição média
-            e no top 3%.</p>
-          <div class="lg-stats lg-stats--2">
-            <div class="lg-stat"><b>1.º</b><span>Posição média</span></div>
-            <div class="lg-stat"><b>100%</b><span>Quota de mercado</span></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="lg-cartao lg-cs-card">
-        <div class="lg-caso-topo">
-          <span class="lg-cs-chip"><span class="lg-cs-logo logo-idelma" role="img" aria-label="Idelma"></span></span>
-          <p class="lg-caso-rotulo">Website &middot; Madeira</p>
-          <p class="lg-caso-grande">Site novo<span class="lg-caso-grande-sub">em português e inglês</span></p>
-        </div>
-        <div class="lg-cs-card-corpo">
-          <div class="lg-cs-tags"><span>Iluminações</span><span>Website</span><span>Madeira</span></div>
-          <h3>Idelma: 32 anos de empresa num site à altura</h3>
-          <p>Serviços, portefólio de trabalhos e pedido de orçamento, em duas
-            línguas. <a class="lg-link" href="https://idelma.pt" target="_blank" rel="noopener">Ver idelma.pt</a></p>
-          <div class="lg-stats">
-            <div class="lg-stat"><b>32</b><span>Anos de empresa</span></div>
-            <div class="lg-stat"><b>2</b><span>Línguas</span></div>
-            <div class="lg-stat"><b>4</b><span>Áreas de serviço</span></div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="lg-fecho">
-      <p>Queres ser o próximo caso de estudo?</p>
-      <a class="lg-btn lg-btn--dark lg-btn--lg" href="{{home}}#agendar">Agendar Chamada Estratégica
-        <svg class="lg-seta" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="haste" d="M3 8h9"/><path class="ponta" d="M8.5 4l4 4-4 4"/></svg>
-      </a>
     </div>
   </div>
 </section>
