@@ -9,6 +9,8 @@ um script Python que junta as secções.
 .
 ├─ index.html                  página inicial                      → lgdigital.pt/
 ├─ casos-estudo/               casos de estudo                     → lgdigital.pt/casos-estudo
+├─ artigos/                    lista de artigos                    → lgdigital.pt/artigos
+│  └─ anuncios-74100-euros-faturados/   artigo do caso principal
 ├─ pp/  tc/                    política de privacidade, termos     → lgdigital.pt/pp, /tc
 ├─ 404.html
 │
@@ -28,7 +30,7 @@ um script Python que junta as secções.
 ├─ src/                        ← ONDE SE EDITA
 │  ├─ _partials/               header-site.html e rodape.html
 │  ├─ home/                    secções da página inicial
-│  ├─ casos-estudo/  404/  pp/  tc/
+│  ├─ casos-estudo/  artigos/  artigo-74100/  404/  pp/  tc/
 │  └─ meta/  meta-book-a-call/  instant-form-book-a-call/
 ├─ build.py
 ├─ sitemap.xml  robots.txt  site.webmanifest  favicon.ico
@@ -106,10 +108,26 @@ dão saídas a quem chegou por um anúncio.
 ### Rodapé
 
 `_partials/rodape.html`, escuro, com a estrutura do do leadarc: logótipo e
-botão, colunas Empresa (agendar, resultados, casos de estudo), Contactos (email
-e LinkedIn) e Legal, e por baixo o copyright e o aviso de não afiliação com o
-YouTube, a Google e o Facebook. O site não mostra telefone nem WhatsApp, de
-propósito: o único caminho é marcar a chamada.
+botão; colunas **Empresa** (Resultados, Casos de Estudo, Artigos),
+**Contactos** (Agendar Chamada, email, LinkedIn da empresa) e **Lourenço
+Gaspar** (YouTube e LinkedIn pessoais), com os mesmos ícones do leadarc. Por
+baixo: copyright, aviso de não afiliação e uma linha pequena com Política de
+Privacidade, Termos e Sitemap — as páginas legais têm de estar acessíveis em
+todas as páginas. O site não mostra telefone nem WhatsApp, de propósito.
+
+### Artigos
+
+`/artigos` segue a página `/articles` do leadarc: título centrado e um cartão
+por artigo. A capa de cada artigo é HTML (classe `.lg-capa`), não imagem.
+Com um só artigo a grelha usa `lg-ar-grid--1`; com dois, `--2`; com três ou
+mais, sem modificador.
+
+Para acrescentar um artigo:
+1. nova pasta em `src/` (copia `src/artigo-74100/`)
+2. entrada no `PAGES` do `build.py` com `pai=("Artigos", "artigos/")` — dá as
+   migalhas Início › Artigos › artigo — e o JSON-LD `Article` no campo `head`
+3. novo cartão em `src/artigos/02-conteudo.html`
+4. `sitemap.xml`
 
 ### Redirecionamentos
 

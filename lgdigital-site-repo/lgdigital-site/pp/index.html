@@ -311,10 +311,13 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 </main>
 
 <!-- ==================== RODAPÉ ==================== -->
-<!-- Estrutura do rodapé do leadarc: logótipo e botão à esquerda, três
-     colunas, e por baixo o copyright e o aviso de não afiliação.
-     data-escuro: o cabeçalho fica escuro quando o rodapé passa por baixo.
-     Estilos em site.css (.lg-rodape). -->
+<!-- Estrutura do rodapé do leadarc: logótipo e botão à esquerda, colunas
+     Empresa, Contactos e uma com o nome do fundador; por baixo o copyright,
+     o aviso de não afiliação e uma linha pequena com as páginas legais
+     (no leadarc é "For LLMs · Sitemap").
+     Ícones: os mesmos do leadarc (calendário e email em traço; YouTube e
+     LinkedIn com o símbolo oficial preenchido).
+     data-escuro: o cabeçalho fica escuro quando o rodapé passa por baixo. -->
 <footer class="lg-rodape" data-escuro>
   <div class="lg-wrap">
     <div class="lg-rodape-grelha">
@@ -330,26 +333,33 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 
       <nav class="lg-rodape-col" aria-label="Empresa">
         <h4>Empresa</h4>
-        <a href="../#agendar" data-agendar>Agendar Chamada Estratégica</a>
         <a href="../#resultados">Resultados</a>
-        <a href="../casos-estudo/">Casos de estudo</a>
+        <a href="../casos-estudo/">Casos de Estudo</a>
+        <a href="../artigos/">Artigos</a>
       </nav>
 
       <div class="lg-rodape-col">
         <h4>Contactos</h4>
+        <a href="../#agendar" data-agendar>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Agendar Chamada</span></a>
         <a href="mailto:lourenco@lgdigital.pt">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
-          lourenco@lgdigital.pt</a>
-        <a href="https://www.linkedin.com/company/lgdigital1" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.4v.1M12 17v-3.6a2.1 2.1 0 0 1 4.2 0V17" stroke-linecap="round"/></svg>
-          LinkedIn</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span>lourenco@lgdigital.pt</span></a>
+        <a href="https://www.linkedin.com/company/lgdigital1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn da empresa</span></a>
       </div>
 
-      <nav class="lg-rodape-col" aria-label="Legal">
-        <h4>Legal</h4>
-        <a href="../pp/">Política de Privacidade</a>
-        <a href="../tc/">Termos e Condições</a>
-      </nav>
+      <div class="lg-rodape-col">
+        <h4>Lourenço Gaspar</h4>
+        <a href="https://www.youtube.com/@lourencorg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.39.58A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12C4.5 20.5 12 20.5 12 20.5s7.5 0 9.39-.58A3 3 0 0 0 23.5 17.8 31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+          <span>YouTube</span></a>
+        <a href="https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          <span>LinkedIn</span></a>
+      </div>
 
     </div>
 
@@ -361,6 +371,13 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
         Google LLC; Facebook, Instagram e Meta são marcas da Meta Platforms,
         Inc. Usamos cookies para medir e melhorar os nossos anúncios.</p>
       <p class="lg-rodape-legal">Para informações legais, manda-nos um email.</p>
+      <!-- as páginas legais têm de estar acessíveis em todas as páginas (RGPD,
+           e por causa do píxel da Meta); ficam nesta linha discreta -->
+      <p class="lg-rodape-legal lg-rodape-meta">
+        <a href="../pp/">Política de Privacidade</a><span aria-hidden="true"> · </span>
+        <a href="../tc/">Termos e Condições</a><span aria-hidden="true"> · </span>
+        <a href="../sitemap.xml">Sitemap</a>
+      </p>
     </div>
   </div>
 </footer>

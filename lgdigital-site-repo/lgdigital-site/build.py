@@ -51,6 +51,24 @@ SOCIAIS = [
     "https://www.linkedin.com/company/lgdigital1",
 ]
 
+# ----------------------------------------------------------------- Artigos
+ARTIGO_74100 = {
+    "@context": "https://schema.org", "@type": "Article",
+    "headline": "Como 2.906 € em anúncios geraram 74.100 € em faturação",
+    "description": "Caso real: 2.906,75 € investidos em anúncios, 24 leads, 3 clientes "
+                   "fechados e 74.100 € faturados.",
+    "datePublished": "2026-10-20", "dateModified": "2026-10-20", "inLanguage": "pt-PT",
+    "image": SITE + "/assets/img/og.png",
+    "mainEntityOfPage": SITE + "/artigos/anuncios-74100-euros-faturados/",
+    "author": {"@type": "Person", "name": "Lourenço Gaspar",
+               "url": "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/",
+               "sameAs": ["https://www.youtube.com/@lourencorg",
+                          "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/"]},
+    "publisher": {"@type": "Organization", "name": "LGDigital", "@id": SITE + "/#organizacao",
+                  "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.png"}},
+}
+
+
 # ------------------------------------------------------------------- Páginas
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
@@ -61,6 +79,20 @@ PAGES = [
          base="../", home="../", body="tema-home",
          title="Casos de estudo | LGDigital",
          desc="Resultados reais de campanhas de anúncios e de SEO local: 74.100 € faturados com 2.906 € em anúncios, top 3 no Google em 30 dias e mais. Só números medidos."),
+
+    dict(out="artigos/index.html", src="artigos", nome="Artigos",
+         base="../", home="../", body="tema-home",
+         title="Artigos | LGDigital",
+         desc="Artigos da LGDigital sobre anúncios e aquisição de clientes para empresas de serviços, com números de campanhas reais."),
+
+    dict(out="artigos/anuncios-74100-euros-faturados/index.html", src="artigo-74100",
+         nome="Como 2.906 € em anúncios geraram 74.100 € em faturação",
+         pai=("Artigos", "artigos/"),
+         base="../../", home="../../", body="tema-home",
+         title="Como 2.906 € em anúncios geraram 74.100 € em faturação | LGDigital",
+         desc="Caso real: 2.906,75 € investidos em anúncios, 24 leads, 3 clientes fechados e 74.100 € faturados. Os números todos e o que mostram.",
+         head='<script type="application/ld+json">%s</script>'
+              % json.dumps(ARTIGO_74100, ensure_ascii=False, separators=(",", ":"))),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
@@ -248,13 +280,14 @@ def jsonld_para(pg, body):
                        "inLanguage": "pt-PT",
                        "publisher": {"@id": SITE + "/#organizacao"}})
     else:
-        blocos.append({
-            "@context": "https://schema.org", "@type": "BreadcrumbList",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Início", "item": SITE + "/"},
-                {"@type": "ListItem", "position": 2, "name": pg.get("nome", pg["title"]),
-                 "item": canonical},
-            ]})
+        trilho = [{"@type": "ListItem", "position": 1, "name": "Início", "item": SITE + "/"}]
+        if pg.get("pai"):                       # ex.: ("Artigos", "artigos/")
+            trilho.append({"@type": "ListItem", "position": 2, "name": pg["pai"][0],
+                           "item": SITE + "/" + pg["pai"][1]})
+        trilho.append({"@type": "ListItem", "position": len(trilho) + 1,
+                       "name": pg.get("nome", pg["title"]), "item": canonical})
+        blocos.append({"@context": "https://schema.org", "@type": "BreadcrumbList",
+                       "itemListElement": trilho})
 
     # só os <details> dentro de um bloco de FAQ; os menus do cabeçalho também
     # são <details> e não podem entrar aqui

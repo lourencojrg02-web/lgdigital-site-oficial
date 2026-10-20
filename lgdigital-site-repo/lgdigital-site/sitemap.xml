@@ -13,6 +13,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lgdigital.pt/artigos/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lgdigital.pt/artigos/anuncios-74100-euros-faturados/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lgdigital.pt/pp/</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>
