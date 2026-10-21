@@ -729,6 +729,91 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- ==================== TRANSPARÊNCIA ==================== -->
+<!-- Adaptação da secção "Full transparency" do leadarc: texto à esquerda e,
+     à direita, um painel desenhado em HTML (funil de barras + quatro
+     indicadores). Os números do painel são um exemplo.
+     As contas batem certo entre si: 1.472 € ÷ 64 = 23 €,
+     9 ÷ 64 = 14%, 1.472 € ÷ 9 = 164 €.
+     O texto não promete um painel em tempo real: só o que já fazemos
+     (contas em nome do cliente e acompanhamento dos números). -->
+<section class="lg-sec" id="transparencia">
+  <div class="lg-wrap">
+    <div class="lg-split">
+
+      <div class="lg-split-txt">
+        <span class="lg-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          Transparência total
+        </span>
+        <h2 class="lg-h2">Sabes sempre <span class="lg-azul">o que se passa</span>.</h2>
+        <p class="lg-sub">Nada de esperar por relatórios vagos no fim do mês.
+          As contas estão em teu nome e acompanhamos contigo os números que
+          interessam: quanto investiste, quantos contactos entraram, quanto
+          custou cada um e quantos se tornaram clientes.</p>
+        <div class="lg-hero-acoes">
+          <a class="lg-btn lg-btn--dark lg-btn--lg" href="#agendar">Agendar Chamada Estratégica
+            <svg class="lg-seta" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="haste" d="M3 8h9"/><path class="ponta" d="M8.5 4l4 4-4 4"/></svg>
+          </a>
+          <a class="lg-btn lg-btn--contorno lg-btn--lg" href="casos-estudo/">Ver Casos de Estudo
+            <svg class="lg-seta" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="haste" d="M3 8h9"/><path class="ponta" d="M8.5 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <figure class="lg-painel-fig">
+        <div class="lg-painel-moldura">
+          <div class="lg-painel" id="painel" role="img" aria-label="Exemplo de painel: 64 contactos, 9 clientes, 23 euros por contacto">
+            <div class="lg-painel-topo">
+              <div class="lg-painel-titulo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#0076D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-4"/><path d="M12 16V9"/><path d="M17 16V6"/></svg>
+                Resumo <span class="mut">&middot; Todas as campanhas &middot; Últimos 30 dias</span>
+              </div>
+              <div class="lg-painel-filtros"><span>Todas as campanhas &#9662;</span><span>Últimos 30 dias &#9662;</span></div>
+            </div>
+
+            <div class="lg-painel-cartao">
+              <div class="lg-funil-cab"><span>Funil de contactos</span><span class="seg">Barras</span></div>
+              <div class="lg-funil">
+                <div class="lg-fr"><span class="fl">Pessoas alcançadas<em>viram um anúncio</em></span><span class="fbar"><span class="fill" style="--w:100%"></span></span><span class="fv">48.210</span></div>
+                <div class="lg-fr"><span class="fl">Cliques<em>visitas à página</em></span><span class="fbar"><span class="fill" style="--w:62%"></span></span><span class="fv">1.932</span></div>
+                <div class="lg-fr"><span class="fl">Contactos<em>chamadas e formulários</em></span><span class="fbar"><span class="fill" style="--w:34%"></span></span><span class="fv">64</span></div>
+                <div class="lg-fr"><span class="fl">Qualificados<em>dentro do perfil</em></span><span class="fbar"><span class="fill" style="--w:21%"></span></span><span class="fv">41</span></div>
+                <div class="lg-fr"><span class="fl">Orçamentos<em>enviados</em></span><span class="fbar"><span class="fill" style="--w:12%"></span></span><span class="fv">23</span></div>
+                <div class="lg-fr"><span class="fl">Clientes<em>fechados</em></span><span class="fbar"><span class="fill" style="--w:7%"></span></span><span class="fv">9</span></div>
+              </div>
+            </div>
+
+            <div class="lg-painel-ind">
+              <div class="azul"><div class="sh">Custo por contacto</div><div class="sv">23&nbsp;€</div><div class="ss">1.472&nbsp;€ ÷ 64 contactos</div></div>
+              <div><div class="sh">Taxa de fecho <span class="selo">Excelente</span></div><div class="sv">14%</div><div class="ss">9 clientes ÷ 64 contactos</div></div>
+              <div><div class="sh">Custo por cliente</div><div class="sv">164&nbsp;€</div><div class="ss">1.472&nbsp;€ ÷ 9 clientes</div></div>
+              <div><div class="sh">Investimento</div><div class="sv">1.472&nbsp;€</div><div class="ss">de 1.500&nbsp;€ previstos</div></div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* as barras enchem quando o painel entra no ecrã (como no leadarc);
+   sem JavaScript ficam logo cheias */
+(function () {
+  var p = document.getElementById('painel');
+  if (!p || !('IntersectionObserver' in window)) return;
+  p.classList.add('anima');
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { p.classList.add('in'); io.disconnect(); }
+    });
+  }, { threshold: 0.35 });
+  io.observe(p);
+})();
+</script>
+
 <!-- ==================== FAQ ==================== -->
 <!-- O build.py lê estas perguntas para o FAQPage do JSON-LD (procura o
      bloco com a classe lg-faq). As respostas têm de ser completas, não

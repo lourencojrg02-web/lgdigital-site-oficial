@@ -78,6 +78,7 @@ Cada secção é um ficheiro em `src/home/`, por ordem alfabética:
 | `07-resultados.html` | um cartão igual por caso, sem botão (os detalhes ficam em /casos-estudo) | `#resultados` |
 | `08-encaixe.html` | "É para ti se…" / "Não é para ti se…", sem botão | `#para-quem` |
 | `09-comparacao.html` | tabela LGDigital vs agência vs sozinho | `#comparacao` |
+| `09b-transparencia.html` | "Transparência total": texto + painel de exemplo (funil e quatro indicadores) | `#transparencia` |
 | `10-faq.html` | perguntas frequentes | `#faq` |
 | `11-agendar.html` | secção escura com o calendário | `#agendar` |
 | `12-rodape.html` | rodapé (inclui `_partials/rodape.html`) | |
