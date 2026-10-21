@@ -55,6 +55,7 @@ SOCIAIS = [
 AUTOR = {"@type": "Person", "name": "Lourenço Gaspar",
          "url": "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/",
          "sameAs": ["https://www.youtube.com/@lourencorg",
+                    "https://x.com/lourenco_rg",
                     "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/"]}
 EDITOR = {"@type": "Organization", "name": "LGDigital", "@id": SITE + "/#organizacao",
           "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.png"}}

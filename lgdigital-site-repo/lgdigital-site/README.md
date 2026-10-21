@@ -114,7 +114,7 @@ dão saídas a quem chegou por um anúncio.
 `_partials/rodape.html`, escuro, com a estrutura do do leadarc: logótipo e
 botão; colunas **Empresa** (Resultados, Casos de Estudo, Artigos),
 **Contactos** (Agendar Chamada, email, LinkedIn da empresa) e **Lourenço
-Gaspar** (YouTube e LinkedIn pessoais), com os mesmos ícones do leadarc. Por
+Gaspar** (YouTube, X / Twitter e LinkedIn pessoais), com os mesmos ícones do leadarc. Por
 baixo: copyright, aviso de não afiliação e "Para informações legais,
 manda-nos um email." Sem links para /pp, /tc nem sitemap (as páginas
 existem, mas não estão no rodapé). O site não mostra telefone nem WhatsApp, de propósito.
