@@ -75,10 +75,10 @@ Cada secção é um ficheiro em `src/home/`, por ordem alfabética:
 | `04-beneficios.html` | "O que muda" — seis benefícios | `#beneficios` |
 | `05-como-funciona.html` | quatro passos com maquetes de interface | `#processo` |
 | `06-calculadora.html` | calculadora de retorno | `#calculadora` |
-| `07-resultados.html` | um cartão igual por caso, sem botão (os detalhes ficam em /casos-estudo) | `#resultados` |
 | `08-encaixe.html` | "É para ti se…" / "Não é para ti se…", sem botão | `#para-quem` |
 | `09-comparacao.html` | tabela LGDigital vs agência vs sozinho | `#comparacao` |
 | `09b-transparencia.html` | "Transparência total": texto + painel de exemplo (funil e quatro indicadores) | `#transparencia` |
+| `09c-resultados.html` | um cartão igual por caso, sem botão (os detalhes ficam em /casos-estudo) | `#resultados` |
 | `10-faq.html` | perguntas frequentes | `#faq` |
 | `11-agendar.html` | secção escura com o calendário | `#agendar` |
 | `12-rodape.html` | rodapé (inclui `_partials/rodape.html`) | |
@@ -144,7 +144,7 @@ Para acrescentar um caso:
    "casos-estudo/")` e `head=artigo_ld(...)`
 4. copia o `<article class="lg-csc">` em `src/casos-estudo/02-conteudo.html`,
    muda o link e os números e atualiza a contagem ("2 publicados")
-5. cartão `lg-rcard` em `src/home/07-resultados.html`
+5. cartão `lg-rcard` em `src/home/09c-resultados.html`
 6. `sitemap.xml`
 
 ### Artigos
