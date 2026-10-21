@@ -285,3 +285,11 @@ quadrado — o ícone preto com o G branco e a seta azul.
 - [ ] Alinhar os Termos com a promessa da `/meta` ("Top 3 em 90 dias ou
       pagamos-te 500€"): que pesquisa, que área, quando começa a contar
 - [ ] Daqui a uns meses, tirar os redirecionamentos que já não recebam visitas
+
+### Cache do CSS
+
+O Cloudflare guarda o CSS durante 4 horas. Para o HTML novo nunca aparecer
+com o CSS antigo, o `build.py` acrescenta ao link da folha um `?v=` com uma
+impressão digital do ficheiro (`site.css?v=cf107c3b`). Quando o CSS muda,
+o número muda e o browser vai buscar a versão nova. Por isso, sempre que
+mexeres no CSS, sobe também as páginas HTML (a pasta toda).

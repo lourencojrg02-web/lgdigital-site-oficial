@@ -16,7 +16,7 @@ inicial). O build substitui conforme a profundidade da página, para o site
 funcionar tanto em lgdigital.pt como em qualquer subpasta.
 Secções só com comentários são ignoradas.
 """
-import pathlib, re, sys, base64, mimetypes, json
+import pathlib, re, sys, base64, mimetypes, json, hashlib
 
 mimetypes.add_type("image/webp", ".webp")
 mimetypes.add_type("image/svg+xml", ".svg")
@@ -352,7 +352,10 @@ def build_site():
     for pg in PAGES:
         # site principal: só o site.css; landings: só o styles.css
         folha = "site.css" if e_site(pg) else "styles.css"
-        styles = '<link rel="stylesheet" href="%sassets/css/%s">' % (pg["base"], folha)
+        # ?v= muda sempre que a folha muda: o Cloudflare guarda o CSS 4 horas,
+        # e sem isto o HTML novo aparecia com o CSS antigo
+        versao = hashlib.md5((ROOT / "assets/css" / folha).read_bytes()).hexdigest()[:8]
+        styles = '<link rel="stylesheet" href="%sassets/css/%s?v=%s">' % (pg["base"], folha, versao)
         corpo = render(pg["src"], pg["base"], pg["home"])
         p = ROOT / pg["out"]
         p.parent.mkdir(parents=True, exist_ok=True)
