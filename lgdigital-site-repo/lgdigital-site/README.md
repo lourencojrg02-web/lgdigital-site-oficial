@@ -94,8 +94,9 @@ lê-as como se fossem a sério.
 Todas as páginas do site principal partilham `_partials/header-site.html`:
 barra preta de anúncio + navegação, ambas fixas no topo, ao estilo do
 leadarc.io. Os links são secções da página inicial (`{{home}}#calculadora`,
-`#comparacao`, `#resultados`, `#faq`); "Casos de estudo" é a única página à
-parte. "Como funciona" saiu do menu, mas a secção continua na página.
+`#comparacao`, `#resultados`, `#faq`); "Casos de estudo" e "Artigos" são
+páginas à parte (menu: Calculadora, Comparação, Resultados, Casos de
+estudo, Artigos, FAQ). "Como funciona" saiu do menu, mas a secção continua na página.
 
 O script do cabeçalho:
 - abre e fecha o menu do telemóvel (`Esc`, clique fora, clique num link);

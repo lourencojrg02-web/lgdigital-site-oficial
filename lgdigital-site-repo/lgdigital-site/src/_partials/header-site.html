@@ -1,7 +1,7 @@
 <!-- ==================== CABEÇALHO ==================== -->
 <!-- Barra preta de anúncio + navegação, ambas fixas no topo (como o
-     leadarc). Os links são secções da página inicial; "Casos de estudo" é a
-     única página à parte. Fora da página inicial, {{home}} faz os links
+     leadarc). Os links são secções da página inicial; "Casos de estudo" e "Artigos" são
+     páginas à parte. Fora da página inicial, {{home}} faz os links
      levarem de volta à secção certa.
      Os botões com data-agendar apontam para o calendário da página inicial;
      o script no fim troca-os para #agendar quando a página tem o seu. -->
@@ -29,6 +29,7 @@
         <a href="{{home}}#comparacao">Comparação</a>
         <a href="{{home}}#resultados">Resultados</a>
         <a href="{{base}}casos-estudo/">Casos de estudo</a>
+        <a href="{{base}}artigos/">Artigos</a>
         <a href="{{home}}#faq">FAQ</a>
       </div>
 
@@ -46,6 +47,7 @@
     <a href="{{home}}#comparacao">Comparação</a>
     <a href="{{home}}#resultados">Resultados</a>
     <a href="{{base}}casos-estudo/">Casos de estudo</a>
+    <a href="{{base}}artigos/">Artigos</a>
     <a href="{{home}}#faq">FAQ</a>
     <div class="lg-menu-acoes">
       <a class="lg-btn lg-btn--dark lg-btn--bloco" href="{{home}}#agendar" data-agendar>Agendar Chamada Estratégica</a>
@@ -120,7 +122,8 @@
   document.querySelectorAll('.lg-nav-links a, .lg-menu a').forEach(function (a) {
     if (a.hash) return;
     var p = new URL(a.href, location.href).pathname.replace(/index\.html$/, '');
-    if (p === aqui) a.setAttribute('aria-current', 'page');
+    // também nas páginas de dentro (um artigo marca "Artigos")
+    if (p.length > 1 && aqui.indexOf(p) === 0) a.setAttribute('aria-current', 'page');
   });
 });
 </script>
