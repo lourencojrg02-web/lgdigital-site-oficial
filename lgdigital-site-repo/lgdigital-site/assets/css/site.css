@@ -1165,43 +1165,40 @@ h1,h2,h3,h4{margin:0;}
    à direita (calendário, pergunta e botão); bloco escuro grande no fim.
    ========================================================================== */
 .lg-csd{position:relative;z-index:1;}
-.lg-csd-grelha{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:0 64px;padding:64px 0 96px;}
+.lg-csd-grelha{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0 56px;padding:64px 0 96px;}
 .lg-csd-conteudo{min-width:0;max-width:820px;}
 .lg-csd-lado{position:relative;}
 .lg-csd-flutua{position:sticky;top:calc(var(--lg-header) + 24px);padding:24px;border-radius:16px;background:#fff;
   border:1px solid rgba(0,0,0,.08);box-shadow:0 1px 2px rgba(0,0,0,.04);overflow:hidden;color:var(--lg-ink);}
 .lg-csd-t{margin:0;font-family:var(--lg-display);font-size:19px;font-weight:600;line-height:1.25;letter-spacing:-.012em;color:var(--lg-ink);}
-.lg-csd-s{margin:8px 0 18px;font-size:14px;line-height:1.5;color:var(--lg-subtle);}
+.lg-csd-s{margin:8px 0 20px;font-size:14px;line-height:1.5;color:var(--lg-subtle);}
+/* o rótulo é comprido: botão de 44px a toda a largura, com folga dos lados */
+.lg-csd-flutua .lg-btn{height:44px;padding:0 18px;font-size:14.5px;}
 @media(max-width:1000px){
   .lg-csd-grelha{grid-template-columns:minmax(0,1fr);padding:40px 0 64px;}
   .lg-csd-lado{display:none;}
 }
 
-/* mini calendário (a espreitar para fora do cartão, como no leadarc) */
-.lg-cal{width:372px;height:196px;margin:-4px -120px 6px -4px;border:1px solid rgba(0,0,0,.1);border-right:0;
-  border-radius:12px 0 0 0;background:#fff;font:500 9px/1.2 var(--lg-ui);color:#5F6368;overflow:hidden;
-  -webkit-mask-image:linear-gradient(#000 45%,transparent);mask-image:linear-gradient(#000 45%,transparent);user-select:none;}
-.lg-cal-topo{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);}
-.lg-cal-nome{font-size:12px;color:#3C4043;}
-.lg-cal-mes{margin-right:6px;font-size:10.5px;color:#3C4043;}
-.lg-cal-set{margin-left:8px;letter-spacing:6px;color:#70757A;}
-.lg-cal-corpo{display:grid;grid-template-columns:34px repeat(4,1fr);}
-.lg-cal-horas{display:flex;flex-direction:column;}
-.lg-cal-horas b{display:flex;align-items:flex-end;height:34px;padding:0 0 4px 3px;font-size:7px;font-weight:500;color:#70757A;}
-.lg-cal-horas span{height:26px;padding:2px 5px 0 0;text-align:right;font-size:7.5px;color:#70757A;}
-.lg-cal-col{border-left:1px solid rgba(0,0,0,.08);}
-.lg-cal-col > b{display:flex;flex-direction:column;align-items:center;justify-content:center;height:34px;
-  font-size:7.5px;font-weight:500;color:#70757A;border-bottom:1px solid rgba(0,0,0,.08);}
-.lg-cal-col > b span{font-size:14px;line-height:1.1;color:#3C4043;}
-.lg-cal-ev{position:relative;height:182px;
-  background:repeating-linear-gradient(transparent 0, transparent 25px, rgba(0,0,0,.07) 25px, rgba(0,0,0,.07) 26px);}
-.lg-cal-ev i{position:absolute;left:3px;right:3px;padding:1.5px 5px;border-radius:4px;font-style:normal;
-  font-size:8px;line-height:1.15;white-space:nowrap;overflow:hidden;}
-.lg-cal-ev em{margin-left:2px;font-style:normal;font-size:7px;opacity:.65;}
-.lg-cal .k-s{background:#D3E3FD;color:#174EA6;}
-.lg-cal .k-p{background:#E9DDFB;color:#5B2C9F;}
-.lg-cal .k-m{background:#D4ECDA;color:#1E6B34;}
-.lg-cal .k-g{background:#F1F3F4;color:#5F6368;}
+/* notificações no topo do cartão (no leadarc é um calendário): painel cinzento
+   a espreitar para fora do lado direito, com as notificações a desaparecer
+   em baixo */
+.lg-notifs{display:flex;flex-direction:column;gap:7px;height:206px;margin:-6px -24px 18px -6px;padding:10px 0 10px 10px;
+  border:1px solid rgba(0,0,0,.07);border-right:0;border-radius:12px 0 0 12px;background:#F4F5F7;overflow:hidden;
+  -webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent);user-select:none;}
+.lg-notif{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:9px;
+  padding:9px 11px 9px 9px;border-radius:12px;background:#fff;
+  border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 12px -6px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.04);}
+.lg-notif-ic{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;}
+.lg-notif-ic svg{width:15px;height:15px;}
+.lg-notif-ic--azul{background:#E6F2FD;color:var(--lg-azul-forte);}
+.lg-notif-ic--verde{background:#DCFCE7;color:#16A34A;}
+.lg-notif-ic--escuro{background:#262626;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.14);}
+.lg-notif-txt{min-width:0;}
+.lg-notif-txt b{display:block;font-size:12px;font-weight:600;line-height:1.25;color:var(--lg-ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lg-notif-txt span{display:block;margin-top:2px;font-size:11px;line-height:1.25;color:var(--lg-subtle);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lg-notif time{align-self:start;font-size:10.5px;color:#9CA3AF;white-space:nowrap;}
 
 /* bloco escuro grande no fim do caso */
 .lg-csd-cta{padding:64px 0;}
@@ -1218,3 +1215,14 @@ h1,h2,h3,h4{margin:0;}
   .lg-csd-cta-acoes{flex-direction:column;align-items:stretch;}
   .lg-csd-cta-acoes .lg-btn{width:100%;}
 }
+
+/* G em linhas no canto dos blocos escuros (como o símbolo do leadarc) */
+.lg-marca-g{position:absolute;right:-28px;top:50%;transform:translateY(-50%);z-index:0;width:260px;height:auto;
+  overflow:visible;pointer-events:none;}
+.lg-marca-g path{fill:none;stroke:#fff;stroke-opacity:.16;stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;}
+.lg-at-cta--grande .lg-marca-g{right:-30px;width:420px;}
+@media(max-width:640px){
+  .lg-marca-g{right:-90px;width:220px;}
+  .lg-marca-g path{stroke-opacity:.1;}
+}
+@media(max-width:680px){.lg-at-cta--grande .lg-marca-g{right:-90px;width:240px;}}

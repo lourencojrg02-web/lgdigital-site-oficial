@@ -129,10 +129,10 @@ de dois cartões clicáveis (capa, etiquetas, título, resumo e botão
 "Ler caso de estudo"). Classes `lg-lh`, `lg-etq`, `lg-csc`, `lg-btn-sec`.
 
 A página de cada caso (`/casos-estudo/<cliente>/`) segue as do leadarc:
-coluna de texto até 820px com um cartão fixo à direita (calendário, pergunta
-e botão, some abaixo de 1000px), título 44px, h2 28px e h3 20px sem linha
+coluna de texto até 820px com um cartão fixo à direita (notificações de
+novos pedidos, chamadas e clientes; pergunta e botão; some abaixo de 1000px), título 44px, h2 28px e h3 20px sem linha
 por cima, banner 12:5 com as duas marcas e, no fim, um bloco escuro grande
-com dois botões. Classes `lg-csd-*`, `lg-cp-*`, `lg-cal-*`. O texto do caso
+com dois botões. Classes `lg-csd-*`, `lg-cp-*`, `lg-notif*`. O texto do caso
 OrtoFirst é o do Lourenço; sem notas de rodapé.
 
 Para acrescentar um caso:
@@ -158,6 +158,11 @@ Cada artigo segue os do leadarc: migalhas, índice "Nesta página" fixo à
 esquerda (marca a secção que está a ser lida; no telemóvel passa a um bloco
 que abre e fecha), etiquetas, autor, X, data e tempo de leitura, capa 16:9,
 texto numa coluna de 760px, dois blocos escuros de marcação e "Lê também".
+Os blocos escuros (`lg-at-cta`, também o grande no fim dos casos) têm no
+canto o G da LGDigital só em contorno (`_partials/marca-g.html`, classe
+`lg-marca-g`), como o leadarc faz com o símbolo dele. Para usar noutro bloco
+escuro: `@include _partials/marca-g.html` dentro do bloco, que precisa de
+`position:relative; overflow:hidden`.
 Classes `lg-at-*`.
 
 Para acrescentar um artigo:
