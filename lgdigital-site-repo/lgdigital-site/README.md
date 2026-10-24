@@ -123,18 +123,17 @@ existem, mas não estão no rodapé). O site não mostra telefone nem WhatsApp, 
 
 ### Casos de estudo
 
-`/casos-estudo` segue a `/case-studies` do leadarc: cabeçalho à esquerda,
-"Todos os casos" com a contagem à direita e uma grelha de dois cartões
-clicáveis (capa, etiquetas, título, resumo, três números, "Ler caso de
-estudo"). Cada cartão abre a página do caso em `/casos-estudo/<cliente>/`.
-Casos de estudo e artigos são coisas diferentes: o caso fica só aqui.
+`/casos-estudo` segue a `/case-studies` atual do leadarc: etiqueta branca
+pequena, título todo a preto e subtítulo à esquerda; por baixo, uma grelha
+de dois cartões clicáveis (capa, etiquetas, título, resumo e botão
+"Ler caso de estudo"). Classes `lg-lh`, `lg-etq`, `lg-csc`, `lg-btn-sec`.
 
-A página do caso segue as do leadarc (`/dreamland-case-study`): "← Todos os
-casos", título, etiquetas, banner 12:5 com as duas marcas (cliente ×
-LGDigital) e o número grande, tabela de resultados, secções numeradas, três
-passos em cartões e um fluxo investimento → leads → clientes → contratos.
-Classes `lg-cp-*`; capa `.lg-capa--caso`. O texto do caso OrtoFirst é o do
-Lourenço; sem notas de rodapé.
+A página de cada caso (`/casos-estudo/<cliente>/`) segue as do leadarc:
+coluna de texto até 820px com um cartão fixo à direita (calendário, pergunta
+e botão, some abaixo de 1000px), título 44px, h2 28px e h3 20px sem linha
+por cima, banner 12:5 com as duas marcas e, no fim, um bloco escuro grande
+com dois botões. Classes `lg-csd-*`, `lg-cp-*`, `lg-cal-*`. O texto do caso
+OrtoFirst é o do Lourenço; sem notas de rodapé.
 
 Para acrescentar um caso:
 1. nova pasta em `src/` (copia `src/caso-ortofirst/`)
@@ -143,24 +142,31 @@ Para acrescentar um caso:
    no `site.css`)
 3. entrada no `PAGES` do `build.py` com `pai=("Casos de estudo",
    "casos-estudo/")` e `head=artigo_ld(...)`
-4. copia o `<article class="lg-csc">` em `src/casos-estudo/02-conteudo.html`,
-   muda o link e os números e atualiza a contagem ("2 publicados")
+4. copia o `<article class="lg-csc">` em `src/casos-estudo/02-conteudo.html`
 5. cartão `lg-rcard` em `src/home/09c-resultados.html`
 6. `sitemap.xml`
 
 ### Artigos
 
-`/artigos` segue a página `/articles` do leadarc: título centrado e um cartão
-por artigo. A capa de cada artigo é HTML (classe `.lg-capa`), não imagem.
-Com um só artigo a grelha usa `lg-ar-grid--1`; com dois, `--2`; com três ou
-mais, sem modificador.
+`/artigos` segue a `/articles` atual do leadarc: etiqueta, título e
+subtítulo; filtros por categoria e pesquisa (sem acentos: "anuncios" encontra
+"anúncios"); grelha de cartões a 80% da largura com capa, data, título,
+resumo e botão "Ler artigo". O link do título cobre o cartão todo. Os
+filtros usam `data-cats` (separadas por `|`) e a pesquisa `data-texto`.
+
+Cada artigo segue os do leadarc: migalhas, índice "Nesta página" fixo à
+esquerda (marca a secção que está a ser lida; no telemóvel passa a um bloco
+que abre e fecha), etiquetas, autor, X, data e tempo de leitura, capa 16:9,
+texto numa coluna de 760px, dois blocos escuros de marcação e "Lê também".
+Classes `lg-at-*`.
 
 Para acrescentar um artigo:
-1. nova pasta em `src/` (copia `src/artigo-anuncios-online/`)
-2. entrada no `PAGES` do `build.py` com `pai=("Artigos", "artigos/")` — dá as
-   migalhas Início › Artigos › artigo — e `head=artigo_ld(...)` para o
-   JSON-LD `Article`
-3. novo cartão em `src/artigos/02-conteudo.html`
+1. nova pasta em `src/` (copia `src/artigo-anuncios-online/`); cada `<h2>`
+   precisa de um `id` e de uma linha nos dois índices
+2. entrada no `PAGES` do `build.py` com `pai=("Artigos", "artigos/")` e
+   `head=artigo_ld(...)`
+3. novo cartão em `src/artigos/02-conteudo.html` (e um botão de filtro se a
+   categoria for nova)
 4. `sitemap.xml`
 
 ### Redirecionamentos

@@ -30,7 +30,7 @@
 <link rel="manifest" href="../../site.webmanifest">
 <link rel="preload" href="../../assets/fonts/cal-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/cal-sans-ui-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/site.css?v=cf107c3b">
+<link rel="stylesheet" href="../../assets/css/site.css?v=87dfc770">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -183,222 +183,292 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 </script>
 
 <!-- ==================== ARTIGO: anúncios online ==================== -->
-<!-- Estrutura dos artigos do leadarc: banner, título, etiquetas (autor e
-     data) e introdução no topo; depois uma secção por subtítulo, cada uma
-     separada por uma linha fina (.lg-sec).
+<!-- Estrutura dos artigos atuais do leadarc: migalhas; à esquerda, o índice
+     "Nesta página" fixo; ao centro, título, etiquetas (categoria, autor, X),
+     data e tempo de leitura, capa 16:9 e o texto numa só coluna de 760px,
+     com dois blocos escuros de marcação (a meio e no fim). Por baixo,
+     "Lê também". No telemóvel o índice passa para um bloco que abre e fecha.
      Regras deste texto: sem nomes de plataformas (fala-se de "anúncios de
      pesquisa" e "anúncios nas redes sociais"), sem estatísticas que não
      sejam nossas. Os únicos números são do caso da OrtoFirst e o mínimo de
-     1.000&nbsp;€ por mês com que trabalhamos. -->
+     1.000 € por mês com que trabalhamos.
+     Ao acrescentar um subtítulo: id no <h2> e uma linha nos dois índices. -->
 <main class="lg-main" id="conteudo">
 
-<header class="lg-ar-hero">
-  <div class="lg-ar-col">
-    <div class="lg-ar-banner">
-      <div class="lg-capa lg-capa--guia" role="img" aria-label="Guia: anúncios online">
-        <img class="lg-capa-logo" src="../../assets/img/logo-branco.png" width="457" height="100" alt="">
-        <span class="lg-capa-eti">Guia</span>
-        <p class="lg-capa-num">Anúncios online</p>
-        <p class="lg-capa-sub">tudo o que precisas de saber antes de investir</p>
+<article class="lg-sec lg-at">
+  <div class="lg-wrap">
+    <nav aria-label="Migalhas">
+      <ol class="lg-at-migalhas">
+        <li><a href="../../">Início</a></li>
+        <li><a href="../../artigos/">Artigos</a></li>
+        <li aria-current="page">Artigo</li>
+      </ol>
+    </nav>
+
+    <div class="lg-at-grelha">
+
+      <aside class="lg-at-indice">
+        <nav class="lg-at-indice-in" aria-label="Nesta página">
+          <p class="lg-at-indice-rot">Nesta página</p>
+          <ol>
+            <li><a href="#o-que-sao">1. O que são anúncios online</a></li>
+            <li><a href="#pesquisa">2. Anúncios de pesquisa</a></li>
+            <li><a href="#redes-sociais">3. Anúncios nas redes sociais</a></li>
+            <li><a href="#como-se-paga">4. Como se paga</a></li>
+            <li><a href="#quanto-investir">5. Quanto investir</a></li>
+            <li><a href="#metade-do-trabalho">6. O anúncio é só metade</a></li>
+            <li><a href="#o-que-medir">7. O que medir</a></li>
+            <li><a href="#quanto-tempo">8. Quanto tempo até haver resultados</a></li>
+            <li><a href="#erros">9. Os erros mais comuns</a></li>
+            <li><a href="#sozinho">10. Sozinho ou com alguém</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <header class="lg-at-cab">
+        <div class="lg-at-cab-in">
+          <h1 class="lg-at-h1">Tudo o que precisas de saber sobre anúncios online</h1>
+          <div class="lg-at-etqs">
+            <span class="lg-at-etq">Guia</span>
+            <span class="lg-at-etq">Anúncios</span>
+            <a class="lg-at-etq lg-at-etq--link" href="https://www.youtube.com/@lourencorg" target="_blank" rel="noopener">Por Lourenço Gaspar</a>
+            <a class="lg-at-chip" href="https://x.com/lourenco_rg" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg>
+              <span>X</span></a>
+          </div>
+          <p class="lg-at-meta"><time datetime="2026-10-20">20 out 2026</time><span class="ponto" aria-hidden="true">&middot;</span><span>5 min de leitura</span></p>
+        </div>
+        <figure class="lg-at-capa">
+          <div class="lg-capa lg-capa--guia" role="img" aria-label="Guia: anúncios online">
+            <img class="lg-capa-logo" src="../../assets/img/logo-branco.png" width="457" height="100" alt="">
+            <span class="lg-capa-eti">Guia</span>
+            <p class="lg-capa-num">Anúncios online</p>
+            <p class="lg-capa-sub">tudo o que precisas de saber antes de investir</p>
+          </div>
+        </figure>
+      </header>
+
+      <div class="lg-at-prosa">
+        <details class="lg-at-indice-m">
+          <summary>Nesta página</summary>
+          <ol>
+            <li><a href="#o-que-sao">1. O que são anúncios online</a></li>
+            <li><a href="#pesquisa">2. Anúncios de pesquisa</a></li>
+            <li><a href="#redes-sociais">3. Anúncios nas redes sociais</a></li>
+            <li><a href="#como-se-paga">4. Como se paga</a></li>
+            <li><a href="#quanto-investir">5. Quanto investir</a></li>
+            <li><a href="#metade-do-trabalho">6. O anúncio é só metade</a></li>
+            <li><a href="#o-que-medir">7. O que medir</a></li>
+            <li><a href="#quanto-tempo">8. Quanto tempo até haver resultados</a></li>
+            <li><a href="#erros">9. Os erros mais comuns</a></li>
+            <li><a href="#sozinho">10. Sozinho ou com alguém</a></li>
+          </ol>
+        </details>
+
+        <p>Os anúncios online são a forma mais rápida de pôr a tua empresa à
+          frente de quem precisa do que fazes. Também são a forma mais rápida de
+          gastar dinheiro sem ver retorno.</p>
+        <p>A diferença quase nunca está no anúncio em si. Está em perceber como
+          funcionam, quanto faz sentido investir e o que medir.</p>
+        <p>Neste guia explico o essencial, sem jargão, para decidires com a
+          cabeça fria.</p>
+
+        <h2 id="o-que-sao">1. O que são anúncios online</h2>
+        <p>Pagas para aparecer a pessoas escolhidas, no momento certo. Em vez de
+          esperares que um cliente te encontre, vais tu ter com ele.</p>
+        <p>Há duas grandes famílias, e funcionam de maneira muito diferente:
+          os anúncios de pesquisa e os anúncios nas redes sociais.</p>
+
+        <h2 id="pesquisa">2. Anúncios de pesquisa: quem já está à procura</h2>
+        <p>Aparecem quando alguém pesquisa um serviço. Quem escreve
+          &ldquo;remodelação de cozinha&rdquo; ou &ldquo;canalizador
+          urgente&rdquo; já tem o problema e quer resolvê-lo.</p>
+        <p>É a procura mais quente que existe. Em contrapartida, só há o volume
+          de pesquisas que há: não consegues criar mais procura do que a que
+          existe na tua zona.</p>
+        <p>Funcionam melhor para serviços que as pessoas procuram ativamente:
+          reparações, obras, assistência técnica, serviços de urgência.</p>
+
+        <h2 id="redes-sociais">3. Anúncios nas redes sociais: quem ainda não estava à procura</h2>
+        <p>Aparecem enquanto a pessoa está a ver outras coisas. Não estava à
+          procura de ti, mas encaixa no perfil de quem costuma comprar o que
+          vendes.</p>
+        <p>Aqui quem faz o trabalho é o criativo: a imagem, o vídeo e a primeira
+          frase. Tens um segundo para fazer parar quem está a deslizar o
+          ecrã.</p>
+        <p>Funcionam bem para criar procura e para serviços de valor alto que
+          precisam de mais explicação, muitas vezes com um custo por contacto
+          mais baixo. Em troca, os contactos chegam menos decididos e precisam
+          de mais acompanhamento.</p>
+
+        <h2 id="como-se-paga">4. Como se paga</h2>
+        <p>Não há preço fixo. Cada vez que alguém pesquisa ou abre uma rede
+          social, os anunciantes competem por aquele espaço num leilão
+          automático. O preço depende de quantas empresas querem chegar à mesma
+          pessoa e de quão relevante é o teu anúncio para ela.</p>
+        <p>Tu defines o orçamento e a campanha trabalha dentro dele. O dinheiro
+          dos anúncios deve ser pago por ti, diretamente às plataformas, numa
+          conta em teu nome.</p>
+        <blockquote><p>Se quem te gere os anúncios não te deixa ver a conta,
+          desconfia.</p></blockquote>
+
+        <h2 id="quanto-investir">5. Quanto investir</h2>
+        <p>A pergunta certa não é quanto custa um clique. É quanto vale um
+          cliente teu. A conta faz-se em quatro passos:</p>
+        <ol>
+          <li>Investimento &divide; custo por contacto = <strong>contactos</strong></li>
+          <li>Contactos &times; percentagem que fechas = <strong>clientes</strong></li>
+          <li>Clientes &times; valor de um cliente = <strong>faturação</strong></li>
+          <li>Faturação &divide; investimento = <strong>retorno bruto</strong></li>
+        </ol>
+        <p>Um exemplo real: para a OrtoFirst investimos 2.906&nbsp;€ e a campanha
+          gerou 24 leads, a 121&nbsp;€ cada. Parece caro. Mas a empresa fechou 3
+          clientes de 24.700&nbsp;€: 74.100&nbsp;€ em contratos fechados.
+          <a href="../../casos-estudo/ortofirst/">Vê o caso completo</a>.</p>
+        <p>Há também um mínimo abaixo do qual não vale a pena. Com pouco
+          orçamento, a campanha não junta dados suficientes para aprender o que
+          funciona. Por isso só trabalhamos com empresas que possam investir
+          pelo menos <strong>1.000&nbsp;€ por mês</strong> em anúncios.</p>
+        <p>Na página inicial tens uma
+          <a href="../../#calculadora">calculadora</a> para fazeres esta
+          conta com os teus números.</p>
+
+        <aside class="lg-at-cta" aria-label="Agendar chamada estratégica">
+          <div class="lg-at-cta-txt">
+            <p class="lg-at-cta-t">Queres mais pedidos de orçamento?</p>
+            <p class="lg-at-cta-s">Marca uma chamada estratégica e vê se a tua empresa se qualifica.</p>
+            <a class="lg-btn lg-at-cta-btn" href="../../#agendar" data-agendar>Agendar Chamada Estratégica
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+          </div>
+        </aside>
+
+        <h2 id="metade-do-trabalho">6. O anúncio é só metade do trabalho</h2>
+        <p>Um bom anúncio traz a pessoa até ti. O que acontece a seguir decide
+          se ela se torna cliente.</p>
+        <ul>
+          <li><strong>Uma página de destino própria.</strong> Quem clica deve
+            cair numa página que fala exatamente do que viu no anúncio, com um
+            formulário curto. Não na página inicial do site.</li>
+          <li><strong>Resposta rápida.</strong> Um contacto que fica um dia à
+            espera muitas vezes já falou com a concorrência. Atende o telefone
+            e responde no próprio dia.</li>
+          <li><strong>Uma oferta clara.</strong> O que fazes, para quem, e qual
+            é o próximo passo.</li>
+        </ul>
+
+        <h2 id="o-que-medir">7. O que medir</h2>
+        <p>Cliques, visualizações e gostos são fáceis de medir e quase não dizem
+          nada. Os números que interessam são outros:</p>
+        <ul>
+          <li><strong>Contactos:</strong> chamadas e formulários, não visitas.</li>
+          <li><strong>Custo por contacto.</strong></li>
+          <li><strong>Clientes fechados</strong>, e quanto custou cada um.</li>
+          <li><strong>Faturação gerada.</strong></li>
+        </ul>
+        <p>Para isso, a medição tem de estar ligada antes de a campanha
+          arrancar: cada chamada e cada formulário fica registado. Sem isso, a
+          plataforma não sabe o que procurar e tu não sabes o que está a
+          funcionar.</p>
+
+        <h2 id="quanto-tempo">8. Quanto tempo até haver resultados</h2>
+        <p>Os primeiros contactos podem chegar logo nos primeiros dias. Mas as
+          primeiras semanas servem sobretudo para testar pesquisas, públicos,
+          anúncios e páginas. O que não funciona corta-se; o que funciona
+          reforça-se.</p>
+        <p>Não julgues uma campanha pela primeira semana, nem a mudes toda de
+          dois em dois dias. Cada mudança grande obriga a campanha a aprender
+          outra vez.</p>
+
+        <h2 id="erros">9. Os erros mais comuns</h2>
+        <ul>
+          <li>Mandar toda a gente para a página inicial do site.</li>
+          <li>Medir cliques em vez de clientes.</li>
+          <li>Um orçamento tão baixo que a campanha nunca chega a aprender.</li>
+          <li>Deixar contactos à espera de resposta.</li>
+          <li>Mudar tudo antes de haver dados.</li>
+          <li>Não saber quanto vale um cliente e, por isso, não saber quanto se
+            pode pagar por ele.</li>
+        </ul>
+
+        <h2 id="sozinho">10. Fazer sozinho ou entregar a alguém</h2>
+        <p>Dá para fazer sozinho. As plataformas estão abertas a qualquer pessoa
+          e há muita informação gratuita. O que custa é o tempo: montar a
+          medição, escrever e testar anúncios e olhar para os números todas as
+          semanas.</p>
+        <p>Se preferires entregar isso a alguém, procura três coisas: a conta de
+          anúncios em teu nome, relatórios com contactos e clientes (não só
+          cliques) e ninguém a prometer resultados garantidos na primeira
+          semana.</p>
+
+        <aside class="lg-at-cta" aria-label="Agendar chamada estratégica">
+          <div class="lg-at-cta-txt">
+            <p class="lg-at-cta-t">Queres mais pedidos de orçamento?</p>
+            <p class="lg-at-cta-s">Marca uma chamada estratégica e vê se a tua empresa se qualifica.</p>
+            <a class="lg-btn lg-at-cta-btn" href="../../#agendar" data-agendar>Agendar Chamada Estratégica
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+          </div>
+        </aside>
       </div>
+
     </div>
-
-    <h1>Tudo o que precisas de saber sobre anúncios online</h1>
-
-    <div class="lg-ar-chips">
-      <a class="lg-ar-chip" href="https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/" target="_blank" rel="noopener">
-        <img src="../../assets/img/lourenco-gaspar.jpg" width="22" height="22" alt="">
-        <span>Por Lourenço Gaspar</span>
-      </a>
-      <span class="lg-ar-chip lg-ar-chip--icone">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <time datetime="2026-10-20">20 de outubro de 2026</time>
-      </span>
-    </div>
-
-    <p>Os anúncios online são a forma mais rápida de pôr a tua empresa à
-      frente de quem precisa do que fazes. Também são a forma mais rápida de
-      gastar dinheiro sem ver retorno.</p>
-    <p>A diferença quase nunca está no anúncio em si. Está em perceber como
-      funcionam, quanto faz sentido investir e o que medir.</p>
-    <p>Neste guia explico o essencial, sem jargão, para decidires com a
-      cabeça fria.</p>
   </div>
-</header>
+</article>
 
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>O que são anúncios online</h2>
-    <p>Pagas para aparecer a pessoas escolhidas, no momento certo. Em vez de
-      esperares que um cliente te encontre, vais tu ter com ele.</p>
-    <p>Há duas grandes famílias, e funcionam de maneira muito diferente:
-      os anúncios de pesquisa e os anúncios nas redes sociais.</p>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Anúncios de pesquisa: quem já está à procura</h2>
-    <p>Aparecem quando alguém pesquisa um serviço. Quem escreve
-      &ldquo;remodelação de cozinha&rdquo; ou &ldquo;canalizador
-      urgente&rdquo; já tem o problema e quer resolvê-lo.</p>
-    <p>É a procura mais quente que existe. Em contrapartida, só há o volume
-      de pesquisas que há: não consegues criar mais procura do que a que
-      existe na tua zona.</p>
-    <p>Funcionam melhor para serviços que as pessoas procuram ativamente:
-      reparações, obras, assistência técnica, serviços de urgência.</p>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Anúncios nas redes sociais: quem ainda não estava à procura</h2>
-    <p>Aparecem enquanto a pessoa está a ver outras coisas. Não estava à
-      procura de ti, mas encaixa no perfil de quem costuma comprar o que
-      vendes.</p>
-    <p>Aqui quem faz o trabalho é o criativo: a imagem, o vídeo e a primeira
-      frase. Tens um segundo para fazer parar quem está a deslizar o
-      ecrã.</p>
-    <p>Funcionam bem para criar procura e para serviços de valor alto que
-      precisam de mais explicação, muitas vezes com um custo por contacto
-      mais baixo. Em troca, os contactos chegam menos decididos e precisam
-      de mais acompanhamento.</p>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Como se paga</h2>
-    <p>Não há preço fixo. Cada vez que alguém pesquisa ou abre uma rede
-      social, os anunciantes competem por aquele espaço num leilão
-      automático. O preço depende de quantas empresas querem chegar à mesma
-      pessoa e de quão relevante é o teu anúncio para ela.</p>
-    <p>Tu defines o orçamento e a campanha trabalha dentro dele. O dinheiro
-      dos anúncios deve ser pago por ti, diretamente às plataformas, numa
-      conta em teu nome.</p>
-    <blockquote><p>Se quem te gere os anúncios não te deixa ver a conta,
-      desconfia.</p></blockquote>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Quanto investir</h2>
-    <p>A pergunta certa não é quanto custa um clique. É quanto vale um
-      cliente teu. A conta faz-se em quatro passos:</p>
-    <ol>
-      <li>Investimento &divide; custo por contacto = <strong>contactos</strong></li>
-      <li>Contactos &times; percentagem que fechas = <strong>clientes</strong></li>
-      <li>Clientes &times; valor de um cliente = <strong>faturação</strong></li>
-      <li>Faturação &divide; investimento = <strong>retorno bruto</strong></li>
-    </ol>
-    <p>Um exemplo real: para a OrtoFirst investimos 2.906&nbsp;€ e a campanha
-      gerou 24 leads, a 121&nbsp;€ cada. Parece caro. Mas a empresa fechou 3
-      clientes de 24.700&nbsp;€: 74.100&nbsp;€ em contratos fechados.
-      <a href="../../casos-estudo/ortofirst/">Vê o caso completo</a>.</p>
-    <p>Há também um mínimo abaixo do qual não vale a pena. Com pouco
-      orçamento, a campanha não junta dados suficientes para aprender o que
-      funciona. Por isso só trabalhamos com empresas que possam investir
-      pelo menos <strong>1.000&nbsp;€ por mês</strong> em anúncios.</p>
-    <p>Na página inicial tens uma
-      <a href="../../#calculadora">calculadora</a> para fazeres esta
-      conta com os teus números.</p>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>O anúncio é só metade do trabalho</h2>
-    <p>Um bom anúncio traz a pessoa até ti. O que acontece a seguir decide
-      se ela se torna cliente.</p>
-    <ul>
-      <li><strong>Uma página de destino própria.</strong> Quem clica deve
-        cair numa página que fala exatamente do que viu no anúncio, com um
-        formulário curto. Não na página inicial do site.</li>
-      <li><strong>Resposta rápida.</strong> Um contacto que fica um dia à
-        espera muitas vezes já falou com a concorrência. Atende o telefone
-        e responde no próprio dia.</li>
-      <li><strong>Uma oferta clara.</strong> O que fazes, para quem, e qual
-        é o próximo passo.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>O que medir</h2>
-    <p>Cliques, visualizações e gostos são fáceis de medir e quase não dizem
-      nada. Os números que interessam são outros:</p>
-    <ul>
-      <li><strong>Contactos:</strong> chamadas e formulários, não visitas.</li>
-      <li><strong>Custo por contacto.</strong></li>
-      <li><strong>Clientes fechados</strong>, e quanto custou cada um.</li>
-      <li><strong>Faturação gerada.</strong></li>
-    </ul>
-    <p>Para isso, a medição tem de estar ligada antes de a campanha
-      arrancar: cada chamada e cada formulário fica registado. Sem isso, a
-      plataforma não sabe o que procurar e tu não sabes o que está a
-      funcionar.</p>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Quanto tempo até haver resultados</h2>
-    <p>Os primeiros contactos podem chegar logo nos primeiros dias. Mas as
-      primeiras semanas servem sobretudo para testar pesquisas, públicos,
-      anúncios e páginas. O que não funciona corta-se; o que funciona
-      reforça-se.</p>
-    <p>Não julgues uma campanha pela primeira semana, nem a mudes toda de
-      dois em dois dias. Cada mudança grande obriga a campanha a aprender
-      outra vez.</p>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Os erros mais comuns</h2>
-    <ul>
-      <li>Mandar toda a gente para a página inicial do site.</li>
-      <li>Medir cliques em vez de clientes.</li>
-      <li>Um orçamento tão baixo que a campanha nunca chega a aprender.</li>
-      <li>Deixar contactos à espera de resposta.</li>
-      <li>Mudar tudo antes de haver dados.</li>
-      <li>Não saber quanto vale um cliente e, por isso, não saber quanto se
-        pode pagar por ele.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="lg-sec">
-  <div class="lg-ar-col">
-    <h2>Fazer sozinho ou entregar a alguém</h2>
-    <p>Dá para fazer sozinho. As plataformas estão abertas a qualquer pessoa
-      e há muita informação gratuita. O que custa é o tempo: montar a
-      medição, escrever e testar anúncios e olhar para os números todas as
-      semanas.</p>
-    <p>Se preferires entregar isso a alguém, procura três coisas: a conta de
-      anúncios em teu nome, relatórios com contactos e clientes (não só
-      cliques) e ninguém a prometer resultados garantidos na primeira
-      semana.</p>
-  </div>
-</section>
-
-<section class="lg-sec lg-ar-fim">
-  <div class="lg-ar-col">
-    <h2>Queres fazer estas contas para a tua empresa?</h2>
-    <p>Na chamada estratégica olhamos para quanto vale um cliente teu e
-      dizemos-te o que achamos realista, antes de gastares um euro.</p>
-    <div class="lg-hero-acoes">
-      <a class="lg-btn lg-btn--azul lg-btn--lg" href="../../#agendar">Agendar Chamada Estratégica
-        <svg class="lg-seta" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="haste" d="M3 8h9"/><path class="ponta" d="M8.5 4l4 4-4 4"/></svg>
-      </a>
-      <a class="lg-btn lg-btn--contorno lg-btn--lg" href="../../casos-estudo/">Ver Casos de Estudo</a>
+<!-- "Check out more articles" do leadarc: enquanto só há um artigo, mostra o caso de estudo -->
+<section class="lg-sec lg-at-mais" aria-labelledby="le-tambem">
+  <div class="lg-wrap">
+    <h2 class="lg-at-mais-h" id="le-tambem">Lê também</h2>
+    <div class="lg-ai-grelha">
+      <article class="lg-ai-cartao">
+        <div class="lg-ai-capa">
+          <div class="lg-capa lg-capa--caso" role="img" aria-label="Caso de estudo OrtoFirst: 74.100&nbsp;€ em contratos fechados">
+            <div class="lg-capa-marcas" aria-hidden="true">
+              <span class="lg-capa-marca lg-capa-marca--cliente"><img src="../../assets/img/clientes/ortofirst-branco.png" width="542" height="120" alt=""></span>
+              <span class="lg-capa-x">&times;</span>
+              <span class="lg-capa-marca"><img src="../../assets/img/logo-branco.png" width="457" height="100" alt=""></span>
+            </div>
+            <span class="lg-capa-rot">Caso de estudo OrtoFirst</span>
+            <p class="lg-capa-num">74.100&nbsp;€</p>
+            <p class="lg-capa-sub">em contratos fechados</p>
+          </div>
+        </div>
+        <div class="lg-ai-corpo">
+          <span class="lg-ai-data">Caso de estudo</span>
+          <h3 class="lg-ai-h"><a href="../../casos-estudo/ortofirst/">Como a OrtoFirst transformou 2.906&nbsp;€ em anúncios em 74.100&nbsp;€ em contratos fechados</a></h3>
+          <p class="lg-ai-ex">24 potenciais clientes entraram em contacto. 3
+            tornaram-se clientes. Cada contrato representou 24.700&nbsp;€ para a
+            empresa.</p>
+          <div class="lg-ai-acoes">
+            <a class="lg-btn-sec" href="../../casos-estudo/ortofirst/" tabindex="-1">Ler caso de estudo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 </main>
+
+<script>
+/* índice: marca a secção que está a ser lida (como no leadarc) */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.lg-at-indice a'));
+  var titulos = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if (!links.length) return;
+  function marca() {
+    var atual = 0;
+    titulos.forEach(function (h, i) { if (h && h.getBoundingClientRect().top < 200) atual = i; });
+    links.forEach(function (a, i) { a.setAttribute('aria-current', i === atual ? 'true' : 'false'); });
+  }
+  addEventListener('scroll', marca, { passive: true });
+  addEventListener('load', marca);
+  marca();
+  // no telemóvel, fecha o índice depois de escolher uma secção
+  var m = document.querySelector('.lg-at-indice-m');
+  if (m) m.addEventListener('click', function (e) { if (e.target.closest('a')) m.open = false; });
+})();
+</script>
 
 <!-- ==================== RODAPÉ ==================== -->
 <!-- Estrutura do rodapé do leadarc: logótipo e botão à esquerda, colunas

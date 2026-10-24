@@ -1,42 +1,100 @@
 <!-- ==================== ARTIGOS (lista) ==================== -->
-<!-- Igual à /articles do leadarc: título centrado e um cartão por artigo
-     (capa 16:9, categoria · data, título e resumo). Com um só artigo, a
-     grelha usa --1 (um cartão centrado de 760px); com dois passa a --2, com
-     três ou mais tira-se o modificador.
-     Para acrescentar um artigo: novo cartão aqui + nova pasta em src/ +
-     entrada no PAGES do build.py + sitemap.xml. -->
+<!-- Igual à /articles atual do leadarc: etiqueta, título e subtítulo à
+     esquerda; filtros por categoria e pesquisa; grelha de dois cartões
+     (80% da largura) com capa, data, título, resumo e botão "Ler artigo".
+     O título do cartão tem um link que cobre o cartão todo.
+     Para acrescentar um artigo: nova pasta em src/ (copia
+     src/artigo-anuncios-online/), entrada no PAGES do build.py, cópia do
+     <article> abaixo e sitemap.xml. Os filtros usam data-cats (separadas
+     por |) e a pesquisa usa data-texto (em minúsculas). Uma categoria nova
+     precisa de um botão novo em .lg-ai-chips. -->
 <main class="lg-main" id="conteudo">
 
-<section class="lg-ar-head">
+<header class="lg-lh">
   <div class="lg-wrap">
-    <h1 class="lg-ar-title">Artigos</h1>
+    <span class="lg-etq">Artigos</span>
+    <h1 class="lg-lh-h1">Ideias sobre anúncios online, captação de clientes e pedidos de orçamento.</h1>
+    <p class="lg-lh-sub">Guias, artigos e boas práticas para empresas de
+      serviços que querem mais clientes através de anúncios online.</p>
+
+    <div class="lg-ai-barra">
+      <div class="lg-ai-chips" role="group" aria-label="Filtrar por categoria">
+        <button type="button" class="lg-ai-chip" data-cat="todas" aria-pressed="true">Todas as categorias</button>
+        <button type="button" class="lg-ai-chip" data-cat="Guia" aria-pressed="false">Guia</button>
+        <button type="button" class="lg-ai-chip" data-cat="Anúncios" aria-pressed="false">Anúncios</button>
+      </div>
+      <label class="lg-ai-pesquisa">
+        <span class="visualmente-escondido">Pesquisar artigos</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" placeholder="Pesquisar artigos" autocomplete="off" data-ai-pesquisa>
+      </label>
+    </div>
   </div>
-</section>
+</header>
 
-<section class="lg-ar-lista">
+<section class="lg-sec lg-ai-lista" aria-label="Artigos">
   <div class="lg-wrap">
-    <div class="lg-ar-grid lg-ar-grid--1">
+    <div class="lg-ai-grelha">
 
-      <article>
-        <a class="lg-ar-link" href="{{base}}artigos/anuncios-online/">
-          <div class="lg-ar-cover">
-            <div class="lg-capa lg-capa--guia" role="img" aria-label="Guia: anúncios online">
-              <img class="lg-capa-logo" src="{{base}}assets/img/logo-branco.png" width="457" height="100" alt="">
-              <span class="lg-capa-eti">Guia</span>
-              <p class="lg-capa-num">Anúncios online</p>
-              <p class="lg-capa-sub">tudo o que precisas de saber antes de investir</p>
-            </div>
+      <article class="lg-ai-cartao" data-cats="Guia|Anúncios"
+        data-texto="tudo o que precisas de saber sobre anúncios online como funcionam quanto investir o que medir erros mais comuns guia anúncios">
+        <div class="lg-ai-capa">
+          <div class="lg-capa lg-capa--guia" role="img" aria-label="Guia: anúncios online">
+            <img class="lg-capa-logo" src="{{base}}assets/img/logo-branco.png" width="457" height="100" alt="">
+            <span class="lg-capa-eti">Guia</span>
+            <p class="lg-capa-num">Anúncios online</p>
+            <p class="lg-capa-sub">tudo o que precisas de saber antes de investir</p>
           </div>
-          <p class="lg-ar-meta"><span class="cat">Guia</span><span class="ponto" aria-hidden="true">·</span><time datetime="2026-10-20">20 out 2026</time></p>
-          <h2 class="lg-ar-h">Tudo o que precisas de saber sobre anúncios online</h2>
-          <p class="lg-ar-ex">Como funcionam, quanto investir, o que medir e os erros
+        </div>
+        <div class="lg-ai-corpo">
+          <time class="lg-ai-data" datetime="2026-10-20">20 out 2026</time>
+          <h2 class="lg-ai-h"><a href="{{base}}artigos/anuncios-online/">Tudo o que precisas de saber sobre anúncios online</a></h2>
+          <p class="lg-ai-ex">Como funcionam, quanto investir, o que medir e os erros
             mais comuns. O essencial, sem jargão, antes de gastares o primeiro
             euro.</p>
-        </a>
+          <div class="lg-ai-acoes">
+            <a class="lg-btn-sec" href="{{base}}artigos/anuncios-online/" tabindex="-1">Ler artigo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
       </article>
 
     </div>
+    <p class="lg-ai-vazio" hidden>Nenhum artigo encontrado.</p>
   </div>
 </section>
 
 </main>
+
+<script>
+/* filtros por categoria e pesquisa, como na /articles do leadarc */
+(function () {
+  var chips = [].slice.call(document.querySelectorAll('.lg-ai-chip'));
+  var campo = document.querySelector('[data-ai-pesquisa]');
+  var cartoes = [].slice.call(document.querySelectorAll('.lg-ai-cartao'));
+  var vazio = document.querySelector('.lg-ai-vazio');
+  if (!cartoes.length) return;
+  var cat = 'todas';
+  // sem acentos dos dois lados: "anuncios" encontra "anúncios"
+  var limpa = function (t) { return (t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+  function aplica() {
+    var q = limpa(campo.value).trim();
+    var visiveis = 0;
+    cartoes.forEach(function (c) {
+      var okCat = cat === 'todas' || (c.dataset.cats || '').split('|').indexOf(cat) > -1;
+      var okTxt = !q || limpa(c.dataset.texto).indexOf(q) > -1;
+      c.hidden = !(okCat && okTxt);
+      if (!c.hidden) visiveis++;
+    });
+    vazio.hidden = visiveis > 0;
+  }
+  chips.forEach(function (b) {
+    b.addEventListener('click', function () {
+      cat = b.dataset.cat;
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      aplica();
+    });
+  });
+  campo.addEventListener('input', aplica);
+})();
+</script>

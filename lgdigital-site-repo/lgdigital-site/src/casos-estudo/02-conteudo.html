@@ -1,32 +1,27 @@
 <!-- ==================== CASOS DE ESTUDO (lista) ==================== -->
-<!-- Igual à /case-studies do leadarc: cabeçalho à esquerda, depois "Todos
-     os casos" com a contagem à direita e uma grelha de dois cartões
-     clicáveis (capa 16:9, etiquetas, título, resumo, três números e
+<!-- Igual à /case-studies atual do leadarc: etiqueta branca, título todo a
+     preto e subtítulo à esquerda; por baixo, uma grelha de dois cartões
+     clicáveis (capa 16:9, etiquetas, título, resumo e botão
      "Ler caso de estudo").
      Cada cartão abre a página do caso em /casos-estudo/<cliente>/.
      Para acrescentar um caso: nova pasta em src/ (copia src/caso-ortofirst/),
-     entrada no PAGES do build.py, copiar o <article> abaixo, mudar o link e
-     os números, e atualizar a contagem ("1 publicado" → "2 publicados").
+     entrada no PAGES do build.py e cópia do <article> abaixo com o link e o
+     texto novos.
      Regra: só números medidos. -->
 <main class="lg-main" id="conteudo">
 
-<section class="lg-cs-hero">
+<section class="lg-lh">
   <div class="lg-wrap">
-    <p class="lg-sobre">Casos de estudo</p>
-    <h1 class="lg-cs-h1">Provas, não <span class="lg-azul">promessas</span>.</h1>
-    <p class="lg-cs-lede">Os números das campanhas que fizemos para os nossos
+    <span class="lg-etq">Casos de estudo</span>
+    <h1 class="lg-lh-h1">Provas, não promessas.</h1>
+    <p class="lg-lh-sub">Os números das campanhas que fizemos para os nossos
       clientes, tal como foram medidos. Sem arredondamentos para cima e sem
       estimativas.</p>
   </div>
 </section>
 
-<section class="lg-sec lg-csl" aria-labelledby="todos-casos">
+<section class="lg-sec lg-csl" aria-label="Casos de estudo">
   <div class="lg-wrap">
-    <div class="lg-csl-cab">
-      <h2 id="todos-casos">Todos os casos</h2>
-      <span>1 publicado</span>
-    </div>
-
     <div class="lg-csl-grelha">
 
       <article class="lg-csc">
@@ -50,12 +45,8 @@
             <p class="lg-csc-ex">24 potenciais clientes entraram em contacto. 3
               tornaram-se clientes. Cada contrato representou 24.700&nbsp;€ para a
               empresa.</p>
-            <div class="lg-csc-num">
-              <div><strong>24</strong><span>Leads geradas</span></div>
-              <div><strong>3</strong><span>Clientes fechados</span></div>
-              <div><strong>25,5x</strong><span>Retorno bruto</span></div>
-            </div>
-            <span class="lg-csc-ler">Ler caso de estudo <span class="seta" aria-hidden="true">&rarr;</span></span>
+            <div class="lg-csc-acoes"><span class="lg-btn-sec">Ler caso de estudo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></div>
           </div>
         </a>
       </article>
