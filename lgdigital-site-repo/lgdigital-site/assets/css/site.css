@@ -1226,3 +1226,19 @@ h1,h2,h3,h4{margin:0;}
   .lg-marca-g path{stroke-opacity:.1;}
 }
 @media(max-width:680px){.lg-at-cta--grande .lg-marca-g{right:-90px;width:240px;}}
+
+/* tabelas dentro dos artigos (medidas do .at-table do leadarc) */
+.lg-at-tabela{position:relative;width:100%;overflow-x:auto;margin:28px 0 0;-webkit-overflow-scrolling:touch;}
+.lg-at-tabela table{width:100%;min-width:520px;border-collapse:collapse;font-size:14px;line-height:1.45;}
+.lg-at-tabela--texto table{min-width:620px;}
+.lg-at-tabela thead th{height:40px;padding:0 8px;text-align:left;vertical-align:bottom;font-weight:500;
+  color:var(--lg-subtle);border-bottom:1px solid rgba(0,0,0,.08);}
+.lg-at-tabela tbody th{padding:10px 8px;text-align:left;font-weight:500;color:var(--lg-ink);border-bottom:1px solid rgba(0,0,0,.08);}
+.lg-at-tabela td{padding:10px 8px;color:var(--lg-ink);border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top;}
+.lg-at-tabela tbody tr:last-child th,.lg-at-tabela tbody tr:last-child td{border-bottom:0;}
+.lg-at-tabela tbody tr:hover td,.lg-at-tabela tbody tr:hover th{background:rgba(0,0,0,.02);}
+.lg-at-tabela .num{text-align:right;font-variant-numeric:tabular-nums;}
+.lg-at-tabela thead th.num{white-space:normal;}
+.lg-at-tabela--texto td,.lg-at-tabela--texto tbody th{color:var(--lg-text);}
+.lg-at-tabela--texto tbody th{color:var(--lg-ink);width:32%;}
+.lg-at-prosa h2 + h3{margin-top:24px;}

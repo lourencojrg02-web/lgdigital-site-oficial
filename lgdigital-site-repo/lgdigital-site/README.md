@@ -165,8 +165,17 @@ escuro: `@include _partials/marca-g.html` dentro do bloco, que precisa de
 `position:relative; overflow:hidden`.
 Classes `lg-at-*`.
 
+Artigos publicados: `anuncios-online/` (20 out 2026) e
+`conseguir-mais-clientes-empresa-servicos/` (27 out 2026). Tabelas dentro do
+texto: `<div class="lg-at-tabela">` (números alinhados à direita com
+`class="num"`; `lg-at-tabela--texto` para tabelas só com texto). No
+telemóvel as tabelas deslizam para o lado.
+
+Os cartões de "Lê também" estão em `_partials/cartao-*.html` e o script do
+índice em `_partials/indice-artigo.html`.
+
 Para acrescentar um artigo:
-1. nova pasta em `src/` (copia `src/artigo-anuncios-online/`); cada `<h2>`
+1. nova pasta em `src/` (copia `src/artigo-mais-clientes/`); cada `<h2>`
    precisa de um `id` e de uma linha nos dois índices
 2. entrada no `PAGES` do `build.py` com `pai=("Artigos", "artigos/")` e
    `head=artigo_ld(...)`

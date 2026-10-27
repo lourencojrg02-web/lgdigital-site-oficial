@@ -100,6 +100,17 @@ PAGES = [
                         "Como funcionam os anúncios online, quanto investir, o que medir e os erros mais comuns.",
                         "2026-10-20")),
 
+    dict(out="artigos/conseguir-mais-clientes-empresa-servicos/index.html", src="artigo-mais-clientes",
+         nome="Como conseguir mais clientes numa empresa de serviços",
+         pai=("Artigos", "artigos/"),
+         base="../../", home="../../", body="tema-home",
+         title="Como conseguir mais clientes numa empresa de serviços | LGDigital",
+         desc="Antes de pagar por mais pedidos, vê quantos já perdes. Guia para empresas de serviços: Google, recomendações, anúncios e por onde começar.",
+         head=artigo_ld("artigos/conseguir-mais-clientes-empresa-servicos/",
+                        "Como conseguir mais clientes numa empresa de serviços (e por onde começar)",
+                        "Antes de pagar por mais pedidos, vê quantos já perdes. Guia para empresas de serviços: Google, recomendações, anúncios e por onde começar.",
+                        "2026-10-27")),
+
     # Casos de estudo: uma página por cliente, dentro de /casos-estudo/
     dict(out="casos-estudo/ortofirst/index.html", src="caso-ortofirst",
          nome="OrtoFirst", pai=("Casos de estudo", "casos-estudo/"),

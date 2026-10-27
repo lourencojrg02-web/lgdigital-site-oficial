@@ -1,0 +1,20 @@
+<!-- índice "Nesta página" dos artigos: marca a secção que está a ser lida -->
+<script>
+/* índice: marca a secção que está a ser lida (como no leadarc) */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.lg-at-indice a'));
+  var titulos = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if (!links.length) return;
+  function marca() {
+    var atual = 0;
+    titulos.forEach(function (h, i) { if (h && h.getBoundingClientRect().top < 200) atual = i; });
+    links.forEach(function (a, i) { a.setAttribute('aria-current', i === atual ? 'true' : 'false'); });
+  }
+  addEventListener('scroll', marca, { passive: true });
+  addEventListener('load', marca);
+  marca();
+  // no telemóvel, fecha o índice depois de escolher uma secção
+  var m = document.querySelector('.lg-at-indice-m');
+  if (m) m.addEventListener('click', function (e) { if (e.target.closest('a')) m.open = false; });
+})();
+</script>
