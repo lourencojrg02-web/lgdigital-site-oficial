@@ -1242,3 +1242,6 @@ h1,h2,h3,h4{margin:0;}
 .lg-at-tabela--texto td,.lg-at-tabela--texto tbody th{color:var(--lg-text);}
 .lg-at-tabela--texto tbody th{color:var(--lg-ink);width:32%;}
 .lg-at-prosa h2 + h3{margin-top:24px;}
+/* tabela de duas colunas: cabe no telemóvel sem deslizar */
+.lg-at-tabela--2 table{min-width:0;}
+.lg-at-tabela--2 tbody th{width:42%;}
