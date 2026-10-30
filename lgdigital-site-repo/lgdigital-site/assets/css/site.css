@@ -170,7 +170,7 @@ h1,h2,h3,h4{margin:0;}
 @keyframes lg-pulsa{0%,100%{opacity:1;}50%{opacity:.3;}}
 @media(prefers-reduced-motion:reduce){.lg-barra-ponto{animation:none;}}
 .lg-barra-txt{font-size:13.5px;font-weight:600;letter-spacing:-.005em;}
-.lg-barra-txt .curto{display:none;}
+
 .lg-barra .lg-btn{height:30px;padding:0 12px;font-size:12.5px;}
 .lg-barra .curto{display:none;}
 /* no telemóvel a barra cabe numa linha: texto e botão encurtam */
