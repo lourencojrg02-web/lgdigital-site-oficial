@@ -315,21 +315,28 @@ impressão digital do ficheiro (`site.css?v=cf107c3b`). Quando o CSS muda,
 o número muda e o browser vai buscar a versão nova. Por isso, sempre que
 mexeres no CSS, sobe também as páginas HTML (a pasta toda).
 
-### Landing page de captação (/landing-page)
+### Landing page de captação (/landing-page) e páginas /servicos/
 
 Cópia da estrutura e do estilo da profresults.com: fundo bege, letra Inter,
 "A tua empresa é invisível no Google?" com vídeo ao lado e email para
-receber 3 dicas em vídeo (botão "Subscrever"); logótipos, "O que fazemos"
-(Google Ads, Meta Ads, SEO, SEO Local, AI SEO), bloco "Grátis" e rodapé só
-com os Termos e Condições. Fica fora
-do Google (noindex) e do sitemap. Ficheiros: `src/landing-page/01-conteudo.html`
-e `assets/css/landing.css` (folha e letra próprias, definidas no `PAGES` com
-`css=` e `fontes=`).
+receber 3 dicas em vídeo (botão "Subscrever"); "Já trabalhamos com…",
+"Conhece a equipa", "O que fazemos" (Google Ads, Meta Ads, SEO, SEO Local,
+AI SEO, cada um com "Saber mais" para `/servicos/<serviço>/`), bloco
+"Grátis" com um botão que sobe ao formulário e rodapé ("Domina o teu
+mercado local.", só com os Termos e Condições). O logótipo (preto,
+`logo-preto.png`) no cabeçalho e no rodapé leva ao topo da landing, não à
+home. Tudo fora do Google (noindex) e do sitemap.
 
-- **Webhook do Make:** pôr o URL em `data-webhook` no `<main>`. Os dois
-  formulários enviam `email`, `origem`, `pagina`, `data` e os `utm_*` /
-  `fbclid` que vierem no link. Enquanto estiver vazio, o formulário diz que
-  ainda não está ligado.
+Ficheiros: `src/landing-page/01-conteudo.html`, `src/servico-<slug>/`,
+as peças comuns `src/_partials/lp-cab.html`, `lp-gratis.html`,
+`lp-rodape.html`, `lp-script.html` e `assets/css/landing.css` (folha e letra
+próprias, definidas no `PAGES` com `css=` e `fontes=`).
+
+- **Webhook do Make:** está em `src/_partials/lp-script.html` (`var webhook`).
+  O formulário envia `email`, `origem`, `pagina`, `data` e os `utm_*` /
+  `fbclid` que vierem no link.
 - **Píxel:** ao enviar, dispara `Lead`.
 - **Vídeo:** pôr o ID do YouTube em `data-video` no `.lp-video`. Sem ID
   mostra a foto e "Vídeo em breve".
+- **Preços nas páginas de serviço:** "a partir de 1.000 € por mês" (e, nos
+  anúncios, pelo menos 1.000 € por mês de investimento).

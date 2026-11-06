@@ -30,8 +30,8 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/landing.css?v=b0646311">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/landing.css?v=7ab2818a">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -55,12 +55,13 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 <!-- Cópia da estrutura e do estilo da profresults.com: fundo bege, letra
      Inter, título grande com vídeo ao lado e email para receber 3 dicas.
      Secções: cabeçalho, topo com formulário e vídeo, logótipos de clientes,
-     o que fazemos, bloco "Grátis" com segundo formulário e rodapé. Folha própria: assets/css/landing.css.
+     a equipa, o que fazemos (com links para /servicos/), bloco "Grátis" com
+     botão que sobe ao formulário do topo e rodapé. Cabeçalho, bloco grátis, rodapé e script
+     estão em _partials/lp-*.html. Folha própria: assets/css/landing.css.
 
      FORMULÁRIO → MAKE.COM
-     Os dois formulários enviam para o webhook do Make que estiver em
-     data-webhook (no <main>). Enquanto estiver vazio, o formulário diz que
-     ainda não está ligado. Campos enviados: email, origem, pagina, data e
+     O formulário envia para o webhook do Make definido em
+     _partials/lp-script.html (o mesmo nas páginas /servicos/). Campos enviados: email, origem (o caminho da página, ex.: landing-page), pagina, data e
      utm_source / utm_medium / utm_campaign / utm_content / utm_term /
      fbclid (quando vierem no link do anúncio).
      Depois de enviar, dispara o evento Lead do píxel da Meta.
@@ -70,16 +71,20 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
      por exemplo data-video="dQw4w9WgXcQ". Sem ID, mostra a foto e
      "Vídeo em breve". Com ID, aparece o botão de play e o vídeo só carrega
      quando a pessoa carrega no play (youtube-nocookie). -->
+<!-- cabeçalho da landing e das páginas /servicos/ (estilo profresults.com)
+     O logótipo e o botão levam ao topo da landing (#inscrever), não à home.
+     Na própria landing, o lp-script troca os links data-topo por "#inscrever"
+     para não recarregar a página (e não perder os utm_ do anúncio). -->
 <header class="lp-cab">
   <div class="lp-cab-in">
-    <a class="lp-logo" href="../" aria-label="LGDigital — página inicial">
-      <img src="../assets/img/logo.png" width="457" height="100" alt="LGDigital">
+    <a class="lp-logo" href="../landing-page/#inscrever" data-topo aria-label="LGDigital — ir para o início">
+      <img src="../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
     </a>
-    <a class="lp-btn lp-btn--sm" href="#inscrever">Subscrever</a>
+    <a class="lp-btn lp-btn--sm" href="../landing-page/#inscrever" data-topo>Subscrever</a>
   </div>
 </header>
 
-<main class="lp" id="conteudo" data-webhook="https://hook.eu2.make.com/ycavs88fby98pqibfxxek4u561bs5ekg">
+<main class="lp" id="conteudo">
 
   <!-- ---------- Topo ---------- -->
   <section class="lp-topo" id="inscrever">
@@ -87,9 +92,9 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
       <h1 class="lp-h1">A tua empresa é invisível no Google?</h1>
       <p class="lp-sub">Vê este vídeo para perceberes porque é que a tua
         empresa não aparece nos 3 primeiros resultados do Google.</p>
-      <p class="lp-chamada">Deixa os teus dados abaixo e recebe 3 dicas
+      <p class="lp-chamada"><strong>Deixa os teus dados abaixo e recebe 3 dicas
         GRATUITAS que podes começar a aplicar ainda hoje para melhorar a tua
-        posição no Google. ⬇️</p>
+        posição no Google.</strong> ⬇️</p>
 
       <form class="lp-form" novalidate>
         <label class="lp-sr" for="email-topo">O teu email</label>
@@ -109,8 +114,8 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   </section>
 
   <!-- ---------- Logótipos ---------- -->
-  <section class="lp-logos" aria-label="Empresas com quem já trabalhámos">
-    <p class="lp-logos-rot">Já trabalhámos com&hellip;</p>
+  <section class="lp-logos" aria-label="Empresas com quem já trabalhamos">
+    <p class="lp-logos-rot">Já trabalhamos com&hellip;</p>
     <div class="lp-logos-faixa">
       <div class="lp-logos-rolo">
         <span class="lp-logo-cli lp-logo-cli--hca" role="img" aria-label="Humberto Conde Arquitectos"></span>
@@ -128,18 +133,48 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
     </div>
   </section>
 
+  <!-- ---------- A equipa ---------- -->
+  <section class="lp-sec lp-equipa">
+    <span class="lp-pill">A equipa</span>
+    <h2 class="lp-h2 lp-h2--grande">Conhece a equipa</h2>
+    <div class="lp-equipa-grelha">
+      <a class="lp-pessoa" href="https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/" target="_blank" rel="noopener">
+        <span class="lp-pessoa-foto"><img src="../assets/img/lourenco-gaspar.jpg" width="760" height="760" alt="Lourenço Gaspar"></span>
+        <span class="lp-pessoa-nome">Lourenço Gaspar</span>
+        <span class="lp-pessoa-cargo">Fundador</span>
+      </a>
+    </div>
+  </section>
+
   <!-- ---------- O que fazemos ---------- -->
   <section class="lp-sec lp-servicos">
     <h2 class="lp-h2">O que fazemos</h2>
     <div class="lp-servicos-grelha">
-      <div class="lp-servico"><span class="lp-servico-t">Google Ads</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">Meta Ads</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">SEO</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">SEO Local</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">AI SEO</span></div>
+      <a class="lp-servico" href="../servicos/google-ads/">
+        <span class="lp-servico-t">Google Ads</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="../servicos/meta-ads/">
+        <span class="lp-servico-t">Meta Ads</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="../servicos/seo/">
+        <span class="lp-servico-t">SEO</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="../servicos/seo-local/">
+        <span class="lp-servico-t">SEO Local</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="../servicos/ai-seo/">
+        <span class="lp-servico-t">AI SEO</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
     </div>
   </section>
 
+<!-- bloco "Grátis" (landing e páginas de serviço): só texto e um botão que
+     leva ao formulário do topo da landing (#inscrever) -->
   <!-- ---------- Grátis ---------- -->
   <section class="lp-sec">
     <div class="lp-gratis">
@@ -153,13 +188,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
         nos 3 primeiros resultados do Google.</p>
       <p class="lp-gratis-p">Não precisas de perceber de tecnologia.</p>
       <p class="lp-gratis-p">Deixa o teu email e recebes o vídeo na tua caixa de correio.</p>
-
-      <form class="lp-form lp-form--centro" novalidate>
-        <label class="lp-sr" for="email-gratis">O teu email</label>
-        <input class="lp-input" id="email-gratis" name="email" type="email" inputmode="email" autocomplete="email" placeholder="o.teu@email.pt" required>
-        <button class="lp-btn lp-btn--lg" type="submit">Subscrever</button>
-        <p class="lp-msg" role="status" aria-live="polite"></p>
-      </form>
+      <a class="lp-btn lp-btn--lg lp-gratis-btn" href="../landing-page/#inscrever" data-topo>Subscrever</a>
     </div>
   </section>
 
@@ -169,11 +198,11 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 <footer class="lp-rodape">
   <div class="lp-rodape-in">
     <div class="lp-rodape-marca">
-      <a class="lp-logo" href="../" aria-label="LGDigital — página inicial">
-        <img src="../assets/img/logo.png" width="457" height="100" alt="LGDigital">
+      <a class="lp-logo lp-logo--rodape" href="../landing-page/#inscrever" data-topo aria-label="LGDigital — ir para o início">
+        <img src="../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
       </a>
-      <p class="lp-rodape-h">Põe a tua empresa no topo do Google.</p>
-      <p class="lp-rodape-s">Feito para empresas de serviços.</p>
+      <p class="lp-rodape-h">Domina o teu mercado local.</p>
+      <p class="lp-rodape-s">Feito para empresas locais.</p>
     </div>
     <div class="lp-rodape-col">
       <p class="lp-rodape-t">Legal</p>
@@ -183,13 +212,20 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   <p class="lp-rodape-base">&copy; 2026 LGDigital. Todos os direitos reservados. Para informações legais, manda-nos um email.</p>
 </footer>
 
+<!-- formulários → webhook do Make; vídeo do YouTube só ao carregar no play -->
 <script>
 /* formulários → webhook do Make; vídeo do YouTube só ao carregar no play */
 (function () {
-  var main = document.querySelector('.lp');
-  var webhook = (main && main.getAttribute('data-webhook') || '').trim();
+  // webhook do Make que recebe os emails (landing e páginas de serviço)
+  var webhook = 'https://hook.eu2.make.com/ycavs88fby98pqibfxxek4u561bs5ekg';
   var params = new URLSearchParams(location.search);
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  // na própria landing, logótipos e botões "Subscrever" sobem até ao topo
+  // sem recarregar a página (assim os utm_ do anúncio não se perdem)
+  if (document.getElementById('inscrever')) {
+    [].forEach.call(document.querySelectorAll('a[data-topo]'), function (a) { a.setAttribute('href', '#inscrever'); });
+  }
 
   [].forEach.call(document.querySelectorAll('.lp-form'), function (form) {
     var input = form.querySelector('input[type=email]');
@@ -203,7 +239,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
       if (!webhook) { msg.textContent = 'O formulário ainda não está ligado. Tenta mais tarde.'; msg.classList.add('lp-msg--erro'); return; }
       var dados = new URLSearchParams();
       dados.append('email', email);
-      dados.append('origem', 'landing-page');
+      dados.append('origem', location.pathname.replace(/^\/|\/$/g, '') || 'inicio');
       dados.append('pagina', location.href.split('#')[0]);
       dados.append('data', new Date().toISOString());
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(function (k) {

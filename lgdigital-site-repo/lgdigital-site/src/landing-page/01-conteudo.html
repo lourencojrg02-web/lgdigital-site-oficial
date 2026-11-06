@@ -2,12 +2,13 @@
 <!-- Cópia da estrutura e do estilo da profresults.com: fundo bege, letra
      Inter, título grande com vídeo ao lado e email para receber 3 dicas.
      Secções: cabeçalho, topo com formulário e vídeo, logótipos de clientes,
-     o que fazemos, bloco "Grátis" com segundo formulário e rodapé. Folha própria: assets/css/landing.css.
+     a equipa, o que fazemos (com links para /servicos/), bloco "Grátis" com
+     botão que sobe ao formulário do topo e rodapé. Cabeçalho, bloco grátis, rodapé e script
+     estão em _partials/lp-*.html. Folha própria: assets/css/landing.css.
 
      FORMULÁRIO → MAKE.COM
-     Os dois formulários enviam para o webhook do Make que estiver em
-     data-webhook (no <main>). Enquanto estiver vazio, o formulário diz que
-     ainda não está ligado. Campos enviados: email, origem, pagina, data e
+     O formulário envia para o webhook do Make definido em
+     _partials/lp-script.html (o mesmo nas páginas /servicos/). Campos enviados: email, origem (o caminho da página, ex.: landing-page), pagina, data e
      utm_source / utm_medium / utm_campaign / utm_content / utm_term /
      fbclid (quando vierem no link do anúncio).
      Depois de enviar, dispara o evento Lead do píxel da Meta.
@@ -17,16 +18,9 @@
      por exemplo data-video="dQw4w9WgXcQ". Sem ID, mostra a foto e
      "Vídeo em breve". Com ID, aparece o botão de play e o vídeo só carrega
      quando a pessoa carrega no play (youtube-nocookie). -->
-<header class="lp-cab">
-  <div class="lp-cab-in">
-    <a class="lp-logo" href="{{home}}" aria-label="LGDigital — página inicial">
-      <img src="{{base}}assets/img/logo.png" width="457" height="100" alt="LGDigital">
-    </a>
-    <a class="lp-btn lp-btn--sm" href="#inscrever">Subscrever</a>
-  </div>
-</header>
+@include _partials/lp-cab.html
 
-<main class="lp" id="conteudo" data-webhook="https://hook.eu2.make.com/ycavs88fby98pqibfxxek4u561bs5ekg">
+<main class="lp" id="conteudo">
 
   <!-- ---------- Topo ---------- -->
   <section class="lp-topo" id="inscrever">
@@ -34,9 +28,9 @@
       <h1 class="lp-h1">A tua empresa é invisível no Google?</h1>
       <p class="lp-sub">Vê este vídeo para perceberes porque é que a tua
         empresa não aparece nos 3 primeiros resultados do Google.</p>
-      <p class="lp-chamada">Deixa os teus dados abaixo e recebe 3 dicas
+      <p class="lp-chamada"><strong>Deixa os teus dados abaixo e recebe 3 dicas
         GRATUITAS que podes começar a aplicar ainda hoje para melhorar a tua
-        posição no Google. ⬇️</p>
+        posição no Google.</strong> ⬇️</p>
 
       <form class="lp-form" novalidate>
         <label class="lp-sr" for="email-topo">O teu email</label>
@@ -56,8 +50,8 @@
   </section>
 
   <!-- ---------- Logótipos ---------- -->
-  <section class="lp-logos" aria-label="Empresas com quem já trabalhámos">
-    <p class="lp-logos-rot">Já trabalhámos com&hellip;</p>
+  <section class="lp-logos" aria-label="Empresas com quem já trabalhamos">
+    <p class="lp-logos-rot">Já trabalhamos com&hellip;</p>
     <div class="lp-logos-faixa">
       <div class="lp-logos-rolo">
         <span class="lp-logo-cli lp-logo-cli--hca" role="img" aria-label="Humberto Conde Arquitectos"></span>
@@ -75,114 +69,50 @@
     </div>
   </section>
 
+  <!-- ---------- A equipa ---------- -->
+  <section class="lp-sec lp-equipa">
+    <span class="lp-pill">A equipa</span>
+    <h2 class="lp-h2 lp-h2--grande">Conhece a equipa</h2>
+    <div class="lp-equipa-grelha">
+      <a class="lp-pessoa" href="https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/" target="_blank" rel="noopener">
+        <span class="lp-pessoa-foto"><img src="{{base}}assets/img/lourenco-gaspar.jpg" width="760" height="760" alt="Lourenço Gaspar"></span>
+        <span class="lp-pessoa-nome">Lourenço Gaspar</span>
+        <span class="lp-pessoa-cargo">Fundador</span>
+      </a>
+    </div>
+  </section>
+
   <!-- ---------- O que fazemos ---------- -->
   <section class="lp-sec lp-servicos">
     <h2 class="lp-h2">O que fazemos</h2>
     <div class="lp-servicos-grelha">
-      <div class="lp-servico"><span class="lp-servico-t">Google Ads</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">Meta Ads</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">SEO</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">SEO Local</span></div>
-      <div class="lp-servico"><span class="lp-servico-t">AI SEO</span></div>
+      <a class="lp-servico" href="{{base}}servicos/google-ads/">
+        <span class="lp-servico-t">Google Ads</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="{{base}}servicos/meta-ads/">
+        <span class="lp-servico-t">Meta Ads</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="{{base}}servicos/seo/">
+        <span class="lp-servico-t">SEO</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="{{base}}servicos/seo-local/">
+        <span class="lp-servico-t">SEO Local</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
+      <a class="lp-servico" href="{{base}}servicos/ai-seo/">
+        <span class="lp-servico-t">AI SEO</span>
+        <span class="lp-servico-l">Saber mais &rarr;</span>
+      </a>
     </div>
   </section>
 
-  <!-- ---------- Grátis ---------- -->
-  <section class="lp-sec">
-    <div class="lp-gratis">
-      <span class="lp-gratis-ic" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5v5l4-2.5z" fill="currentColor" stroke="none"/></svg>
-      </span>
-      <span class="lp-pill">Grátis</span>
-      <h2 class="lp-h2 lp-h2--gratis">3 dicas para subires no Google</h2>
-      <p class="lp-gratis-p">Recebe um vídeo gratuito com as três primeiras coisas
-        que fazemos quando começamos a trabalhar com uma empresa para a pôr
-        nos 3 primeiros resultados do Google.</p>
-      <p class="lp-gratis-p">Não precisas de perceber de tecnologia.</p>
-      <p class="lp-gratis-p">Deixa o teu email e recebes o vídeo na tua caixa de correio.</p>
-
-      <form class="lp-form lp-form--centro" novalidate>
-        <label class="lp-sr" for="email-gratis">O teu email</label>
-        <input class="lp-input" id="email-gratis" name="email" type="email" inputmode="email" autocomplete="email" placeholder="o.teu@email.pt" required>
-        <button class="lp-btn lp-btn--lg" type="submit">Subscrever</button>
-        <p class="lp-msg" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
+@include _partials/lp-gratis.html
 
 </main>
 
-<!-- ---------- Rodapé ---------- -->
-<footer class="lp-rodape">
-  <div class="lp-rodape-in">
-    <div class="lp-rodape-marca">
-      <a class="lp-logo" href="{{home}}" aria-label="LGDigital — página inicial">
-        <img src="{{base}}assets/img/logo.png" width="457" height="100" alt="LGDigital">
-      </a>
-      <p class="lp-rodape-h">Põe a tua empresa no topo do Google.</p>
-      <p class="lp-rodape-s">Feito para empresas de serviços.</p>
-    </div>
-    <div class="lp-rodape-col">
-      <p class="lp-rodape-t">Legal</p>
-      <a href="{{base}}tc/">Termos e Condições</a>
-    </div>
-  </div>
-  <p class="lp-rodape-base">&copy; 2026 LGDigital. Todos os direitos reservados. Para informações legais, manda-nos um email.</p>
-</footer>
+@include _partials/lp-rodape.html
 
-<script>
-/* formulários → webhook do Make; vídeo do YouTube só ao carregar no play */
-(function () {
-  var main = document.querySelector('.lp');
-  var webhook = (main && main.getAttribute('data-webhook') || '').trim();
-  var params = new URLSearchParams(location.search);
-  var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-  [].forEach.call(document.querySelectorAll('.lp-form'), function (form) {
-    var input = form.querySelector('input[type=email]');
-    var botao = form.querySelector('button');
-    var msg = form.querySelector('.lp-msg');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = (input.value || '').trim();
-      msg.className = 'lp-msg';
-      if (!ok.test(email)) { msg.textContent = 'Escreve um email válido.'; msg.classList.add('lp-msg--erro'); input.focus(); return; }
-      if (!webhook) { msg.textContent = 'O formulário ainda não está ligado. Tenta mais tarde.'; msg.classList.add('lp-msg--erro'); return; }
-      var dados = new URLSearchParams();
-      dados.append('email', email);
-      dados.append('origem', 'landing-page');
-      dados.append('pagina', location.href.split('#')[0]);
-      dados.append('data', new Date().toISOString());
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(function (k) {
-        if (params.get(k)) dados.append(k, params.get(k));
-      });
-      botao.disabled = true;
-      // no-cors: pedido simples, sem pré-verificação; a resposta não se lê
-      fetch(webhook, { method: 'POST', mode: 'no-cors', body: dados })
-        .then(function () {
-          form.classList.add('lp-form--feito');
-          msg.textContent = 'Feito! Vê o teu email: as 3 dicas vão a caminho.';
-          msg.classList.add('lp-msg--ok');
-          if (window.fbq) fbq('track', 'Lead');
-        })
-        .catch(function () {
-          botao.disabled = false;
-          msg.textContent = 'Não foi possível enviar. Tenta outra vez daqui a pouco.';
-          msg.classList.add('lp-msg--erro');
-        });
-    });
-  });
-
-  var video = document.querySelector('.lp-video');
-  var id = video && (video.getAttribute('data-video') || '').trim();
-  if (id) {
-    video.classList.add('lp-video--tem');
-    var play = video.querySelector('.lp-video-play');
-    play.hidden = false;
-    play.addEventListener('click', function () {
-      video.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
-        '?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-    });
-  }
-})();
-</script>
+@include _partials/lp-script.html

@@ -31,7 +31,9 @@ button,input{font:inherit;letter-spacing:inherit;}
   -webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);}
 .lp-cab-in{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;
   padding:24px 64px;border-bottom:1.5px solid rgba(0,0,0,.18);}
+.lp-logo{display:inline-block;}
 .lp-logo img{width:auto;height:24px;}
+.lp-logo--rodape img{height:28px;}
 
 /* ---------- Estrutura ---------- */
 .lp{display:block;max-width:1200px;margin:0 auto;padding:0 64px;}
@@ -42,10 +44,11 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-h2--grande{margin-top:14px;font-size:70px;line-height:1;text-align:center;}
 
 /* ---------- Topo ---------- */
-.lp-topo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;padding:96px 0 72px;}
+.lp-topo{scroll-margin-top:120px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;padding:96px 0 72px;}
 .lp-h1{font-size:48px;font-weight:500;line-height:1.15;letter-spacing:-.06em;text-wrap:balance;}
-.lp-sub{margin-top:28px;font-size:24px;line-height:1.5;letter-spacing:-.05em;color:rgba(0,0,0,.48);}
-.lp-chamada{margin-top:24px;font-size:24px;line-height:1.5;letter-spacing:-.05em;}
+.lp-sub{margin-top:24px;font-size:20px;line-height:1.5;letter-spacing:-.04em;color:rgba(0,0,0,.48);}
+.lp-chamada{margin-top:18px;font-size:20px;line-height:1.5;letter-spacing:-.04em;}
+.lp-chamada strong{font-weight:700;}
 
 /* formulário */
 .lp-form{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px;}
@@ -67,6 +70,7 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .lp-video-play{position:absolute;left:50%;top:50%;display:grid;place-items:center;width:72px;height:72px;margin:-36px 0 0 -36px;
   border:0;border-radius:50%;background:#000;color:#fff;cursor:pointer;transition:transform .15s;}
+.lp-video-play[hidden]{display:none;}
 .lp-video-play:hover{transform:scale(1.06);}
 .lp-video-play svg{width:28px;height:28px;margin-left:3px;}
 .lp-video-eti{position:absolute;left:16px;bottom:16px;padding:6px 12px;border-radius:50px;background:#000;color:#fff;
@@ -90,10 +94,25 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-logo-cli--orto{height:32px;aspect-ratio:542/120;background-image:url("../img/clientes/ortofirst-escuro.png");}
 
 
+/* ---------- A equipa ---------- */
+.lp-equipa{text-align:center;}
+.lp-equipa-grelha{display:flex;justify-content:center;gap:24px;margin-top:56px;text-align:left;}
+.lp-pessoa{display:block;width:341px;max-width:100%;}
+.lp-pessoa-foto{display:block;overflow:hidden;aspect-ratio:341/543;border-radius:16px;background:#F7F2EA;
+  box-shadow:0 0 0 4px #F7F2EA;}
+.lp-pessoa-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .45s cubic-bezier(.2,.7,.2,1);}
+.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
+.lp-pessoa-nome{display:block;margin-top:20px;font-size:24px;line-height:1.5;letter-spacing:-.05em;}
+.lp-pessoa-cargo{display:block;font-size:16px;line-height:1.5;color:rgba(0,0,0,.36);}
+
 /* ---------- O que fazemos ---------- */
-.lp-servicos-grelha{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:32px;}
-.lp-servico{display:flex;align-items:flex-start;min-height:107px;padding:24px;border-radius:16px;background:#F7F2EA;}
+.lp-servicos{text-align:center;}
+.lp-servicos-grelha{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:32px;text-align:left;}
+.lp-servico{display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-height:107px;padding:24px;
+  border-radius:16px;background:#F7F2EA;transition:background-color .15s;}
+.lp-servico:hover{background:#FBF8F3;}
 .lp-servico-t{font-size:20px;line-height:1.5;letter-spacing:-.05em;}
+.lp-servico-l{font-size:14px;font-weight:400;letter-spacing:-.04em;}
 
 /* ---------- Grátis ---------- */
 .lp-gratis{display:flex;flex-direction:column;align-items:center;padding:80px 20px 56px;border-radius:16px;
@@ -103,9 +122,7 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-h2--gratis{max-width:640px;margin:18px 0 22px;font-size:56px;line-height:1.1;text-wrap:balance;}
 .lp-gratis-p{max-width:560px;font-size:18px;line-height:1.5;letter-spacing:-.04em;color:rgba(0,0,0,.48);}
 .lp-gratis-p + .lp-gratis-p{margin-top:14px;}
-.lp-form--centro{justify-content:center;margin-top:36px;}
-.lp-form--centro .lp-input{height:59px;flex-basis:300px;border-radius:50px;padding:0 22px;}
-.lp-form--centro .lp-msg{text-align:center;}
+.lp-gratis-btn{margin-top:36px;}
 
 /* ---------- Rodapé ---------- */
 .lp-rodape{max-width:1200px;margin:96px auto 0;padding:0 64px 40px;}
@@ -132,15 +149,16 @@ button,input{font:inherit;letter-spacing:inherit;}
   .lp-rodape{padding:0 20px 32px;}
   .lp-topo{padding:44px 0 48px;}
   .lp-h1{font-size:36px;}
-  .lp-sub,.lp-chamada{font-size:19px;}
+  .lp-sub,.lp-chamada{font-size:17px;}
   .lp-form{margin-top:28px;}
-  .lp-input,.lp-form--centro .lp-input{flex:1 1 100%;}
+  .lp-input{flex:1 1 100%;}
   .lp-form .lp-btn{flex:1 1 100%;}
   .lp-logos{flex-direction:column;align-items:stretch;gap:16px;}
   .lp-logos-rot{text-align:center;}
   .lp-sec{padding-top:72px;}
   .lp-h2{font-size:32px;}
   .lp-h2--grande{font-size:42px;}
+  .lp-equipa-grelha{margin-top:36px;}
   .lp-servicos-grelha{grid-template-columns:1fr 1fr;}
   .lp-servico{min-height:88px;padding:20px;}
   .lp-gratis{padding:56px 20px 40px;}
@@ -149,4 +167,37 @@ button,input{font:inherit;letter-spacing:inherit;}
   .lp-rodape-in{grid-template-columns:1fr 1fr;}
   .lp-rodape-marca{grid-column:1 / -1;}
   .lp-rodape-h{font-size:28px;}
+}
+
+
+/* ==========================================================================
+   Páginas de serviço (/servicos/*) — medidas das páginas de serviço da
+   profresults.com: título de 80px, introdução de 24px numa coluna de 640px,
+   botão preto em pílula e o resto numa coluna de 704px (h2 de 32px, texto
+   de 18px a 400; preço e perguntas com título a 18px e texto a 16px).
+   ========================================================================== */
+.lp-srv-topo{max-width:820px;margin:0 auto;padding:72px 0 0;text-align:center;}
+.lp-srv-h1{font-size:80px;font-weight:500;line-height:1.1;letter-spacing:-.06em;text-wrap:balance;}
+.lp-srv-intro{max-width:640px;margin:28px auto 0;font-size:24px;line-height:1.5;letter-spacing:-.05em;}
+.lp-srv-topo .lp-btn{margin-top:32px;}
+.lp-srv-col{max-width:704px;margin:0 auto;}
+.lp-srv-bloco{padding-top:80px;}
+.lp-srv-h2{font-size:32px;font-weight:500;line-height:1.3;letter-spacing:-.05em;margin-bottom:22px;}
+.lp-srv-txt p{margin:0 0 16px;font-size:18px;font-weight:400;line-height:1.6;letter-spacing:-.04em;}
+.lp-srv-txt p:last-child{margin-bottom:0;}
+.lp-srv-item + .lp-srv-item{margin-top:28px;}
+.lp-srv-item-t{font-size:18px;line-height:1.5;letter-spacing:-.04em;}
+.lp-srv-item-p{margin-top:8px;font-size:16px;font-weight:400;line-height:1.5;letter-spacing:-.04em;}
+.lp-srv-ver{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-top:56px;font-size:16px;}
+.lp-srv-ver a{font-weight:400;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(0,0,0,.3);}
+.lp-srv-ver a:hover{text-decoration-color:#000;}
+@media(max-width:1000px){.lp-srv-h1{font-size:60px;}}
+@media(max-width:720px){
+  .lp-srv-topo{padding-top:44px;}
+  .lp-srv-h1{font-size:40px;}
+  .lp-srv-intro{font-size:19px;}
+  .lp-srv-topo .lp-btn{width:100%;}
+  .lp-srv-bloco{padding-top:56px;}
+  .lp-srv-h2{font-size:26px;}
+  .lp-srv-txt p{font-size:17px;}
 }
