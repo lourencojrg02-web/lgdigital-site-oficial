@@ -4,6 +4,7 @@
 (function () {
   // webhook do Make que recebe os emails (landing e páginas de serviço)
   var webhook = 'https://hook.eu2.make.com/ycavs88fby98pqibfxxek4u561bs5ekg';
+  window.LG_WEBHOOK = webhook;   // também usado pela candidatura da /gbp/
   var params = new URLSearchParams(location.search);
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -25,6 +26,7 @@
       if (!webhook) { msg.textContent = 'O formulário ainda não está ligado. Tenta mais tarde.'; msg.classList.add('lp-msg--erro'); return; }
       var dados = new URLSearchParams();
       dados.append('email', email);
+      dados.append('tipo', 'email');   // a candidatura da /gbp/ vai com tipo=candidatura
       dados.append('origem', location.pathname.replace(/^\/|\/$/g, '') || 'inicio');
       dados.append('pagina', location.href.split('#')[0]);
       dados.append('data', new Date().toISOString());

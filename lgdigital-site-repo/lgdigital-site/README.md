@@ -12,6 +12,7 @@ um script Python que junta as secções.
 ├─ servicos/                  Google Ads, Meta Ads, SEO, SEO Local, AI SEO (noindex)
 ├─ lourenco-gaspar/           página pessoal do Lourenço          → lgdigital.pt/lourenco-gaspar
 ├─ obrigado/                  depois de deixar o email (noindex)  → lgdigital.pt/obrigado
+├─ gbp/                       top 3 no Google Maps (noindex)      → lgdigital.pt/gbp
 ├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
 │  └─ ortofirst/               caso OrtoFirst (74.100 €)
 ├─ artigos/                    lista de artigos                    → lgdigital.pt/artigos
@@ -24,7 +25,7 @@ um script Python que junta as secções.
 ├─ meta-book-a-call/           marcação + evento Lead (noindex)
 ├─ instant-form-book-a-call/   marcação sem evento Lead (noindex)
 │
-├─ seo/ ads/ websites/ hvac/ hvac-obrigado/ gbp/
+├─ seo/ ads/ websites/ hvac/ hvac-obrigado/
 │  melhor-web-designer-lisboa/ contactos/
 │                              páginas apagadas: só redirecionam (ver abaixo)
 │
@@ -347,7 +348,15 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
   O formulário envia `email`, `origem`, `pagina`, `data` e os `utm_*` /
   `fbclid` que vierem no link.
 - **Depois de enviar:** abre `/obrigado/` (`src/obrigado/`, igual à
-  profresults.com/main-ty, noindex), com um botão para `/servicos/seo-local/`.
+  profresults.com/main-ty, noindex), com um botão para `/gbp/`.
+- **/gbp/** (`src/gbp/`, igual à profresults.com/gbp, noindex): vídeo
+  (`data-video`), vantagens, resultados reais com os mapas
+  (`assets/img/resultados/*-mapa.webp`), como funciona, perguntas
+  (1.000 €/mês, sem fidelização, top 3 em 90 dias ou continuamos de graça),
+  botão para o calendário em /landing-page/#agendar e candidatura.
+- **Campo `tipo` no webhook:** `email` (formulário da inicial) ou
+  `candidatura` (formulário da /gbp/, com nome, apelido, telefone, email,
+  setor, investimento e ajuda). Separa os dois no Make por este campo.
 - **Píxel:** o `Lead` dispara na `/obrigado/`, só para quem chegou pelo
   formulário (marca `lg-lead` no sessionStorage).
 - **Vídeo:** pôr o ID do YouTube em `data-video` no `.lp-video`. Sem ID

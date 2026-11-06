@@ -104,6 +104,11 @@ location.replace('/landing-page/'+location.search+'#'+h);})();</script>"""
 FONTES_INTER = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">"""
+# /gbp/: como a profresults.com/gbp, com Poppins e Cormorant Garamond em itálico
+FONTES_GBP = FONTES_INTER.replace(
+    "family=Inter:wght@400;500;600;700",
+    "family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700"
+    "&family=Cormorant+Garamond:ital,wght@1,700&family=Source+Serif+4:ital,wght@1,500")
 # /obrigado/: Inter + Source Serif 4 em itálico (a parte em serifa do título)
 FONTES_INTER_SERIF = FONTES_INTER.replace(
     "family=Inter:wght@400;500;600;700", "family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,500")
@@ -167,6 +172,13 @@ PAGES = [
          nome="Início", head=ANCORAS_ANTIGAS,
          title="A tua empresa é invisível no Google? | LGDigital",
          desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
+
+    # SEO Local / top 3 no Google Maps (como a profresults.com/gbp). Abre a
+    # partir do botão da /obrigado/.
+    dict(out="gbp/index.html", src="gbp", base="../", home="../landing-page/",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
+         nome="Top 3 no Google Maps", title="Entra no top 3 do Google Maps | LGDigital",
+         desc="Pomos a tua empresa nos 3 primeiros resultados do Google Maps na tua zona. 1.000 € por mês, sem fidelização, top 3 em 90 dias garantido."),
 
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
@@ -287,7 +299,6 @@ REDIRECIONAR = {
     "melhor-web-designer-lisboa/": "",
     "hvac/": "",
     "hvac-obrigado/": "",
-    "gbp/": "",
     "contactos/": "landing-page/#agendar",
     # o caso da OrtoFirst esteve uns dias publicado como artigo
     "artigos/anuncios-74100-euros-faturados/": "casos-estudo/ortofirst/",

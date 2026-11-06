@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/landing.css?v=53b36248">
+<link rel="stylesheet" href="../../assets/css/landing.css?v=f70ae6b1">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -160,6 +160,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 (function () {
   // webhook do Make que recebe os emails (landing e páginas de serviço)
   var webhook = 'https://hook.eu2.make.com/ycavs88fby98pqibfxxek4u561bs5ekg';
+  window.LG_WEBHOOK = webhook;   // também usado pela candidatura da /gbp/
   var params = new URLSearchParams(location.search);
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -181,6 +182,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
       if (!webhook) { msg.textContent = 'O formulário ainda não está ligado. Tenta mais tarde.'; msg.classList.add('lp-msg--erro'); return; }
       var dados = new URLSearchParams();
       dados.append('email', email);
+      dados.append('tipo', 'email');   // a candidatura da /gbp/ vai com tipo=candidatura
       dados.append('origem', location.pathname.replace(/^\/|\/$/g, '') || 'inicio');
       dados.append('pagina', location.href.split('#')[0]);
       dados.append('data', new Date().toISOString());
