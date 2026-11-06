@@ -340,3 +340,13 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
   mostra a foto e "Vídeo em breve".
 - **Preços nas páginas de serviço:** "a partir de 1.000 € por mês" (e, nos
   anúncios, pelo menos 1.000 € por mês de investimento).
+
+### Página pessoal (/lourenco-gaspar)
+
+Igual à profresults.com/arno-wingen: nome, foto (`lourenco-gaspar-3x2.jpg`),
+texto, "Onde me encontrar" e botão para a chamada. Abre a partir do cartão
+"Conhece a equipa" da landing. Fica no Google e no sitemap, com dados
+`ProfilePage`/`Person` (`PESSOA_LD` no `build.py`); o autor dos artigos
+aponta para esta página. Só tem factos confirmados: faltam "Como cheguei
+aqui" e "Fora do trabalho" (ver comentários em `src/lourenco-gaspar/`).
+Uma rede nova entra na lista e no `sameAs` do `AUTOR`.

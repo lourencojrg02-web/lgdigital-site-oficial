@@ -37,6 +37,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lgdigital.pt/lourenco-gaspar/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://lgdigital.pt/pp/</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>

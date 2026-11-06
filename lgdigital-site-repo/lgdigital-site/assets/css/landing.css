@@ -118,7 +118,7 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-gratis{display:flex;flex-direction:column;align-items:center;padding:80px 20px 56px;border-radius:16px;
   background:#F7F2EA;text-align:center;}
 .lp-gratis-ic{display:grid;place-items:center;width:64px;height:64px;margin-bottom:28px;border-radius:16px;background:#000;color:#fff;}
-.lp-gratis-ic svg{width:34px;height:34px;}
+.lp-gratis-ic img{width:36px;height:auto;}
 .lp-h2--gratis{max-width:640px;margin:18px 0 22px;font-size:56px;line-height:1.1;text-wrap:balance;}
 .lp-gratis-p{max-width:560px;font-size:18px;line-height:1.5;letter-spacing:-.04em;color:rgba(0,0,0,.48);}
 .lp-gratis-p + .lp-gratis-p{margin-top:14px;}
@@ -201,3 +201,25 @@ button,input{font:inherit;letter-spacing:inherit;}
   .lp-srv-h2{font-size:26px;}
   .lp-srv-txt p{font-size:17px;}
 }
+
+/* ==========================================================================
+   Página pessoal /lourenco-gaspar/ — igual à profresults.com/arno-wingen:
+   cabeçalho só com o logótipo, nome a 72px, foto 3:2, coluna de 660px,
+   texto a 17px/400, "Onde me encontrar" em fundo claro, botão em pílula.
+   ========================================================================== */
+.lp-eu-cab{max-width:980px;margin:0 auto;padding:18px 16px;}
+.lp-eu{display:block;font-size:17px;font-weight:400;line-height:1.6;letter-spacing:normal;}
+.lp-eu-wrap{display:grid;gap:24px;max-width:980px;margin:0 auto;padding:56px 16px;}
+.lp-eu-estreito{max-width:660px;gap:14px;}
+.lp-eu-h1{font-size:clamp(44px,8vw,72px);font-weight:500;line-height:1.1;letter-spacing:-.02em;}
+.lp-eu-h2{margin-top:10px;font-size:clamp(30px,5vw,40px);font-weight:500;line-height:1.1;letter-spacing:-.02em;}
+.lp-eu-h2:first-child{margin-top:0;}
+.lp-eu-foto{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:16px;}
+.lp-eu-lead{font-size:19px;font-weight:500;}
+.lp-eu a:not(.lp-eu-cta){text-decoration:underline;text-underline-offset:2px;}
+.lp-eu-claro{background:#F7F2EA;}
+.lp-eu-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 24px;margin:0;padding:0;list-style:none;}
+.lp-eu-cta{justify-self:start;display:inline-block;padding:14px 28px;border-radius:50px;background:#000;color:#fff;font-weight:500;transition:opacity .15s;}
+.lp-eu-cta:hover{opacity:.85;}
+.lp-eu-rodape{padding:28px 16px;text-align:center;font-size:15px;font-weight:400;letter-spacing:normal;color:#5d5850;}
+.lp-eu-rodape a:hover{color:#000;}

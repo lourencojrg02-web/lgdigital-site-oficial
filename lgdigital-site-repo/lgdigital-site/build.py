@@ -53,7 +53,8 @@ SOCIAIS = [
 
 # ----------------------------------------------------------------- Artigos
 AUTOR = {"@type": "Person", "name": "Lourenço Gaspar",
-         "url": "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/",
+         "@id": SITE + "/lourenco-gaspar/#pessoa",
+         "url": SITE + "/lourenco-gaspar/",
          "sameAs": ["https://www.youtube.com/@lourencorg",
                     "https://x.com/lourenco_rg",
                     "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/"]}
@@ -71,6 +72,24 @@ def artigo_ld(caminho, titulo, descricao, data):
         "mainEntityOfPage": SITE + "/" + caminho,
         "author": AUTOR, "publisher": EDITOR,
     }, ensure_ascii=False, separators=(",", ":"))
+
+
+# Página pessoal /lourenco-gaspar/ (como a profresults.com/arno-wingen):
+# dados Person para o Google ligar o nome às redes e à LGDigital.
+PESSOA_LD = '<script type="application/ld+json">%s</script>' % json.dumps({
+    "@context": "https://schema.org", "@type": "ProfilePage",
+    "mainEntity": {
+        "@type": "Person", "@id": SITE + "/lourenco-gaspar/#pessoa",
+        "name": "Lourenço Gaspar", "url": SITE + "/lourenco-gaspar/",
+        "image": SITE + "/assets/img/lourenco-gaspar-3x2.jpg",
+        "jobTitle": "Fundador",
+        "description": "Lourenço Gaspar é o fundador da LGDigital, uma agência de marketing digital "
+                       "que ajuda empresas de serviços e negócios locais a conseguir mais clientes.",
+        "worksFor": {"@id": SITE + "/#organizacao"},
+        "knowsAbout": ["Google Ads", "Meta Ads", "SEO", "SEO Local", "Geração de leads"],
+        "sameAs": AUTOR["sameAs"],
+    },
+}, ensure_ascii=False, separators=(",", ":"))
 
 
 # ------------------------------------------------------------------- Páginas
@@ -134,6 +153,14 @@ PAGES = [
          nome="3 dicas para subires no Google",
          title="A tua empresa é invisível no Google? | LGDigital",
          desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
+
+    # Página pessoal (abre a partir do cartão da equipa na /landing-page).
+    # Fica no Google: serve para quem pesquisa o nome do Lourenço.
+    dict(out="lourenco-gaspar/index.html", src="lourenco-gaspar", base="../", home="../",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         nome="Lourenço Gaspar", head=PESSOA_LD,
+         title="Lourenço Gaspar | Fundador da LGDigital",
+         desc="Lourenço Gaspar é o fundador da LGDigital, que ajuda empresas de serviços e negócios locais a conseguir mais clientes com Google Ads, Meta Ads e SEO."),
 
     # Páginas de serviço ligadas a partir da /landing-page (estilo profresults.com)
     dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../",
