@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/landing.css?v=83467d59">
+<link rel="stylesheet" href="../../assets/css/landing.css?v=53b36248">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -203,7 +203,12 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
           form.classList.add('lp-form--feito');
           msg.textContent = 'Feito! Vê o teu email: as 3 dicas vão a caminho.';
           msg.classList.add('lp-msg--ok');
-          if (window.fbq) fbq('track', 'Lead');
+          // segue para /obrigado/, que dispara o Lead do píxel ao ver esta marca;
+          // sem sessionStorage, dispara já aqui
+          var marcado = false;
+          try { sessionStorage.setItem('lg-lead', '1'); marcado = true; } catch (err) {}
+          if (!marcado && window.fbq) fbq('track', 'Lead');
+          location.href = '../../obrigado/';
         })
         .catch(function () {
           botao.disabled = false;

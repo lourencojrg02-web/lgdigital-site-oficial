@@ -124,6 +124,14 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-gratis-p + .lp-gratis-p{margin-top:14px;}
 .lp-gratis-btn{margin-top:36px;}
 
+/* ---------- Página /obrigado/ (como a profresults.com/main-ty) ---------- */
+.lp-ty-topo{padding:96px 0 160px;text-align:center;}
+.lp-ty-h1{font-size:48px;font-weight:500;line-height:1.2;letter-spacing:-.06em;text-wrap:balance;}
+.lp-serif{font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.08em;}
+.lp-ty-p{max-width:400px;}
+.lp-ty-lista{max-width:400px;margin:18px auto;padding-left:24px;list-style:disc outside;
+  font-size:18px;line-height:1.5;letter-spacing:-.04em;color:rgba(0,0,0,.48);}
+
 /* ---------- Rodapé ---------- */
 .lp-rodape{max-width:1200px;margin:96px auto 0;padding:0 64px 40px;}
 .lp-rodape-in{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;
@@ -164,6 +172,9 @@ button,input{font:inherit;letter-spacing:inherit;}
   .lp-gratis{padding:56px 20px 40px;}
   .lp-h2--gratis{font-size:38px;}
   .lp-gratis-p{font-size:17px;}
+  .lp-ty-topo{padding:56px 0 64px;}
+  .lp-ty-h1{font-size:32px;}
+  .lp-ty-lista{font-size:17px;}
   .lp-rodape-in{grid-template-columns:1fr 1fr;}
   .lp-rodape-marca{grid-column:1 / -1;}
   .lp-rodape-h{font-size:28px;}

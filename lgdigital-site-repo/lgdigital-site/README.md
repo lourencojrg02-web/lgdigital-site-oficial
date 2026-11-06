@@ -11,6 +11,7 @@ um script Python que junta as secções.
 ├─ landing-page/              antiga inicial (anúncios + chamada) → lgdigital.pt/landing-page
 ├─ servicos/                  Google Ads, Meta Ads, SEO, SEO Local, AI SEO (noindex)
 ├─ lourenco-gaspar/           página pessoal do Lourenço          → lgdigital.pt/lourenco-gaspar
+├─ obrigado/                  depois de deixar o email (noindex)  → lgdigital.pt/obrigado
 ├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
 │  └─ ortofirst/               caso OrtoFirst (74.100 €)
 ├─ artigos/                    lista de artigos                    → lgdigital.pt/artigos
@@ -345,7 +346,10 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
 - **Webhook do Make:** está em `src/_partials/lp-script.html` (`var webhook`).
   O formulário envia `email`, `origem`, `pagina`, `data` e os `utm_*` /
   `fbclid` que vierem no link.
-- **Píxel:** ao enviar, dispara `Lead`.
+- **Depois de enviar:** abre `/obrigado/` (`src/obrigado/`, igual à
+  profresults.com/main-ty, noindex), com um botão para `/servicos/seo-local/`.
+- **Píxel:** o `Lead` dispara na `/obrigado/`, só para quem chegou pelo
+  formulário (marca `lg-lead` no sessionStorage).
 - **Vídeo:** pôr o ID do YouTube em `data-video` no `.lp-video`. Sem ID
   mostra a foto e "Vídeo em breve".
 - **Preços nas páginas de serviço:** "a partir de 1.000 € por mês" (e, nos

@@ -104,6 +104,9 @@ location.replace('/landing-page/'+location.search+'#'+h);})();</script>"""
 FONTES_INTER = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">"""
+# /obrigado/: Inter + Source Serif 4 em itálico (a parte em serifa do título)
+FONTES_INTER_SERIF = FONTES_INTER.replace(
+    "family=Inter:wght@400;500;600;700", "family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,500")
 
 PAGES = [
     # Antiga homepage (anúncios + chamada). Desde 06/11/2026 vive em
@@ -164,6 +167,12 @@ PAGES = [
          nome="Início", head=ANCORAS_ANTIGAS,
          title="A tua empresa é invisível no Google? | LGDigital",
          desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
+
+    # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
+    dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         nome="Obrigado", title="Vê o teu email: o vídeo está a caminho | LGDigital",
+         desc="Recebemos o teu email. As 3 dicas para subires no Google vão a caminho."),
 
     # Página pessoal (abre a partir do cartão da equipa na /landing-page).
     # Fica no Google: serve para quem pesquisa o nome do Lourenço.

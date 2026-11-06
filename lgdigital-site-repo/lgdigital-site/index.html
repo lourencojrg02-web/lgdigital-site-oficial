@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/landing.css?v=83467d59">
+<link rel="stylesheet" href="assets/css/landing.css?v=53b36248">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -70,7 +70,8 @@ location.replace('/landing-page/'+location.search+'#'+h);})();</script>
      _partials/lp-script.html (o mesmo nas páginas /servicos/). Campos enviados: email, origem (o caminho da página; na inicial é "inicio"), pagina, data e
      utm_source / utm_medium / utm_campaign / utm_content / utm_term /
      fbclid (quando vierem no link do anúncio).
-     Depois de enviar, dispara o evento Lead do píxel da Meta.
+     Depois de enviar, abre /obrigado/ (src/obrigado), que dispara o evento
+     Lead do píxel da Meta.
 
      VÍDEO
      Quando houver vídeo no YouTube, pôr o ID em data-video (no .lp-video):
@@ -256,7 +257,12 @@ location.replace('/landing-page/'+location.search+'#'+h);})();</script>
           form.classList.add('lp-form--feito');
           msg.textContent = 'Feito! Vê o teu email: as 3 dicas vão a caminho.';
           msg.classList.add('lp-msg--ok');
-          if (window.fbq) fbq('track', 'Lead');
+          // segue para /obrigado/, que dispara o Lead do píxel ao ver esta marca;
+          // sem sessionStorage, dispara já aqui
+          var marcado = false;
+          try { sessionStorage.setItem('lg-lead', '1'); marcado = true; } catch (err) {}
+          if (!marcado && window.fbq) fbq('track', 'Lead');
+          location.href = 'obrigado/';
         })
         .catch(function () {
           botao.disabled = false;

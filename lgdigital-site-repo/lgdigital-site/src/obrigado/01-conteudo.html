@@ -1,0 +1,46 @@
+<!-- ==================== OBRIGADO (depois de deixar o email) ==================== -->
+<!-- Igual à profresults.com/main-ty: título "vê o teu email", cartão com o
+     símbolo, "Queres que façamos isto por ti?", o que entra numa estratégia
+     completa e botão para a página do serviço (SEO Local).
+     O formulário da página inicial abre esta página depois de enviar o email
+     e marca a visita; só aí se dispara o Lead do píxel (quem abre o link
+     diretamente não conta como lead). Fora do Google. -->
+@include _partials/lp-cab.html
+
+<main class="lp" id="conteudo">
+
+  <section class="lp-ty-topo">
+    <h1 class="lp-ty-h1">Vê o teu email: o vídeo está a caminho</h1>
+  </section>
+
+  <section>
+    <div class="lp-gratis">
+      <span class="lp-gratis-ic" aria-hidden="true"><img src="{{base}}assets/img/simbolo-claro.png" width="112" height="113" alt=""></span>
+      <span class="lp-pill">Poupa o trabalho</span>
+      <h2 class="lp-h2 lp-h2--gratis">Queres que <em class="lp-serif">façamos isto por ti?</em></h2>
+      <p class="lp-gratis-p lp-ty-p">Estas 3 dicas ajudam-te a começar, mas chegar aos
+        3 primeiros do Google pede uma estratégia completa:</p>
+      <ul class="lp-ty-lista">
+        <li>Otimização do Perfil da Empresa no Google</li>
+        <li>Correções técnicas no teu site</li>
+        <li>Construção de autoridade local</li>
+      </ul>
+      <p class="lp-gratis-p lp-ty-p">Nós tratamos de tudo. Se preferires poupar esse
+        trabalho e deixá-lo connosco, carrega no botão abaixo.</p>
+      <a class="lp-btn lp-btn--lg lp-gratis-btn" href="{{base}}servicos/seo-local/">Vê como te levamos ao top 3</a>
+    </div>
+  </section>
+
+</main>
+
+@include _partials/lp-rodape.html
+
+<script>
+/* Lead do píxel só para quem chegou aqui pelo formulário (marca posta pelo lp-script) */
+try {
+  if (sessionStorage.getItem('lg-lead')) {
+    sessionStorage.removeItem('lg-lead');
+    if (window.fbq) fbq('track', 'Lead');
+  }
+} catch (e) {}
+</script>
