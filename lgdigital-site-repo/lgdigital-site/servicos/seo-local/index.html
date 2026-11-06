@@ -57,15 +57,15 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
      vê também, perguntas, bloco "Grátis" (botão para o formulário da landing) e rodapé.
      Só "feito por nós" (sem coaching). Preço: a partir de 1.000 € por mês. -->
 <!-- cabeçalho da landing e das páginas /servicos/ (estilo profresults.com)
-     O logótipo e o botão levam ao topo da landing (#inscrever), não à home.
-     Na própria landing, o lp-script troca os links data-topo por "#inscrever"
+     O logótipo e o botão levam ao topo da página inicial (#inscrever).
+     Na própria inicial, o lp-script troca os links data-topo por "#inscrever"
      para não recarregar a página (e não perder os utm_ do anúncio). -->
 <header class="lp-cab">
   <div class="lp-cab-in">
-    <a class="lp-logo" href="../../landing-page/#inscrever" data-topo aria-label="LGDigital — ir para o início">
+    <a class="lp-logo" href="../../#inscrever" data-topo aria-label="LGDigital — ir para o início">
       <img src="../../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
     </a>
-    <a class="lp-btn lp-btn--sm" href="../../landing-page/#inscrever" data-topo>Subscrever</a>
+    <a class="lp-btn lp-btn--sm" href="../../#inscrever" data-topo>Subscrever</a>
   </div>
 </header>
 
@@ -74,7 +74,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   <section class="lp-srv-topo">
     <h1 class="lp-srv-h1">Quando alguém na tua zona procura o que fazes, deve encontrar-te a ti.</h1>
     <p class="lp-srv-intro">Os 3 primeiros no Google Maps ficam com a maior parte das chamadas. É aí que tens de estar.</p>
-    <a class="lp-btn lp-btn--lg" href="../../#agendar">Agendar Chamada Estratégica <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></a>
+    <a class="lp-btn lp-btn--lg" href="../../landing-page/#agendar">Agendar Chamada Estratégica <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></a>
   </section>
 
   <div class="lp-srv-col">
@@ -117,8 +117,8 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
     </section>
   </div>
 
-<!-- bloco "Grátis" (landing e páginas de serviço): só texto e um botão que
-     leva ao formulário do topo da landing (#inscrever) -->
+<!-- bloco "Grátis" (inicial, páginas de serviço e página pessoal): só texto e um botão que
+     leva ao formulário do topo da página inicial (#inscrever) -->
   <!-- ---------- Grátis ---------- -->
   <section class="lp-sec">
     <div class="lp-gratis">
@@ -128,9 +128,9 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
       <p class="lp-gratis-p">Recebe um vídeo gratuito com as três primeiras coisas
         que fazemos quando começamos a trabalhar com uma empresa para a pôr
         nos 3 primeiros resultados do Google.</p>
-      <p class="lp-gratis-p">Não precisas de perceber de tecnologia.</p>
-      <p class="lp-gratis-p">Deixa o teu email e recebes o vídeo na tua caixa de correio.</p>
-      <a class="lp-btn lp-btn--lg lp-gratis-btn" href="../../landing-page/#inscrever" data-topo>Subscrever</a>
+      <p class="lp-gratis-p">Não precisas de conhecimento técnico.</p>
+      <p class="lp-gratis-p">Insere o teu email e recebes o vídeo na tua caixa de correio.</p>
+      <a class="lp-btn lp-btn--lg lp-gratis-btn" href="../../#inscrever" data-topo>Subscrever</a>
     </div>
   </section>
 
@@ -140,7 +140,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 <footer class="lp-rodape">
   <div class="lp-rodape-in">
     <div class="lp-rodape-marca">
-      <a class="lp-logo lp-logo--rodape" href="../../landing-page/#inscrever" data-topo aria-label="LGDigital — ir para o início">
+      <a class="lp-logo lp-logo--rodape" href="../../#inscrever" data-topo aria-label="LGDigital — ir para o início">
         <img src="../../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
       </a>
       <p class="lp-rodape-h">Domina o teu mercado local.</p>
@@ -163,7 +163,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   var params = new URLSearchParams(location.search);
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  // na própria landing, logótipos e botões "Subscrever" sobem até ao topo
+  // na própria página inicial, logótipos e botões "Subscrever" sobem até ao topo
   // sem recarregar a página (assim os utm_ do anúncio não se perdem)
   if (document.getElementById('inscrever')) {
     [].forEach.call(document.querySelectorAll('a[data-topo]'), function (a) { a.setAttribute('href', '#inscrever'); });

@@ -92,6 +92,13 @@ PESSOA_LD = '<script type="application/ld+json">%s</script>' % json.dumps({
 }, ensure_ascii=False, separators=(",", ":"))
 
 
+# A inicial antiga mudou-se para /landing-page/. Links antigos para as suas
+# secções (emails, bios, anúncios: lgdigital.pt/#agendar) seguem para lá,
+# com os utm_ do link, antes de a página nova aparecer.
+ANCORAS_ANTIGAS = """<script>(function(){var h=location.hash.slice(1);
+if(['agendar','calculadora','calc','comparacao','resultados','faq','beneficios','processo','para-quem','transparencia','painel'].indexOf(h)>-1)
+location.replace('/landing-page/'+location.search+'#'+h);})();</script>"""
+
 # ------------------------------------------------------------------- Páginas
 # Landing de captação (/landing-page): Inter, como a profresults.com
 FONTES_INTER = """<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,24 +106,28 @@ FONTES_INTER = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">"""
 
 PAGES = [
-    dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
+    # Antiga homepage (anúncios + chamada). Desde 06/11/2026 vive em
+    # /landing-page/ e a inicial passou a ser a página de captação de emails.
+    # home="" porque as âncoras (#agendar, #calculadora...) são desta página.
+    dict(out="landing-page/index.html", src="home", base="../", home="", body="tema-home",
+         nome="Pedidos de orçamento qualificados",
          title="LGDigital | Pedidos de orçamento qualificados para empresas de serviços",
          desc="Montamos e gerimos anúncios para empresas de serviços. Pedidos de orçamento qualificados diretamente no teu telemóvel, sem fidelização."),
 
     dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
-         base="../", home="../", body="tema-home",
+         base="../", home="../landing-page/", body="tema-home",
          title="Casos de estudo | LGDigital",
          desc="Casos de estudo das nossas campanhas de anúncios: 74.100 € em contratos fechados a partir de 2.906 € investidos, 24 leads e 3 clientes. Só números medidos."),
 
     dict(out="artigos/index.html", src="artigos", nome="Artigos",
-         base="../", home="../", body="tema-home",
+         base="../", home="../landing-page/", body="tema-home",
          title="Artigos | LGDigital",
          desc="Artigos da LGDigital sobre anúncios e aquisição de clientes para empresas de serviços, com números de campanhas reais."),
 
     dict(out="artigos/anuncios-online/index.html", src="artigo-anuncios-online",
          nome="Tudo o que precisas de saber sobre anúncios online",
          pai=("Artigos", "artigos/"),
-         base="../../", home="../../", body="tema-home",
+         base="../../", home="../../landing-page/", body="tema-home",
          title="Tudo o que precisas de saber sobre anúncios online | LGDigital",
          desc="Como funcionam os anúncios online, quanto investir, o que medir e os erros mais comuns. Um guia sem jargão para empresas de serviços.",
          head=artigo_ld("artigos/anuncios-online/",
@@ -127,7 +138,7 @@ PAGES = [
     dict(out="artigos/conseguir-mais-clientes-empresa-servicos/index.html", src="artigo-mais-clientes",
          nome="Como conseguir mais clientes numa empresa de serviços",
          pai=("Artigos", "artigos/"),
-         base="../../", home="../../", body="tema-home",
+         base="../../", home="../../landing-page/", body="tema-home",
          title="Como conseguir mais clientes numa empresa de serviços | LGDigital",
          desc="Antes de pagar por mais pedidos, vê quantos já perdes. Guia para empresas de serviços: Google, recomendações, anúncios e por onde começar.",
          head=artigo_ld("artigos/conseguir-mais-clientes-empresa-servicos/",
@@ -138,7 +149,7 @@ PAGES = [
     # Casos de estudo: uma página por cliente, dentro de /casos-estudo/
     dict(out="casos-estudo/ortofirst/index.html", src="caso-ortofirst",
          nome="OrtoFirst", pai=("Casos de estudo", "casos-estudo/"),
-         base="../../", home="../../", body="tema-home",
+         base="../../", home="../../landing-page/", body="tema-home",
          title="Caso de estudo OrtoFirst: 74.100 € em contratos com 2.906 € em anúncios | LGDigital",
          desc="Como a OrtoFirst transformou 2.906,75 € em anúncios em 74.100 € em contratos fechados: 24 leads, 3 clientes e 25,5x de retorno em valor contratual.",
          head=artigo_ld("casos-estudo/ortofirst/",
@@ -146,50 +157,50 @@ PAGES = [
                         "2.906,75 € investidos em Meta Ads, 24 leads, 3 clientes e 74.100 € em contratos fechados.",
                         "2026-10-20")),
 
-    # Landing de captação de emails (isca: vídeo com 3 dicas), copiada da
-    # profresults.com. Tem folha e letra próprias e fica fora do Google.
-    dict(out="landing-page/index.html", src="landing-page", base="../", home="../",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="3 dicas para subires no Google",
+    # Homepage: captação de emails (isca: vídeo com 3 dicas), copiada da
+    # profresults.com. Tem folha e letra próprias.
+    dict(out="index.html", src="landing-page", base="", home="landing-page/",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         nome="Início", head=ANCORAS_ANTIGAS,
          title="A tua empresa é invisível no Google? | LGDigital",
          desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
 
     # Página pessoal (abre a partir do cartão da equipa na /landing-page).
     # Fica no Google: serve para quem pesquisa o nome do Lourenço.
-    dict(out="lourenco-gaspar/index.html", src="lourenco-gaspar", base="../", home="../",
+    dict(out="lourenco-gaspar/index.html", src="lourenco-gaspar", base="../", home="../landing-page/",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Lourenço Gaspar", head=PESSOA_LD,
          title="Lourenço Gaspar | Fundador da LGDigital",
          desc="Lourenço Gaspar é o fundador da LGDigital, que ajuda empresas de serviços e negócios locais a conseguir mais clientes com Google Ads, Meta Ads e SEO."),
 
     # Páginas de serviço ligadas a partir da /landing-page (estilo profresults.com)
-    dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../",
+    dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Google Ads", title="Google Ads: anúncios que trazem clientes | LGDigital",
          desc="Anúncios no Google que trazem clientes. Montamos e gerimos a tua conta, a partir de 1.000 € por mês. Sem fidelização."),
-    dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../",
+    dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Meta Ads", title="Meta Ads: anúncios no Facebook e Instagram | LGDigital",
          desc="Anúncios no Facebook e no Instagram que te trazem clientes. Tratamos de tudo, a partir de 1.000 € por mês. Sem fidelização."),
-    dict(out="servicos/seo/index.html", src="servico-seo", base="../../", home="../../",
+    dict(out="servicos/seo/index.html", src="servico-seo", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="SEO", title="SEO: aparece no Google sem pagar por cada clique | LGDigital",
          desc="Aparece nas pesquisas que os teus clientes fazem e transforma essas visitas em chamadas. SEO a partir de 1.000 € por mês. Sem fidelização."),
-    dict(out="servicos/seo-local/index.html", src="servico-seo-local", base="../../", home="../../",
+    dict(out="servicos/seo-local/index.html", src="servico-seo-local", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="SEO Local", title="SEO Local: entra no top 3 do Google Maps | LGDigital",
          desc="Quando alguém na tua zona procura o que fazes, deve encontrar-te a ti. SEO local a partir de 1.000 € por mês. Sem fidelização."),
-    dict(out="servicos/ai-seo/index.html", src="servico-ai-seo", base="../../", home="../../",
+    dict(out="servicos/ai-seo/index.html", src="servico-ai-seo", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="AI SEO", title="AI SEO: aparece nas respostas do ChatGPT | LGDigital",
          desc="Os teus clientes já perguntam ao ChatGPT. Trabalhamos para que a tua empresa esteja na resposta. A partir de 1.000 € por mês. Sem fidelização."),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
-    dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
+    dict(out="meta/index.html", src="meta", base="../", home="../landing-page/", body="tema-meta", noindex=True,
          title="Top 3 no Google em 90 dias, garantido | LGDigital",
          desc="Colocamos negócios locais de serviços no top 3 do Google Maps em 90 dias. Se não chegarmos lá, pagamos-te 500€. Vê se a tua empresa se qualifica."),
 
-    dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../",
+    dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../landing-page/",
          body="tema-meta", noindex=True,
          title="Marca a tua chamada | LGDigital",
          desc="Recebemos o teu pedido. Escolhe uma hora para falarmos.",
@@ -200,20 +211,20 @@ PAGES = [
     # propósito: esse tráfego já foi contado como lead pelo próprio Meta,
     # e disparar o evento outra vez duplicava a conversão.
     dict(out="instant-form-book-a-call/index.html", src="instant-form-book-a-call",
-         base="../", home="../", body="tema-meta", noindex=True,
+         base="../", home="../landing-page/", body="tema-meta", noindex=True,
          title="Marca a tua chamada | LGDigital",
          desc="Recebemos o teu pedido. Escolhe uma hora para falarmos."),
 
-    dict(out="404.html", src="404", base="/", home="/", body="tema-home", noindex=True,
+    dict(out="404.html", src="404", base="/", home="/landing-page/", body="tema-home", noindex=True,
          title="Página não encontrada — LGDigital",
          desc="A página que procuras não existe."),
 
-    dict(out="pp/index.html", src="pp", nome="Política de Privacidade", base="../", home="../",
+    dict(out="pp/index.html", src="pp", nome="Política de Privacidade", base="../", home="../landing-page/",
          body="tema-home",
          title="Política de Privacidade — LGDigital",
          desc="Que dados pessoais a LGDigital recolhe, para que os usa, com quem os partilha e quais são os teus direitos."),
 
-    dict(out="tc/index.html", src="tc", nome="Termos e Condições", base="../", home="../",
+    dict(out="tc/index.html", src="tc", nome="Termos e Condições", base="../", home="../landing-page/",
          body="tema-home",
          title="Termos e Condições — LGDigital",
          desc="Condições de utilização do site lgdigital.pt e da prestação dos serviços da LGDigital."),
@@ -262,13 +273,13 @@ HEAD = """<!DOCTYPE html>
 # (o Google trata um refresh imediato como um redirecionamento).
 REDIRECIONAR = {
     "seo/": "",
-    "ads/": "",
+    "ads/": "landing-page/",
     "websites/": "",
     "melhor-web-designer-lisboa/": "",
     "hvac/": "",
     "hvac-obrigado/": "",
     "gbp/": "",
-    "contactos/": "#agendar",
+    "contactos/": "landing-page/#agendar",
     # o caso da OrtoFirst esteve uns dias publicado como artigo
     "artigos/anuncios-74100-euros-faturados/": "casos-estudo/ortofirst/",
 }
