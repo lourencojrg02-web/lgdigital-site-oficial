@@ -350,10 +350,12 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
 - **Depois de enviar:** abre `/obrigado/` (`src/obrigado/`, igual à
   profresults.com/main-ty, noindex), com um botão para `/gbp/`.
 - **/gbp/** (`src/gbp/`, igual à profresults.com/gbp, noindex): vídeo
-  (`data-video`), vantagens, resultados reais com os mapas
-  (`assets/img/resultados/*-mapa.webp`), como funciona, perguntas
-  (1.000 €/mês, sem fidelização, top 3 em 90 dias ou continuamos de graça),
-  botão para o calendário em /landing-page/#agendar e candidatura.
+  (`data-video`), etiquetas, calendário Cal.com em tema claro (`#agendar`),
+  vantagens, "A diferença" (antes/depois com a empresa de exemplo e os mapas
+  da Prof: `antes-mapa.webp`, `depois-mapa.webp`), como funciona, Resultados
+  (três clientes reais, `*-mapa.webp`), perguntas (1.000 €/mês, sem
+  fidelização, top 3 em 90 dias ou continuamos de graça), botão que sobe ao
+  calendário e candidatura.
 - **Campo `tipo` no webhook:** `email` (formulário da inicial) ou
   `candidatura` (formulário da /gbp/, com nome, apelido, telefone, email,
   setor, investimento e ajuda). Separa os dois no Make por este campo.

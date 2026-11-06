@@ -1,15 +1,13 @@
 <!-- ==================== /gbp (SEO Local: top 3 no Google Maps) ==================== -->
-<!-- Igual à profresults.com/gbp: título com vídeo, três etiquetas, "Mas, vale
-     mesmo a pena?", resultados com separadores e mapa, como funciona, perguntas
-     frequentes, marcar chamada e candidatura. Abre a partir do botão da
-     /obrigado/.
-
-     Diferenças assumidas: em vez da empresa inventada "antes/depois", os
-     separadores mostram três clientes reais com o mapa de posições de cada um
-     (assets/img/resultados/*-mapa.webp, recortados das capturas); as etiquetas
-     não têm números (por confirmar com o Lourenço).
+<!-- Igual à profresults.com/gbp: título com vídeo, três etiquetas, calendário
+     (no lugar do Calendly deles), "Mas, vale mesmo a pena?", "A diferença"
+     (antes/depois com a empresa de exemplo e os mapas da Prof, como pedido
+     pelo Lourenço), como funciona, Resultados (secção nossa: três clientes
+     reais com o mapa de cada um), perguntas, marcar chamada e candidatura.
+     Abre a partir do botão da /obrigado/.
 
      VÍDEO: pôr o ID do YouTube em data-video (como na página inicial).
+     CALENDÁRIO: Cal.com em tema claro (o mesmo evento da /landing-page/).
      CANDIDATURA: envia para o mesmo webhook do Make (lp-script) com
      tipo=candidatura; os emails da inicial vão com tipo=email. -->
 @include _partials/lp-cab.html
@@ -32,6 +30,27 @@
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="M12 7v5l3 3"/></svg>Sem fidelização</li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Resultados rápidos</li>
     </ul>
+  </section>
+
+  <!-- ---------- Calendário (no lugar do Calendly da Prof) ---------- -->
+  <section class="gbp-cal" id="agendar" aria-label="Marcar chamada estratégica">
+    <!-- Cal inline embed code begins -->
+    <div style="width:100%;height:100%;overflow:auto" id="my-cal-inline-30min"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "30min", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+
+      Cal.ns["30min"]("inline", {
+        elementOrSelector:"#my-cal-inline-30min",
+        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
+        calLink: "lourenco-gaspar-tmrt3u/30min",
+      });
+
+      Cal.ns["30min"]("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    <!-- Cal inline embed code ends -->
   </section>
 
   <!-- ---------- A vantagem ---------- -->
@@ -60,9 +79,71 @@
     </div>
   </section>
 
-  <!-- ---------- Resultados reais (separadores com mapa) ---------- -->
+  <!-- ---------- A diferença (antes / depois, exemplo igual ao da Prof) ---------- -->
   <section class="gbp-sec">
-    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/></svg>Clientes</p>
+    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/></svg>Antes / Depois</p>
+    <h2 class="gbp-h2">A <em class="gbp-serif">diferença</em></h2>
+
+    <div class="gbp-dif">
+      <div class="gbp-dif-esq">
+        <div class="gbp-tabs" role="tablist" aria-label="Antes e depois">
+          <button type="button" role="tab" id="t-antes" aria-controls="p-antes" aria-selected="true">Antes</button>
+          <button type="button" role="tab" id="t-depois" aria-controls="p-depois" aria-selected="false" tabindex="-1">Depois</button>
+        </div>
+
+        <div class="gbp-painel" role="tabpanel" id="p-antes" aria-labelledby="t-antes">
+          <div class="gbp-emp">
+            <span class="gbp-emp-logo gbp-emp-logo--g"><img src="{{base}}assets/img/simbolo-claro.png" alt=""></span>
+            <div><p class="gbp-emp-n">A tua empresa</p><p class="gbp-emp-l">Rua do Alfabeto 123, 1000-001 Lisboa</p></div>
+          </div>
+          <ul class="gbp-stats">
+            <li>Posição média <span class="gbp-v gbp-v--mau">86</span></li>
+            <li>Quota de mercado <span class="gbp-v gbp-v--mau">1%</span></li>
+            <li>Cliques por mês <span class="gbp-v gbp-v--mau">5</span></li>
+            <li>Clientes por mês <span class="gbp-v gbp-v--mau">1-2</span></li>
+          </ul>
+        </div>
+
+        <div class="gbp-painel" role="tabpanel" id="p-depois" aria-labelledby="t-depois" hidden>
+          <div class="gbp-emp">
+            <span class="gbp-emp-logo gbp-emp-logo--g"><img src="{{base}}assets/img/simbolo-claro.png" alt=""></span>
+            <div><p class="gbp-emp-n">A tua empresa</p><p class="gbp-emp-l">Rua do Alfabeto 123, 1000-001 Lisboa</p></div>
+          </div>
+          <ul class="gbp-stats">
+            <li>Posição média <span class="gbp-v gbp-v--bom">2</span></li>
+            <li>Quota de mercado <span class="gbp-v gbp-v--bom">82%</span></li>
+            <li>Cliques por mês <span class="gbp-v gbp-v--bom">80</span></li>
+            <li>Clientes por mês <span class="gbp-v gbp-v--bom">15+</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gbp-mapa gbp-mapa--quadrado">
+        <img data-mapa="p-antes" src="{{base}}assets/img/resultados/antes-mapa.webp" width="760" height="760" alt="Mapa de posições antes: fora do top 3 em quase toda a cidade">
+        <img data-mapa="p-depois" src="{{base}}assets/img/resultados/depois-mapa.webp" width="760" height="760" alt="Mapa de posições depois: em 1.º lugar em toda a cidade" loading="lazy" hidden>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Como funciona ---------- -->
+  <section class="gbp-sec">
+    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>Como funciona?</p>
+    <h2 class="gbp-h2">É muito <em class="gbp-serif">simples</em>.</h2>
+    <ol class="gbp-passos">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+        <b>01. Chamada estratégica</b> <span>Marca uma chamada gratuita para avaliarmos o teu mercado e a tua posição atual.</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>
+        <b>02. Arranque</b> <span>Enviamos-te instruções detalhadas para nos dares acesso seguro ao teu perfil.</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        <b>03. Execução</b> <span>Tratamos de cada passo do processo e mostramos-te o que estamos a fazer.</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+        <b>04. O que funciona?</b> <span>Medimos os dados que importam para perceber o que funciona e fazer mais disso.</span></li>
+    </ol>
+  </section>
+
+  <!-- ---------- Resultados (clientes reais, separadores com mapa) ---------- -->
+  <section class="gbp-sec">
+    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg>Resultados</p>
     <h2 class="gbp-h2">Resultados <em class="gbp-serif">reais</em></h2>
 
     <div class="gbp-dif">
@@ -121,22 +202,6 @@
     </div>
   </section>
 
-  <!-- ---------- Como funciona ---------- -->
-  <section class="gbp-sec">
-    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>Como funciona?</p>
-    <h2 class="gbp-h2">É muito <em class="gbp-serif">simples</em>.</h2>
-    <ol class="gbp-passos">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
-        <b>01. Chamada estratégica</b> <span>Marca uma chamada gratuita para avaliarmos o teu mercado e a tua posição atual.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>
-        <b>02. Arranque</b> <span>Enviamos-te instruções detalhadas para nos dares acesso seguro ao teu perfil.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
-        <b>03. Execução</b> <span>Tratamos de cada passo do processo e mostramos-te o que estamos a fazer.</span></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
-        <b>04. O que funciona?</b> <span>Medimos os dados que importam para perceber o que funciona e fazer mais disso.</span></li>
-    </ol>
-  </section>
-
   <!-- ---------- Perguntas frequentes ---------- -->
   <section class="gbp-sec">
     <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg>Perguntas</p>
@@ -186,7 +251,7 @@
       <p class="lp-gratis-p lp-ty-p">Se é disto que a tua empresa precisa, vamos falar.</p>
       <p class="lp-gratis-p lp-ty-p">Marca uma chamada rápida connosco e mostramos-te
         exatamente como te poríamos no top 3.</p>
-      <a class="lp-btn lp-btn--lg lp-gratis-btn" href="{{home}}#agendar">Agendar Chamada Estratégica</a>
+      <a class="lp-btn lp-btn--lg lp-gratis-btn" href="#agendar">Agendar Chamada Estratégica</a>
     </div>
   </section>
 
@@ -223,22 +288,24 @@
 <script>
 /* separadores dos resultados + formulário de candidatura */
 (function () {
-  var tabs = [].slice.call(document.querySelectorAll('.gbp-tabs [role=tab]'));
-  function abre(tab, foco) {
-    tabs.forEach(function (t) {
-      var sel = t === tab;
-      t.setAttribute('aria-selected', sel ? 'true' : 'false');
-      t.tabIndex = sel ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !sel;
-      document.querySelector('[data-mapa="' + t.getAttribute('aria-controls') + '"]').hidden = !sel;
-    });
-    if (foco) tab.focus();
-  }
-  tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { abre(t); });
-    t.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') abre(tabs[(i + 1) % tabs.length], true);
-      if (e.key === 'ArrowLeft') abre(tabs[(i - 1 + tabs.length) % tabs.length], true);
+  [].forEach.call(document.querySelectorAll('.gbp-tabs'), function (grupo) {
+    var tabs = [].slice.call(grupo.querySelectorAll('[role=tab]'));
+    function abre(tab, foco) {
+      tabs.forEach(function (t) {
+        var sel = t === tab, id = t.getAttribute('aria-controls');
+        t.setAttribute('aria-selected', sel ? 'true' : 'false');
+        t.tabIndex = sel ? 0 : -1;
+        document.getElementById(id).hidden = !sel;
+        document.querySelector('[data-mapa="' + id + '"]').hidden = !sel;
+      });
+      if (foco) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { abre(t); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') abre(tabs[(i + 1) % tabs.length], true);
+        if (e.key === 'ArrowLeft') abre(tabs[(i - 1 + tabs.length) % tabs.length], true);
+      });
     });
   });
 
