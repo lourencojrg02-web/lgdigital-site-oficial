@@ -74,6 +74,11 @@ def artigo_ld(caminho, titulo, descricao, data):
 
 
 # ------------------------------------------------------------------- Páginas
+# Landing de captação (/landing-page): Inter, como a profresults.com
+FONTES_INTER = """<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">"""
+
 PAGES = [
     dict(out="index.html", src="home", base="", home="", body="tema-home", nome="Início",
          title="LGDigital | Pedidos de orçamento qualificados para empresas de serviços",
@@ -121,6 +126,14 @@ PAGES = [
                         "Como a OrtoFirst transformou 2.906 € em anúncios em 74.100 € em contratos fechados",
                         "2.906,75 € investidos em Meta Ads, 24 leads, 3 clientes e 74.100 € em contratos fechados.",
                         "2026-10-20")),
+
+    # Landing de captação de emails (isca: vídeo com 3 dicas), copiada da
+    # profresults.com. Tem folha e letra próprias e fica fora do Google.
+    dict(out="landing-page/index.html", src="landing-page", base="../", home="../",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         nome="3 dicas para subires no Google",
+         title="A tua empresa é invisível no Google? | LGDigital",
+         desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
@@ -352,8 +365,8 @@ def head_for(pg, styles, base, jsonld=""):
         robots=('<meta name="robots" content="noindex, nofollow">\n' if pg.get("noindex")
                 else '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">\n'),
         styles=styles, pixel=PIXEL if PIXEL_ID else "",
-        fontes=(FONTES_SITE if e_site(pg) else FONTES_GOOGLE).replace("{base}", base),
-        tema_cor=("#FCFCFC" if e_site(pg) else "#F5A623"),
+        fontes=(pg.get("fontes") or (FONTES_SITE if e_site(pg) else FONTES_GOOGLE)).replace("{base}", base),
+        tema_cor=(pg.get("cor") or ("#FCFCFC" if e_site(pg) else "#F5A623")),
         jsonld=jsonld,
         extra=(extra + "\n") if extra else "",
         bodyclass=(' class="%s"' % pg["body"]) if pg.get("body") else "")
@@ -362,7 +375,7 @@ def head_for(pg, styles, base, jsonld=""):
 def build_site():
     for pg in PAGES:
         # site principal: só o site.css; landings: só o styles.css
-        folha = "site.css" if e_site(pg) else "styles.css"
+        folha = pg.get("css") or ("site.css" if e_site(pg) else "styles.css")
         # ?v= muda sempre que a folha muda: o Cloudflare guarda o CSS 4 horas,
         # e sem isto o HTML novo aparecia com o CSS antigo
         versao = hashlib.md5((ROOT / "assets/css" / folha).read_bytes()).hexdigest()[:8]
@@ -408,7 +421,8 @@ def build_standalone():
         html = re.sub(r'src="assets/img/([^"]+)"',
                       lambda m: 'src="%s"' % inline_data("assets/img/" + m.group(1)), html)
         html = re.sub(r'href="(hvac|pp|tc|hvac-obrigado)/"', 'href="#"', html)
-        css = css_site if e_site(pg) else css_base
+        css = (embute((ROOT / "assets/css" / pg["css"]).read_text(encoding="utf-8")) if pg.get("css")
+               else css_site if e_site(pg) else css_base)
         head = head_for(pg, "<style>\n%s\n</style>" % css, "")
         # no ficheiro único as fontes já vão embutidas: o preload ficava a apontar para nada
         head = re.sub(r'<link rel="preload"[^>]*as="font"[^>]*>\n?', "", head)
