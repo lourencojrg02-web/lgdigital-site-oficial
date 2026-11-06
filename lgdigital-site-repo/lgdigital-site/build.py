@@ -183,7 +183,7 @@ PAGES = [
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
-         nome="Obrigado", title="Vê o teu email: o vídeo está a caminho | LGDigital",
+         nome="Obrigado", title="Vê o Teu Email: o Vídeo Está a Caminho | LGDigital",
          desc="Recebemos o teu email. As 3 dicas para subires no Google vão a caminho."),
 
     # Página pessoal (abre a partir do cartão da equipa na /landing-page).
