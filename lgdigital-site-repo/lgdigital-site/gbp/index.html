@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,700&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/landing.css?v=6235abb7">
+<link rel="stylesheet" href="../assets/css/landing.css?v=9a128982">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -66,34 +66,15 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 <!-- cabeçalho da landing e das páginas /servicos/ (estilo profresults.com)
      O logótipo e o botão levam ao topo da página inicial (#inscrever).
      Na própria inicial, o lp-script troca os links data-topo por "#inscrever"
-     para não recarregar a página (e não perder os utm_ do anúncio).
-     No telemóvel, como na Prof: o botão dá lugar a um menu de duas barras
-     que abre um botão "Subscrever" a toda a largura. -->
+     para não recarregar a página (e não perder os utm_ do anúncio). -->
 <header class="lp-cab">
   <div class="lp-cab-in">
     <a class="lp-logo" href="../#inscrever" data-topo aria-label="LGDigital — ir para o início">
       <img src="../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
     </a>
-    <a class="lp-btn lp-btn--sm lp-cab-btn" href="../#inscrever" data-topo>Subscrever</a>
-    <button class="lp-cab-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="lp-cab-gaveta"><span></span><span></span></button>
-  </div>
-  <div class="lp-cab-gaveta" id="lp-cab-gaveta" hidden>
-    <a class="lp-btn" href="../#inscrever" data-topo>Subscrever</a>
+    <a class="lp-btn lp-btn--sm" href="../#inscrever" data-topo>Subscrever</a>
   </div>
 </header>
-<script>
-(function () {
-  var b = document.querySelector('.lp-cab-menu'), g = document.getElementById('lp-cab-gaveta');
-  if (!b || !g) return;
-  function poe(aberto) {
-    b.setAttribute('aria-expanded', aberto ? 'true' : 'false');
-    b.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
-    g.hidden = !aberto;
-  }
-  b.addEventListener('click', function () { poe(g.hidden); });
-  g.addEventListener('click', function (e) { if (e.target.closest('a')) poe(false); });
-})();
-</script>
 
 <main class="gbp" id="conteudo">
 

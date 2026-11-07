@@ -33,12 +33,6 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-cab-in{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;
   padding:24px 64px;border-bottom:1.5px solid rgba(0,0,0,.18);}
 .lp-logo{display:inline-block;}
-.lp-cab-menu{display:none;flex-direction:column;justify-content:center;gap:8px;width:40px;height:40px;margin-right:-10px;padding:10px;
-  border:0;background:none;cursor:pointer;}
-.lp-cab-menu span{display:block;width:20px;height:2px;border-radius:2px;background:#000;transition:transform .2s;}
-.lp-cab-menu[aria-expanded="true"] span:first-child{transform:translateY(5px) rotate(45deg);}
-.lp-cab-menu[aria-expanded="true"] span:last-child{transform:translateY(-5px) rotate(-45deg);}
-.lp-cab-gaveta{display:none;}
 .lp-logo img{width:auto;height:24px;}
 .lp-logo--rodape img{height:28px;}
 
@@ -157,65 +151,48 @@ button,input{font:inherit;letter-spacing:inherit;}
 
 /* ---------- Ecrãs mais pequenos ---------- */
 @media(max-width:1000px){
-  .lp-topo{grid-template-columns:1fr;gap:40px;padding-top:64px;}
+  .lp-topo{display:flex;flex-direction:column;align-items:stretch;gap:0;padding-top:64px;}
+  .lp-topo-txt{display:contents;}
+  .lp-h1{order:1;}
+  .lp-video{order:2;width:100%;margin-top:32px;}
+  .lp-sub{order:3;}
+  .lp-chamada{order:4;}
+  .lp-form{order:5;}
+  .lp-topo .lp-msg{order:6;}
   .lp-video{max-width:640px;}
   .lp-servicos-grelha{grid-template-columns:repeat(3,minmax(0,1fr));}
   .lp-h2--grande{font-size:56px;}
 }
-@media(max-width:809px){
-  /* medidas da profresults.com no telemóvel (375px) */
-  .lp-cab-in{height:64px;padding:0 24px;border-bottom:0;}
-  .lp-logo img{height:28px;}
-  .lp-cab-btn{display:none;}
-  .lp-cab-menu{display:flex;}
-  .lp-cab-gaveta{display:block;padding:4px 24px 16px;}
-  .lp-cab-gaveta .lp-btn{width:100%;height:44px;border-radius:50px;font-size:14px;}
-  .lp{padding:0 24px;}
-  .lp-rodape{padding:0 24px 32px;}
-
-  /* topo: título, vídeo, textos e formulário, tudo ao centro */
-  .lp-topo{display:flex;flex-direction:column;gap:0;padding:116px 0 105px;text-align:center;}
-  .lp-topo-txt{display:contents;}
-  .lp-h1{order:1;font-size:32px;line-height:1.2;}
-  .lp-video{order:2;width:100%;max-width:none;margin-top:32px;}
-  .lp-sub{order:3;margin-top:32px;font-size:18px;}
-  .lp-chamada{order:4;font-size:18px;}
-  .lp-form{order:5;justify-content:center;gap:10px;}
-  .lp-input{flex:0 1 140px;}
-  .lp-form .lp-btn{flex:none;padding:0 15px;}
-  .lp-msg{text-align:center;}
-
-  .lp-logos{flex-direction:column;align-items:stretch;gap:16px;padding:0;}
+@media(max-width:720px){
+  .lp-cab-in{padding:16px 20px;}
+  .lp{padding:0 20px;}
+  .lp-rodape{padding:0 20px 32px;}
+  .lp-topo{padding:44px 0 48px;}
+  .lp-h1{font-size:36px;}
+  .lp-sub,.lp-chamada{font-size:18px;}
+  .lp-form{margin-top:28px;}
+  .lp-input{flex:1 1 100%;}
+  .lp-form .lp-btn{flex:1 1 100%;}
+  .lp-video{margin-top:24px;}
+  .lp-logos{flex-direction:column;align-items:stretch;gap:16px;}
   .lp-logos-rot{text-align:center;}
-  .lp-sec{padding-top:96px;}
+  .lp-sec{padding-top:72px;}
   .lp-h2{font-size:32px;}
-  .lp-h2--grande{font-size:70px;}
-  .lp-equipa-grelha{margin-top:64px;}
-  .lp-pessoa{width:100%;}
-  .lp-pessoa-foto{aspect-ratio:327/552;}
-  .lp-pessoa-nome{font-size:18px;}
-  .lp-servicos{padding:80px 40px 0;}
-  .lp-servicos-grelha{grid-template-columns:1fr;margin-top:40px;}
-  .lp-servico{min-height:104px;padding:24px;}
-  .lp-servico-t{font-size:18px;}
-
-  /* bloco "Grátis": o ícone fica a meio da margem de cima, como na Prof */
-  .lp-gratis{position:relative;padding:80px 20px 40px;}
-  .lp-gratis-ic{position:absolute;top:-23px;left:50%;width:47px;height:46px;margin:0;border-radius:12px;transform:translateX(-50%);}
-  .lp-gratis-ic img{width:27px;}
-  .lp-h2--gratis{margin:32px 0;font-size:56px;}
-  .lp-gratis-p{font-size:18px;}
-  .lp-gratis-btn{margin-top:32px;}
-
+  .lp-h2--grande{font-size:42px;}
+  .lp-equipa-grelha{margin-top:36px;}
+  .lp-servicos-grelha{grid-template-columns:1fr 1fr;}
+  .lp-servico{min-height:88px;padding:20px;}
+  .lp-gratis{padding:56px 20px 40px;}
+  .lp-h2--gratis{font-size:38px;}
+  .lp-gratis-p{font-size:17px;}
   .lp-ty-topo{padding:56px 0 64px;}
   .lp-vid-topo{padding:56px 0 64px;}
   .lp-video--larga{margin-top:24px;}
   .lp-ty-h1{font-size:32px;}
   .lp-ty-lista{font-size:17px;}
-  .lp-rodape-in{grid-template-columns:1fr;gap:48px;border-top:0;}
-  .lp-rodape-marca{grid-column:auto;}
-  .lp-rodape-h{font-size:32px;}
-  .lp-rodape-base{font-size:14px;}
+  .lp-rodape-in{grid-template-columns:1fr 1fr;}
+  .lp-rodape-marca{grid-column:1 / -1;}
+  .lp-rodape-h{font-size:28px;}
 }
 
 

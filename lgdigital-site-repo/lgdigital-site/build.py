@@ -168,7 +168,7 @@ PAGES = [
     # Homepage: captação de emails (isca: vídeo com 3 dicas), copiada da
     # profresults.com. Tem folha e letra próprias.
     dict(out="index.html", src="landing-page", base="", home="landing-page/",
-         body="tema-landing", css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Início", head=ANCORAS_ANTIGAS,
          title="A tua empresa é invisível no Google? | LGDigital",
          desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
@@ -203,23 +203,23 @@ PAGES = [
 
     # Páginas de serviço ligadas a partir da /landing-page (estilo profresults.com)
     dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../landing-page/",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Google Ads", title="Google Ads: anúncios que trazem clientes | LGDigital",
          desc="Anúncios no Google que trazem clientes. Montamos e gerimos a tua conta, a partir de 1.000 € por mês. Sem fidelização."),
     dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../landing-page/",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Meta Ads", title="Meta Ads: anúncios no Facebook e Instagram | LGDigital",
          desc="Anúncios no Facebook e no Instagram que te trazem clientes. Tratamos de tudo, a partir de 1.000 € por mês. Sem fidelização."),
     dict(out="servicos/seo/index.html", src="servico-seo", base="../../", home="../../landing-page/",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="SEO", title="SEO: aparece no Google sem pagar por cada clique | LGDigital",
          desc="Aparece nas pesquisas que os teus clientes fazem e transforma essas visitas em chamadas. SEO a partir de 1.000 € por mês. Sem fidelização."),
     dict(out="servicos/seo-local/index.html", src="servico-seo-local", base="../../", home="../../landing-page/",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="SEO Local", title="SEO Local: entra no top 3 do Google Maps | LGDigital",
          desc="Quando alguém na tua zona procura o que fazes, deve encontrar-te a ti. SEO local a partir de 1.000 € por mês. Sem fidelização."),
     dict(out="servicos/ai-seo/index.html", src="servico-ai-seo", base="../../", home="../../landing-page/",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="AI SEO", title="AI SEO: aparece nas respostas do ChatGPT | LGDigital",
          desc="Os teus clientes já perguntam ao ChatGPT. Trabalhamos para que a tua empresa esteja na resposta. A partir de 1.000 € por mês. Sem fidelização."),
 
