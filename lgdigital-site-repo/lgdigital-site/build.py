@@ -204,8 +204,8 @@ PAGES = [
     # Páginas de serviço ligadas a partir da /landing-page (estilo profresults.com)
     dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="Google Ads", title="Google Ads: anúncios que trazem clientes | LGDigital",
-         desc="Anúncios no Google que trazem clientes. Montamos e gerimos a tua conta, a partir de 1.000 € por mês. Sem fidelização."),
+         nome="Google Ads", title="Google Ads: anúncios que te trazem clientes | LGDigital",
+         desc="Anúncios no Google que te trazem clientes. Montamos e gerimos a tua conta, a partir de 1.000 € por mês. Sem fidelização."),
     dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Meta Ads", title="Meta Ads: anúncios no Facebook e Instagram | LGDigital",
