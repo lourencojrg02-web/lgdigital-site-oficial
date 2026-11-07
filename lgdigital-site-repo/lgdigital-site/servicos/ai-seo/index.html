@@ -30,8 +30,8 @@
 <link rel="manifest" href="../../site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/landing.css?v=9da91f4e">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/landing.css?v=6235abb7">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -59,22 +59,41 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 <!-- cabeçalho da landing e das páginas /servicos/ (estilo profresults.com)
      O logótipo e o botão levam ao topo da página inicial (#inscrever).
      Na própria inicial, o lp-script troca os links data-topo por "#inscrever"
-     para não recarregar a página (e não perder os utm_ do anúncio). -->
+     para não recarregar a página (e não perder os utm_ do anúncio).
+     No telemóvel, como na Prof: o botão dá lugar a um menu de duas barras
+     que abre um botão "Subscrever" a toda a largura. -->
 <header class="lp-cab">
   <div class="lp-cab-in">
     <a class="lp-logo" href="../../#inscrever" data-topo aria-label="LGDigital — ir para o início">
       <img src="../../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
     </a>
-    <a class="lp-btn lp-btn--sm" href="../../#inscrever" data-topo>Subscrever</a>
+    <a class="lp-btn lp-btn--sm lp-cab-btn" href="../../#inscrever" data-topo>Subscrever</a>
+    <button class="lp-cab-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="lp-cab-gaveta"><span></span><span></span></button>
+  </div>
+  <div class="lp-cab-gaveta" id="lp-cab-gaveta" hidden>
+    <a class="lp-btn" href="../../#inscrever" data-topo>Subscrever</a>
   </div>
 </header>
+<script>
+(function () {
+  var b = document.querySelector('.lp-cab-menu'), g = document.getElementById('lp-cab-gaveta');
+  if (!b || !g) return;
+  function poe(aberto) {
+    b.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    b.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+    g.hidden = !aberto;
+  }
+  b.addEventListener('click', function () { poe(g.hidden); });
+  g.addEventListener('click', function (e) { if (e.target.closest('a')) poe(false); });
+})();
+</script>
 
 <main class="lp" id="conteudo">
 
   <section class="lp-srv-topo">
     <h1 class="lp-srv-h1">Os teus clientes já perguntam ao ChatGPT. Ele fala de ti?</h1>
     <p class="lp-srv-intro">Cada vez mais pessoas escolhem a quem ligar com o ChatGPT, o Perplexity e as respostas de IA do Google. Nós trabalhamos para que a tua empresa esteja na resposta.</p>
-    <a class="lp-btn lp-btn--lg" href="../../landing-page/#agendar">Agendar Chamada Estratégica <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></a>
+    <a class="lp-btn lp-btn--lg" href="https://cal.com/lourenco-gaspar-tmrt3u/30min">Agendar Chamada Estratégica <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></a>
   </section>
 
   <div class="lp-srv-col">
@@ -130,7 +149,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
     <div class="lp-gratis">
       <span class="lp-gratis-ic" aria-hidden="true"><img src="../../assets/img/simbolo-claro.png" width="112" height="113" alt=""></span>
       <span class="lp-pill">Grátis</span>
-      <h2 class="lp-h2 lp-h2--gratis">3 dicas para subires no Google</h2>
+      <h2 class="lp-h2 lp-h2--gratis">3 dicas para <em class="lp-serif">subires</em> no Google</h2>
       <p class="lp-gratis-p">Recebe um vídeo gratuito com as três primeiras coisas
         que fazemos quando começamos a trabalhar com uma empresa para a pôr
         nos 3 primeiros resultados do Google.</p>

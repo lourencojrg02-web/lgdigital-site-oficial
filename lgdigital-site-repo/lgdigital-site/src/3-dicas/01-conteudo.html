@@ -1,0 +1,31 @@
+<!-- ==================== VÍDEO GRÁTIS (3 dicas) ==================== -->
+<!-- Igual à profresults.com/gbp-three-free: título "O Teu Vídeo: ...", o vídeo
+     a toda a largura e o cartão "Queres Que Façamos Isto Por ti?" com o botão
+     para a /gbp/. É o link que vai no email enviado pelo Make a quem se
+     inscreve na página inicial. Fora do Google.
+
+     VÍDEO: pôr o ID do YouTube em data-video (no .lp-video). Sem ID mostra a
+     foto e "Vídeo em breve"; com ID aparece o play e o vídeo só carrega
+     quando a pessoa carrega no play (youtube-nocookie). -->
+@include _partials/lp-cab.html
+
+<main class="lp" id="conteudo">
+
+  <section class="lp-vid-topo">
+    <h1 class="lp-ty-h1"><strong>O Teu Vídeo:</strong> Como Chegar ao Top 3 no Google</h1>
+    <div class="lp-video lp-video--larga" data-video="">
+      <img class="lp-video-foto" src="{{base}}assets/img/lourenco-gaspar-3x2.jpg" width="1080" height="720" alt="Lourenço Gaspar, fundador da LGDigital">
+      <button class="lp-video-play" type="button" aria-label="Ver o vídeo" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+      </button>
+      <span class="lp-video-eti">Vídeo em breve</span>
+    </div>
+  </section>
+
+@include _partials/lp-fazemos-por-ti.html
+
+</main>
+
+@include _partials/lp-rodape.html
+
+@include _partials/lp-script.html

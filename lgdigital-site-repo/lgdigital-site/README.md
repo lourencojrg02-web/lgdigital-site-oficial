@@ -12,6 +12,7 @@ um script Python que junta as secções.
 ├─ servicos/                  Google Ads, Meta Ads, SEO, SEO Local, AI SEO (noindex)
 ├─ lourenco-gaspar/           página pessoal do Lourenço          → lgdigital.pt/lourenco-gaspar
 ├─ obrigado/                  depois de deixar o email (noindex)  → lgdigital.pt/obrigado
+├─ 3-dicas/                   página do vídeo grátis (noindex)    → lgdigital.pt/3-dicas
 ├─ gbp/                       top 3 no Google Maps (noindex)      → lgdigital.pt/gbp
 ├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
 │  └─ ortofirst/               caso OrtoFirst (74.100 €)
@@ -349,6 +350,11 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
   `fbclid` que vierem no link.
 - **Depois de enviar:** abre `/obrigado/` (`src/obrigado/`, igual à
   profresults.com/main-ty, noindex), com um botão para `/gbp/`.
+- **/3-dicas/** (`src/3-dicas/`, igual à profresults.com/gbp-three-free,
+  noindex): "O Teu Vídeo: Como Chegar ao Top 3 no Google", o vídeo
+  (`data-video`) e o cartão "Queres Que Façamos Isto Por ti?"
+  (`_partials/lp-fazemos-por-ti.html`, o mesmo da /obrigado/). É o link
+  que vai no email do Make.
 - **/gbp/** (`src/gbp/`, igual à profresults.com/gbp, noindex): vídeo
   (`data-video`), etiquetas, calendário Cal.com em tema claro (`#agendar`),
   vantagens, "A diferença" (antes/depois com a empresa de exemplo e os mapas
