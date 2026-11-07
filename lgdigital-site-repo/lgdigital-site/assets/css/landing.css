@@ -102,7 +102,7 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-pessoa-foto{display:block;overflow:hidden;aspect-ratio:341/543;border-radius:16px;background:#F7F2EA;
   box-shadow:0 0 0 4px #F7F2EA;}
 .lp-pessoa-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .45s cubic-bezier(.2,.7,.2,1);}
-.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
+a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 .lp-pessoa-nome{display:block;margin-top:20px;font-size:24px;line-height:1.5;letter-spacing:-.05em;}
 .lp-pessoa-cargo{display:block;font-size:16px;line-height:1.5;color:rgba(0,0,0,.36);}
 

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/landing.css?v=9a128982">
+<link rel="stylesheet" href="../assets/css/landing.css?v=98d2e951">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -54,7 +54,8 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
 </head>
 <body class="tema-landing">
 <!-- ==================== LOURENÇO GASPAR (página pessoal) ==================== -->
-<!-- Igual à profresults.com/arno-wingen: cabeçalho só com o logótipo, nome
+<!-- Igual à profresults.com/arno-wingen (mas com o cabeçalho da página inicial,
+     com "Subscrever", para se poder voltar): nome
      em grande, foto 3:2, texto numa coluna estreita, "Onde me encontrar"
      num fundo mais claro, chamada para trabalhar connosco e rodapé mínimo.
      Serve para o Google perceber quem é o Lourenço (dados Person no <head>,
@@ -65,10 +66,17 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
      secções "Como cheguei aqui" e "Fora do trabalho" (ver os comentários
      mais abaixo). Ao acrescentar uma rede social, pô-la também no sameAs
      do PAGES. -->
-<header class="lp-eu-cab">
-  <a class="lp-logo" href="../" aria-label="LGDigital — página inicial">
-    <img src="../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
-  </a>
+<!-- cabeçalho da landing e das páginas /servicos/ (estilo profresults.com)
+     O logótipo e o botão levam ao topo da página inicial (#inscrever).
+     Na própria inicial, o lp-script troca os links data-topo por "#inscrever"
+     para não recarregar a página (e não perder os utm_ do anúncio). -->
+<header class="lp-cab">
+  <div class="lp-cab-in">
+    <a class="lp-logo" href="../#inscrever" data-topo aria-label="LGDigital — ir para o início">
+      <img src="../assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
+    </a>
+    <a class="lp-btn lp-btn--sm" href="../#inscrever" data-topo>Subscrever</a>
+  </div>
 </header>
 
 <main class="lp-eu" id="conteudo">
@@ -126,7 +134,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
     <div class="lp-eu-wrap lp-eu-estreito">
       <h2 class="lp-eu-h2">Queres que te encontrem primeiro?</h2>
       <p>Vê como podemos trabalhar juntos.</p>
-      <a class="lp-eu-cta" href="../landing-page/#agendar">Agendar Chamada Estratégica</a>
+      <a class="lp-eu-cta" href="https://cal.com/lourenco-gaspar-tmrt3u/30min" target="_blank" rel="noopener">Agendar Chamada Estratégica</a>
     </div>
   </section>
 

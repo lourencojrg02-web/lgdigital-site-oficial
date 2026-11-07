@@ -1,5 +1,6 @@
 <!-- ==================== LOURENÇO GASPAR (página pessoal) ==================== -->
-<!-- Igual à profresults.com/arno-wingen: cabeçalho só com o logótipo, nome
+<!-- Igual à profresults.com/arno-wingen (mas com o cabeçalho da página inicial,
+     com "Subscrever", para se poder voltar): nome
      em grande, foto 3:2, texto numa coluna estreita, "Onde me encontrar"
      num fundo mais claro, chamada para trabalhar connosco e rodapé mínimo.
      Serve para o Google perceber quem é o Lourenço (dados Person no <head>,
@@ -10,11 +11,7 @@
      secções "Como cheguei aqui" e "Fora do trabalho" (ver os comentários
      mais abaixo). Ao acrescentar uma rede social, pô-la também no sameAs
      do PAGES. -->
-<header class="lp-eu-cab">
-  <a class="lp-logo" href="{{base}}" aria-label="LGDigital — página inicial">
-    <img src="{{base}}assets/img/logo-preto.png" width="457" height="100" alt="LGDigital">
-  </a>
-</header>
+@include _partials/lp-cab.html
 
 <main class="lp-eu" id="conteudo">
 
@@ -71,7 +68,7 @@
     <div class="lp-eu-wrap lp-eu-estreito">
       <h2 class="lp-eu-h2">Queres que te encontrem primeiro?</h2>
       <p>Vê como podemos trabalhar juntos.</p>
-      <a class="lp-eu-cta" href="{{home}}#agendar">Agendar Chamada Estratégica</a>
+      <a class="lp-eu-cta" href="https://cal.com/lourenco-gaspar-tmrt3u/30min" target="_blank" rel="noopener">Agendar Chamada Estratégica</a>
     </div>
   </section>
 
