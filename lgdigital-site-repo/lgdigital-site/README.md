@@ -7,13 +7,12 @@ um script Python que junta as secções.
 
 ```
 .
-├─ index.html                  página inicial: captação de emails  → lgdigital.pt/
-├─ landing-page/              antiga inicial (anúncios + chamada) → lgdigital.pt/landing-page
-├─ servicos/                  Google Ads, Meta Ads, SEO, SEO Local, AI SEO (noindex)
+├─ index.html                  página inicial (anúncios + chamada) → lgdigital.pt/
+├─ ads/                        páginas ao estilo da Prof Results (noindex):
+│  │                           captação de emails               → lgdigital.pt/ads
+│  ├─ servicos/               Google Ads, Meta Ads, SEO, SEO Local, AI SEO
+│  ├─ obrigado/  3-dicas/  gbp/
 ├─ lourenco-gaspar/           página pessoal do Lourenço          → lgdigital.pt/lourenco-gaspar
-├─ obrigado/                  depois de deixar o email (noindex)  → lgdigital.pt/obrigado
-├─ 3-dicas/                   página do vídeo grátis (noindex)    → lgdigital.pt/3-dicas
-├─ gbp/                       top 3 no Google Maps (noindex)      → lgdigital.pt/gbp
 ├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
 │  └─ ortofirst/               caso OrtoFirst (74.100 €)
 ├─ artigos/                    lista de artigos                    → lgdigital.pt/artigos
@@ -37,8 +36,8 @@ um script Python que junta as secções.
 │  └─ img/                     logótipos, ícones, clientes, capturas de resultados
 ├─ src/                        ← ONDE SE EDITA
 │  ├─ _partials/               header-site.html e rodape.html
-│  ├─ home/                    secções da antiga inicial (/landing-page)
-│  ├─ landing-page/            a página inicial (captação de emails)
+│  ├─ home/                    secções da página inicial
+│  ├─ landing-page/            a /ads/ (captação de emails)
 │  ├─ casos-estudo/  caso-ortofirst/  artigos/  artigo-anuncios-online/
 │  ├─ 404/  pp/  tc/
 │  └─ meta/  meta-book-a-call/  instant-form-book-a-call/
@@ -71,13 +70,7 @@ Depois é só `git add . && git commit && git push`. O GitHub Pages publica sozi
 também lá: o upload por arrastar não apaga nada, e um ficheiro antigo que
 fique em `src/home/` volta a entrar no próximo build.
 
-### Antiga página inicial (/landing-page)
-
-Desde 06/11/2026 a inicial (`/`) é a página de captação de emails e esta
-página vive em `/landing-page/` (continua no Google e no sitemap). Em todas
-as páginas, `{{home}}` aponta para ela (`home=` no `PAGES`); `{{base}}` é a
-raiz. Links antigos como `lgdigital.pt/#agendar` seguem sozinhos para
-`/landing-page/#agendar` (`ANCORAS_ANTIGAS` no `build.py`).
+### Página inicial
 
 Cada secção é um ficheiro em `src/home/`, por ordem alfabética:
 
@@ -106,7 +99,7 @@ lê-as como se fossem a sério.
 
 Todas as páginas do site principal partilham `_partials/header-site.html`:
 barra preta de anúncio + navegação, ambas fixas no topo, ao estilo do
-leadarc.io. Os links são secções da antiga inicial, em /landing-page (`{{home}}#calculadora`,
+leadarc.io. Os links são secções da página inicial (`{{home}}#calculadora`,
 `#comparacao`, `#resultados`, `#faq`); "Casos de estudo" e "Artigos" são
 páginas à parte (menu: Calculadora, Comparação, Resultados, Casos de
 estudo, Artigos, FAQ). "Como funciona" saiu do menu, mas a secção continua na página.
@@ -114,7 +107,7 @@ estudo, Artigos, FAQ). "Como funciona" saiu do menu, mas a secção continua na 
 O script do cabeçalho:
 - abre e fecha o menu do telemóvel (`Esc`, clique fora, clique num link);
 - troca os botões `data-agendar` para `#agendar` quando a página tem o seu
-  próprio calendário (senão levam ao calendário de /landing-page);
+  próprio calendário (senão levam ao calendário da página inicial);
 - põe o cabeçalho escuro por cima de secções com o atributo `data-escuro`
   (a secção de marcação e o rodapé).
 
@@ -328,7 +321,12 @@ impressão digital do ficheiro (`site.css?v=cf107c3b`). Quando o CSS muda,
 o número muda e o browser vai buscar a versão nova. Por isso, sempre que
 mexeres no CSS, sobe também as páginas HTML (a pasta toda).
 
-### Página inicial (captação de emails) e páginas /servicos/
+### /ads/: captação de emails e páginas ao estilo da Prof Results
+
+Entre 06/11 e 09/11/2026 a captação de emails foi a página inicial; agora
+vive em `/ads/` e todas estas páginas estão debaixo de `/ads/` (os endereços
+antigos `/obrigado/`, `/3-dicas/`, `/gbp/`, `/servicos/*` e `/landing-page/`
+redirecionam, com os utm_ e a âncora).
 
 Cópia da estrutura e do estilo da profresults.com: fundo bege, letra Inter,
 "A tua empresa é invisível no Google?" com vídeo ao lado e email para
@@ -337,8 +335,8 @@ receber 3 dicas em vídeo (botão "Subscrever"); "Já trabalhamos com…",
 AI SEO, cada um com "Saber mais" para `/servicos/<serviço>/`), bloco
 "Grátis" com um botão que sobe ao formulário e rodapé ("Domina o teu
 mercado local.", só com os Termos e Condições). O logótipo (preto,
-`logo-preto.png`) no cabeçalho e no rodapé leva ao topo da inicial. A
-inicial está no Google; as páginas `/servicos/` não (noindex).
+`logo-preto.png`) no cabeçalho e no rodapé leva ao topo da /ads/. Tudo fora
+do Google (noindex).
 
 Ficheiros: `src/landing-page/01-conteudo.html`, `src/servico-<slug>/`,
 as peças comuns `src/_partials/lp-cab.html`, `lp-gratis.html`,
@@ -348,14 +346,14 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
 - **Webhook do Make:** está em `src/_partials/lp-script.html` (`var webhook`).
   O formulário envia `email`, `origem`, `pagina`, `data` e os `utm_*` /
   `fbclid` que vierem no link.
-- **Depois de enviar:** abre `/obrigado/` (`src/obrigado/`, igual à
-  profresults.com/main-ty, noindex), com um botão para `/gbp/`.
-- **/3-dicas/** (`src/3-dicas/`, igual à profresults.com/gbp-three-free,
+- **Depois de enviar:** abre `/ads/obrigado/` (`src/obrigado/`, igual à
+  profresults.com/main-ty, noindex), com um botão para `/ads/gbp/`.
+- **/ads/3-dicas/** (`src/3-dicas/`, igual à profresults.com/gbp-three-free,
   noindex): "O Teu Vídeo: Como Chegar ao Top 3 no Google", o vídeo
   (`data-video`) e o cartão "Queres Que Façamos Isto Por ti?"
   (`_partials/lp-fazemos-por-ti.html`, o mesmo da /obrigado/). É o link
   que vai no email do Make.
-- **/gbp/** (`src/gbp/`, igual à profresults.com/gbp, noindex): vídeo
+- **/ads/gbp/** (`src/gbp/`, igual à profresults.com/gbp, noindex): vídeo
   (`data-video`), etiquetas, calendário Cal.com em tema claro (`#agendar`),
   vantagens, "A diferença" (antes/depois com a empresa de exemplo e os mapas
   da Prof: `antes-mapa.webp`, `depois-mapa.webp`), como funciona, Resultados
@@ -365,7 +363,7 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
 - **Campo `tipo` no webhook:** `email` (formulário da inicial) ou
   `candidatura` (formulário da /gbp/, com nome, apelido, telefone, email,
   setor, investimento e ajuda). Separa os dois no Make por este campo.
-- **Píxel:** o `Lead` dispara na `/obrigado/`, só para quem chegou pelo
+- **Píxel:** o `Lead` dispara na `/ads/obrigado/`, só para quem chegou pelo
   formulário (marca `lg-lead` no sessionStorage).
 - **Vídeo:** pôr o ID do YouTube em `data-video` no `.lp-video`. Sem ID
   mostra a foto e "Vídeo em breve".

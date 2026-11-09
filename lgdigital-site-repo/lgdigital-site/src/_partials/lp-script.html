@@ -45,7 +45,7 @@
           var marcado = false;
           try { sessionStorage.setItem('lg-lead', '1'); marcado = true; } catch (err) {}
           if (!marcado && window.fbq) fbq('track', 'Lead');
-          location.href = '{{base}}obrigado/';
+          location.href = '{{base}}ads/obrigado/';
         })
         .catch(function () {
           botao.disabled = false;

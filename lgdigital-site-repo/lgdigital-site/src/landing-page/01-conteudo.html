@@ -1,5 +1,5 @@
-<!-- ==================== PÁGINA INICIAL (captação de emails) ==================== -->
-<!-- Publicada em / (index.html). A antiga inicial está em src/home e vive em /landing-page/. -->
+<!-- ==================== /ads/ (captação de emails) ==================== -->
+<!-- Publicada em /ads/. A página inicial é a de src/home. -->
 <!-- Cópia da estrutura e do estilo da profresults.com: fundo bege, letra
      Inter, título grande com vídeo ao lado e email para receber 3 dicas.
      Secções: cabeçalho, topo com formulário e vídeo, logótipos de clientes,
@@ -9,7 +9,7 @@
 
      FORMULÁRIO → MAKE.COM
      O formulário envia para o webhook do Make definido em
-     _partials/lp-script.html (o mesmo nas páginas /servicos/). Campos enviados: email, origem (o caminho da página; na inicial é "inicio"), pagina, data e
+     _partials/lp-script.html (o mesmo nas páginas /servicos/). Campos enviados: email, origem (o caminho da página; aqui é "ads"), pagina, data e
      utm_source / utm_medium / utm_campaign / utm_content / utm_term /
      fbclid (quando vierem no link do anúncio).
      Depois de enviar, abre /obrigado/ (src/obrigado), que dispara o evento
@@ -87,23 +87,23 @@
   <section class="lp-sec lp-servicos">
     <h2 class="lp-h2">O que fazemos</h2>
     <div class="lp-servicos-grelha">
-      <a class="lp-servico" href="{{base}}servicos/google-ads/">
+      <a class="lp-servico" href="{{base}}ads/servicos/google-ads/">
         <span class="lp-servico-t">Google Ads</span>
         <span class="lp-servico-l">Saber mais &rarr;</span>
       </a>
-      <a class="lp-servico" href="{{base}}servicos/meta-ads/">
+      <a class="lp-servico" href="{{base}}ads/servicos/meta-ads/">
         <span class="lp-servico-t">Meta Ads</span>
         <span class="lp-servico-l">Saber mais &rarr;</span>
       </a>
-      <a class="lp-servico" href="{{base}}servicos/seo/">
+      <a class="lp-servico" href="{{base}}ads/servicos/seo/">
         <span class="lp-servico-t">SEO</span>
         <span class="lp-servico-l">Saber mais &rarr;</span>
       </a>
-      <a class="lp-servico" href="{{base}}servicos/seo-local/">
+      <a class="lp-servico" href="{{base}}ads/servicos/seo-local/">
         <span class="lp-servico-t">SEO Local</span>
         <span class="lp-servico-l">Saber mais &rarr;</span>
       </a>
-      <a class="lp-servico" href="{{base}}servicos/ai-seo/">
+      <a class="lp-servico" href="{{base}}ads/servicos/ai-seo/">
         <span class="lp-servico-t">AI SEO</span>
         <span class="lp-servico-l">Saber mais &rarr;</span>
       </a>
