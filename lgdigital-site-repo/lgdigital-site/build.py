@@ -189,6 +189,14 @@ PAGES = [
          nome="O Teu Vídeo", title="LGDigital | Agência de Marketing Digital em Lisboa",
          desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
+    # Página local de Lisboa (como a profresults.com/amsterdam): é o site do
+    # Perfil da Empresa no Google, por isso fica no Google e no sitemap.
+    dict(out="lisboa/index.html", src="lisboa", base="../", home="../landing-page/",
+         body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
+         nome="Lisboa",
+         title="MELHOR Agência de Marketing em Lisboa - à procura de uma agência de marketing digital perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google",
+         desc="A LGDigital é uma agência de marketing digital em Lisboa: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização."),
+
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
@@ -259,6 +267,44 @@ PAGES = [
          title="Termos e Condições — LGDigital",
          desc="Condições de utilização do site lgdigital.pt e da prestação dos serviços da LGDigital."),
 ]
+
+# ---------------------------------------------------------------- Lisboa
+# Páginas locais à volta da /lisboa/ (como a profresults.com/amsterdam):
+# uma por concelho (/lisboa/<zona>/) e uma por serviço (/lisboa/<serviço>/).
+# Todas ficam no Google e no sitemap, com "Lisboa" como página-mãe.
+ZONAS_LISBOA = [("oeiras", "Oeiras"), ("cascais", "Cascais"), ("sintra", "Sintra"),
+                ("amadora", "Amadora"), ("loures", "Loures"), ("odivelas", "Odivelas"),
+                ("almada", "Almada"), ("seixal", "Seixal")]
+for _slug, _nome in ZONAS_LISBOA:
+    PAGES.append(dict(
+        out="lisboa/%s/index.html" % _slug, src="lisboa-" + _slug, base="../../", home="../../landing-page/",
+        body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
+        nome=_nome, pai=("Lisboa", "lisboa/"),
+        title="MELHOR Agência de Marketing Digital em %s - à procura de uma agência de marketing perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google" % _nome,
+        desc="A LGDigital é uma agência de marketing digital para empresas de %s: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização." % _nome))
+
+SERVICOS_LISBOA = [
+    ("google-ads", "Google Ads em Lisboa",
+     "MELHOR Agência de Google Ads em Lisboa - se procuras gestão de Google Ads em Lisboa - a LGDigital cria anúncios que te trazem clientes",
+     "Google Ads em Lisboa: anúncios no Google que te trazem clientes. Feito por nós, sem fidelização. A partir de 1.000 € por mês."),
+    ("meta-ads", "Meta Ads em Lisboa",
+     "MELHOR Agência de Meta Ads em Lisboa - se procuras gestão de Meta Ads em Lisboa - a LGDigital cria anúncios no Facebook e no Instagram que te trazem clientes",
+     "Meta Ads em Lisboa: anúncios no Facebook e no Instagram que te trazem clientes. Feito por nós, sem fidelização. A partir de 1.000 € por mês."),
+    ("seo", "SEO em Lisboa",
+     "MELHOR Agência de SEO em Lisboa - se procuras uma empresa de SEO em Lisboa - a LGDigital põe a tua empresa no Google sem pagares por cada clique",
+     "SEO em Lisboa: aparece no Google sem pagar por cada clique. Feito por nós, sem fidelização."),
+    ("seo-local", "SEO Local em Lisboa",
+     "MELHOR Agência de SEO Local em Lisboa - se procuras SEO local ou subir no Google Maps em Lisboa - a LGDigital põe a tua empresa no top 3 do Google Maps",
+     "SEO local em Lisboa: quando alguém na tua zona procura o que fazes, deve encontrar-te a ti. Feito por nós, sem fidelização."),
+    ("ai-seo", "AI SEO em Lisboa",
+     "MELHOR Agência de AI SEO em Lisboa - se procuras AI SEO em Lisboa - a LGDigital põe a tua empresa nas respostas do ChatGPT",
+     "AI SEO em Lisboa: os teus clientes já perguntam ao ChatGPT. Ele fala de ti? Feito por nós, sem fidelização."),
+]
+for _slug, _nome, _title, _desc in SERVICOS_LISBOA:
+    PAGES.append(dict(
+        out="lisboa/%s/index.html" % _slug, src="lisboa-servico-" + _slug, base="../../", home="../../landing-page/",
+        body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+        nome=_nome, pai=("Lisboa", "lisboa/"), title=_title, desc=_desc))
 
 HEAD = """<!DOCTYPE html>
 <html lang="pt-PT">

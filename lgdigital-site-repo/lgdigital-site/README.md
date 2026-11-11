@@ -11,6 +11,7 @@ um script Python que junta as secções.
 ├─ landing-page/              antiga inicial (anúncios + chamada) → lgdigital.pt/landing-page
 ├─ servicos/                  Google Ads, Meta Ads, SEO, SEO Local, AI SEO (noindex)
 ├─ obrigado/  3-dicas/  gbp/  páginas da Prof Results (noindex)
+├─ lisboa/                   página local para o Perfil da Empresa no Google → lgdigital.pt/lisboa
 ├─ ads/                       só redireciona (09/11 a 11/11 estas páginas estiveram aqui)
 ├─ lourenco-gaspar/           página pessoal do Lourenço          → lgdigital.pt/lourenco-gaspar
 ├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
@@ -364,6 +365,16 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
   (três clientes reais, `*-mapa.webp`), perguntas (1.000 €/mês, sem
   fidelização, top 3 em 90 dias ou continuamos de graça), botão que sobe ao
   calendário e candidatura.
+- **/lisboa/** (`src/lisboa/`, como a profresults.com/amsterdam): o site que
+  vai no Perfil da Empresa no Google. Título e texto à esquerda, ilustração de
+  SEO local à direita (`assets/img/seo-local-<zona>.svg`, uma por zona), as secções da /gbp/, "Os Nossos Serviços em
+  Lisboa" (`_partials/lx-servicos.html`), "Por Zona e Região"
+  (`_partials/lx-zonas.html`) e botão para o Cal.com.
+  - **/lisboa/<zona>/**: Oeiras, Cascais, Sintra, Amadora, Loures, Odivelas,
+    Almada e Seixal (`src/lisboa-<zona>/`, `ZONAS_LISBOA` no `build.py`).
+  - **/lisboa/<serviço>/**: Google Ads, Meta Ads, SEO, SEO Local e AI SEO em
+    Lisboa (`src/lisboa-servico-<slug>/`, `SERVICOS_LISBOA` no `build.py`).
+  Tudo no Google e no sitemap, com "Lisboa" como página-mãe nas migalhas.
 - **Campo `tipo` no webhook:** `email` (formulário da inicial) ou
   `candidatura` (formulário da /gbp/, com nome, apelido, telefone, email,
   setor, investimento e ajuda). Separa os dois no Make por este campo.

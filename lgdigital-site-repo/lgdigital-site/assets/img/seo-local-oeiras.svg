@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 530" width="730" height="530" role="img" aria-labelledby="t d">
+  <title id="t">SEO local em Oeiras: a tua empresa em 1.º lugar no Google Maps</title>
+  <desc id="d">Ilustração de um mapa de Oeiras com três empresas marcadas, a tua em primeiro lugar, uma pesquisa "canalizador perto de mim" e uma notificação de nova chamada.</desc>
+  <defs>
+    <clipPath id="c"><rect width="730" height="530" rx="16"/></clipPath>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#000" flood-opacity=".12"/>
+    </filter>
+    <radialGradient id="pulso" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0091FF" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#0091FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g clip-path="url(#c)" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <!-- mapa -->
+    <rect width="730" height="530" fill="#EDE8E0"/>
+    <!-- parques -->
+    <path d="M40 150c40-30 120-25 150 10s-10 90-70 95-120-20-110-55 0-25 30-50z" fill="#DCE7D2"/>
+    <path d="M520 120c50-20 120 0 140 40s-30 70-90 70-100-30-95-60 15-35 45-50z" fill="#DCE7D2"/>
+    <path d="M250 250c30-15 75-10 85 15s-15 45-50 45-60-15-55-35 5-15 20-25z" fill="#DCE7D2"/>
+    <!-- rio Tejo -->
+    <path d="M-10 455c90-25 170-10 250 5s170 25 260 5 160-55 240-60v140H-10z" fill="#CFE2F0"/>
+    <path d="M-10 455c90-25 170-10 250 5s170 25 260 5 160-55 240-60" fill="none" stroke="#BCD6EA" stroke-width="3"/>
+    <!-- ruas -->
+    <g fill="none" stroke="#FFFFFF" stroke-linecap="round">
+      <path d="M-10 120H740M-10 300H740M110 -10V460M360 -10V470M600 -10V420" stroke-width="12"/>
+      <path d="M-10 210H740M-10 390L740 330M230 -10V450M480 -10V460M690 -10V400" stroke-width="7"/>
+      <path d="M0 40L330 380M420 -10L250 460M520 260L740 60M0 260L180 520" stroke-width="7"/>
+      <path d="M-10 165H740M-10 345H600M160 -10V460M290 -10V460M420 -10V470M540 -10V440M650 -10V420" stroke-width="3" opacity=".9"/>
+    </g>
+    <text x="130" y="440" font-size="22" font-weight="600" letter-spacing="6" fill="#A39D93">OEIRAS</text>
+
+    <!-- outras empresas (pontos) -->
+    <g fill="#B8B2A8">
+      <circle cx="150" cy="95" r="6"/><circle cx="545" cy="185" r="6"/><circle cx="640" cy="290" r="6"/>
+      <circle cx="80" cy="330" r="6"/><circle cx="455" cy="410" r="6"/><circle cx="330" cy="140" r="6"/>
+      <circle cx="560" cy="360" r="6"/>
+    </g>
+
+    <!-- pinos 2 e 3 -->
+    <g>
+      <path d="M195 300c-17 0-30 13-30 30 0 22 30 50 30 50s30-28 30-50c0-17-13-30-30-30z" fill="#8C877F"/>
+      <text x="195" y="338" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+      <path d="M455 205c-17 0-30 13-30 30 0 22 30 50 30 50s30-28 30-50c0-17-13-30-30-30z" fill="#8C877F"/>
+      <text x="455" y="243" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    </g>
+    <!-- pino 1: a tua empresa -->
+    <circle cx="320" cy="262" r="78" fill="url(#pulso)"/>
+    <path d="M320 196c-24 0-42 18-42 42 0 31 42 70 42 70s42-39 42-70c0-24-18-42-42-42z" fill="#000"/>
+    <circle cx="320" cy="238" r="20" fill="#0091FF"/>
+    <text x="320" y="246" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+
+    <!-- pesquisa -->
+    <g filter="url(#s)">
+      <rect x="330" y="34" width="366" height="54" rx="27" fill="#fff"/>
+    </g>
+    <circle cx="363" cy="59" r="9" fill="none" stroke="#5F5A52" stroke-width="2.6"/>
+    <path d="M370 66l8 8" stroke="#5F5A52" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="390" y="67" font-size="18" font-weight="500" fill="#3A362F">canalizador perto de mim</text>
+
+    <!-- notificação -->
+    <g filter="url(#s)">
+      <rect x="34" y="34" width="256" height="72" rx="16" fill="#fff"/>
+    </g>
+    <circle cx="72" cy="70" r="20" fill="#2FBA51"/>
+    <path d="M64 61c1-1 3-1 4 0l3 4c1 1 1 2 0 3l-2 2c1 3 4 6 7 7l2-2c1-1 2-1 3 0l4 3c1 1 1 3 0 4l-2 2c-2 2-5 2-8 1-6-3-11-8-14-14-1-3-1-6 1-8z" fill="#fff"/>
+    <text x="104" y="65" font-size="17" font-weight="700" fill="#000">Nova chamada</text>
+    <text x="104" y="88" font-size="14" font-weight="500" fill="#7A746A">Cliente da tua zona</text>
+
+    <!-- ficha da empresa -->
+    <g filter="url(#s)">
+      <rect x="392" y="300" width="304" height="170" rx="18" fill="#fff"/>
+    </g>
+    <rect x="414" y="322" width="52" height="52" rx="14" fill="#F2EDE5"/>
+    <path d="M426 342h28l-3-8h-22zM428 342v18h24v-18M436 360v-9h8v9" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/>
+    <text x="480" y="343" font-size="19" font-weight="700" fill="#000">A Tua Empresa</text>
+    <text x="480" y="367" font-size="16" fill="#F5B400" letter-spacing="1">★★★★★</text>
+    <text x="574" y="367" font-size="14" font-weight="600" fill="#5F5A52">5,0</text>
+    <rect x="626" y="320" width="50" height="28" rx="14" fill="#2FBA51"/>
+    <text x="651" y="339" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">1.º</text>
+    <text x="414" y="404" font-size="15" font-weight="600" fill="#1E8E3E">Aberto</text>
+    <text x="470" y="404" font-size="15" font-weight="500" fill="#7A746A">· Oeiras</text>
+    <rect x="414" y="420" width="124" height="34" rx="17" fill="#000"/>
+    <text x="476" y="442" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">Ligar</text>
+    <rect x="550" y="420" width="124" height="34" rx="17" fill="none" stroke="#D6D0C6" stroke-width="1.5"/>
+    <text x="612" y="442" font-size="15" font-weight="600" fill="#000" text-anchor="middle">Direções</text>
+  </g>
+</svg>
