@@ -197,6 +197,18 @@ PAGES = [
          title="MELHOR Agência de Marketing em Lisboa - à procura de uma agência de marketing digital perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google",
          desc="A LGDigital é uma agência de marketing digital em Lisboa: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização."),
 
+    # Página-prova de SEO (como a profresults.com/hardest-working-seo-expert-amsterdam)
+    dict(out="especialista-de-seo-mais-dedicado-lisboa/index.html", src="especialista-seo-lisboa",
+         base="../", home="../landing-page/",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         nome="O especialista de SEO mais dedicado em Lisboa",
+         title="O especialista de SEO mais dedicado em Lisboa | Lourenço Gaspar",
+         desc="Lourenço Gaspar já foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
+         head=artigo_ld("especialista-de-seo-mais-dedicado-lisboa/",
+                        "O especialista de SEO mais dedicado em Lisboa",
+                        "Lourenço Gaspar já foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
+                        "2026-11-11")),
+
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",

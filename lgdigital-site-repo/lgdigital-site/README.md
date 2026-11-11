@@ -375,6 +375,11 @@ próprias, definidas no `PAGES` com `css=` e `fontes=`).
   - **/lisboa/<serviço>/**: Google Ads, Meta Ads, SEO, SEO Local e AI SEO em
     Lisboa (`src/lisboa-servico-<slug>/`, `SERVICOS_LISBOA` no `build.py`).
   Tudo no Google e no sitemap, com "Lisboa" como página-mãe nas migalhas.
+- **/especialista-de-seo-mais-dedicado-lisboa/** (`src/especialista-seo-lisboa/`,
+  como a profresults.com/hardest-working-seo-expert-amsterdam): página-prova
+  para a frase "O especialista de SEO mais dedicado em Lisboa" (título, H1,
+  alt da imagem `especialista-de-seo-mais-dedicado-lisboa.jpg` e 3 vezes no
+  texto). No Google e no sitemap, com dados Article.
 - **Campo `tipo` no webhook:** `email` (formulário da inicial) ou
   `candidatura` (formulário da /gbp/, com nome, apelido, telefone, email,
   setor, investimento e ajuda). Separa os dois no Make por este campo.
