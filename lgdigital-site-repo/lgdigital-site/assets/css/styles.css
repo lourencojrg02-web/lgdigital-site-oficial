@@ -1109,6 +1109,7 @@ h1,h2,h3,h4{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.028em;lin
 .mt-rodape{padding:40px 0 44px;text-align:center;font-size:13px;color:#8A9198;}
 .mt-rodape a{color:#6E767D;text-decoration:underline;text-underline-offset:2px;}
 .mt-rodape span{display:inline-block;margin:0 6px;}
+.mt-nap{margin:10px 0 0;}
 /* marcador de versão: serve para confirmar de relance qual o ficheiro no ar */
 .mt-versao{opacity:.45;font-size:11.5px;letter-spacing:.06em;}
 

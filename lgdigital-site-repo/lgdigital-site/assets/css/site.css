@@ -665,6 +665,7 @@ h1,h2,h3,h4{margin:0;}
 .lg-rodape-grelha{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;}
 .lg-rodape-marca{display:flex;flex-direction:column;align-items:flex-start;}
 .lg-rodape-logo img{height:24px;width:auto;}
+.lg-rodape-nome{margin:14px 0 0;max-width:260px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62);}
 .lg-rodape-marca .lg-btn{margin-top:22px;}
 .lg-rodape-col h4{margin:0 0 16px;font-family:var(--lg-ui);font-size:12px;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;color:#fff;}

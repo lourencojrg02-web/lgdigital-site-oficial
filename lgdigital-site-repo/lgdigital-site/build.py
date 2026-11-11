@@ -76,20 +76,25 @@ def artigo_ld(caminho, titulo, descricao, data):
 
 # Página pessoal /lourenco-gaspar/ (como a profresults.com/arno-wingen):
 # dados Person para o Google ligar o nome às redes e à LGDigital.
-PESSOA_LD = '<script type="application/ld+json">%s</script>' % json.dumps({
-    "@context": "https://schema.org", "@type": "ProfilePage",
-    "mainEntity": {
-        "@type": "Person", "@id": SITE + "/lourenco-gaspar/#pessoa",
-        "name": "Lourenço Gaspar", "url": SITE + "/lourenco-gaspar/",
-        "image": SITE + "/assets/img/lourenco-gaspar-3x2.jpg",
-        "jobTitle": "Fundador",
-        "description": "Lourenço Gaspar é o fundador da LGDigital, uma agência de marketing digital em Lisboa "
-                       "que ajuda empresas de serviços e negócios locais a conseguir mais clientes.",
-        "worksFor": {"@id": SITE + "/#organizacao"},
-        "knowsAbout": ["Google Ads", "Meta Ads", "SEO", "SEO Local", "Geração de leads"],
-        "sameAs": AUTOR["sameAs"],
-    },
-}, ensure_ascii=False, separators=(",", ":"))
+# Person schema do Lourenço (quem é, o que faz e onde): vai na página pessoal
+# (dentro de ProfilePage), na página "especialista de SEO" e na página inicial.
+PESSOA = {
+    "@type": "Person", "@id": SITE + "/lourenco-gaspar/#pessoa",
+    "name": "Lourenço Gaspar", "url": SITE + "/lourenco-gaspar/",
+    "image": SITE + "/assets/img/especialista-de-seo-mais-dedicado-lisboa.jpg",
+    "jobTitle": ["Especialista de SEO", "Fundador da LGDigital"],
+    "description": "Lourenço Gaspar é especialista de SEO e fundador da LGDigital, uma agência de marketing "
+                   "digital em Lisboa que ajuda empresas de serviços e negócios locais a conseguir mais clientes.",
+    "address": {"@type": "PostalAddress", "addressLocality": "Lisboa", "addressCountry": "PT"},
+    "worksFor": {"@id": SITE + "/#organizacao"},
+    "knowsAbout": ["SEO", "SEO Local", "Google Ads", "Meta Ads", "AI SEO", "Geração de leads"],
+    "sameAs": AUTOR["sameAs"],
+}
+PESSOA_LD = '<script type="application/ld+json">%s</script>' % json.dumps(
+    {"@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": PESSOA},
+    ensure_ascii=False, separators=(",", ":"))
+PESSOA_SO_LD = '<script type="application/ld+json">%s</script>' % json.dumps(
+    dict({"@context": "https://schema.org"}, **PESSOA), ensure_ascii=False, separators=(",", ":"))
 
 
 
@@ -171,7 +176,7 @@ PAGES = [
     # profresults.com. Tem folha e letra próprias.
     dict(out="index.html", src="landing-page", base="", home="landing-page/",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="Início", head=ANCORAS_ANTIGAS,
+         nome="Início", head=ANCORAS_ANTIGAS + "\n" + PESSOA_SO_LD,
          title="MELHOR Agência de Marketing em Lisboa | LGDigital | Estás à procura de uma agência de marketing digital para Meta Ads, Google Ads ou SEO local? Pomos a tua empresa no topo do Google",
          desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
@@ -203,10 +208,10 @@ PAGES = [
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="O especialista de SEO mais dedicado em Lisboa",
          title="O especialista de SEO mais dedicado em Lisboa | Lourenço Gaspar",
-         desc="Lourenço Gaspar já foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
-         head=artigo_ld("especialista-de-seo-mais-dedicado-lisboa/",
+         desc="Lourenço Gaspar foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
+         head=PESSOA_SO_LD + "\n" + artigo_ld("especialista-de-seo-mais-dedicado-lisboa/",
                         "O especialista de SEO mais dedicado em Lisboa",
-                        "Lourenço Gaspar já foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
+                        "Lourenço Gaspar foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
                         "2026-11-11")),
 
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
@@ -471,8 +476,11 @@ def jsonld_para(pg, body):
             "description": pg["desc"],
             "priceRange": "€€",
             "areaServed": {"@type": "Country", "name": "Portugal"},
-            "address": {"@type": "PostalAddress", "addressCountry": "PT",
-                        "addressLocality": "Lisboa"},
+            "address": {"@type": "PostalAddress", "streetAddress": "R. dos Arneiros 133",
+                        "postalCode": "1500-057", "addressLocality": "Lisboa",
+                        "addressCountry": "PT"},
+            "telephone": "+351926289562",
+            "hasMap": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x6c31721fe402361b:0x7cd0a64535a7b664",
             "sameAs": SOCIAIS,
             # Sem catálogo de serviços: as páginas /seo, /ads e /websites foram
             # apagadas e o site fala de resultados, não de uma lista de serviços.

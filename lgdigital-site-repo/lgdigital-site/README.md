@@ -102,6 +102,16 @@ Secções que só tenham comentários são ignoradas pelo build. **Nos comentár
 não escrevas tags HTML literais** (por exemplo `<div class="lg-faq">`): o build
 lê-as como se fossem a sério.
 
+### NAP (nome, morada, telefone)
+
+Está no rodapé de todas as páginas, igual ao Perfil da Empresa no Google:
+"LGDigital - Agência de Marketing Digital em Lisboa", R. dos Arneiros 133,
+1500-057 Lisboa (link para o Google Maps), +351 926 289 562. Sítios:
+`_partials/lp-rodape.html`, `_partials/rodape.html`, rodapé da
+`src/lourenco-gaspar/` e das landings `meta*`/`instant-form*`. Os dados da
+empresa (ProfessionalService, na página inicial) têm a mesma morada e telefone.
+Se mudar alguma coisa, muda em todos estes sítios e no Perfil da Empresa.
+
 ### Navegação
 
 Todas as páginas do site principal partilham `_partials/header-site.html`:

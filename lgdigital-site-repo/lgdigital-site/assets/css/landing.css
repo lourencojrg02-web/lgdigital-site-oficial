@@ -141,7 +141,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 
 /* ---------- Rodapé ---------- */
 .lp-rodape{max-width:1200px;margin:96px auto 0;padding:0 64px 40px;}
-.lp-rodape-in{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;
+.lp-rodape-in{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:40px;
   padding-top:56px;border-top:1.5px solid rgba(0,0,0,.18);}
 .lp-rodape-h{margin-top:28px;max-width:340px;font-size:32px;line-height:1.1;letter-spacing:-.06em;}
 .lp-rodape-s{margin-top:12px;font-size:14px;color:rgba(0,0,0,.48);}
@@ -251,6 +251,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 .lp-eu-cta:hover{opacity:.85;}
 .lp-eu-rodape{padding:28px 16px;text-align:center;font-size:15px;font-weight:400;letter-spacing:normal;color:#5d5850;}
 .lp-eu-rodape a:hover{color:#000;}
+.lp-eu-nap{margin-top:8px;font-size:13px;}
 
 /* ==========================================================================
    /gbp/ — igual à profresults.com/gbp: Poppins, destaques em Cormorant
