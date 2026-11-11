@@ -149,6 +149,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 .lp-rodape-t{margin-bottom:4px;}
 .lp-rodape-col a{color:rgba(0,0,0,.6);}
 .lp-rodape-col a:hover{color:#000;}
+.lp-rodape-nap p{font-size:14px;line-height:1.6;color:#000;}
 .lp-rodape-base{margin-top:48px;font-size:13px;letter-spacing:-.02em;color:rgba(0,0,0,.42);}
 
 /* ---------- Ecrãs mais pequenos ---------- */
@@ -401,4 +402,34 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
   .lp-art-txt p{font-size:17px;}
   .lp-art-txt h2{margin-top:36px;font-size:26px;}
   .lp-art-cta{width:100%;}
+}
+
+/* ---------- 404 (estilo novo) ---------- */
+.lp-404{max-width:760px;margin:0 auto;padding:120px 0 0;text-align:center;}
+.lp-404-h1{margin-top:18px;font-size:70px;font-weight:500;line-height:1.05;letter-spacing:-.06em;text-wrap:balance;}
+.lp-404-p{max-width:520px;margin:24px auto 0;font-size:20px;line-height:1.5;letter-spacing:-.04em;color:rgba(0,0,0,.48);}
+.lp-404-acoes{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px;}
+.lp-btn--claro{background:#fff;color:#000;}
+
+/* ---------- Política de Privacidade e Termos (estilo novo) ---------- */
+.legal{display:block;max-width:760px;margin:0 auto;padding:72px 24px 0;font-weight:400;letter-spacing:-.02em;}
+.legal-back{font-size:15px;color:rgba(0,0,0,.6);text-decoration:underline;text-underline-offset:3px;}
+.legal h1{margin-top:24px;font-size:56px;font-weight:500;line-height:1.1;letter-spacing:-.06em;}
+.legal-date{margin-top:12px;font-size:14px;color:rgba(0,0,0,.48);}
+.legal-lead{margin-top:24px;font-size:20px;line-height:1.5;}
+.legal h2{margin:40px 0 12px;font-size:24px;font-weight:500;line-height:1.3;letter-spacing:-.04em;}
+.legal h3{margin:28px 0 10px;font-size:18px;font-weight:600;}
+.legal p,.legal li{font-size:16px;line-height:1.65;color:#222;}
+.legal p{margin:0 0 12px;}
+.legal ul,.legal ol{margin:0 0 12px;padding-left:22px;}
+.legal li{margin-bottom:8px;}
+.legal a{text-decoration:underline;text-underline-offset:2px;}
+.legal table{width:100%;margin:0 0 16px;border-collapse:collapse;font-size:15px;}
+.legal th,.legal td{padding:8px 10px;border:1px solid rgba(0,0,0,.12);text-align:left;vertical-align:top;}
+@media(max-width:720px){
+  .lp-404{padding-top:64px;}
+  .lp-404-h1{font-size:42px;}
+  .lp-404-acoes .lp-btn{width:100%;}
+  .legal{padding:48px 0 0;}
+  .legal h1{font-size:38px;}
 }

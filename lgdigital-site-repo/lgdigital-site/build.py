@@ -98,12 +98,10 @@ PESSOA_SO_LD = '<script type="application/ld+json">%s</script>' % json.dumps(
 
 
 
-# A antiga inicial vive em /landing-page/. Links antigos para as suas secções
-# (emails, bios, anúncios: lgdigital.pt/#agendar) seguem para lá, com os
-# utm_ do link, antes de a página nova aparecer.
-ANCORAS_ANTIGAS = """<script>(function(){var h=location.hash.slice(1);
-if(['agendar','calculadora','calc','comparacao','resultados','faq','beneficios','processo','para-quem','transparencia','painel'].indexOf(h)>-1)
-location.replace('/landing-page/'+location.search+'#'+h);})();</script>"""
+# Links antigos para marcar chamada (lgdigital.pt/#agendar, de emails, bios
+# e anúncios) seguem para o calendário do Cal.com.
+ANCORAS_ANTIGAS = """<script>(function(){if(location.hash==='#agendar')
+location.replace('https://cal.com/lourenco-gaspar-tmrt3u/30min');})();</script>"""
 
 # ------------------------------------------------------------------- Páginas
 # Landing de captação (/landing-page): Inter, como a profresults.com
@@ -119,30 +117,35 @@ FONTES_GBP = FONTES_INTER.replace(
 FONTES_INTER_SERIF = FONTES_INTER.replace(
     "family=Inter:wght@400;500;600;700", "family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,500")
 
+# ARQUIVO: uma página com arquivo=True não é publicada (o build.py salta-a),
+# mas o src/ fica guardado. Para a voltar a pôr no ar: tirar o arquivo=True,
+# tirar o endereço de REDIRECIONAR e voltar a pô-lo no sitemap.xml.
+# Desde 11/11/2026 está arquivado o site antigo: /landing-page/, /artigos/,
+# os dois artigos, /casos-estudo/ e o caso OrtoFirst.
 PAGES = [
     # Antiga página inicial (anúncios + chamada). Vive em /landing-page/ desde
     # 06/11/2026 (com uma volta à raiz entre 09/11 e 11/11). A inicial é a
     # página de captação de emails ao estilo da Prof Results.
     # home="" porque as âncoras (#agendar, #calculadora...) são desta página.
-    dict(out="landing-page/index.html", src="home", base="../", home="", body="tema-home",
+    dict(out="landing-page/index.html", src="home", arquivo=True, base="../", home="", body="tema-home",
          nome="Pedidos de orçamento qualificados",
          title="LGDigital | Pedidos de orçamento qualificados para empresas de serviços",
          desc="Montamos e gerimos anúncios para empresas de serviços. Pedidos de orçamento qualificados diretamente no teu telemóvel, sem fidelização."),
 
-    dict(out="casos-estudo/index.html", src="casos-estudo", nome="Casos de estudo",
-         base="../", home="../landing-page/", body="tema-home",
+    dict(out="casos-estudo/index.html", src="casos-estudo", arquivo=True, nome="Casos de estudo",
+         base="../", home="../", body="tema-home",
          title="Casos de estudo | LGDigital",
          desc="Casos de estudo das nossas campanhas de anúncios: 74.100 € em contratos fechados a partir de 2.906 € investidos, 24 leads e 3 clientes. Só números medidos."),
 
-    dict(out="artigos/index.html", src="artigos", nome="Artigos",
-         base="../", home="../landing-page/", body="tema-home",
+    dict(out="artigos/index.html", src="artigos", arquivo=True, nome="Artigos",
+         base="../", home="../", body="tema-home",
          title="Artigos | LGDigital",
          desc="Artigos da LGDigital sobre anúncios e aquisição de clientes para empresas de serviços, com números de campanhas reais."),
 
-    dict(out="artigos/anuncios-online/index.html", src="artigo-anuncios-online",
+    dict(out="artigos/anuncios-online/index.html", src="artigo-anuncios-online", arquivo=True,
          nome="Tudo o que precisas de saber sobre anúncios online",
          pai=("Artigos", "artigos/"),
-         base="../../", home="../../landing-page/", body="tema-home",
+         base="../../", home="../../", body="tema-home",
          title="Tudo o que precisas de saber sobre anúncios online | LGDigital",
          desc="Como funcionam os anúncios online, quanto investir, o que medir e os erros mais comuns. Um guia sem jargão para empresas de serviços.",
          head=artigo_ld("artigos/anuncios-online/",
@@ -150,10 +153,10 @@ PAGES = [
                         "Como funcionam os anúncios online, quanto investir, o que medir e os erros mais comuns.",
                         "2026-10-20")),
 
-    dict(out="artigos/conseguir-mais-clientes-empresa-servicos/index.html", src="artigo-mais-clientes",
+    dict(out="artigos/conseguir-mais-clientes-empresa-servicos/index.html", src="artigo-mais-clientes", arquivo=True,
          nome="Como conseguir mais clientes numa empresa de serviços",
          pai=("Artigos", "artigos/"),
-         base="../../", home="../../landing-page/", body="tema-home",
+         base="../../", home="../../", body="tema-home",
          title="Como conseguir mais clientes numa empresa de serviços | LGDigital",
          desc="Antes de pagar por mais pedidos, vê quantos já perdes. Guia para empresas de serviços: Google, recomendações, anúncios e por onde começar.",
          head=artigo_ld("artigos/conseguir-mais-clientes-empresa-servicos/",
@@ -162,9 +165,9 @@ PAGES = [
                         "2026-10-27")),
 
     # Casos de estudo: uma página por cliente, dentro de /casos-estudo/
-    dict(out="casos-estudo/ortofirst/index.html", src="caso-ortofirst",
+    dict(out="casos-estudo/ortofirst/index.html", src="caso-ortofirst", arquivo=True,
          nome="OrtoFirst", pai=("Casos de estudo", "casos-estudo/"),
-         base="../../", home="../../landing-page/", body="tema-home",
+         base="../../", home="../../", body="tema-home",
          title="Caso de estudo OrtoFirst: 74.100 € em contratos com 2.906 € em anúncios | LGDigital",
          desc="Como a OrtoFirst transformou 2.906,75 € em anúncios em 74.100 € em contratos fechados: 24 leads, 3 clientes e 25,5x de retorno em valor contratual.",
          head=artigo_ld("casos-estudo/ortofirst/",
@@ -174,7 +177,7 @@ PAGES = [
 
     # Página inicial: captação de emails (isca: vídeo com 3 dicas), copiada da
     # profresults.com. Tem folha e letra próprias.
-    dict(out="index.html", src="landing-page", base="", home="landing-page/",
+    dict(out="index.html", src="landing-page", base="", home="",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Início", head=ANCORAS_ANTIGAS + "\n" + PESSOA_SO_LD,
          title="MELHOR Agência de Marketing em Lisboa | LGDigital | Estás à procura de uma agência de marketing digital para Meta Ads, Google Ads ou SEO local? Pomos a tua empresa no topo do Google",
@@ -182,21 +185,21 @@ PAGES = [
 
     # SEO Local / top 3 no Google Maps (como a profresults.com/gbp). Abre a
     # partir do botão da /obrigado/.
-    dict(out="gbp/index.html", src="gbp", base="../", home="../landing-page/",
+    dict(out="gbp/index.html", src="gbp", base="../", home="../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
          nome="Top 3 no Google Maps", title="LGDigital | Agência de Marketing Digital em Lisboa",
          desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # Vídeo grátis das 3 dicas (como a profresults.com/gbp-three-free). É o
     # link do email que o Make envia a quem se inscreve.
-    dict(out="3-dicas/index.html", src="3-dicas", base="../", home="../landing-page/",
+    dict(out="3-dicas/index.html", src="3-dicas", base="../", home="../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
          nome="O Teu Vídeo", title="LGDigital | Agência de Marketing Digital em Lisboa",
          desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # Página local de Lisboa (como a profresults.com/amsterdam): é o site do
     # Perfil da Empresa no Google, por isso fica no Google e no sitemap.
-    dict(out="lisboa/index.html", src="lisboa", base="../", home="../landing-page/",
+    dict(out="lisboa/index.html", src="lisboa", base="../", home="../",
          body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
          nome="Lisboa",
          title="MELHOR Agência de Marketing em Lisboa - à procura de uma agência de marketing digital perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google",
@@ -204,7 +207,7 @@ PAGES = [
 
     # Página-prova de SEO (como a profresults.com/hardest-working-seo-expert-amsterdam)
     dict(out="especialista-de-seo-mais-dedicado-lisboa/index.html", src="especialista-seo-lisboa",
-         base="../", home="../landing-page/",
+         base="../", home="../",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="O especialista de SEO mais dedicado em Lisboa",
          title="O especialista de SEO mais dedicado em Lisboa | Lourenço Gaspar",
@@ -215,47 +218,47 @@ PAGES = [
                         "2026-11-11")),
 
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
-    dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
+    dict(out="obrigado/index.html", src="obrigado", base="../", home="../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
          nome="Obrigado", title="LGDigital | Agência de Marketing Digital em Lisboa",
          desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # Página pessoal (abre a partir do cartão da equipa na /landing-page).
     # Fica no Google: serve para quem pesquisa o nome do Lourenço.
-    dict(out="lourenco-gaspar/index.html", src="lourenco-gaspar", base="../", home="../landing-page/",
+    dict(out="lourenco-gaspar/index.html", src="lourenco-gaspar", base="../", home="../",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Lourenço Gaspar", head=PESSOA_LD,
          title="Lourenço Gaspar | Fundador da LGDigital, Agência de Marketing Digital em Lisboa",
          desc="Lourenço Gaspar é o fundador da LGDigital, uma agência de marketing digital em Lisboa. Ajuda empresas de serviços e negócios locais a conseguir mais clientes com Google Ads, Meta Ads e SEO."),
 
     # Páginas de serviço ligadas a partir da /landing-page (estilo profresults.com)
-    dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../landing-page/",
+    dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Google Ads", title="MELHOR Agência de Google Ads em Lisboa - se procuras gestão de Google Ads perto de mim - a LGDigital cria anúncios que te trazem clientes",
          desc="Google Ads que te trazem clientes. A LGDigital, agência de marketing em Lisboa, trata de tudo por ti. A partir de 1.000 € por mês."),
-    dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../landing-page/",
+    dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Meta Ads", title="MELHOR Agência de Meta Ads em Lisboa - se procuras gestão de Meta Ads perto de mim - a LGDigital cria anúncios no Facebook e no Instagram que te trazem clientes",
          desc="Anúncios no Facebook e no Instagram que te trazem clientes. Feito por nós. Sem fidelização. A partir de 1.000 € por mês."),
-    dict(out="servicos/seo/index.html", src="servico-seo", base="../../", home="../../landing-page/",
+    dict(out="servicos/seo/index.html", src="servico-seo", base="../../", home="../../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="SEO", title="MELHOR Agência de SEO em Lisboa - se procuras SEO perto de mim - a LGDigital põe a tua empresa no Google sem pagares por cada clique",
          desc="Aparece no Google sem pagar por cada clique. SEO feito por nós. Sem fidelização."),
-    dict(out="servicos/seo-local/index.html", src="servico-seo-local", base="../../", home="../../landing-page/",
+    dict(out="servicos/seo-local/index.html", src="servico-seo-local", base="../../", home="../../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="SEO Local", title="MELHOR Agência de SEO Local em Lisboa - se procuras SEO local ou subir no Google Maps perto de mim - a LGDigital põe a tua empresa no top 3 do Google Maps",
          desc="Quando alguém na tua zona procura aquilo que tu fazes, deve encontrar-te a ti. SEO local feito pela LGDigital, em Lisboa. Sem fidelização."),
-    dict(out="servicos/ai-seo/index.html", src="servico-ai-seo", base="../../", home="../../landing-page/",
+    dict(out="servicos/ai-seo/index.html", src="servico-ai-seo", base="../../", home="../../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="AI SEO", title="MELHOR Agência de AI SEO em Lisboa - se procuras AI SEO perto de mim - a LGDigital põe a tua empresa nas respostas do ChatGPT",
          desc="Os teus clientes já perguntam ao ChatGPT. Ele fala de ti? AI SEO feito por nós. Sem fidelização."),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
-    dict(out="meta/index.html", src="meta", base="../", home="../landing-page/", body="tema-meta", noindex=True,
+    dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
          title="Top 3 no Google em 90 dias, garantido | LGDigital",
          desc="Colocamos negócios locais de serviços no top 3 do Google Maps em 90 dias. Se não chegarmos lá, pagamos-te 500€. Vê se a tua empresa se qualifica."),
 
-    dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../landing-page/",
+    dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../",
          body="tema-meta", noindex=True,
          title="Marca a tua chamada | LGDigital",
          desc="Recebemos o teu pedido. Escolhe uma hora para falarmos.",
@@ -266,21 +269,22 @@ PAGES = [
     # propósito: esse tráfego já foi contado como lead pelo próprio Meta,
     # e disparar o evento outra vez duplicava a conversão.
     dict(out="instant-form-book-a-call/index.html", src="instant-form-book-a-call",
-         base="../", home="../landing-page/", body="tema-meta", noindex=True,
+         base="../", home="../", body="tema-meta", noindex=True,
          title="Marca a tua chamada | LGDigital",
          desc="Recebemos o teu pedido. Escolhe uma hora para falarmos."),
 
-    dict(out="404.html", src="404", base="/", home="/landing-page/", body="tema-home", noindex=True,
+    dict(out="404.html", src="404", base="/", home="/", noindex=True,
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          title="Página não encontrada — LGDigital",
          desc="A página que procuras não existe."),
 
-    dict(out="pp/index.html", src="pp", nome="Política de Privacidade", base="../", home="../landing-page/",
-         body="tema-home",
+    dict(out="pp/index.html", src="pp", nome="Política de Privacidade", base="../", home="../",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          title="Política de Privacidade — LGDigital",
          desc="Que dados pessoais a LGDigital recolhe, para que os usa, com quem os partilha e quais são os teus direitos."),
 
-    dict(out="tc/index.html", src="tc", nome="Termos e Condições", base="../", home="../landing-page/",
-         body="tema-home",
+    dict(out="tc/index.html", src="tc", nome="Termos e Condições", base="../", home="../",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          title="Termos e Condições — LGDigital",
          desc="Condições de utilização do site lgdigital.pt e da prestação dos serviços da LGDigital."),
 ]
@@ -296,7 +300,7 @@ ZONAS_LISBOA = [("oeiras", "Oeiras", "em", "de"), ("cascais", "Cascais", "em", "
                 ("almada", "Almada", "em", "de"), ("seixal", "Seixal", "no", "do")]
 for _slug, _nome, _em, _de in ZONAS_LISBOA:
     PAGES.append(dict(
-        out="lisboa/%s/index.html" % _slug, src="lisboa-" + _slug, base="../../", home="../../landing-page/",
+        out="lisboa/%s/index.html" % _slug, src="lisboa-" + _slug, base="../../", home="../../",
         body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
         nome=_nome, pai=("Lisboa", "lisboa/"),
         title="MELHOR Agência de Marketing Digital %s %s - à procura de uma agência de marketing perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google" % (_em, _nome),
@@ -321,7 +325,7 @@ SERVICOS_LISBOA = [
 ]
 for _slug, _nome, _title, _desc in SERVICOS_LISBOA:
     PAGES.append(dict(
-        out="lisboa/%s/index.html" % _slug, src="lisboa-servico-" + _slug, base="../../", home="../../landing-page/",
+        out="lisboa/%s/index.html" % _slug, src="lisboa-servico-" + _slug, base="../../", home="../../",
         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
         nome=_nome, pai=("Lisboa", "lisboa/"), title=_title, desc=_desc))
 
@@ -372,7 +376,7 @@ REDIRECIONAR = {
     "melhor-web-designer-lisboa/": "",
     "hvac/": "",
     "hvac-obrigado/": "",
-    "contactos/": "landing-page/#agendar",
+    "contactos/": "",
     # 09/11 a 11/11/2026 as páginas ao estilo da Prof Results estiveram em /ads/
     "ads/": "",
     "ads/obrigado/": "obrigado/",
@@ -384,7 +388,14 @@ REDIRECIONAR = {
     "ads/servicos/seo-local/": "servicos/seo-local/",
     "ads/servicos/ai-seo/": "servicos/ai-seo/",
     # o caso da OrtoFirst esteve uns dias publicado como artigo
-    "artigos/anuncios-74100-euros-faturados/": "casos-estudo/ortofirst/",
+    "artigos/anuncios-74100-euros-faturados/": "",
+    # site antigo arquivado em 11/11/2026 (arquivo=True no PAGES)
+    "landing-page/": "",
+    "artigos/": "",
+    "artigos/anuncios-online/": "",
+    "artigos/conseguir-mais-clientes-empresa-servicos/": "",
+    "casos-estudo/": "",
+    "casos-estudo/ortofirst/": "",
 }
 
 REDIRECT = """<!DOCTYPE html>
@@ -540,6 +551,8 @@ def head_for(pg, styles, base, jsonld=""):
 
 def build_site():
     for pg in PAGES:
+        if pg.get("arquivo"):           # fora do ar (o src fica guardado)
+            continue
         # site principal: só o site.css; landings: só o styles.css
         folha = pg.get("css") or ("site.css" if e_site(pg) else "styles.css")
         # ?v= muda sempre que a folha muda: o Cloudflare guarda o CSS 4 horas,
@@ -583,6 +596,8 @@ def build_standalone():
     css_site = embute((ROOT / "assets/css/site.css").read_text(encoding="utf-8"))
     outdir = ROOT / "preview"; outdir.mkdir(exist_ok=True)
     for pg in PAGES:
+        if pg.get("arquivo"):
+            continue
         html = render(pg["src"], "", "#")
         html = re.sub(r'src="assets/img/([^"]+)"',
                       lambda m: 'src="%s"' % inline_data("assets/img/" + m.group(1)), html)

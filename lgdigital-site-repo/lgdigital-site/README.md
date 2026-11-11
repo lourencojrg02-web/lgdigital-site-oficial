@@ -102,6 +102,21 @@ Secções que só tenham comentários são ignoradas pelo build. **Nos comentár
 não escrevas tags HTML literais** (por exemplo `<div class="lg-faq">`): o build
 lê-as como se fossem a sério.
 
+### Páginas arquivadas (fora do ar, sem apagar)
+
+No `PAGES` do `build.py`, uma página com `arquivo=True` não é publicada, mas o
+`src/` fica guardado. Desde 11/11/2026 está assim o site antigo:
+`/landing-page/` (src/home), `/artigos/` e os dois artigos, `/casos-estudo/`
+e o caso OrtoFirst. Os endereços redirecionam para a página inicial
+(`REDIRECIONAR`) e saíram do `sitemap.xml`. Os links antigos para
+`lgdigital.pt/#agendar` abrem o Cal.com.
+
+Para pôr uma de volta no ar: tirar o `arquivo=True`, tirar o endereço de
+`REDIRECIONAR`, voltar a pô-lo no `sitemap.xml` e correr o build.
+
+A 404, a Política de Privacidade e os Termos passaram para o estilo novo
+(cabeçalho e rodapé das páginas novas, com o NAP).
+
 ### NAP (nome, morada, telefone)
 
 Está no rodapé de todas as páginas, igual ao Perfil da Empresa no Google:

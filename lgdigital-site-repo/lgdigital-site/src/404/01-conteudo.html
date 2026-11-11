@@ -1,0 +1,29 @@
+<!-- ==================== 404 ==================== -->
+<!-- No estilo das páginas novas (landing.css). Servida em qualquer caminho,
+     por isso usa caminhos absolutos ({{base}} = "/"). -->
+@include _partials/lp-cab.html
+
+<main class="lp" id="conteudo">
+  <section class="lp-404">
+    <span class="lp-pill">Erro 404</span>
+    <h1 class="lp-404-h1">Esta página não existe.</h1>
+    <p class="lp-404-p">O link pode estar errado ou a página pode ter mudado de sítio. Segue por aqui:</p>
+    <div class="lp-404-acoes">
+      <a class="lp-btn lp-btn--lg" href="{{base}}">Voltar à página inicial</a>
+      <a class="lp-btn lp-btn--lg lp-btn--claro" href="https://cal.com/lourenco-gaspar-tmrt3u/30min" target="_blank" rel="noopener">Agendar Chamada Estratégica</a>
+    </div>
+  </section>
+
+  <section class="lp-sec lp-servicos">
+    <h2 class="lp-h2">O que fazemos</h2>
+    <div class="lp-servicos-grelha">
+      <a class="lp-servico" href="{{base}}servicos/google-ads/"><span class="lp-servico-t">Google Ads</span><span class="lp-servico-l">Saber mais &rarr;</span></a>
+      <a class="lp-servico" href="{{base}}servicos/meta-ads/"><span class="lp-servico-t">Meta Ads</span><span class="lp-servico-l">Saber mais &rarr;</span></a>
+      <a class="lp-servico" href="{{base}}servicos/seo/"><span class="lp-servico-t">SEO</span><span class="lp-servico-l">Saber mais &rarr;</span></a>
+      <a class="lp-servico" href="{{base}}servicos/seo-local/"><span class="lp-servico-t">SEO Local</span><span class="lp-servico-l">Saber mais &rarr;</span></a>
+      <a class="lp-servico" href="{{base}}servicos/ai-seo/"><span class="lp-servico-t">AI SEO</span><span class="lp-servico-l">Saber mais &rarr;</span></a>
+    </div>
+  </section>
+</main>
+
+@include _partials/lp-rodape.html
