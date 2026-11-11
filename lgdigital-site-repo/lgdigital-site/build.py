@@ -83,7 +83,7 @@ PESSOA_LD = '<script type="application/ld+json">%s</script>' % json.dumps({
         "name": "Lourenço Gaspar", "url": SITE + "/lourenco-gaspar/",
         "image": SITE + "/assets/img/lourenco-gaspar-3x2.jpg",
         "jobTitle": "Fundador",
-        "description": "Lourenço Gaspar é o fundador da LGDigital, uma agência de marketing digital "
+        "description": "Lourenço Gaspar é o fundador da LGDigital, uma agência de marketing digital em Lisboa "
                        "que ajuda empresas de serviços e negócios locais a conseguir mais clientes.",
         "worksFor": {"@id": SITE + "/#organizacao"},
         "knowsAbout": ["Google Ads", "Meta Ads", "SEO", "SEO Local", "Geração de leads"],
@@ -172,58 +172,58 @@ PAGES = [
     dict(out="index.html", src="landing-page", base="", home="landing-page/",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Início", head=ANCORAS_ANTIGAS,
-         title="A tua empresa é invisível no Google? | LGDigital",
-         desc="Vê porque é que a tua empresa não aparece nos 3 primeiros resultados do Google e recebe 3 dicas gratuitas para melhorar a tua posição."),
+         title="MELHOR Agência de Marketing em Lisboa | LGDigital | Estás à procura de uma agência de marketing digital para Meta Ads, Google Ads ou SEO local? Pomos a tua empresa no topo do Google",
+         desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # SEO Local / top 3 no Google Maps (como a profresults.com/gbp). Abre a
     # partir do botão da /obrigado/.
     dict(out="gbp/index.html", src="gbp", base="../", home="../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
-         nome="Top 3 no Google Maps", title="Entra no top 3 do Google Maps | LGDigital",
-         desc="Pomos a tua empresa nos 3 primeiros resultados do Google Maps na tua zona. 1.000 € por mês, sem fidelização, top 3 em 90 dias garantido."),
+         nome="Top 3 no Google Maps", title="LGDigital | Agência de Marketing Digital em Lisboa",
+         desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # Vídeo grátis das 3 dicas (como a profresults.com/gbp-three-free). É o
     # link do email que o Make envia a quem se inscreve.
     dict(out="3-dicas/index.html", src="3-dicas", base="../", home="../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
-         nome="O Teu Vídeo", title="O Teu Vídeo: Como Chegar ao Top 3 no Google | LGDigital",
-         desc="As 3 dicas para pores a tua empresa nos 3 primeiros resultados do Google."),
+         nome="O Teu Vídeo", title="LGDigital | Agência de Marketing Digital em Lisboa",
+         desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
-         nome="Obrigado", title="Vê o Teu Email: o Vídeo Está a Caminho | LGDigital",
-         desc="Recebemos o teu email. As 3 dicas para subires no Google vão a caminho."),
+         nome="Obrigado", title="LGDigital | Agência de Marketing Digital em Lisboa",
+         desc="A LGDigital é uma agência de marketing digital que se torna o teu departamento de marketing, sempre que precisares."),
 
     # Página pessoal (abre a partir do cartão da equipa na /landing-page).
     # Fica no Google: serve para quem pesquisa o nome do Lourenço.
     dict(out="lourenco-gaspar/index.html", src="lourenco-gaspar", base="../", home="../landing-page/",
          body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
          nome="Lourenço Gaspar", head=PESSOA_LD,
-         title="Lourenço Gaspar | Fundador da LGDigital",
-         desc="Lourenço Gaspar é o fundador da LGDigital, que ajuda empresas de serviços e negócios locais a conseguir mais clientes com Google Ads, Meta Ads e SEO."),
+         title="Lourenço Gaspar | Fundador da LGDigital, Agência de Marketing Digital em Lisboa",
+         desc="Lourenço Gaspar é o fundador da LGDigital, uma agência de marketing digital em Lisboa. Ajuda empresas de serviços e negócios locais a conseguir mais clientes com Google Ads, Meta Ads e SEO."),
 
     # Páginas de serviço ligadas a partir da /landing-page (estilo profresults.com)
     dict(out="servicos/google-ads/index.html", src="servico-google-ads", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="Google Ads", title="Google Ads: anúncios que te trazem clientes | LGDigital",
-         desc="Anúncios no Google que te trazem clientes. Montamos e gerimos a tua conta, a partir de 1.000 € por mês. Sem fidelização."),
+         nome="Google Ads", title="MELHOR Agência de Google Ads em Lisboa - se procuras gestão de Google Ads perto de mim - a LGDigital cria anúncios que te trazem clientes",
+         desc="Google Ads que te trazem clientes. A LGDigital, agência de marketing em Lisboa, trata de tudo por ti. A partir de 1.000 € por mês."),
     dict(out="servicos/meta-ads/index.html", src="servico-meta-ads", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="Meta Ads", title="Meta Ads: anúncios no Facebook e Instagram | LGDigital",
-         desc="Anúncios no Facebook e no Instagram que te trazem clientes. Tratamos de tudo, a partir de 1.000 € por mês. Sem fidelização."),
+         nome="Meta Ads", title="MELHOR Agência de Meta Ads em Lisboa - se procuras gestão de Meta Ads perto de mim - a LGDigital cria anúncios no Facebook e no Instagram que te trazem clientes",
+         desc="Anúncios no Facebook e no Instagram que te trazem clientes. Feito por nós. Sem fidelização. A partir de 1.000 € por mês."),
     dict(out="servicos/seo/index.html", src="servico-seo", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="SEO", title="SEO: aparece no Google sem pagar por cada clique | LGDigital",
-         desc="Aparece nas pesquisas que os teus clientes fazem e transforma essas visitas em chamadas. SEO a partir de 1.000 € por mês. Sem fidelização."),
+         nome="SEO", title="MELHOR Agência de SEO em Lisboa - se procuras SEO perto de mim - a LGDigital põe a tua empresa no Google sem pagares por cada clique",
+         desc="Aparece no Google sem pagar por cada clique. SEO feito por nós. Sem fidelização."),
     dict(out="servicos/seo-local/index.html", src="servico-seo-local", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="SEO Local", title="SEO Local: entra no top 3 do Google Maps | LGDigital",
-         desc="Quando alguém na tua zona procura o que fazes, deve encontrar-te a ti. SEO local a partir de 1.000 € por mês. Sem fidelização."),
+         nome="SEO Local", title="MELHOR Agência de SEO Local em Lisboa - se procuras SEO local ou subir no Google Maps perto de mim - a LGDigital põe a tua empresa no top 3 do Google Maps",
+         desc="Quando alguém na tua zona procura o que fazes, deve encontrar-te a ti. SEO local feito pela LGDigital, em Lisboa. Sem fidelização."),
     dict(out="servicos/ai-seo/index.html", src="servico-ai-seo", base="../../", home="../../landing-page/",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
-         nome="AI SEO", title="AI SEO: aparece nas respostas do ChatGPT | LGDigital",
-         desc="Os teus clientes já perguntam ao ChatGPT. Trabalhamos para que a tua empresa esteja na resposta. A partir de 1.000 € por mês. Sem fidelização."),
+         nome="AI SEO", title="MELHOR Agência de AI SEO em Lisboa - se procuras AI SEO perto de mim - a LGDigital põe a tua empresa nas respostas do ChatGPT",
+         desc="Os teus clientes já perguntam ao ChatGPT. Ele fala de ti? AI SEO feito por nós. Sem fidelização."),
 
     # Landings de campanha Meta: tráfego pago, fora do índice do Google
     dict(out="meta/index.html", src="meta", base="../", home="../landing-page/", body="tema-meta", noindex=True,
