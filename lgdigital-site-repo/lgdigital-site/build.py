@@ -461,6 +461,12 @@ def _texto(html):
     return re.sub(r"\s+", " ", t).strip()
 
 
+# Descrição curta da empresa nos dados (schema), igual em todas as páginas
+DESCRICAO_EMPRESA = ("A LGDigital é uma agência de marketing digital em Lisboa que ajuda empresas locais "
+                     "a alcançar mais clientes, colocando a sua mensagem à frente das pessoas certas, "
+                     "no momento certo. Fazemos SEO, SEO local, AI SEO, Google Ads e Meta Ads.")
+
+
 def organizacao(descricao, zona=None):
     """Dados da empresa (ProfessionalService) com o NAP do Perfil da Empresa no Google.
     zona: cidade ou concelho que a página serve (sem zona = Portugal)."""
@@ -470,7 +476,7 @@ def organizacao(descricao, zona=None):
         "alternateName": ["LGDigital - Agência de Marketing Digital em Lisboa"],
         "url": SITE + "/", "logo": SITE + "/assets/img/logo.png",
         "image": SITE + "/assets/img/og.png",
-        "description": descricao,
+        "description": DESCRICAO_EMPRESA,
         "priceRange": "€€",
         "areaServed": ({"@type": "City", "name": zona} if zona
                        else {"@type": "Country", "name": "Portugal"}),
