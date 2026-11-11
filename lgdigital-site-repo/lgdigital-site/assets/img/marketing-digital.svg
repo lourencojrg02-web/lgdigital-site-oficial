@@ -83,8 +83,5 @@
     <text x="46" y="487" font-size="16" font-weight="600" fill="#1A56DB">A Tua Empresa | Orçamento Grátis</text>
     <text x="46" y="504" font-size="12.5" font-weight="500" fill="#8A847A">Resposta em 24 horas. Sem compromisso.</text>
 
-    <!-- megafone -->
-    <circle cx="640" cy="452" r="34" fill="#000"/>
-    <path d="M622 446v12h7l14 9v-30l-14 9zM629 458l3 10h6l-3-10M650 444a10 10 0 0 1 0 16" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
 </svg>
