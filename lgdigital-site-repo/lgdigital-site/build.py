@@ -58,7 +58,7 @@ AUTOR = {"@type": "Person", "name": "Lourenço Gaspar",
          "sameAs": ["https://www.youtube.com/@lourencorg",
                     "https://x.com/lourenco_rg",
                     "https://www.linkedin.com/in/louren%C3%A7o-gaspar-785353308/"]}
-EDITOR = {"@type": "Organization", "name": "LGDigital", "@id": SITE + "/#organizacao",
+EDITOR = {"@type": "Organization", "name": "LGDigital", "alternateName": ["LGDigital - Agência de Marketing Digital em Lisboa"], "@id": SITE + "/#organizacao",
           "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.png"}}
 
 
@@ -302,7 +302,7 @@ for _slug, _nome, _em, _de in ZONAS_LISBOA:
     PAGES.append(dict(
         out="lisboa/%s/index.html" % _slug, src="lisboa-" + _slug, base="../../", home="../../",
         body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
-        nome=_nome, pai=("Lisboa", "lisboa/"),
+        nome=_nome, pai=("Lisboa", "lisboa/"), zona=_nome,
         title="MELHOR Agência de Marketing Digital %s %s - à procura de uma agência de marketing perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google" % (_em, _nome),
         desc="A LGDigital é uma agência de marketing digital para empresas %s %s: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização." % (_de, _nome)))
 
@@ -377,16 +377,6 @@ REDIRECIONAR = {
     "hvac/": "",
     "hvac-obrigado/": "",
     "contactos/": "",
-    # 09/11 a 11/11/2026 as páginas ao estilo da Prof Results estiveram em /ads/
-    "ads/": "",
-    "ads/obrigado/": "obrigado/",
-    "ads/3-dicas/": "3-dicas/",
-    "ads/gbp/": "gbp/",
-    "ads/servicos/google-ads/": "servicos/google-ads/",
-    "ads/servicos/meta-ads/": "servicos/meta-ads/",
-    "ads/servicos/seo/": "servicos/seo/",
-    "ads/servicos/seo-local/": "servicos/seo-local/",
-    "ads/servicos/ai-seo/": "servicos/ai-seo/",
     # o caso da OrtoFirst esteve uns dias publicado como artigo
     "artigos/anuncios-74100-euros-faturados/": "",
     # site antigo arquivado em 11/11/2026 (arquivo=True no PAGES)
@@ -471,6 +461,30 @@ def _texto(html):
     return re.sub(r"\s+", " ", t).strip()
 
 
+def organizacao(descricao, zona=None):
+    """Dados da empresa (ProfessionalService) com o NAP do Perfil da Empresa no Google.
+    zona: cidade ou concelho que a página serve (sem zona = Portugal)."""
+    return {
+        "@context": "https://schema.org", "@type": "ProfessionalService",
+        "@id": SITE + "/#organizacao", "name": "LGDigital",
+        "alternateName": ["LGDigital - Agência de Marketing Digital em Lisboa"],
+        "url": SITE + "/", "logo": SITE + "/assets/img/logo.png",
+        "image": SITE + "/assets/img/og.png",
+        "description": descricao,
+        "priceRange": "€€",
+        "areaServed": ({"@type": "City", "name": zona} if zona
+                       else {"@type": "Country", "name": "Portugal"}),
+        "address": {"@type": "PostalAddress", "streetAddress": "R. dos Arneiros 133",
+                    "postalCode": "1500-057", "addressLocality": "Lisboa",
+                    "addressCountry": "PT"},
+        "telephone": "+351926289562",
+        "hasMap": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x6c31721fe402361b:0x7cd0a64535a7b664",
+        "sameAs": SOCIAIS,
+        "knowsAbout": ["SEO", "SEO Local", "Google Ads", "Meta Ads", "AI SEO",
+                       "Geração de leads", "Empresas de serviços"],
+    }
+
+
 def jsonld_para(pg, body):
     """Organização na homepage, migalhas nas outras, FAQ onde houver <details>."""
     if pg.get("noindex"):
@@ -479,30 +493,16 @@ def jsonld_para(pg, body):
     blocos = []
 
     if pg["out"] == "index.html":
-        blocos.append({
-            "@context": "https://schema.org", "@type": "ProfessionalService",
-            "@id": SITE + "/#organizacao", "name": "LGDigital",
-            "url": SITE + "/", "logo": SITE + "/assets/img/logo.png",
-            "image": SITE + "/assets/img/og.png",
-            "description": pg["desc"],
-            "priceRange": "€€",
-            "areaServed": {"@type": "Country", "name": "Portugal"},
-            "address": {"@type": "PostalAddress", "streetAddress": "R. dos Arneiros 133",
-                        "postalCode": "1500-057", "addressLocality": "Lisboa",
-                        "addressCountry": "PT"},
-            "telephone": "+351926289562",
-            "hasMap": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x6c31721fe402361b:0x7cd0a64535a7b664",
-            "sameAs": SOCIAIS,
-            # Sem catálogo de serviços: as páginas /seo, /ads e /websites foram
-            # apagadas e o site fala de resultados, não de uma lista de serviços.
-            "knowsAbout": ["Publicidade online", "Google Ads", "Meta Ads",
-                           "Geração de leads", "Empresas de serviços"],
-        })
+        blocos.append(organizacao(pg["desc"]))
         blocos.append({"@context": "https://schema.org", "@type": "WebSite",
                        "@id": SITE + "/#site", "url": SITE + "/", "name": "LGDigital",
                        "inLanguage": "pt-PT",
                        "publisher": {"@id": SITE + "/#organizacao"}})
     else:
+        # páginas locais (/lisboa/ e /lisboa/<zona ou serviço>/): a mesma empresa,
+        # com a zona que a página serve em areaServed
+        if pg["out"].startswith("lisboa/"):
+            blocos.append(organizacao(pg["desc"], pg.get("zona", "Lisboa")))
         trilho = [{"@type": "ListItem", "position": 1, "name": "Início", "item": SITE + "/"}]
         if pg.get("pai"):                       # ex.: ("Artigos", "artigos/")
             trilho.append({"@type": "ListItem", "position": 2, "name": pg["pai"][0],

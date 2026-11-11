@@ -12,7 +12,6 @@ um script Python que junta as secções.
 ├─ servicos/                  Google Ads, Meta Ads, SEO, SEO Local, AI SEO (noindex)
 ├─ obrigado/  3-dicas/  gbp/  páginas da Prof Results (noindex)
 ├─ lisboa/                   página local para o Perfil da Empresa no Google → lgdigital.pt/lisboa
-├─ ads/                       só redireciona (09/11 a 11/11 estas páginas estiveram aqui)
 ├─ lourenco-gaspar/           página pessoal do Lourenço          → lgdigital.pt/lourenco-gaspar
 ├─ casos-estudo/               lista de casos de estudo            → lgdigital.pt/casos-estudo
 │  └─ ortofirst/               caso OrtoFirst (74.100 €)
@@ -26,7 +25,7 @@ um script Python que junta as secções.
 ├─ meta-book-a-call/           marcação + evento Lead (noindex)
 ├─ instant-form-book-a-call/   marcação sem evento Lead (noindex)
 │
-├─ seo/ ads/ websites/ hvac/ hvac-obrigado/
+├─ seo/ websites/ hvac/ hvac-obrigado/
 │  melhor-web-designer-lisboa/ contactos/
 │                              páginas apagadas: só redirecionam (ver abaixo)
 │
@@ -354,9 +353,6 @@ o número muda e o browser vai buscar a versão nova. Por isso, sempre que
 mexeres no CSS, sobe também as páginas HTML (a pasta toda).
 
 ### Página inicial (captação de emails) e páginas ao estilo da Prof Results
-
-Entre 09/11 e 11/11/2026 estas páginas estiveram em `/ads/`; os endereços
-`/ads/...` redirecionam para os atuais.
 
 Cópia da estrutura e do estilo da profresults.com: fundo bege, letra Inter,
 "A tua empresa é invisível no Google?" com vídeo ao lado e email para
