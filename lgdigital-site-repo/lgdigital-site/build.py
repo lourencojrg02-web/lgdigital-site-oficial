@@ -272,16 +272,18 @@ PAGES = [
 # Páginas locais à volta da /lisboa/ (como a profresults.com/amsterdam):
 # uma por concelho (/lisboa/<zona>/) e uma por serviço (/lisboa/<serviço>/).
 # Todas ficam no Google e no sitemap, com "Lisboa" como página-mãe.
-ZONAS_LISBOA = [("oeiras", "Oeiras"), ("cascais", "Cascais"), ("sintra", "Sintra"),
-                ("amadora", "Amadora"), ("loures", "Loures"), ("odivelas", "Odivelas"),
-                ("almada", "Almada"), ("seixal", "Seixal")]
-for _slug, _nome in ZONAS_LISBOA:
+# (endereço, nome, "em" e "de" com o artigo certo: na Amadora, no Seixal)
+ZONAS_LISBOA = [("oeiras", "Oeiras", "em", "de"), ("cascais", "Cascais", "em", "de"),
+                ("sintra", "Sintra", "em", "de"), ("amadora", "Amadora", "na", "da"),
+                ("loures", "Loures", "em", "de"), ("odivelas", "Odivelas", "em", "de"),
+                ("almada", "Almada", "em", "de"), ("seixal", "Seixal", "no", "do")]
+for _slug, _nome, _em, _de in ZONAS_LISBOA:
     PAGES.append(dict(
         out="lisboa/%s/index.html" % _slug, src="lisboa-" + _slug, base="../../", home="../../landing-page/",
         body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
         nome=_nome, pai=("Lisboa", "lisboa/"),
-        title="MELHOR Agência de Marketing Digital em %s - à procura de uma agência de marketing perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google" % _nome,
-        desc="A LGDigital é uma agência de marketing digital para empresas de %s: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização." % _nome))
+        title="MELHOR Agência de Marketing Digital %s %s - à procura de uma agência de marketing perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google" % (_em, _nome),
+        desc="A LGDigital é uma agência de marketing digital para empresas %s %s: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização." % (_de, _nome)))
 
 SERVICOS_LISBOA = [
     ("google-ads", "Google Ads em Lisboa",

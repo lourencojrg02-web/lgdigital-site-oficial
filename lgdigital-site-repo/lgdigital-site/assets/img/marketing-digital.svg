@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 530" width="730" height="530" role="img" aria-labelledby="t d">
+  <title id="t">Marketing digital para empresas de serviços</title>
+  <desc id="d">Ilustração com um gráfico de pedidos de orçamento a subir, um novo pedido de orçamento, uma nova avaliação de cinco estrelas, um anúncio nas pesquisas e uma publicação patrocinada nas redes sociais.</desc>
+  <defs>
+    <clipPath id="c"><rect width="730" height="530" rx="16"/></clipPath>
+    <pattern id="pontos" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.6" fill="#E2DACE"/>
+    </pattern>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".10"/>
+    </filter>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0091FF" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#0091FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="foto" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#CFE6FB"/>
+      <stop offset="1" stop-color="#EAF3FC"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#c)" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <rect width="730" height="530" fill="#F7F2EA"/>
+    <rect width="730" height="530" fill="url(#pontos)"/>
+
+    <!-- painel: pedidos de orçamento a subir -->
+    <g filter="url(#s)"><rect x="110" y="112" width="440" height="296" rx="18" fill="#fff"/></g>
+    <text x="136" y="152" font-size="18" font-weight="700" fill="#000">Pedidos de orçamento</text>
+    <text x="136" y="174" font-size="13" font-weight="500" fill="#8A847A">Últimos 6 meses</text>
+    <rect x="436" y="134" width="92" height="28" rx="14" fill="#E3F6E8"/>
+    <text x="482" y="153" font-size="13" font-weight="700" fill="#1E8E3E" text-anchor="middle">▲ A subir</text>
+    <g stroke="#EFEAE2" stroke-width="1.5">
+      <path d="M136 220H528M136 260H528M136 300H528M136 340H528M136 380H528"/>
+    </g>
+    <g fill="#DCEBFA">
+      <rect x="146" y="340" width="34" height="40" rx="6"/>
+      <rect x="210" y="320" width="34" height="60" rx="6"/>
+      <rect x="274" y="308" width="34" height="72" rx="6"/>
+      <rect x="338" y="280" width="34" height="100" rx="6"/>
+      <rect x="402" y="252" width="34" height="128" rx="6"/>
+      <rect x="466" y="220" width="34" height="160" rx="6"/>
+    </g>
+    <path d="M163 326C190 318 205 308 227 306S270 296 291 294 335 272 355 266 400 244 419 238 465 212 483 206L483 380H163Z" fill="url(#area)"/>
+    <path d="M163 326C190 318 205 308 227 306S270 296 291 294 335 272 355 266 400 244 419 238 465 212 483 206" fill="none" stroke="#0091FF" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#fff" stroke="#0091FF" stroke-width="3">
+      <circle cx="163" cy="326" r="5"/><circle cx="227" cy="306" r="5"/><circle cx="291" cy="294" r="5"/>
+      <circle cx="355" cy="266" r="5"/><circle cx="419" cy="238" r="5"/>
+    </g>
+    <circle cx="483" cy="206" r="16" fill="#0091FF" opacity=".18"/>
+    <circle cx="483" cy="206" r="8" fill="#0091FF"/>
+
+    <!-- publicação patrocinada nas redes sociais -->
+    <g filter="url(#s)"><rect x="520" y="150" width="182" height="236" rx="16" fill="#fff"/></g>
+    <circle cx="544" cy="176" r="12" fill="#000"/>
+    <text x="563" y="174" font-size="12" font-weight="700" fill="#000">a.tua.empresa</text>
+    <text x="563" y="189" font-size="11" font-weight="500" fill="#8A847A">Patrocinado</text>
+    <rect x="532" y="200" width="158" height="118" rx="10" fill="url(#foto)"/>
+    <circle cx="660" cy="226" r="13" fill="#F5B400"/>
+    <path d="M532 300l38-40 30 28 22-18 68 48v8a10 10 0 0 1-10 10H542a10 10 0 0 1-10-10z" fill="#9CCBF4"/>
+    <path d="M544 342c-3-4-10-4-12 1-2 4 2 8 12 15 10-7 14-11 12-15-2-5-9-5-12-1z" fill="#E5484D"/>
+    <path d="M572 335h18a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-11l-6 5v-5h-1a3 3 0 0 1-3-3v-11a3 3 0 0 1 3-3z" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M604 336l20 8-20 8 4-8z" fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="round"/>
+    <rect x="532" y="364" width="90" height="8" rx="4" fill="#ECE6DC"/>
+
+    <!-- novo pedido de orçamento -->
+    <g filter="url(#s)"><rect x="24" y="30" width="300" height="68" rx="16" fill="#fff"/></g>
+    <circle cx="60" cy="64" r="19" fill="#2FBA51"/>
+    <path d="M51 58h18v13H51zM51 58l9 7 9-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+    <text x="90" y="60" font-size="15" font-weight="700" fill="#000">Novo pedido de orçamento</text>
+    <text x="90" y="81" font-size="13" font-weight="500" fill="#8A847A">Agora mesmo</text>
+
+    <!-- nova avaliação -->
+    <g filter="url(#s)"><rect x="430" y="38" width="272" height="56" rx="16" fill="#fff"/></g>
+    <text x="452" y="73" font-size="19" fill="#F5B400" letter-spacing="1">★★★★★</text>
+    <text x="560" y="72" font-size="15" font-weight="700" fill="#000">Nova avaliação</text>
+
+    <!-- anúncio nas pesquisas -->
+    <g filter="url(#s)"><rect x="24" y="428" width="352" height="84" rx="16" fill="#fff"/></g>
+    <circle cx="57" cy="458" r="8" fill="none" stroke="#5F5A52" stroke-width="2.4"/>
+    <path d="M63 464l6 6" stroke="#5F5A52" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="80" y="463" font-size="12" font-weight="700" fill="#3A362F">Patrocinado</text>
+    <text x="156" y="463" font-size="12" font-weight="500" fill="#8A847A">· a-tua-empresa.pt</text>
+    <text x="46" y="487" font-size="16" font-weight="600" fill="#1A56DB">A Tua Empresa | Orçamento Grátis</text>
+    <text x="46" y="504" font-size="12.5" font-weight="500" fill="#8A847A">Resposta em 24 horas. Sem compromisso.</text>
+
+    <!-- megafone -->
+    <circle cx="640" cy="452" r="34" fill="#000"/>
+    <path d="M622 446v12h7l14 9v-30l-14 9zM629 458l3 10h6l-3-10M650 444a10 10 0 0 1 0 16" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>
