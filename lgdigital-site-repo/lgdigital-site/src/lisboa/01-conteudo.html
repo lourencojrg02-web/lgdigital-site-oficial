@@ -1,24 +1,20 @@
-<!-- ==================== /lisboa (página local para o Perfil da Empresa no Google) ==================== -->
-<!-- Igual à profresults.com/amsterdam: título "Agência de Marketing Digital em
-     Lisboa" com texto e vídeo ao lado, etiquetas, "Mas isto vale mesmo a pena?",
-     "A diferença", como funciona, resultados (os três clientes reais, como na
-     /gbp/), perguntas, os serviços e o bloco para marcar chamada (Cal.com,
-     noutro separador). É o site que vai no Perfil da Empresa no Google, por
-     isso fica no Google e no sitemap. Liga às páginas de cada serviço em
-     Lisboa e às páginas por zona (/lisboa/<zona>/).
-     IMAGEM DO TOPO: ilustração de marketing digital (assets/img/marketing-digital.svg),
-     em vez do vídeo da Prof. -->
+<!-- ==================== /lisboa (agência de marketing digital em Lisboa) ==================== -->
+<!-- Página local que vai no Perfil da Empresa no Google. Apresenta todos os
+     serviços (Google Ads, Meta Ads, SEO, SEO Local, AI SEO), não só o SEO local.
+     Mantém o título, o H1, a descrição, os dados da empresa (schema), as zonas,
+     o mapa "Onde Estamos" e o selo do Zaask. Desenho das páginas novas (gbp-*).
+     IMAGEM DO TOPO: ilustração de marketing digital (assets/img/marketing-digital.svg). -->
 @include _partials/lp-cab.html
 
 <main class="gbp" id="conteudo">
 
-  <!-- ---------- Topo: título e texto à esquerda, mapa de SEO local à direita ---------- -->
+  <!-- ---------- Topo ---------- -->
   <section class="gbp-topo gbp-topo--lado">
     <div class="gbp-topo-lado">
       <div class="gbp-topo-txt">
         <h1 class="gbp-h1">Agência de Marketing Digital em Lisboa</h1>
-        <p>A maioria das pesquisas vai para os 3 primeiros resultados do Google Maps.</p>
-        <p>Se a tua empresa em Lisboa não está lá, esses clientes vão para a concorrência.</p>
+        <p>Ajudamos empresas de Lisboa a conseguir mais clientes com Google Ads, Meta Ads, SEO, SEO local e AI SEO.</p>
+        <p>Pomos a tua mensagem à frente das pessoas certas, no momento certo: quando te procuram no Google, quando estão nas redes sociais e quando perguntam ao ChatGPT.</p>
       </div>
       <img class="gbp-topo-img" src="{{base}}assets/img/marketing-digital.svg" width="730" height="530"
         alt="Marketing digital em Lisboa: pedidos de orçamento a subir, um novo pedido de orçamento, uma nova avaliação, um anúncio no Google e uma publicação patrocinada nas redes sociais">
@@ -31,76 +27,64 @@
     </ul>
   </section>
 
-  <!-- ---------- A vantagem ---------- -->
+  <!-- ---------- Serviços ---------- -->
   <section class="gbp-sec">
-    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 5 10 L 8.5 13.5 L 15 7 M 20 10 C 20 15.523 15.523 20 10 20 C 4.477 20 0 15.523 0 10 C 0 4.477 4.477 0 10 0 C 15.523 0 20 4.477 20 10 Z" transform="translate(2 2)"/></svg>A Vantagem</p>
-    <h2 class="gbp-h2"><em class="gbp-serif">Mas</em> Isto Vale Mesmo a Pena?</h2>
-    <div class="gbp-cartoes">
-      <article class="gbp-cartao">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 0 8 C 0 8 4 0 11 0 C 18 0 22 8 22 8" transform="translate(1 4)"/><path d="M 0 0 C 0 0 4 8 11 8 C 18 8 22 0 22 0" transform="translate(1 12)"/><path d="M 3 6 C 4.657 6 6 4.657 6 3 C 6 1.343 4.657 0 3 0 C 1.343 0 0 1.343 0 3 C 0 4.657 1.343 6 3 6 Z" transform="translate(9 9)"/></svg>
-        <h3>Visibilidade</h3>
-        <p>A maioria das pessoas que procuram os teus serviços em Lisboa clica nos
-          3 primeiros resultados. Se não estás lá, és invisível para os clientes da
-          tua zona.</p>
-      </article>
-      <article class="gbp-cartao">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 4.016 6.016 L 4 6 M 16.016 6.016 L 16 6 M 1 12 L 19 12 C 19.552 12 20 11.552 20 11 L 20 1 C 20 0.448 19.552 0 19 0 L 1 0 C 0.448 0 0 0.448 0 1 L 0 11 C 0 11.552 0.448 12 1 12 Z M 12 6 C 12 7.105 11.105 8 10 8 C 8.895 8 8 7.105 8 6 C 8 4.895 8.895 4 10 4 C 11.105 4 12 4.895 12 6 Z" transform="translate(2 6)"/></svg>
-        <h3>Sem Pagar por Clique</h3>
-        <p>Não pagas por cada clique nem precisas de grandes orçamentos, como no
-          Google Ads, no Meta Ads e afins.</p>
-      </article>
-      <article class="gbp-cartao">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 10 5 L 10 10 L 13 13 M 20 10 C 20 4.477 15.523 0 10 0 C 4.477 0 0 4.477 0 10 C 0 15.523 4.477 20 10 20 C 11.045 20 12.053 19.84 13 19.542 M 15.5 15.5 L 18 13 L 20.5 15.5 M 18 14 L 18 19" transform="translate(2 2)"/></svg>
-        <h3>Estratégia a Longo Prazo</h3>
-        <p>Quando chegas ao top 3 nas pesquisas de Lisboa, o teu lugar não
-          desaparece no dia em que deixas de pagar, ao contrário dos anúncios.</p>
-      </article>
+    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 5 10 L 8.5 13.5 L 15 7 M 20 10 C 20 15.523 15.523 20 10 20 C 4.477 20 0 15.523 0 10 C 0 4.477 4.477 0 10 0 C 15.523 0 20 4.477 20 10 Z" transform="translate(2 2)"/></svg>Serviços</p>
+    <h2 class="gbp-h2">Tudo o Que Precisas Para <em class="gbp-serif">Crescer</em></h2>
+    <div class="lx-serv-grelha">
+      <a class="gbp-cartao lx-serv" href="{{base}}lisboa/google-ads/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/><path d="M21 21l-4.35-4.35"/><path d="M8.5 11h5M11 8.5v5"/></svg>
+        <h3>Google Ads</h3>
+        <p>Anúncios no Google que te põem à frente de quem já está pronto para comprar.</p>
+        <span class="lx-serv-mais">Saber mais &rarr;</span>
+      </a>
+      <a class="gbp-cartao lx-serv" href="{{base}}lisboa/meta-ads/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        <h3>Meta Ads</h3>
+        <p>Anúncios no Facebook e no Instagram que fazem parar o scroll e dão às pessoas uma razão para te ligarem.</p>
+        <span class="lx-serv-mais">Saber mais &rarr;</span>
+      </a>
+      <a class="gbp-cartao lx-serv" href="{{base}}lisboa/seo/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-4"/><path d="M11 16V8"/><path d="M16 16v-6"/><path d="M20 16V5"/></svg>
+        <h3>SEO</h3>
+        <p>Aparece no Google sem pagar por cada clique, nas pesquisas que os teus clientes fazem.</p>
+        <span class="lx-serv-mais">Saber mais &rarr;</span>
+      </a>
+      <a class="gbp-cartao lx-serv" href="{{base}}lisboa/seo-local/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><path d="M12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        <h3>SEO Local</h3>
+        <p>Entra no top 3 do Google Maps quando alguém na tua zona procura aquilo que tu fazes.</p>
+        <span class="lx-serv-mais">Saber mais &rarr;</span>
+      </a>
+      <a class="gbp-cartao lx-serv" href="{{base}}lisboa/ai-seo/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+        <h3>AI SEO</h3>
+        <p>Põe a tua empresa nas respostas do ChatGPT, do Perplexity e das respostas de IA do Google.</p>
+        <span class="lx-serv-mais">Saber mais &rarr;</span>
+      </a>
     </div>
   </section>
 
-  <!-- ---------- A diferença (antes / depois, exemplo igual ao da Prof) ---------- -->
+  <!-- ---------- A vantagem ---------- -->
   <section class="gbp-sec">
-    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 5 10 L 8.5 13.5 L 15 7 M 20 10 C 20 15.523 15.523 20 10 20 C 4.477 20 0 15.523 0 10 C 0 4.477 4.477 0 10 0 C 15.523 0 20 4.477 20 10 Z" transform="translate(2 2)"/></svg>Antes / Depois</p>
-    <h2 class="gbp-h2">A <em class="gbp-serif">Diferença</em></h2>
-
-    <div class="gbp-dif">
-      <div class="gbp-dif-esq">
-        <div class="gbp-tabs" role="tablist" aria-label="Antes e depois">
-          <button type="button" role="tab" id="t-antes" aria-controls="p-antes" aria-selected="true">Antes</button>
-          <button type="button" role="tab" id="t-depois" aria-controls="p-depois" aria-selected="false" tabindex="-1">Depois</button>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-antes" aria-labelledby="t-antes">
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo gbp-emp-logo--g"><img src="{{base}}assets/img/simbolo-claro.png" alt=""></span>
-            <div><p class="gbp-emp-n">A Tua Empresa</p><p class="gbp-emp-l">Rua do Alfabeto 123, 1000-001 Lisboa</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Posição Média <span class="gbp-v gbp-v--mau">86</span></li>
-            <li>Quota de Mercado <span class="gbp-v gbp-v--mau">1%</span></li>
-            <li>Cliques por Mês <span class="gbp-v gbp-v--mau">5</span></li>
-            <li>Clientes por Mês <span class="gbp-v gbp-v--mau">1-2</span></li>
-          </ul>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-depois" aria-labelledby="t-depois" hidden>
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo gbp-emp-logo--g"><img src="{{base}}assets/img/simbolo-claro.png" alt=""></span>
-            <div><p class="gbp-emp-n">A Tua Empresa</p><p class="gbp-emp-l">Rua do Alfabeto 123, 1000-001 Lisboa</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Posição Média <span class="gbp-v gbp-v--bom">2</span></li>
-            <li>Quota de Mercado <span class="gbp-v gbp-v--bom">82%</span></li>
-            <li>Cliques por Mês <span class="gbp-v gbp-v--bom">80</span></li>
-            <li>Clientes por Mês <span class="gbp-v gbp-v--bom">15+</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="gbp-mapa gbp-mapa--quadrado">
-        <img data-mapa="p-antes" src="{{base}}assets/img/resultados/antes-mapa.webp" width="760" height="760" alt="Mapa de posições antes: fora do top 3 em quase toda a cidade">
-        <img data-mapa="p-depois" src="{{base}}assets/img/resultados/depois-mapa.webp" width="760" height="760" alt="Mapa de posições depois: em 1.º lugar em toda a cidade" loading="lazy" hidden>
-      </div>
+    <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 5 10 L 8.5 13.5 L 15 7 M 20 10 C 20 15.523 15.523 20 10 20 C 4.477 20 0 15.523 0 10 C 0 4.477 4.477 0 10 0 C 15.523 0 20 4.477 20 10 Z" transform="translate(2 2)"/></svg>A Vantagem</p>
+    <h2 class="gbp-h2">Porquê a <em class="gbp-serif">LGDigital</em>?</h2>
+    <div class="gbp-cartoes">
+      <article class="gbp-cartao">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Tudo no Mesmo Sítio</h3>
+        <p>Anúncios, SEO e redes sociais com a mesma estratégia. Sem andares a falar com três agências diferentes.</p>
+      </article>
+      <article class="gbp-cartao">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <h3>Feito Por Nós</h3>
+        <p>Tratamos de tudo, do início ao fim. Tu só tens de atender o telefone.</p>
+      </article>
+      <article class="gbp-cartao">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg>
+        <h3>Números Claros</h3>
+        <p>Mostramos-te os números que importam: pedidos de orçamento, chamadas e clientes. Sem relatórios cheios de informação desnecessária.</p>
+      </article>
     </div>
   </section>
 
@@ -110,9 +94,9 @@
     <h2 class="gbp-h2">É Muito <em class="gbp-serif">Simples</em>.</h2>
     <ol class="gbp-passos">
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 5 2 L 2 2 C 0.895 2 0 2.895 0 4 L 0 7 M 5 2 L 13 2 M 5 2 L 5 0 M 5 2 L 5 4 M 13 2 L 16 2 C 17.105 2 18 2.895 18 4 L 18 7 L 0 7 M 13 2 L 13 0 M 13 2 L 13 4 M 0 7 L 0 18 C 0 19.105 0.895 20 2 20 L 7 20 M 14 13.25 L 14 15 L 15.25 16.25 M 19 15 C 19 17.761 16.761 20 14 20 C 11.239 20 9 17.761 9 15 C 9 12.239 11.239 10 14 10 C 16.761 10 19 12.239 19 15 Z" transform="translate(3 2)"/></svg>
-        <b>01. Chamada Estratégica</b> <span>Marca uma chamada gratuita para avaliarmos o teu mercado em Lisboa e a tua posição atual.</span></li>
+        <b>01. Chamada Estratégica</b> <span>Marca uma chamada gratuita para percebermos o teu negócio, o teu mercado em Lisboa e o que faz mais sentido para ti.</span></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 6 0 L 0 3.6 L 0 18 L 6 14.4 M 6 0 L 6 14.4 M 6 0 L 12 3.6 M 6 14.4 L 12 18 M 12 3.6 L 18 0 L 18 14.4 L 12 18 M 12 3.6 L 12 18" transform="translate(3 3)"/></svg>
-        <b>02. Arranque</b> <span>Enviamos-te instruções detalhadas para nos dares acesso seguro ao teu perfil.</span></li>
+        <b>02. Estratégia</b> <span>Escolhemos os canais certos para a tua empresa: Google, redes sociais, SEO ou uma combinação.</span></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 6 1 L 18 1 M 6 7 L 18 7 M 6 13 L 18 13 M 0 0 L 2 0 L 2 2 L 0 2 Z M 0 6 L 2 6 L 2 8 L 0 8 Z M 0 12 L 2 12 L 2 14 L 0 14 Z" transform="translate(3 5)"/></svg>
         <b>03. Execução</b> <span>Tratamos de cada passo do processo e mostramos-te o que estamos a fazer.</span></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 11 13.5 L 11 19 L 14.707 15.293 C 14.895 15.105 15 14.851 15 14.586 L 15 8 L 17 6 C 18.146 4.854 19 3.41 19 1.789 L 19 0 L 17.211 0 C 15.59 0 14.146 0.854 13 2 L 11.08 4 L 4.414 4 C 4.149 4 3.895 4.105 3.707 4.293 L 0 8 L 5.5 8 M 10 9 L 5 14" transform="translate(2 3)"/></svg>
@@ -120,64 +104,35 @@
     </ol>
   </section>
 
-  <!-- ---------- Resultados (clientes reais, separadores com mapa) ---------- -->
+  <!-- ---------- Resultados ---------- -->
   <section class="gbp-sec">
     <p class="gbp-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M 5 10 L 8.5 13.5 L 15 7 M 20 10 C 20 15.523 15.523 20 10 20 C 4.477 20 0 15.523 0 10 C 0 4.477 4.477 0 10 0 C 15.523 0 20 4.477 20 10 Z" transform="translate(2 2)"/></svg>Resultados</p>
     <h2 class="gbp-h2">Resultados <em class="gbp-serif">Reais</em></h2>
-
-    <div class="gbp-dif">
-      <div class="gbp-dif-esq">
-        <div class="gbp-tabs" role="tablist" aria-label="Clientes">
-          <button type="button" role="tab" id="t-hca" aria-controls="p-hca" aria-selected="true">Humberto Conde</button>
-          <button type="button" role="tab" id="t-arq" aria-controls="p-arq" aria-selected="false" tabindex="-1">Arquitetura 501</button>
-          <button type="button" role="tab" id="t-casa" aria-controls="p-casa" aria-selected="false" tabindex="-1">Casa em Ordem</button>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-hca" aria-labelledby="t-hca">
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo"><img src="{{base}}assets/img/clientes/hca-lisboa.png" alt=""></span>
-            <div><p class="gbp-emp-n">Humberto Conde Arquitectos</p><p class="gbp-emp-l">Arquitetura &middot; Lisboa</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;arquitecto lisboa&rdquo;</span></li>
-            <li>Posição Média <span class="gbp-v">1.º de 210</span></li>
-            <li>Quota de Mercado <span class="gbp-v">85%</span></li>
-            <li>Pontos Medidos <span class="gbp-v">81</span></li>
-          </ul>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-arq" aria-labelledby="t-arq" hidden>
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo"><img src="{{base}}assets/img/clientes/arquitetura-501.png" alt=""></span>
-            <div><p class="gbp-emp-n">Arquitetura 501</p><p class="gbp-emp-l">Arquitetura &middot; Braga</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;arquiteto braga&rdquo;</span></li>
-            <li>Top 3 em <span class="gbp-v">30 dias</span></li>
-            <li>Quota de Mercado <span class="gbp-v">80%</span></li>
-            <li>Empresas no Mercado <span class="gbp-v">89</span></li>
-          </ul>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-casa" aria-labelledby="t-casa" hidden>
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo"><img src="{{base}}assets/img/clientes/casa-em-ordem.png" alt=""></span>
-            <div><p class="gbp-emp-n">Casa em Ordem</p><p class="gbp-emp-l">Remodelações &middot; Porto</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;remodelação&rdquo;</span></li>
-            <li>Posição Média <span class="gbp-v">1.º lugar</span></li>
-            <li>Quota de Mercado <span class="gbp-v">100%</span></li>
-            <li>Pontos Medidos <span class="gbp-v">81</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="gbp-mapa">
-        <img data-mapa="p-hca" src="{{base}}assets/img/resultados/hca-mapa.webp" width="429" height="312" alt="Mapa de posições da Humberto Conde Arquitectos em Lisboa: verde é top 3">
-        <img data-mapa="p-arq" src="{{base}}assets/img/resultados/arq501-mapa.webp" width="414" height="272" alt="Mapa de posições da Arquitetura 501 em Braga: verde é top 3" loading="lazy" hidden>
-        <img data-mapa="p-casa" src="{{base}}assets/img/resultados/casa-mapa.webp" width="417" height="238" alt="Mapa de posições da Casa em Ordem no Porto: verde é top 3" loading="lazy" hidden>
-      </div>
+    <div class="lx-res-grelha">
+      <article class="lx-res">
+        <img class="lx-res-logo" src="{{base}}assets/img/clientes/ortofirst-escuro.png" width="542" height="120" alt="OrtoFirst">
+        <p class="lx-res-cat">Formação · Anúncios</p>
+        <p class="lx-res-num">74.100&nbsp;€ em contratos fechados</p>
+        <p class="lx-res-txt">com 2.906&nbsp;€ investidos em anúncios</p>
+      </article>
+      <article class="lx-res">
+        <img class="lx-res-logo" src="{{base}}assets/img/clientes/hca-lisboa.png" width="140" height="140" alt="Humberto Conde Arquitectos">
+        <p class="lx-res-cat">Arquitetura · Lisboa · SEO Local</p>
+        <p class="lx-res-num">1.º lugar entre 210 concorrentes</p>
+        <p class="lx-res-txt">85% de quota de mercado em “arquitecto lisboa”</p>
+      </article>
+      <article class="lx-res">
+        <img class="lx-res-logo" src="{{base}}assets/img/clientes/arquitetura-501.png" width="606" height="140" alt="Arquitetura 501">
+        <p class="lx-res-cat">Arquitetura · Braga · SEO Local</p>
+        <p class="lx-res-num">Top 3 em 30 dias</p>
+        <p class="lx-res-txt">80% de quota de mercado em “arquiteto braga”</p>
+      </article>
+      <article class="lx-res">
+        <img class="lx-res-logo" src="{{base}}assets/img/clientes/casa-em-ordem.png" width="248" height="140" alt="Casa em Ordem">
+        <p class="lx-res-cat">Remodelações · Porto · SEO Local</p>
+        <p class="lx-res-num">100% de quota de mercado</p>
+        <p class="lx-res-txt">1.º lugar na pesquisa “remodelação”</p>
+      </article>
     </div>
   </section>
 
@@ -187,44 +142,29 @@
     <h2 class="gbp-h2 gbp-h2--faq">Perguntas <em class="gbp-serif">Frequentes</em></h2>
     <div class="gbp-faq">
       <details>
-        <summary>Qual é a diferença entre SEO e Google Ads?</summary>
-        <p>O Google Ads põe-te no topo dos resultados enquanto continuares a pagar. No dia
-          em que paras, desapareces. O SEO põe-te nos resultados orgânicos: o Google
-          mostra-te porque te considera o resultado mais relevante. Quando lá chegas,
-          ficas lá sem pagar anúncios.</p>
+        <summary>Que serviços fazem?</summary>
+        <p>Google Ads, Meta Ads (Facebook e Instagram), SEO, SEO local e AI SEO. Vemos contigo o que faz mais sentido para a tua empresa e começamos por aí.</p>
       </details>
       <details>
         <summary>Com que empresas trabalham?</summary>
-        <p>Só com empresas locais, em Lisboa e no resto do país: remodelações,
-          canalizadores, eletricistas, clínicas, empresas de limpeza, qualquer negócio
-          que sirva clientes numa zona. Se as pessoas pesquisam no Google o teu serviço
-          e a tua cidade, podemos ajudar-te.</p>
+        <p>Com pequenas e médias empresas, em Lisboa e no resto do país: remodelações, canalizadores, eletricistas, clínicas, empresas de limpeza, qualquer negócio que viva de clientes.</p>
       </details>
       <details>
-        <summary>Quanto tempo vou ter de investir?</summary>
-        <p>Muito pouco. Tratamos de tudo do nosso lado. No arranque só precisamos de uns
-          minutos teus para nos dares acesso seguro ao teu Perfil da Empresa no Google.
-          Depois disso, fazemos o trabalho e vamos-te dando notícias, para saberes
-          sempre em que ponto estás.</p>
+        <summary>Quanto custa?</summary>
+        <p>Cada serviço começa nos 1.000&nbsp;€ por mês. Nos anúncios, recomendamos também pelo menos 1.000&nbsp;€ por mês para investir em anúncios, à parte do nosso valor.</p>
       </details>
       <details>
-        <summary>Quais são as condições do contrato?</summary>
-        <p>São 1.000&nbsp;€ por mês. Sem fidelização: cancelas quando quiseres, com um
-          mês de aviso. Garantimos que chegas ao top 3 em 90 dias; se não chegares,
-          continuamos a trabalhar de graça até lá chegares.</p>
+        <summary>Tenho de assinar um contrato longo?</summary>
+        <p>Não. Não há fidelização: cancelas quando quiseres, com um mês de aviso.</p>
       </details>
       <details>
         <summary>Como podemos começar?</summary>
-        <p>Marca uma chamada estratégica no botão desta página. Vemos juntos a tua
-          presença atual no Google, avaliamos o teu mercado e dizemos-te exatamente o
-          que é preciso para chegares ao top 3. Sem pressão nem compromisso.</p>
+        <p>Marca uma chamada estratégica no botão desta página. Vemos juntos a tua presença online, avaliamos o teu mercado e dizemos-te o que faz mais sentido para a tua empresa. Sem pressão nem compromisso.</p>
       </details>
     </div>
   </section>
 
-  <!-- ---------- Os nossos serviços em Lisboa e zonas ---------- -->
-@include _partials/lx-servicos.html
-
+  <!-- ---------- Zonas ---------- -->
 @include _partials/lx-zonas.html
 
   <!-- ---------- Onde estamos: mapa do Perfil da Empresa no Google ---------- -->
@@ -244,7 +184,7 @@
       <h2 class="lp-h2 lp-h2--gratis">Agenda a Tua Chamada Estratégica <em class="lp-serif">Gratuita</em></h2>
       <p class="lp-gratis-p lp-ty-p">Se é disto que a tua empresa em Lisboa precisa, vamos falar.</p>
       <p class="lp-gratis-p lp-ty-p">Marca uma chamada rápida connosco e mostramos-te
-        exatamente como te poríamos no top 3.</p>
+        exatamente como podemos trazer mais clientes para a tua empresa.</p>
       <a class="lp-btn lp-btn--lg lp-gratis-btn" href="https://cal.com/lourenco-gaspar-tmrt3u/30min" target="_blank" rel="noopener">Agendar Chamada Estratégica</a>
     </div>
   </section>
@@ -254,30 +194,3 @@
 @include _partials/lp-rodape.html
 
 @include _partials/lp-script.html
-
-<script>
-/* separadores (antes/depois e resultados) */
-(function () {
-  [].forEach.call(document.querySelectorAll('.gbp-tabs'), function (grupo) {
-    var tabs = [].slice.call(grupo.querySelectorAll('[role=tab]'));
-    function abre(tab, foco) {
-      tabs.forEach(function (t) {
-        var sel = t === tab, id = t.getAttribute('aria-controls');
-        t.setAttribute('aria-selected', sel ? 'true' : 'false');
-        t.tabIndex = sel ? 0 : -1;
-        document.getElementById(id).hidden = !sel;
-        document.querySelector('[data-mapa="' + id + '"]').hidden = !sel;
-      });
-      if (foco) tab.focus();
-    }
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { abre(t); });
-      t.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') abre(tabs[(i + 1) % tabs.length], true);
-        if (e.key === 'ArrowLeft') abre(tabs[(i - 1 + tabs.length) % tabs.length], true);
-      });
-    });
-  });
-
-})();
-</script>

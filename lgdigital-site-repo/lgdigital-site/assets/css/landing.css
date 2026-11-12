@@ -469,3 +469,24 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 /* /lisboa/: selo do Zaask por baixo do mapa */
 .lx-zaask{display:flex;justify-content:center;margin-top:32px;}
 .lx-zaask img{display:inline-block;max-width:100%;height:auto;}
+
+/* ---------- /lisboa/: serviços e resultados (página de todos os serviços) ---------- */
+.lx-serv-grelha{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:40px;text-align:left;}
+.lx-serv{grid-column:span 2;transition:transform .15s, box-shadow .15s;}
+.lx-serv:nth-child(4){grid-column:2 / span 2;}
+.lx-serv:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.06);}
+.lx-serv-mais{margin-top:auto;padding-top:6px;font-size:14px;font-weight:500;}
+.lx-res-grelha{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:40px;text-align:left;}
+.lx-res{display:flex;flex-direction:column;gap:8px;padding:28px 24px;border-radius:10px;background:#fff;}
+.lx-res-logo{width:auto;max-width:150px;height:36px;object-fit:contain;object-position:left center;margin-bottom:10px;}
+.lx-res-cat{font-size:13px;color:#8A847A;}
+.lx-res-num{font-size:22px;font-weight:600;line-height:1.2;}
+.lx-res-txt{font-size:15px;line-height:1.35;color:#4F4F4F;}
+@media(max-width:1000px){
+  .lx-serv-grelha{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lx-serv,.lx-serv:nth-child(4){grid-column:auto;}
+  .lx-res-grelha{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:720px){
+  .lx-serv-grelha,.lx-res-grelha{grid-template-columns:1fr;}
+}
