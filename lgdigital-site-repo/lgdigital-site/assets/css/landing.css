@@ -490,3 +490,6 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 @media(max-width:720px){
   .lx-serv-grelha,.lx-res-grelha{grid-template-columns:1fr;}
 }
+
+.lx-topo-btn{margin-top:28px;}
+@media(max-width:720px){.lx-topo-btn{width:100%;}}
