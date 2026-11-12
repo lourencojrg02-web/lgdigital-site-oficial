@@ -202,7 +202,7 @@ PAGES = [
     dict(out="lisboa/index.html", src="lisboa", base="../", home="../",
          body="tema-landing", css="landing.css", fontes=FONTES_GBP, cor="#EFEBE5",
          nome="Lisboa",
-         title="MELHOR Agência de Marketing em Lisboa - à procura de uma agência de marketing digital perto de ti para SEO, SEO local, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google",
+         title="MELHOR Agência de Marketing Digital em Lisboa - Estás à procura de uma agência de marketing digital perto de ti para SEO, SEO local, AI SEO, Google Ads ou Meta Ads? A LGDigital põe a tua empresa no topo do Google",
          desc="A LGDigital é uma agência de marketing digital em Lisboa: SEO, SEO local, Google Ads, Meta Ads e AI SEO. Feito por nós, sem fidelização."),
 
     # Página-prova de SEO (como a profresults.com/hardest-working-seo-expert-amsterdam)
