@@ -217,6 +217,13 @@ PAGES = [
                         "Lourenço Gaspar foi apelidado de “o especialista de SEO mais dedicado em Lisboa”. Aqui está a prova.",
                         "2026-11-11")),
 
+    # Contactos: informações do negócio (NAP), email, chamada, redes e mapa
+    dict(out="contactos/index.html", src="contactos", base="../", home="../",
+         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         nome="Contactos",
+         title="Contactos | LGDigital - Agência de Marketing Digital em Lisboa",
+         desc="Fala com a LGDigital, agência de marketing digital em Lisboa. R. dos Arneiros 133, 1500-057 Lisboa. Telefone 926 289 562. Marca uma chamada estratégica gratuita."),
+
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
@@ -376,7 +383,6 @@ REDIRECIONAR = {
     "melhor-web-designer-lisboa/": "",
     "hvac/": "",
     "hvac-obrigado/": "",
-    "contactos/": "",
     # o caso da OrtoFirst esteve uns dias publicado como artigo
     "artigos/anuncios-74100-euros-faturados/": "",
     # site antigo arquivado em 11/11/2026 (arquivo=True no PAGES)
@@ -507,8 +513,8 @@ def jsonld_para(pg, body):
     else:
         # páginas locais (/lisboa/ e /lisboa/<zona ou serviço>/): a mesma empresa,
         # com a zona que a página serve em areaServed
-        if pg["out"].startswith("lisboa/"):
-            blocos.append(organizacao(pg["desc"], pg.get("zona", "Lisboa")))
+        if pg["out"].startswith(("lisboa/", "contactos/")):
+            blocos.append(organizacao(pg["desc"], pg.get("zona", "Lisboa" if pg["out"].startswith("lisboa/") else None)))
         trilho = [{"@type": "ListItem", "position": 1, "name": "Início", "item": SITE + "/"}]
         if pg.get("pai"):                       # ex.: ("Artigos", "artigos/")
             trilho.append({"@type": "ListItem", "position": 2, "name": pg["pai"][0],

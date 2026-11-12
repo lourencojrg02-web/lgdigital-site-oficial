@@ -116,6 +116,12 @@ Para pôr uma de volta no ar: tirar o `arquivo=True`, tirar o endereço de
 A 404, a Política de Privacidade e os Termos passaram para o estilo novo
 (cabeçalho e rodapé das páginas novas, com o NAP).
 
+### Contactos (/contactos)
+
+`src/contactos/`: NAP (com link para o Google Maps e telefone), email,
+botão para o Cal.com, redes da empresa e o mapa do Google. No Google e no
+sitemap, com os dados da empresa (ProfessionalService).
+
 ### NAP (nome, morada, telefone)
 
 Está no rodapé de todas as páginas, igual ao Perfil da Empresa no Google:
