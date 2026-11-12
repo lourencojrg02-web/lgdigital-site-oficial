@@ -465,3 +465,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
   .ct-grelha{grid-template-columns:1fr;margin-top:32px;}
   .ct-valor{font-size:18px;}
 }
+
+/* /lisboa/: selo do Zaask por baixo do mapa */
+.lx-zaask{display:flex;justify-content:center;margin-top:32px;}
+.lx-zaask img{display:inline-block;max-width:100%;height:auto;}
