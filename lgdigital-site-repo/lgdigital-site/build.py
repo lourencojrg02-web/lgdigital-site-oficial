@@ -226,10 +226,10 @@ PAGES = [
 
     # Chamada marcada: título e vídeo de 2 minutos (Wistia). Fora do Google.
     dict(out="gbp-booked/index.html", src="gbp-booked", base="../", home="../",
-         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
          nome="Chamada marcada",
          title="A nossa chamada está marcada! | LGDigital",
-         desc="A nossa chamada está marcada. Vê este vídeo de 2 minutos antes de falarmos."),
+         desc="A nossa chamada está marcada. Vê este vídeo de 2 minutos e os resultados dos nossos clientes antes de falarmos."),
 
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../",

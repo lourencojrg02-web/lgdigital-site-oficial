@@ -1,7 +1,11 @@
 <!-- ==================== /gbp-booked (chamada marcada) ==================== -->
-<!-- Página para onde vai quem marca a chamada estratégica: título e um vídeo
-     de 2 minutos (Wistia, media-id 6vsw1198nh). Mesmo desenho da /3-dicas/.
-     Fora do Google. -->
+<!-- Página para onde vai quem marca a chamada estratégica: título, um vídeo
+     de 2 minutos (Wistia, media-id 6vsw1198nh) e, por baixo, os resultados
+     reais dos clientes, com as imagens (mapas de posições e o print do
+     Google). Mesmo desenho da /3-dicas/. Fora do Google.
+
+     Só números medidos (os mesmos da página inicial e da /lisboa/); não se
+     acrescenta nada que não tenha sido medido. Testemunhos: ainda não há. -->
 <!-- cabeçalho só com o logótipo, que sobe ao topo desta página -->
 <header class="lp-cab">
   <div class="lp-cab-in">
@@ -18,6 +22,119 @@
     <!-- vídeo (Wistia), código tal como o Wistia o dá -->
     <div class="lp-video lp-video--larga lp-video--wistia">
       <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/6vsw1198nh.js" async type="module"></script><style>wistia-player[media-id='6vsw1198nh']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/6vsw1198nh/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="6vsw1198nh" aspect="1.7777777777777777"></wistia-player>
+    </div>
+  </section>
+
+  <!-- ---------- Resultados dos clientes ---------- -->
+  <section class="bk-sec" id="resultados">
+    <span class="lp-pill">Resultados</span>
+    <h2 class="lp-h2 bk-h2">Resultados <em class="lp-serif">Reais</em></h2>
+    <p class="bk-intro">Enquanto esperas pela nossa chamada, vê o que já fizemos por outras empresas.</p>
+
+    <div class="bk-casos">
+
+      <!-- Humberto Conde Arquitectos -->
+      <article class="bk-caso">
+        <div class="bk-caso-topo">
+          <img class="bk-caso-logo" src="{{base}}assets/img/clientes/hca-lisboa.png" width="140" height="140" alt="Humberto Conde Arquitectos">
+          <div>
+            <p class="bk-caso-n">Humberto Conde Arquitectos</p>
+            <p class="bk-caso-cat">Arquitetura &middot; Lisboa</p>
+          </div>
+          <span class="bk-tag">SEO Local</span>
+        </div>
+        <p class="bk-caso-num">1.º lugar entre 210 concorrentes</p>
+        <p class="bk-caso-pesq">Pesquisa &ldquo;arquitecto lisboa&rdquo; no Google Maps</p>
+        <ul class="bk-stats">
+          <li><b>7 dias</b> até ao top 3 do Google</li>
+          <li><b>85%</b> de quota de mercado</li>
+          <li><b>81</b> pontos medidos em Lisboa</li>
+        </ul>
+        <figure class="bk-media">
+          <img src="{{base}}assets/img/resultados/hca-heatmap.webp" width="940" height="502" loading="lazy"
+            alt="Mapa de posições da Humberto Conde Arquitectos na pesquisa arquitecto lisboa: 1.º na posição média entre 210 empresas e 85% de quota de mercado">
+          <figcaption>A posição da empresa no Google Maps em 81 pontos de Lisboa. Verde é top 3.</figcaption>
+        </figure>
+      </article>
+
+      <!-- Arquitetura 501 -->
+      <article class="bk-caso">
+        <div class="bk-caso-topo">
+          <img class="bk-caso-logo bk-caso-logo--largo" src="{{base}}assets/img/clientes/arquitetura-501.png" width="606" height="140" alt="Arquitetura 501">
+          <div>
+            <p class="bk-caso-cat">Arquitetura &middot; Braga</p>
+          </div>
+          <span class="bk-tag">SEO Local</span>
+        </div>
+        <p class="bk-caso-num">Top 3 no Google em 30 dias</p>
+        <p class="bk-caso-pesq">Pesquisa &ldquo;arquiteto braga&rdquo; no Google Maps</p>
+        <ul class="bk-stats">
+          <li><b>80%</b> de quota de mercado</li>
+          <li><b>89</b> empresas no mercado</li>
+          <li><b>3.º</b> na posição média</li>
+        </ul>
+        <div class="bk-media bk-media--2">
+          <figure>
+            <img src="{{base}}assets/img/resultados/arq501-heatmap.webp" width="940" height="573" loading="lazy"
+              alt="Mapa de posições da Arquitetura 501 na pesquisa arquiteto braga: 3.º na posição média entre 89 empresas e 80% de quota de mercado">
+            <figcaption>A posição da empresa no Google Maps em 81 pontos de Braga. Verde é top 3.</figcaption>
+          </figure>
+          <figure>
+            <img src="{{base}}assets/img/resultados/arq501-google.webp" width="873" height="492" loading="lazy"
+              alt="Pesquisa arquiteto Braga no Google, com a Arquitetura 501 em destaque nas empresas">
+            <figcaption>O que aparece a quem pesquisa &ldquo;arquiteto Braga&rdquo; no Google.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Casa em Ordem -->
+      <article class="bk-caso">
+        <div class="bk-caso-topo">
+          <img class="bk-caso-logo" src="{{base}}assets/img/clientes/casa-em-ordem.png" width="248" height="140" alt="Casa em Ordem">
+          <div>
+            <p class="bk-caso-n">Casa em Ordem</p>
+            <p class="bk-caso-cat">Remodelações &middot; Porto</p>
+          </div>
+          <span class="bk-tag">SEO Local</span>
+        </div>
+        <p class="bk-caso-num">100% de quota de mercado</p>
+        <p class="bk-caso-pesq">Pesquisa &ldquo;remodelação&rdquo; no Google Maps</p>
+        <ul class="bk-stats">
+          <li><b>22 dias</b> até ao top 3 do Google</li>
+          <li><b>1.º</b> na posição média</li>
+          <li><b>81</b> pontos medidos no Porto</li>
+        </ul>
+        <figure class="bk-media">
+          <img src="{{base}}assets/img/resultados/casa-heatmap.webp" width="940" height="470" loading="lazy"
+            alt="Mapa de posições da Casa em Ordem na pesquisa remodelação no Porto: 1.º na posição média e 100% de quota de mercado">
+          <figcaption>A posição da empresa no Google Maps em 81 pontos do Porto. Verde é top 3.</figcaption>
+        </figure>
+      </article>
+
+      <!-- OrtoFirst (Meta Ads) -->
+      <article class="bk-caso">
+        <div class="bk-caso-topo">
+          <img class="bk-caso-logo bk-caso-logo--largo" src="{{base}}assets/img/clientes/ortofirst-escuro.png" width="542" height="120" alt="OrtoFirst">
+          <div>
+            <p class="bk-caso-cat">Formação</p>
+          </div>
+          <span class="bk-tag bk-tag--azul">Meta Ads</span>
+        </div>
+        <p class="bk-caso-num">74.100&nbsp;€ em contratos fechados</p>
+        <p class="bk-caso-pesq">Com 2.906,75&nbsp;€ investidos em anúncios no Facebook e no Instagram</p>
+        <ol class="bk-funil" aria-label="Do investimento aos contratos">
+          <li><b>2.906,75&nbsp;€</b> investidos</li>
+          <li><b>24</b> leads</li>
+          <li><b>3</b> clientes</li>
+          <li><b>74.100&nbsp;€</b> em contratos</li>
+        </ol>
+        <ul class="bk-stats">
+          <li><b>25,5x</b> de retorno bruto</li>
+          <li><b>121,11&nbsp;€</b> por lead</li>
+          <li><b>12,5%</b> das leads tornaram-se clientes</li>
+        </ul>
+      </article>
+
     </div>
   </section>
 
