@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/landing.css?v=6c34bf20">
+<link rel="stylesheet" href="assets/css/landing.css?v=d9e740ae">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -74,10 +74,9 @@ location.replace('https://cal.com/lourenco-gaspar-tmrt3u/30min');})();</script>
      Lead do píxel da Meta.
 
      VÍDEO
-     Quando houver vídeo no YouTube, pôr o ID em data-video (no .lp-video):
-     por exemplo data-video="dQw4w9WgXcQ". Sem ID, mostra a foto e
-     "Vídeo em breve". Com ID, aparece o botão de play e o vídeo só carrega
-     quando a pessoa carrega no play (youtube-nocookie). -->
+     Wistia (media-id sxev9la9j2), com o código de embed do Wistia dentro do
+     .lp-video--wistia. Para trocar de vídeo, troca o media-id nas três partes
+     do código (script, style e wistia-player). -->
 <!-- cabeçalho da landing e das páginas /servicos/ (estilo profresults.com)
      O logótipo e o botão levam ao topo da página inicial (#inscrever).
      Na própria inicial, o lp-script troca os links data-topo por "#inscrever"
@@ -110,12 +109,9 @@ location.replace('https://cal.com/lourenco-gaspar-tmrt3u/30min');})();</script>
       </form>
     </div>
 
-    <div class="lp-video" data-video="">
-      <img class="lp-video-foto" src="assets/img/lourenco-gaspar.jpg" width="760" height="760" alt="Lourenço Gaspar, fundador da LGDigital">
-      <button class="lp-video-play" type="button" aria-label="Ver o vídeo" hidden>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
-      </button>
-      <span class="lp-video-eti">Vídeo em breve</span>
+    <!-- vídeo da página inicial (Wistia), código tal como o Wistia o dá -->
+    <div class="lp-video lp-video--wistia">
+      <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/sxev9la9j2.js" async type="module"></script><style>wistia-player[media-id='sxev9la9j2']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/sxev9la9j2/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="sxev9la9j2" aspect="1.7777777777777777"></wistia-player>
     </div>
   </section>
 

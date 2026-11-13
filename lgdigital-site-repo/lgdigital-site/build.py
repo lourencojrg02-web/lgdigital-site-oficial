@@ -224,6 +224,13 @@ PAGES = [
          title="Contactos | LGDigital - Agência de Marketing Digital em Lisboa",
          desc="Fala com a LGDigital, agência de marketing digital em Lisboa. R. dos Arneiros 133, 1500-057 Lisboa. Telefone 926 289 562. Marca uma chamada estratégica gratuita."),
 
+    # Chamada marcada: título e vídeo de 2 minutos (Wistia). Fora do Google.
+    dict(out="gbp-booked/index.html", src="gbp-booked", base="../", home="../",
+         body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+         nome="Chamada marcada",
+         title="A nossa chamada está marcada! | LGDigital",
+         desc="A nossa chamada está marcada. Vê este vídeo de 2 minutos antes de falarmos."),
+
     # Agradecimento depois de deixar o email (como a profresults.com/main-ty)
     dict(out="obrigado/index.html", src="obrigado", base="../", home="../",
          body="tema-landing", noindex=True, css="landing.css", fontes=FONTES_INTER_SERIF, cor="#EFEBE5",
