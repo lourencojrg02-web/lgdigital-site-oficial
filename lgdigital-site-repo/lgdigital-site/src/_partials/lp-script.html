@@ -35,7 +35,7 @@
       });
       botao.disabled = true;
       // no-cors: pedido simples, sem pré-verificação; a resposta não se lê
-      fetch(webhook, { method: 'POST', mode: 'no-cors', body: dados })
+      fetch(webhook, { method: 'POST', mode: 'no-cors', body: dados, keepalive: true })
         .then(function () {
           form.classList.add('lp-form--feito');
           msg.textContent = 'Feito! Vê o teu email: as 3 dicas vão a caminho.';
