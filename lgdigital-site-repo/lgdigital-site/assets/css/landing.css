@@ -77,6 +77,8 @@ button,input{font:inherit;letter-spacing:inherit;}
 .lp-video-eti{position:absolute;left:16px;bottom:16px;padding:6px 12px;border-radius:50px;background:#000;color:#fff;
   font-size:14px;letter-spacing:-.03em;}
 .lp-video--tem .lp-video-eti{display:none;}
+.lp-video--wistia{aspect-ratio:auto;}
+.lp-video--wistia wistia-player{display:block;width:100%;}
 
 /* ---------- Logótipos a deslizar ---------- */
 .lp-logos{display:flex;align-items:center;gap:48px;padding:8px 0 24px;}

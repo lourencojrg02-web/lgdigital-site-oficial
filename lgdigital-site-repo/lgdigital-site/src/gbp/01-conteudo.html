@@ -6,7 +6,7 @@
      reais com o mapa de cada um), perguntas, marcar chamada e candidatura.
      Abre a partir do botão da /obrigado/.
 
-     VÍDEO: pôr o ID do YouTube em data-video (como na página inicial).
+     VÍDEO: Wistia (media-id wxdrtqyuvg), com o código de embed do Wistia.
      CALENDÁRIO: Cal.com em tema claro (o mesmo evento da /landing-page/).
      CANDIDATURA: envia para o mesmo webhook do Make (lp-script) com
      tipo=candidatura; os emails da inicial vão com tipo=email. -->
@@ -17,12 +17,9 @@
   <!-- ---------- Topo: título e vídeo ---------- -->
   <section class="gbp-topo">
     <h1 class="gbp-h1"><b>As ÚNICAS duas coisas</b> que precisas de saber sobre marketing</h1>
-    <div class="lp-video gbp-video" data-video="">
-      <img class="lp-video-foto" src="{{base}}assets/img/lourenco-gaspar-3x2.jpg" width="1080" height="720" alt="Lourenço Gaspar, fundador da LGDigital">
-      <button class="lp-video-play" type="button" aria-label="Ver o vídeo" hidden>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
-      </button>
-      <span class="lp-video-eti">Vídeo em breve</span>
+    <!-- vídeo da /gbp/ (Wistia), código tal como o Wistia o dá -->
+    <div class="lp-video gbp-video lp-video--wistia">
+      <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/wxdrtqyuvg.js" async type="module"></script><style>wistia-player[media-id='wxdrtqyuvg']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/wxdrtqyuvg/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="wxdrtqyuvg" aspect="1.7777777777777777"></wistia-player>
     </div>
 
     <ul class="gbp-etiquetas">

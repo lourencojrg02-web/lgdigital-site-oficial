@@ -4,9 +4,8 @@
      para a /gbp/. É o link que vai no email enviado pelo Make a quem se
      inscreve na página inicial. Fora do Google.
 
-     VÍDEO: pôr o ID do YouTube em data-video (no .lp-video). Sem ID mostra a
-     foto e "Vídeo em breve"; com ID aparece o play e o vídeo só carrega
-     quando a pessoa carrega no play (youtube-nocookie). -->
+     VÍDEO: Wistia (media-id e71e16bwdj), com o código de embed do Wistia.
+     Para trocar, troca o media-id nas três partes (script, style e player). -->
 <!-- cabeçalho só com o logótipo, que sobe ao topo desta página -->
 <header class="lp-cab">
   <div class="lp-cab-in">
@@ -20,12 +19,9 @@
 
   <section class="lp-vid-topo">
     <h1 class="lp-ty-h1"><strong>O Teu Vídeo:</strong> Como Chegar ao Top 3 no Google</h1>
-    <div class="lp-video lp-video--larga" data-video="">
-      <img class="lp-video-foto" src="{{base}}assets/img/lourenco-gaspar-3x2.jpg" width="1080" height="720" alt="Lourenço Gaspar, fundador da LGDigital">
-      <button class="lp-video-play" type="button" aria-label="Ver o vídeo" hidden>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
-      </button>
-      <span class="lp-video-eti">Vídeo em breve</span>
+    <!-- vídeo grátis (Wistia), código tal como o Wistia o dá -->
+    <div class="lp-video lp-video--larga lp-video--wistia">
+      <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/e71e16bwdj.js" async type="module"></script><style>wistia-player[media-id='e71e16bwdj']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/e71e16bwdj/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="e71e16bwdj" aspect="1.7777777777777777"></wistia-player>
     </div>
   </section>
 
