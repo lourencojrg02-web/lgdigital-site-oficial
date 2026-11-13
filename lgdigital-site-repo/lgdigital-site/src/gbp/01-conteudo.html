@@ -8,8 +8,9 @@
 
      VÍDEO: Wistia (media-id wxdrtqyuvg), com o código de embed do Wistia.
      CALENDÁRIO: Cal.com em tema claro (o mesmo evento da /landing-page/).
-     CANDIDATURA: envia para o mesmo webhook do Make (lp-script) com
-     tipo=candidatura; os emails da inicial vão com tipo=email. -->
+     CANDIDATURA: envia para um webhook do Make só seu
+     (hook.eu1.make.com/luaajvdb7bgq655qlnvv6rn1dvmep4eh), com tipo=candidatura,
+     e mostra a mensagem de confirmação na própria página. -->
 @include _partials/lp-cab-gbp.html
 
 <main class="gbp" id="conteudo">
@@ -305,6 +306,8 @@
     });
   });
 
+  // webhook do Make só para as candidaturas da /gbp/
+  var webhookCandidatura = 'https://hook.eu1.make.com/luaajvdb7bgq655qlnvv6rn1dvmep4eh';
   var form = document.querySelector('.gbp-form');
   if (!form) return;
   var msg = form.querySelector('.lp-msg');
@@ -323,10 +326,10 @@
     dados.append('pagina', location.href.split('#')[0]);
     dados.append('data', new Date().toISOString());
     botao.disabled = true;
-    fetch(window.LG_WEBHOOK, { method: 'POST', mode: 'no-cors', body: dados })
+    fetch(webhookCandidatura, { method: 'POST', mode: 'no-cors', body: dados, keepalive: true })
       .then(function () {
         form.classList.add('lp-form--feito');
-        msg.textContent = 'Recebemos a tua candidatura. Se fizer sentido, entramos em contacto para marcar uma chamada.';
+        msg.textContent = 'Recebemos a tua informação! Vamos entrar em contacto contigo dentro de 24 horas para descobrirmos se te podemos ajudar.';
         msg.classList.add('lp-msg--ok');
         if (window.fbq) fbq('track', 'SubmitApplication');
       })
