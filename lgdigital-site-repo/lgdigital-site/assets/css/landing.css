@@ -600,3 +600,8 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 .bl-art-fig--larga{max-width:100%;}
 .bl-art-fig--larga img{width:auto;max-width:100%;margin:0 auto;border-radius:12px;}
 @media(max-width:720px){.bl-art-fig--larga{max-width:100%;}}
+/* /lisboa/: 6 serviços (com websites) em 2 linhas de 3 */
+.lx-serv-grelha--6 .lx-serv:nth-child(4){grid-column:span 2;}
+@media(max-width:1000px){.lx-serv-grelha--6 .lx-serv:nth-child(4){grid-column:auto;}}
+.gbp-h2{text-wrap:balance;}
+article.lx-serv:hover{transform:none;box-shadow:none;}
