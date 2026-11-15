@@ -16,7 +16,7 @@ inicial). O build substitui conforme a profundidade da página, para o site
 funcionar tanto em lgdigital.pt como em qualquer subpasta.
 Secções só com comentários são ignoradas.
 """
-import pathlib, re, sys, base64, mimetypes, json, hashlib
+import pathlib, re, sys, base64, mimetypes, json, hashlib, html
 
 mimetypes.add_type("image/webp", ".webp")
 mimetypes.add_type("image/svg+xml", ".svg")
@@ -62,13 +62,13 @@ EDITOR = {"@type": "Organization", "name": "LGDigital", "alternateName": ["LGDig
           "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.png"}}
 
 
-def artigo_ld(caminho, titulo, descricao, data):
-    """JSON-LD Article para um artigo ou caso de estudo."""
+def artigo_ld(caminho, titulo, descricao, data, imagem="assets/img/og.png", tipo="Article"):
+    """JSON-LD Article (ou BlogPosting) para um artigo ou caso de estudo."""
     return '<script type="application/ld+json">%s</script>' % json.dumps({
-        "@context": "https://schema.org", "@type": "Article",
+        "@context": "https://schema.org", "@type": tipo,
         "headline": titulo, "description": descricao,
         "datePublished": data, "dateModified": data, "inLanguage": "pt-PT",
-        "image": SITE + "/assets/img/og.png",
+        "image": SITE + "/" + imagem,
         "mainEntityOfPage": SITE + "/" + caminho,
         "author": AUTOR, "publisher": EDITOR,
     }, ensure_ascii=False, separators=(",", ":"))
@@ -343,6 +343,62 @@ for _slug, _nome, _title, _desc in SERVICOS_LISBOA:
         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
         nome=_nome, pai=("Lisboa", "lisboa/"), title=_title, desc=_desc))
 
+# ------------------------------------------------------------------ Blog
+# /blog/ (como a profresults.com/blog): a lista de artigos e um artigo por
+# página em /blog/<slug>/. Para publicar um artigo novo:
+#   1. criar src/blog-<slug>/01-conteudo.html (copiar o de um artigo existente);
+#   2. criar a capa: python3 ferramentas/capa_blog.py <slug> "<título>";
+#   3. acrescentar uma linha no TOPO da lista BLOG (o mais recente primeiro);
+#   4. acrescentar /blog/<slug>/ ao sitemap.xml e correr o build.
+# Os cartões da /blog/ fazem-se sozinhos a partir desta lista.
+# (slug, título, resumo para o cartão e a meta description, data AAAA-MM-DD)
+BLOG = [
+    ("isto-vale-mesmo-a-pena", "Isto vale mesmo a pena?",
+     "Ver a tua empresa no top 3 do Google soa bem e tudo mais, mas... será que vale mesmo o esforço?",
+     "2026-11-15"),
+]
+
+
+def blog_cartoes(base):
+    """Cartões da /blog/ (capa + título + resumo), pela ordem da lista BLOG."""
+    seta = ('<span class="bl-seta" aria-hidden="true"><svg viewBox="0 0 16 16" width="10" height="10" fill="none" '
+            'stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+            '<path d="M6 3.5 10.5 8 6 12.5"/></svg></span>')
+    cartoes = []
+    for slug, titulo, resumo, _data in BLOG:
+        t, r = html.escape(titulo), html.escape(resumo)
+        cartoes.append(
+            '    <a class="bl-cartao" href="%sblog/%s/">\n'
+            '      <span class="bl-capa"><img src="%sassets/img/blog/%s.jpg" width="1200" height="870" alt="%s" loading="lazy"></span>\n'
+            '      <span class="bl-info"><span class="bl-txt"><span class="bl-titulo">%s</span>'
+            '<span class="bl-resumo">%s</span></span>%s</span>\n'
+            '    </a>' % (base, slug, base, slug, t, t, r, seta))
+    return "\n".join(cartoes)
+
+
+PAGES.append(dict(
+    out="blog/index.html", src="blog", base="../", home="../",
+    body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5", nome="Blog",
+    title="Blog de Marketing Para Donos de Empresas Locais | LGDigital, Agência de Marketing Digital em Lisboa",
+    desc="Lições de marketing para donos de empresas locais, do Lourenço Gaspar da LGDigital: "
+         "Google Ads, Meta Ads, SEO e como conseguir mais clientes com eles.",
+    head='<script type="application/ld+json">%s</script>' % json.dumps({
+        "@context": "https://schema.org", "@type": "Blog", "@id": SITE + "/blog/#blog",
+        "name": "Blog da LGDigital", "url": SITE + "/blog/", "inLanguage": "pt-PT",
+        "author": AUTOR, "publisher": EDITOR,
+        "blogPost": [{"@type": "BlogPosting", "headline": _t, "url": SITE + "/blog/%s/" % _s,
+                      "datePublished": _d, "image": SITE + "/assets/img/blog/%s.jpg" % _s}
+                     for _s, _t, _r, _d in BLOG]}, ensure_ascii=False, separators=(",", ":"))))
+for _slug, _titulo, _resumo, _data in BLOG:
+    PAGES.append(dict(
+        out="blog/%s/index.html" % _slug, src="blog-" + _slug, base="../../", home="../../",
+        body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
+        nome=_titulo, pai=("Blog", "blog/"),
+        title="LGDigital | %s" % _titulo, desc=_resumo,
+        og="assets/img/blog/%s.jpg" % _slug, og_tam=(1200, 870), og_alt=_titulo,
+        head=artigo_ld("blog/%s/" % _slug, _titulo, _resumo, _data,
+                       imagem="assets/img/blog/%s.jpg" % _slug, tipo="BlogPosting")))
+
 HEAD = """<!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -359,14 +415,14 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{site}/assets/img/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="LGDigital — anúncios que trazem clientes">
+<meta property="og:image" content="{og_img}">
+<meta property="og:image:width" content="{og_w}">
+<meta property="og:image:height" content="{og_h}">
+<meta property="og:image:alt" content="{og_alt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="{site}/assets/img/og.png">
+<meta name="twitter:image" content="{og_img}">
 <meta name="theme-color" content="{tema_cor}">
 <link rel="icon" href="{base}favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{base}assets/img/favicon-32.png">
@@ -456,6 +512,8 @@ def sections(folder):
 
 def render(folder, base, home):
     body = "\n\n".join(read(p).strip() for p in sections(folder))
+    if "{{blog_cartoes}}" in body:
+        body = body.replace("{{blog_cartoes}}", blog_cartoes(base))
     return body.replace("{{base}}", base).replace("{{home}}", home or "./")
 
 
@@ -558,6 +616,9 @@ def head_for(pg, styles, base, jsonld=""):
     extra = pg.get("head", "")
     return HEAD.format(
         title=pg["title"], desc=pg["desc"], canonical=canonical, site=SITE, base=base,
+        og_img=SITE + "/" + pg.get("og", "assets/img/og.png"),
+        og_w=pg.get("og_tam", (1200, 630))[0], og_h=pg.get("og_tam", (1200, 630))[1],
+        og_alt=html.escape(pg.get("og_alt", "LGDigital — anúncios que trazem clientes")),
         robots=('<meta name="robots" content="noindex, nofollow">\n' if pg.get("noindex")
                 else '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">\n'),
         styles=styles, pixel=PIXEL if PIXEL_ID else "",
@@ -617,17 +678,17 @@ def build_standalone():
     for pg in PAGES:
         if pg.get("arquivo"):
             continue
-        html = render(pg["src"], "", "#")
-        html = re.sub(r'src="assets/img/([^"]+)"',
-                      lambda m: 'src="%s"' % inline_data("assets/img/" + m.group(1)), html)
-        html = re.sub(r'href="(hvac|pp|tc|hvac-obrigado)/"', 'href="#"', html)
+        pagina = render(pg["src"], "", "#")
+        pagina = re.sub(r'src="assets/img/([^"]+)"',
+                      lambda m: 'src="%s"' % inline_data("assets/img/" + m.group(1)), pagina)
+        pagina = re.sub(r'href="(hvac|pp|tc|hvac-obrigado)/"', 'href="#"', pagina)
         css = (embute((ROOT / "assets/css" / pg["css"]).read_text(encoding="utf-8")) if pg.get("css")
                else css_site if e_site(pg) else css_base)
         head = head_for(pg, "<style>\n%s\n</style>" % css, "")
         # no ficheiro único as fontes já vão embutidas: o preload ficava a apontar para nada
         head = re.sub(r'<link rel="preload"[^>]*as="font"[^>]*>\n?', "", head)
         name = pg["src"] + ".html"
-        (outdir / name).write_text(head + html + FOOT, encoding="utf-8")
+        (outdir / name).write_text(head + pagina + FOOT, encoding="utf-8")
         print("  preview/%-20s %5.0f KB" % (name, (outdir / name).stat().st_size / 1024))
 
 

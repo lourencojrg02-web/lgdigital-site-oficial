@@ -1,0 +1,23 @@
+<!-- ==================== /blog/ ==================== -->
+<!-- Como a profresults.com/blog: "Blog" pequeno (é o H1), frase grande,
+     subtítulo cinzento, cartões a 2 colunas (capa + título) e o bloco "Grátis".
+     Os cartões não se escrevem aqui: o build.py põe-nos no lugar de
+     {{blog_cartoes}}, a partir da lista BLOG (o mais recente primeiro). -->
+@include _partials/lp-cab-blog.html
+
+<main class="lp" id="conteudo">
+  <section class="bl-topo">
+    <h1 class="lp-pill bl-pill">Blog</h1>
+    <p class="bl-h2">O Blog Para Conseguires Mais Clientes.</p>
+    <p class="bl-sub">Táticas de marketing simples para empresas locais. Sem palha e sem teoria: ideias que podes pôr em prática esta semana para trazer mais clientes até ti.</p>
+  </section>
+
+  <section class="bl-grelha" aria-label="Artigos">
+{{blog_cartoes}}
+  </section>
+
+@include _partials/lp-gratis.html
+
+</main>
+
+@include _partials/lp-rodape.html

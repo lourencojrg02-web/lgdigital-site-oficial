@@ -426,3 +426,15 @@ texto, "Onde me encontrar" e botão para a chamada. Abre a partir do cartão
 aponta para esta página. Só tem factos confirmados: faltam "Como cheguei
 aqui" e "Fora do trabalho" (ver comentários em `src/lourenco-gaspar/`).
 Uma rede nova entra na lista e no `sameAs` do `AUTOR`.
+
+## Blog (/blog/)
+
+Como a profresults.com/blog: a `/blog/` lista os artigos (cartões a 2 colunas,
+feitos sozinhos a partir da lista `BLOG` do `build.py`) e cada artigo fica em
+`/blog/<slug>/`. Para publicar um artigo novo:
+
+1. criar `src/blog-<slug>/01-conteudo.html` (copiar o de um artigo existente);
+2. criar a capa: `python3 ferramentas/capa_blog.py <slug> "<título>"`
+   (sai em `assets/img/blog/<slug>.jpg`, com o recorte do Lourenço);
+3. acrescentar uma linha no topo da lista `BLOG` (o mais recente primeiro);
+4. acrescentar `/blog/<slug>/` ao `sitemap.xml` e correr o build.
