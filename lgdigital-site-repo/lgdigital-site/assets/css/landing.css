@@ -339,6 +339,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 .gbp-faq summary::after{content:"+";flex:none;font-size:22px;font-weight:400;line-height:1;transition:transform .2s;}
 .gbp-faq details[open] summary::after{transform:rotate(45deg);}
 .gbp-faq details p{padding:0 24px 22px;font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;color:#505050;}
+.gbp-faq details p a{color:#000;text-decoration:underline;text-underline-offset:3px;}
 
 /* candidatura (no lugar do formulário Tally da Prof) */
 .gbp-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:520px;margin-top:32px;text-align:left;}
