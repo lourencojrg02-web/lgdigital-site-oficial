@@ -353,6 +353,62 @@ for _slug, _nome, _title, _desc in SERVICOS_LISBOA:
 # Os cartões da /blog/ fazem-se sozinhos a partir desta lista.
 # (slug, título, resumo para o cartão e a meta description, data AAAA-MM-DD)
 BLOG = [
+    ("a-unica-coisa", "a única coisa",
+     "Há uma coisa que permite prever, com bastante precisão, quem vai ter sucesso e quem vai ter resultados fracos. "
+     "É provavelmente o melhor indicador que conheço.",
+     "2026-11-15"),
+    ("devia-ser-assim", "devia ser assim",
+     "Se estás prestes a experimentar algo novo e isso não te intimida nem um bocadinho... "
+     "provavelmente não é a coisa certa para fazeres.",
+     "2026-11-15"),
+    ("isto-nunca-vai-acontecer", "isto nunca vai acontecer",
+     "Já reparaste que cada vez mais CEOs estão a criar conteúdo para as próprias empresas? "
+     "Podiam gravar anúncios ao nível de Hollywood. Mas, em vez disso, pegam num telemóvel.",
+     "2026-11-15"),
+    ("simples-e-funciona", "Simples e funciona",
+     "Uma das formas mais simples de melhorar o teu posicionamento no Google. "
+     "Demora 30 segundos para implementar.",
+     "2026-11-15"),
+    ("o-melhor-indicador", "o melhor indicador",
+     "Se quiseres saber se alguém vai falhar, há uma característica que é um indicador quase perfeito. "
+     "E não tem nada a ver com inteligência.",
+     "2026-11-15"),
+    ("a-estrategia-que-ninguem-usa", "A estratégia que ninguém usa",
+     "Se estás a correr anúncios neste momento e não estás a fazer remarketing, estás a desperdiçar dinheiro. "
+     "Portanto, vamos corrigir isso.",
+     "2026-11-15"),
+    ("a-melhor-forma-de-nunca-chegar-a-lado-nenhum", "a melhor forma de nunca chegar a lado nenhum",
+     "“Se 100 dos meus concorrentes também seguirem os teus conselhos, como é que eu vou ficar à frente deles?” "
+     "Esta forma de pensar não faz sentido nenhum.",
+     "2026-11-15"),
+    ("estao-todos-a-fazer-batota", "estão todos a fazer batota",
+     "Uma empresa de construção perguntou-me se a conseguíamos pôr no top 3 do Google. Fui analisar a concorrência. "
+     "E praticamente todos os negócios da primeira página estavam a fazer batota.",
+     "2026-11-15"),
+    ("3-coisas", "3 coisas",
+     "É bastante simples colocar o teu negócio no top 3 do Google. Simples... mas não é fácil. "
+     "No fundo, só precisas de otimizar três coisas.",
+     "2026-11-15"),
+    ("estao-todos-enganados", "estão todos enganados",
+     "Toda a gente está completamente enganada em relação à inteligência artificial. "
+     "A IA não é humana, nem nunca será. É uma máquina. E faz coisas incríveis.",
+     "2026-11-15"),
+    ("conseguimos", "conseguimos",
+     "Há algo extremamente satisfatório em abrir o Google e ver o teu negócio na posição número 1 "
+     "para uma pesquisa que realmente interessa.",
+     "2026-11-15"),
+    ("nunca-para", "Nunca para",
+     "Toda a gente adora a ideia de uma máquina de movimento infinito. O problema é que isso não existe. "
+     "Pelo menos no mundo real.",
+     "2026-11-15"),
+    ("no-topo-da-colina", "No topo da colina",
+     "O lobo que está no topo da colina nunca tem tanta fome como o lobo que está a subir. "
+     "Mas quando quer comida... é só escolher. O Google funciona da mesma forma.",
+     "2026-11-15"),
+    ("facam-isto-parar", "Façam isto parar",
+     "Estava tudo a correr bem. Até que, de repente, recebo uma mensagem do cliente: "
+     "“temos de abrandar, estamos a receber demasiados pedidos!”",
+     "2026-11-15"),
     ("isto-vale-mesmo-a-pena", "Isto vale mesmo a pena?",
      "Ver a tua empresa no top 3 do Google soa bem e tudo mais, mas... será que vale mesmo o esforço?",
      "2026-11-15"),
@@ -369,7 +425,7 @@ def blog_cartoes(base):
         t, r = html.escape(titulo), html.escape(resumo)
         cartoes.append(
             '    <a class="bl-cartao" href="%sblog/%s/">\n'
-            '      <span class="bl-capa"><img src="%sassets/img/blog/%s.jpg" width="1200" height="870" alt="%s" loading="lazy"></span>\n'
+            '      <span class="bl-capa"><img src="%sassets/img/blog/%s.jpg" width="1440" height="1044" alt="%s" loading="lazy"></span>\n'
             '      <span class="bl-info"><span class="bl-txt"><span class="bl-titulo">%s</span>'
             '<span class="bl-resumo">%s</span></span>%s</span>\n'
             '    </a>' % (base, slug, base, slug, t, t, r, seta))
@@ -395,7 +451,7 @@ for _slug, _titulo, _resumo, _data in BLOG:
         body="tema-landing", css="landing.css", fontes=FONTES_INTER, cor="#EFEBE5",
         nome=_titulo, pai=("Blog", "blog/"),
         title="LGDigital | %s" % _titulo, desc=_resumo,
-        og="assets/img/blog/%s.jpg" % _slug, og_tam=(1200, 870), og_alt=_titulo,
+        og="assets/img/blog/%s.jpg" % _slug, og_tam=(1440, 1044), og_alt=_titulo,
         head=artigo_ld("blog/%s/" % _slug, _titulo, _resumo, _data,
                        imagem="assets/img/blog/%s.jpg" % _slug, tipo="BlogPosting")))
 

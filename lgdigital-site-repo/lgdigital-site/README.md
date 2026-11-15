@@ -433,8 +433,8 @@ Como a profresults.com/blog: a `/blog/` lista os artigos (cartões a 2 colunas,
 feitos sozinhos a partir da lista `BLOG` do `build.py`) e cada artigo fica em
 `/blog/<slug>/`. Para publicar um artigo novo:
 
-1. criar `src/blog-<slug>/01-conteudo.html` (copiar o de um artigo existente);
+1. criar `src/blog-<slug>/01-conteudo.html`: `python3 ferramentas/artigo_blog.py <slug> texto.txt` (1.ª linha = título);
 2. criar a capa: `python3 ferramentas/capa_blog.py <slug> "<título>"`
-   (sai em `assets/img/blog/<slug>.jpg`, com o recorte do Lourenço);
+   (sai em `assets/img/blog/<slug>.jpg`: cartão com o título, sem fotos);
 3. acrescentar uma linha no topo da lista `BLOG` (o mais recente primeiro);
 4. acrescentar `/blog/<slug>/` ao `sitemap.xml` e correr o build.
