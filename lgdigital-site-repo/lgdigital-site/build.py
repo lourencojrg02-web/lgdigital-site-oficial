@@ -333,6 +333,9 @@ SERVICOS_LISBOA = [
     ("seo-local", "SEO Local em Lisboa",
      "MELHOR Agência de SEO Local em Lisboa - se procuras SEO local ou subir no Google Maps em Lisboa - a LGDigital põe a tua empresa no top 3 do Google Maps",
      "SEO local em Lisboa: quando alguém na tua zona procura aquilo que tu fazes, deve encontrar-te a ti. Feito por nós, sem fidelização."),
+    ("websites", "Criação de Websites em Lisboa",
+     "MELHOR Agência de Criação de Websites em Lisboa - se procuras quem faça o site da tua empresa em Lisboa - a LGDigital cria websites rápidos que transformam visitas em contactos",
+     "Criação de websites em Lisboa: sites rápidos e pensados para transformar visitas em contactos, com formulário. Feito por nós, com valor fechado por projeto."),
     ("ai-seo", "AI SEO em Lisboa",
      "MELHOR Agência de AI SEO em Lisboa - se procuras AI SEO em Lisboa - a LGDigital põe a tua empresa nas respostas do ChatGPT",
      "AI SEO em Lisboa: os teus clientes já perguntam ao ChatGPT. Ele fala de ti? Feito por nós, sem fidelização."),
@@ -653,6 +656,10 @@ def jsonld_para(pg, body):
         zona = body[m.end(): fim if fim != -1 else len(body)]
         perguntas += re.findall(r"<details[^>]*>\s*<summary[^>]*>(.*?)</summary>(.*?)</details>",
                                 zona, re.S)
+    # páginas de serviço: "Perguntas frequentes" em pares título/resposta (sem <details>)
+    m = re.search(r'<h2 class="lp-srv-h2">Perguntas frequentes</h2>(.*?)</section>', body, re.S)
+    if m:
+        perguntas += re.findall(r'<p class="lp-srv-item-t">(.*?)</p>\s*<p class="lp-srv-item-p">(.*?)</p>', m.group(1), re.S)
     if perguntas:
         blocos.append({
             "@context": "https://schema.org", "@type": "FAQPage",

@@ -218,6 +218,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 .lp-srv-item + .lp-srv-item{margin-top:28px;}
 .lp-srv-item-t{font-size:18px;line-height:1.5;letter-spacing:-.04em;}
 .lp-srv-item-p{margin-top:8px;font-size:16px;font-weight:400;line-height:1.5;letter-spacing:-.04em;}
+.lp-srv-item-p a{text-decoration:underline;text-underline-offset:3px;}
 .lp-srv-ver{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-top:56px;font-size:16px;}
 .lp-srv-ver a{font-weight:400;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(0,0,0,.3);}
 .lp-srv-ver a:hover{text-decoration-color:#000;}
@@ -605,3 +606,7 @@ a.lp-pessoa:hover .lp-pessoa-foto img{transform:scale(1.03);}
 @media(max-width:1000px){.lx-serv-grelha--6 .lx-serv:nth-child(4){grid-column:auto;}}
 .gbp-h2{text-wrap:balance;}
 article.lx-serv:hover{transform:none;box-shadow:none;}
+/* "Os Nossos Serviços em Lisboa" (zonas): 6 serviços com os websites */
+.lp-servicos-grelha--6{grid-template-columns:repeat(6,minmax(0,1fr));}
+@media(max-width:1000px){.lp-servicos-grelha--6{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:720px){.lp-servicos-grelha--6{grid-template-columns:1fr 1fr;}}
