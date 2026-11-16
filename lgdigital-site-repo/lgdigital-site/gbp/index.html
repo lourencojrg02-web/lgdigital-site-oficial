@@ -32,23 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,700&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/landing.css?v=df8b1bc4">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1705934707134389');
-fbq('track', 'PageView');
-</script>
-<noscript><img alt="" height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
 </head>
 <body class="tema-landing">
 <!-- ==================== /gbp (SEO Local: top 3 no Google Maps) ==================== -->
@@ -209,25 +193,12 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
     <div class="gbp-dif">
       <div class="gbp-dif-esq">
         <div class="gbp-tabs" role="tablist" aria-label="Clientes">
-          <button type="button" role="tab" id="t-hca" aria-controls="p-hca" aria-selected="true">Humberto Conde</button>
-          <button type="button" role="tab" id="t-arq" aria-controls="p-arq" aria-selected="false" tabindex="-1">Arquitetura 501</button>
+          <button type="button" role="tab" id="t-arq" aria-controls="p-arq" aria-selected="true">Arquitetura 501</button>
+          <button type="button" role="tab" id="t-hca" aria-controls="p-hca" aria-selected="false" tabindex="-1">Humberto Conde</button>
           <button type="button" role="tab" id="t-casa" aria-controls="p-casa" aria-selected="false" tabindex="-1">Casa em Ordem</button>
         </div>
 
-        <div class="gbp-painel" role="tabpanel" id="p-hca" aria-labelledby="t-hca">
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo"><img src="../assets/img/clientes/hca-lisboa.png" alt=""></span>
-            <div><p class="gbp-emp-n">Humberto Conde Arquitectos</p><p class="gbp-emp-l">Arquitetura &middot; Lisboa</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;arquitecto lisboa&rdquo;</span></li>
-            <li>Posição Média <span class="gbp-v">1.º de 210</span></li>
-            <li>Quota de Mercado <span class="gbp-v">85%</span></li>
-            <li>Pontos Medidos <span class="gbp-v">81</span></li>
-          </ul>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-arq" aria-labelledby="t-arq" hidden>
+        <div class="gbp-painel" role="tabpanel" id="p-arq" aria-labelledby="t-arq">
           <div class="gbp-emp">
             <span class="gbp-emp-logo"><img src="../assets/img/clientes/arquitetura-501.png" alt=""></span>
             <div><p class="gbp-emp-n">Arquitetura 501</p><p class="gbp-emp-l">Arquitetura &middot; Braga</p></div>
@@ -237,6 +208,19 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
             <li>Top 3 em <span class="gbp-v">30 dias</span></li>
             <li>Posição Média <span class="gbp-v">2.º</span></li>
             <li>Quota de Mercado <span class="gbp-v">87,5%</span></li>
+          </ul>
+        </div>
+
+        <div class="gbp-painel" role="tabpanel" id="p-hca" aria-labelledby="t-hca" hidden>
+          <div class="gbp-emp">
+            <span class="gbp-emp-logo"><img src="../assets/img/clientes/hca-lisboa.png" alt=""></span>
+            <div><p class="gbp-emp-n">Humberto Conde Arquitectos</p><p class="gbp-emp-l">Arquitetura &middot; Lisboa</p></div>
+          </div>
+          <ul class="gbp-stats">
+            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;arquitecto lisboa&rdquo;</span></li>
+            <li>Posição Média <span class="gbp-v">1.º de 210</span></li>
+            <li>Quota de Mercado <span class="gbp-v">85%</span></li>
+            <li>Pontos Medidos <span class="gbp-v">81</span></li>
           </ul>
         </div>
 
@@ -255,8 +239,8 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
       </div>
 
       <div class="gbp-mapa">
-        <img data-mapa="p-hca" src="../assets/img/resultados/hca-mapa.webp" width="429" height="312" alt="Mapa de posições da Humberto Conde Arquitectos em Lisboa: verde é top 3">
-        <img data-mapa="p-arq" src="../assets/img/resultados/arq501-mapa.webp" width="470" height="368" alt="Mapa de posições da Arquitetura 501 em Braga, na pesquisa arquiteto em braga: verde é top 3" loading="lazy" hidden>
+        <img data-mapa="p-arq" src="../assets/img/resultados/arq501-mapa.webp" width="470" height="368" alt="Mapa de posições da Arquitetura 501 em Braga, na pesquisa arquiteto em braga: verde é top 3">
+        <img data-mapa="p-hca" src="../assets/img/resultados/hca-mapa.webp" width="429" height="312" alt="Mapa de posições da Humberto Conde Arquitectos em Lisboa: verde é top 3" loading="lazy" hidden>
         <img data-mapa="p-casa" src="../assets/img/resultados/casa-mapa.webp" width="417" height="238" alt="Mapa de posições da Casa em Ordem no Porto: verde é top 3" loading="lazy" hidden>
       </div>
     </div>
@@ -415,7 +399,6 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
         form.classList.add('lp-form--feito');
         msg.textContent = 'Recebemos a tua informação! Vamos entrar em contacto contigo dentro de 24 horas para descobrirmos se te podemos ajudar.';
         msg.classList.add('lp-msg--ok');
-        if (window.fbq) fbq('track', 'SubmitApplication');
       })
       .catch(function () {
         botao.disabled = false;

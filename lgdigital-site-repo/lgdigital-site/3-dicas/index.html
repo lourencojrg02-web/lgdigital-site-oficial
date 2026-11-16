@@ -32,23 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/landing.css?v=df8b1bc4">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1705934707134389');
-fbq('track', 'PageView');
-</script>
-<noscript><img alt="" height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
 </head>
 <body class="tema-landing">
 <!-- ==================== VÍDEO GRÁTIS (3 dicas) ==================== -->
@@ -167,11 +151,7 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
           form.classList.add('lp-form--feito');
           msg.textContent = 'Feito! Vê o teu email: as 3 dicas vão a caminho.';
           msg.classList.add('lp-msg--ok');
-          // segue para /obrigado/, que dispara o Lead do píxel ao ver esta marca;
-          // sem sessionStorage, dispara já aqui
-          var marcado = false;
-          try { sessionStorage.setItem('lg-lead', '1'); marcado = true; } catch (err) {}
-          if (!marcado && window.fbq) fbq('track', 'Lead');
+          // segue para /obrigado/
           location.href = '../obrigado/';
         })
         .catch(function () {

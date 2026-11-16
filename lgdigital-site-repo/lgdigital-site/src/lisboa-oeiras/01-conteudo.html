@@ -131,25 +131,12 @@
     <div class="gbp-dif">
       <div class="gbp-dif-esq">
         <div class="gbp-tabs" role="tablist" aria-label="Clientes">
-          <button type="button" role="tab" id="t-hca" aria-controls="p-hca" aria-selected="true">Humberto Conde</button>
-          <button type="button" role="tab" id="t-arq" aria-controls="p-arq" aria-selected="false" tabindex="-1">Arquitetura 501</button>
+          <button type="button" role="tab" id="t-arq" aria-controls="p-arq" aria-selected="true">Arquitetura 501</button>
+          <button type="button" role="tab" id="t-hca" aria-controls="p-hca" aria-selected="false" tabindex="-1">Humberto Conde</button>
           <button type="button" role="tab" id="t-casa" aria-controls="p-casa" aria-selected="false" tabindex="-1">Casa em Ordem</button>
         </div>
 
-        <div class="gbp-painel" role="tabpanel" id="p-hca" aria-labelledby="t-hca">
-          <div class="gbp-emp">
-            <span class="gbp-emp-logo"><img src="{{base}}assets/img/clientes/hca-lisboa.png" alt=""></span>
-            <div><p class="gbp-emp-n">Humberto Conde Arquitectos</p><p class="gbp-emp-l">Arquitetura &middot; Lisboa</p></div>
-          </div>
-          <ul class="gbp-stats">
-            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;arquitecto lisboa&rdquo;</span></li>
-            <li>Posição Média <span class="gbp-v">1.º de 210</span></li>
-            <li>Quota de Mercado <span class="gbp-v">85%</span></li>
-            <li>Pontos Medidos <span class="gbp-v">81</span></li>
-          </ul>
-        </div>
-
-        <div class="gbp-painel" role="tabpanel" id="p-arq" aria-labelledby="t-arq" hidden>
+        <div class="gbp-painel" role="tabpanel" id="p-arq" aria-labelledby="t-arq">
           <div class="gbp-emp">
             <span class="gbp-emp-logo"><img src="{{base}}assets/img/clientes/arquitetura-501.png" alt=""></span>
             <div><p class="gbp-emp-n">Arquitetura 501</p><p class="gbp-emp-l">Arquitetura &middot; Braga</p></div>
@@ -159,6 +146,19 @@
             <li>Top 3 em <span class="gbp-v">30 dias</span></li>
             <li>Posição Média <span class="gbp-v">2.º</span></li>
             <li>Quota de Mercado <span class="gbp-v">87,5%</span></li>
+          </ul>
+        </div>
+
+        <div class="gbp-painel" role="tabpanel" id="p-hca" aria-labelledby="t-hca" hidden>
+          <div class="gbp-emp">
+            <span class="gbp-emp-logo"><img src="{{base}}assets/img/clientes/hca-lisboa.png" alt=""></span>
+            <div><p class="gbp-emp-n">Humberto Conde Arquitectos</p><p class="gbp-emp-l">Arquitetura &middot; Lisboa</p></div>
+          </div>
+          <ul class="gbp-stats">
+            <li>Pesquisa <span class="gbp-v gbp-v--txt">&ldquo;arquitecto lisboa&rdquo;</span></li>
+            <li>Posição Média <span class="gbp-v">1.º de 210</span></li>
+            <li>Quota de Mercado <span class="gbp-v">85%</span></li>
+            <li>Pontos Medidos <span class="gbp-v">81</span></li>
           </ul>
         </div>
 
@@ -177,8 +177,8 @@
       </div>
 
       <div class="gbp-mapa">
-        <img data-mapa="p-hca" src="{{base}}assets/img/resultados/hca-mapa.webp" width="429" height="312" alt="Mapa de posições da Humberto Conde Arquitectos em Lisboa: verde é top 3">
-        <img data-mapa="p-arq" src="{{base}}assets/img/resultados/arq501-mapa.webp" width="470" height="368" alt="Mapa de posições da Arquitetura 501 em Braga, na pesquisa arquiteto em braga: verde é top 3" loading="lazy" hidden>
+        <img data-mapa="p-arq" src="{{base}}assets/img/resultados/arq501-mapa.webp" width="470" height="368" alt="Mapa de posições da Arquitetura 501 em Braga, na pesquisa arquiteto em braga: verde é top 3">
+        <img data-mapa="p-hca" src="{{base}}assets/img/resultados/hca-mapa.webp" width="429" height="312" alt="Mapa de posições da Humberto Conde Arquitectos em Lisboa: verde é top 3" loading="lazy" hidden>
         <img data-mapa="p-casa" src="{{base}}assets/img/resultados/casa-mapa.webp" width="417" height="238" alt="Mapa de posições da Casa em Ordem no Porto: verde é top 3" loading="lazy" hidden>
       </div>
     </div>

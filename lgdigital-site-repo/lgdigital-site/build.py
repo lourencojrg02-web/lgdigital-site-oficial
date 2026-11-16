@@ -23,7 +23,11 @@ mimetypes.add_type("image/svg+xml", ".svg")
 
 ROOT = pathlib.Path(__file__).parent
 SITE = "https://lgdigital.pt"
-PIXEL_ID = "1705934707134389"
+# Píxel da Meta: removido a 16/11/2026 (o Lourenço vai criar um novo).
+# Para o pôr de volta, mete aqui o ID do píxel novo: o código base volta a
+# sair em todas as páginas. Os eventos (Lead, SubmitApplication) também foram
+# tirados e têm de ser postos outra vez.
+PIXEL_ID = ""
 
 # ---------------------------------------------------------------- Meta Pixel
 # Sai em todas as páginas. Para desativar, põe PIXEL_ID = "".
@@ -267,13 +271,16 @@ PAGES = [
          nome="AI SEO", title="MELHOR Agência de AI SEO em Lisboa - se procuras AI SEO perto de mim - a LGDigital põe a tua empresa nas respostas do ChatGPT",
          desc="Os teus clientes já perguntam ao ChatGPT. Ele fala de ti? AI SEO feito por nós. Sem fidelização."),
 
-    # Landings de campanha Meta: tráfego pago, fora do índice do Google
-    dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True,
+    # Landings de campanha Meta: tráfego pago, fora do índice do Google.
+    # As três estão arquivadas desde 16/11/2026 (reencaminham para a inicial).
+    # /meta/ arquivada a 16/11/2026 (pedido do Lourenço): não é publicada e
+    # o endereço reencaminha para a página inicial (ver REDIRECIONAR)
+    dict(out="meta/index.html", src="meta", base="../", home="../", body="tema-meta", noindex=True, arquivo=True,
          title="Top 3 no Google em 90 dias, garantido | LGDigital",
          desc="Colocamos negócios locais de serviços no top 3 do Google Maps em 90 dias. Se não chegarmos lá, pagamos-te 500€. Vê se a tua empresa se qualifica."),
 
     dict(out="meta-book-a-call/index.html", src="meta-book-a-call", base="../", home="../",
-         body="tema-meta", noindex=True,
+         body="tema-meta", noindex=True, arquivo=True,
          title="Marca a tua chamada | LGDigital",
          desc="Recebemos o teu pedido. Escolhe uma hora para falarmos.",
          # Única conversão do site. Dispara a seguir ao PageView, já com o fbq definido.
@@ -283,7 +290,7 @@ PAGES = [
     # propósito: esse tráfego já foi contado como lead pelo próprio Meta,
     # e disparar o evento outra vez duplicava a conversão.
     dict(out="instant-form-book-a-call/index.html", src="instant-form-book-a-call",
-         base="../", home="../", body="tema-meta", noindex=True,
+         base="../", home="../", body="tema-meta", noindex=True, arquivo=True,
          title="Marca a tua chamada | LGDigital",
          desc="Recebemos o teu pedido. Escolhe uma hora para falarmos."),
 
@@ -514,6 +521,10 @@ REDIRECIONAR = {
     "artigos/conseguir-mais-clientes-empresa-servicos/": "",
     "casos-estudo/": "",
     "casos-estudo/ortofirst/": "",
+    # campanha Meta (landing e páginas de marcação), arquivada a 16/11/2026
+    "meta/": "",
+    "meta-book-a-call/": "",
+    "instant-form-book-a-call/": "",
 }
 
 REDIRECT = """<!DOCTYPE html>

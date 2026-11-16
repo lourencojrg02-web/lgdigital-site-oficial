@@ -2,9 +2,8 @@
 <!-- Igual à profresults.com/main-ty: título "vê o teu email", cartão com o
      símbolo, "Queres que façamos isto por ti?", o que entra numa estratégia
      completa e botão para a /gbp/ (como a Prof Results).
-     O formulário da página inicial abre esta página depois de enviar o email
-     e marca a visita; só aí se dispara o Lead do píxel (quem abre o link
-     diretamente não conta como lead). Fora do Google. -->
+     O formulário da página inicial abre esta página depois de enviar o email.
+     Fora do Google. (O evento Lead do píxel saiu com o píxel, a 16/11/2026.) -->
 @include _partials/lp-cab-simples.html
 
 <main class="lp" id="conteudo">
@@ -18,13 +17,3 @@
 </main>
 
 @include _partials/lp-rodape.html
-
-<script>
-/* Lead do píxel só para quem chegou aqui pelo formulário (marca posta pelo lp-script) */
-try {
-  if (sessionStorage.getItem('lg-lead')) {
-    sessionStorage.removeItem('lg-lead');
-    if (window.fbq) fbq('track', 'Lead');
-  }
-} catch (e) {}
-</script>

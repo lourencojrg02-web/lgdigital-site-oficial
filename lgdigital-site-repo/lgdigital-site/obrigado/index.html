@@ -32,32 +32,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/landing.css?v=df8b1bc4">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1705934707134389');
-fbq('track', 'PageView');
-</script>
-<noscript><img alt="" height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
 </head>
 <body class="tema-landing">
 <!-- ==================== OBRIGADO (depois de deixar o email) ==================== -->
 <!-- Igual à profresults.com/main-ty: título "vê o teu email", cartão com o
      símbolo, "Queres que façamos isto por ti?", o que entra numa estratégia
      completa e botão para a /gbp/ (como a Prof Results).
-     O formulário da página inicial abre esta página depois de enviar o email
-     e marca a visita; só aí se dispara o Lead do píxel (quem abre o link
-     diretamente não conta como lead). Fora do Google. -->
+     O formulário da página inicial abre esta página depois de enviar o email.
+     Fora do Google. (O evento Lead do píxel saiu com o píxel, a 16/11/2026.) -->
 <!-- cabeçalho só com o logótipo (/obrigado/): o logótipo leva
      ao topo da página inicial -->
 <header class="lp-cab">
@@ -120,15 +103,5 @@ src="https://www.facebook.com/tr?id=1705934707134389&ev=PageView&noscript=1"
   </div>
   <p class="lp-rodape-base">&copy; 2026 LGDigital. Todos os direitos reservados. Para informações legais, manda-nos um email.</p>
 </footer>
-
-<script>
-/* Lead do píxel só para quem chegou aqui pelo formulário (marca posta pelo lp-script) */
-try {
-  if (sessionStorage.getItem('lg-lead')) {
-    sessionStorage.removeItem('lg-lead');
-    if (window.fbq) fbq('track', 'Lead');
-  }
-} catch (e) {}
-</script>
 </body>
 </html>
