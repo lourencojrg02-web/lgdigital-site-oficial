@@ -610,3 +610,49 @@ article.lx-serv:hover{transform:none;box-shadow:none;}
 .lp-servicos-grelha--6{grid-template-columns:repeat(6,minmax(0,1fr));}
 @media(max-width:1000px){.lp-servicos-grelha--6{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:720px){.lp-servicos-grelha--6{grid-template-columns:1fr 1fr;}}
+
+/* ---------- /gbp/: qualificação antes do calendário ---------- */
+.gbp-q{max-width:720px;margin:0 auto;padding:40px;border-radius:16px;background:#fff;text-align:left;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.gbp-q-titulo{font-size:26px;font-weight:600;line-height:1.25;letter-spacing:-.02em;}
+.gbp-q-titulo--cal{max-width:1104px;margin:0 auto 20px;text-align:center;font-size:24px;}
+.gbp-q-sub{margin-top:8px;font-size:16px;line-height:1.5;color:#505050;}
+.gbp-q-progresso{height:6px;margin-top:24px;border-radius:99px;background:#EFEBE5;overflow:hidden;}
+.gbp-q-progresso span{display:block;width:20%;height:100%;border-radius:99px;background:#455EF9;transition:width .25s;}
+.gbp-q-passo{margin-top:8px;font-size:13px;color:#8A847A;}
+.gbp-q-form{margin-top:24px;}
+.gbp-q-etapa{margin:0;padding:0;border:0;min-width:0;}
+.gbp-q-etapa legend{padding:0;margin-bottom:14px;font-size:20px;font-weight:500;line-height:1.35;color:#000;}
+.gbp-q-etapa legend label{cursor:default;}
+.gbp-q textarea,.gbp-q input[type=text],.gbp-q input[type=email],.gbp-q input[type=tel],.gbp-q input:not([type]){
+  width:100%;padding:13px 15px;border:1px solid rgba(0,0,0,.14);border-radius:10px;background:#fff;
+  font:inherit;font-family:Inter,system-ui,sans-serif;font-size:16px;color:#000;}
+.gbp-q textarea{resize:vertical;min-height:110px;line-height:1.5;}
+.gbp-q textarea::placeholder,.gbp-q input::placeholder{color:rgba(0,0,0,.36);}
+.gbp-q textarea:focus,.gbp-q input:focus{outline:none;border-color:#455EF9;box-shadow:0 0 0 3px rgba(69,94,249,.15);}
+.gbp-q-ajuda{margin-top:8px;font-size:14px;color:#8A847A;}
+.gbp-q-opcoes{display:grid;gap:10px;}
+.gbp-q-opcao{position:relative;display:block;cursor:pointer;}
+.gbp-q-opcao input{position:absolute;opacity:0;pointer-events:none;}
+.gbp-q-opcao span{display:block;padding:15px 18px;border:1px solid rgba(0,0,0,.14);border-radius:10px;background:#fff;
+  font-size:16px;font-weight:500;transition:border-color .15s,background .15s;}
+.gbp-q-opcao:hover span{border-color:rgba(0,0,0,.35);}
+.gbp-q-opcao input:checked + span{border-color:#455EF9;background:#EEF1FF;}
+.gbp-q-opcao input:focus-visible + span{box-shadow:0 0 0 3px rgba(69,94,249,.25);}
+.gbp-q-grelha{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.gbp-q-grelha label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;color:#505050;}
+.gbp-q-grelha em{font-style:normal;font-weight:400;color:#8A847A;}
+.gbp-q-erro{margin-top:12px;font-size:15px;color:#B42318;}
+.gbp-q-erro:empty{display:none;}
+.gbp-q-acoes{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px;}
+.gbp-q-voltar{padding:8px 0;border:0;background:none;font:inherit;font-size:15px;color:#505050;cursor:pointer;}
+.gbp-q-voltar:hover{color:#000;}
+.gbp-q-seguinte{margin-left:auto;height:48px;padding:0 24px;}
+.gbp-q-fim .lp-btn{margin-top:20px;height:48px;padding:0 24px;}
+@media(max-width:720px){
+  .gbp-q{padding:24px 18px;border-radius:14px;}
+  .gbp-q-titulo{font-size:22px;}
+  .gbp-q-etapa legend{font-size:18px;}
+  .gbp-q-grelha{grid-template-columns:1fr;}
+  .gbp-q-seguinte{flex:1;}
+}

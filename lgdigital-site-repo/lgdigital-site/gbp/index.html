@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,700&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/landing.css?v=df8b1bc4">
+<link rel="stylesheet" href="../assets/css/landing.css?v=28739271">
 
 </head>
 <body class="tema-landing">
@@ -77,24 +77,76 @@
   </section>
 
   <!-- ---------- Calendário (no lugar do Calendly da Prof) ---------- -->
+  <!-- ---------- Qualificação e calendário ----------
+       O calendário só aparece a quem passa as 5 perguntas. Desqualifica:
+       "Não" ao preço (500 €/mês, valor em teste só nesta página) e "Não" ao
+       orçamento de anúncios. Sem webhook: o nome e o email pede-os o Cal.com,
+       e as 5 respostas vão já escritas nas notas da marcação. -->
   <section class="gbp-cal" id="agendar" aria-label="Marcar chamada estratégica">
-    <!-- Cal inline embed code begins -->
-    <div style="width:100%;height:100%;overflow:auto" id="my-cal-inline-30min"></div>
-    <script type="text/javascript">
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", "30min", {origin:"https://app.cal.com"});
-    Cal.config = Cal.config || {};
-    Cal.config.forwardQueryParams = true;
+    <div class="gbp-q" id="qualificacao">
+      <div class="gbp-q-topo">
+        <p class="gbp-q-titulo">Marca a tua chamada estratégica</p>
+        <p class="gbp-q-sub">Responde a umas perguntas rápidas para vermos se faz sentido falarmos.</p>
+        <div class="gbp-q-progresso" aria-hidden="true"><span></span></div>
+        <p class="gbp-q-passo" aria-live="polite">Passo 1 de 5</p>
+      </div>
 
-      Cal.ns["30min"]("inline", {
-        elementOrSelector:"#my-cal-inline-30min",
-        config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"},
-        calLink: "lourenco-gaspar-tmrt3u/30min",
-      });
+      <form class="gbp-q-form" novalidate>
+        <fieldset class="gbp-q-etapa" data-etapa="1">
+          <legend><label for="q-oferta">O que vendes e quem são os teus clientes?</label></legend>
+          <textarea id="q-oferta" name="oferta" rows="3" required placeholder="Ex.: fazemos remodelações de casas de banho para particulares em Lisboa"></textarea>
+        </fieldset>
 
-      Cal.ns["30min"]("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
-    </script>
-    <!-- Cal inline embed code ends -->
+        <fieldset class="gbp-q-etapa" data-etapa="2" hidden>
+          <legend><label for="q-bloqueio">O que está a impedir o teu negócio de crescer neste momento?</label></legend>
+          <textarea id="q-bloqueio" name="bloqueio" rows="3" required placeholder="Ex.: dependemos do boca a boca e há meses em que o telefone não toca"></textarea>
+        </fieldset>
+
+        <fieldset class="gbp-q-etapa" data-etapa="3" hidden>
+          <legend>Os nossos preços começam nos 500&nbsp;€/mês. Isso cabe no teu orçamento?</legend>
+          <div class="gbp-q-opcoes">
+            <label class="gbp-q-opcao"><input type="radio" name="orcamento_servico" value="Sim" required><span>Sim</span></label>
+            <label class="gbp-q-opcao"><input type="radio" name="orcamento_servico" value="Não"><span>Não</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="gbp-q-etapa" data-etapa="4" hidden>
+          <legend>Se fizeres anúncios, precisas de pelo menos 1.000&nbsp;€ por mês para os anúncios, além do nosso valor. Esse orçamento funciona para ti?</legend>
+          <div class="gbp-q-opcoes">
+            <label class="gbp-q-opcao"><input type="radio" name="orcamento_anuncios" value="Sim" required><span>Sim</span></label>
+            <label class="gbp-q-opcao"><input type="radio" name="orcamento_anuncios" value="Não"><span>Não</span></label>
+            <label class="gbp-q-opcao"><input type="radio" name="orcamento_anuncios" value="Estou à procura de outro serviço"><span>Estou à procura de outro serviço</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="gbp-q-etapa" data-etapa="5" hidden>
+          <legend><label for="q-site">Qual é o site da tua empresa?</label></legend>
+          <input id="q-site" name="website" type="text" inputmode="url" autocomplete="url" required placeholder="www.a-tua-empresa.pt">
+          <p class="gbp-q-ajuda">Se ainda não tens site, escreve &ldquo;não tenho&rdquo;.</p>
+        </fieldset>
+
+
+        <p class="gbp-q-erro" role="alert"></p>
+        <div class="gbp-q-acoes">
+          <button type="button" class="gbp-q-voltar" hidden>&larr; Voltar</button>
+          <button type="submit" class="lp-btn gbp-q-seguinte">Seguinte</button>
+        </div>
+      </form>
+
+      <!-- quem não passa na qualificação -->
+      <div class="gbp-q-fim" hidden>
+        <p class="gbp-q-titulo">Obrigado pela sinceridade.</p>
+        <p class="gbp-q-sub">Neste momento não somos a melhor opção para a tua empresa. Se a situação mudar, volta a falar connosco.</p>
+        <p class="gbp-q-sub">Entretanto, vê o vídeo grátis com 3 dicas para subires no Google.</p>
+        <a class="lp-btn" href="../3-dicas/">Ver as 3 dicas grátis</a>
+      </div>
+    </div>
+
+    <!-- calendário: só aparece depois da qualificação -->
+    <div class="gbp-q-cal" hidden>
+      <p class="gbp-q-titulo gbp-q-titulo--cal">Ótimo! Escolhe o dia e a hora da nossa chamada:</p>
+      <div style="width:100%;height:100%;overflow:auto" id="my-cal-inline-30min"></div>
+    </div>
   </section>
 
   <!-- ---------- A vantagem ---------- -->
@@ -273,7 +325,7 @@
       </details>
       <details>
         <summary>Quais são as condições do contrato?</summary>
-        <p>A partir de 1.000&nbsp;€ por mês. Sem fidelização: cancelas quando quiseres, com um
+        <p>A partir de 500&nbsp;€ por mês. Sem fidelização: cancelas quando quiseres, com um
           mês de aviso. Garantimos que chegas ao top 3 em 90 dias; se não chegares,
           continuamos a trabalhar de graça até lá chegares.</p>
       </details>
@@ -349,6 +401,114 @@
   <p class="lp-rodape-base">&copy; 2026 LGDigital. Todos os direitos reservados. Para informações legais, manda-nos um email.</p>
 </footer>
 
+
+<script>
+/* qualificação antes do calendário (sem webhook: as respostas vão para as notas do Cal.com) */
+(function () {
+  var caixa = document.getElementById('qualificacao');
+  if (!caixa) return;
+  var form = caixa.querySelector('.gbp-q-form');
+  var etapas = [].slice.call(form.querySelectorAll('.gbp-q-etapa'));
+  var erro = form.querySelector('.gbp-q-erro');
+  var voltar = form.querySelector('.gbp-q-voltar');
+  var seguinte = form.querySelector('.gbp-q-seguinte');
+  var passo = caixa.querySelector('.gbp-q-passo');
+  var barra = caixa.querySelector('.gbp-q-progresso span');
+  var fim = caixa.querySelector('.gbp-q-fim');
+  var cal = document.querySelector('.gbp-q-cal');
+  var atual = 0;
+
+  function mostra(i, foco) {
+    atual = i;
+    etapas.forEach(function (e, n) { e.hidden = n !== i; });
+    voltar.hidden = i === 0;
+    seguinte.textContent = i === etapas.length - 1 ? 'Ver horários disponíveis' : 'Seguinte';
+    passo.textContent = 'Passo ' + (i + 1) + ' de ' + etapas.length;
+    barra.style.width = ((i + 1) / etapas.length * 100) + '%';
+    erro.textContent = '';
+    if (foco) { var c = etapas[i].querySelector('textarea, input:not([type=radio])'); if (c) c.focus({ preventScroll: true }); }
+  }
+
+  function valor(nome) {
+    var c = form.elements[nome];
+    if (!c) return '';
+    if (c.length !== undefined && !c.tagName) {           // grupo de opções
+      var marcado = [].filter.call(c, function (r) { return r.checked; })[0];
+      return marcado ? marcado.value : '';
+    }
+    return (c.value || '').trim();
+  }
+
+  function valida(i) {
+    var e = etapas[i];
+    var radios = e.querySelectorAll('input[type=radio]');
+    if (radios.length) return valor(radios[0].name) ? '' : 'Escolhe uma opção.';
+    var campos = [].slice.call(e.querySelectorAll('textarea, input'));
+    for (var k = 0; k < campos.length; k++) {
+      if (campos[k].required && !campos[k].value.trim()) { campos[k].focus(); return 'Preenche este campo para continuar.'; }
+    }
+    return '';
+  }
+
+  function desqualificado() {
+    return valor('orcamento_servico') === 'Não' || valor('orcamento_anuncios') === 'Não';
+  }
+
+  function abreCalendario(notas) {
+    caixa.hidden = true;
+    cal.hidden = false;
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "30min", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    var config = {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"};
+    if (notas) config.notes = notas;                       // vai para "Notas adicionais" da marcação
+    Cal.ns["30min"]("inline", {
+      elementOrSelector:"#my-cal-inline-30min",
+      config: config,
+      calLink: "lourenco-gaspar-tmrt3u/30min",
+    });
+    Cal.ns["30min"]("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+    document.getElementById('agendar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // quem já passou a qualificação nesta visita vê logo o calendário
+  try {
+    var guardado = sessionStorage.getItem('lg-qualificado');
+    if (guardado !== null) { abreCalendario(guardado); return; }
+  } catch (e) {}
+
+  voltar.addEventListener('click', function () { if (atual > 0) mostra(atual - 1, true); });
+
+  // nas perguntas de escolha, carregar numa opção avança sozinho
+  form.addEventListener('change', function (ev) {
+    if (ev.target.type !== 'radio') return;
+    setTimeout(function () { avanca(); }, 180);
+  });
+
+  form.addEventListener('submit', function (ev) { ev.preventDefault(); avanca(); });
+
+  function avanca() {
+    var msg = valida(atual);
+    if (msg) { erro.textContent = msg; return; }
+    if (desqualificado()) { form.hidden = true; caixa.querySelector('.gbp-q-topo').hidden = true; fim.hidden = false; return; }
+    if (atual < etapas.length - 1) { mostra(atual + 1, true); return; }
+
+    // qualificado: as respostas vão escritas nas notas da marcação
+    var notas = [
+      'O que vende e quem são os clientes: ' + valor('oferta'),
+      'O que está a travar o negócio: ' + valor('bloqueio'),
+      'Orçamento de 500 €/mês: ' + valor('orcamento_servico'),
+      'Orçamento de 1.000 €/mês para anúncios: ' + valor('orcamento_anuncios'),
+      'Site: ' + valor('website')
+    ].join('\n');
+    try { sessionStorage.setItem('lg-qualificado', notas); } catch (e) {}
+    abreCalendario(notas);
+  }
+
+  mostra(0, false);
+})();
+</script>
 
 <script>
 /* separadores dos resultados + formulário de candidatura */
